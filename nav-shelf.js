@@ -1,19 +1,26 @@
 // 상단 선반 바: 마스코트가 지금 보고 있는 구역의 메뉴 아래에 서 있고, 스크롤하면 걸어서 따라간다.
 // 포즈와 발 위치 값은 assets/mascot/manifest.json 원본을 그대로 옮긴 것이다.
 const BASE = 'assets/goya/';
+// 2026-09-12: 걷는 그림이 walk1·walk2 였는데 이 두 장만 **긴소매** 판이다.
+// 서 있는 그림(idle·sit)과 ABOUT 의 포즈 13장은 전부 **반소매**라, 걷다가 멈출 때마다
+// 소매 길이와 몸 비율이 바뀌어 '캐릭터가 두 종류'로 보였다.
+// 반소매 걷기 4컷(walk-a~d, ABOUT 이 쓰던 것과 같은 판)으로 바꾼다.
+//
+// fx·fy·top·bot 은 눈대중이 아니라 그림의 실제 잉크 범위를 재서 맞춘 값이다.
+//   walk-a~d 잉크: 위 .038 ~ 아래 .962 (idle 은 .013 ~ .987), 좌우 중심 .500
+//   top·bot 은 '몸 높이 = --shelf-body' 가 되도록: 화면에 그려지는 잉크 높이를 idle 과 같게 맞춘 값
+//   fy 는 발이 닿는 선을 idle 과 같게 맞춘 값 (전에는 걸을 때 발이 2.6px 더 내려가 있었다)
 const POSES = {
-  run1: { f: 'walk1.png?v=eternal-beam-r51', fx: .52, fy: .92, top: .06, bot: .94 },
-  run2: { f: 'walk2.png?v=eternal-beam-r51', fx: .50, fy: .92, top: .06, bot: .94 },
-  run3: { f: 'walk1.png?v=eternal-beam-r51', fx: .52, fy: .92, top: .06, bot: .94 },
-  run4: { f: 'walk2.png?v=eternal-beam-r51', fx: .50, fy: .92, top: .06, bot: .94 },
-  run5: { f: 'walk1.png?v=eternal-beam-r51', fx: .52, fy: .92, top: .06, bot: .94 },
-  run6: { f: 'walk2.png?v=eternal-beam-r51', fx: .50, fy: .92, top: .06, bot: .94 },
+  run1: { f: 'walk-a.png?v=eternal-beam-r51', fx: .50, fy: .918, top: .068, bot: .932 },
+  run2: { f: 'walk-b.png?v=eternal-beam-r51', fx: .50, fy: .918, top: .068, bot: .932 },
+  run3: { f: 'walk-c.png?v=eternal-beam-r51', fx: .50, fy: .918, top: .068, bot: .932 },
+  run4: { f: 'walk-d.png?v=eternal-beam-r51', fx: .50, fy: .918, top: .068, bot: .932 },
   brake1: { f: 'idle.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
   brake2: { f: 'sit.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
   idle: { f: 'idle.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
   wave: { f: 'idle.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
 };
-const RUN = ['run1', 'run2', 'run3', 'run4', 'run5', 'run6'];
+const RUN = ['run1', 'run2', 'run3', 'run4'];
 // 감사 #7·#102: 멈춘 뒤 브레이크·인사 동작을 보여 주는 시간(ms). 이 시간이 지나면 루프를 재운다.
 const IDLE_HOLD = 2600;
 

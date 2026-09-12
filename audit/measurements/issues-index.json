@@ -276,6 +276,30 @@
   "fix": "`styles.css` 한 곳에서만 정의한다. `--nav-height` 는 `styles.css` 로 통일,"
  },
  {
+  "id": "K05",
+  "title": "걷는 그림만 다른 판(긴소매)이라 걷다 멈출 때 캐릭터가 두 종류로 보인다",
+  "cat": "K",
+  "dev": "공통",
+  "typ": "결함",
+  "pri": "P2",
+  "dif": "S",
+  "st": "수정됨",
+  "loc": "`nav-shelf.js` `POSES` · `journey.js:17,21,237` · `fall-welcome/actor.js:26` ·",
+  "fix": "걷기를 **반소매 4컷(`walk-a`~`walk-d`)** 으로 통일한다(ABOUT 이 이미 쓰던 판)."
+ },
+ {
+  "id": "Q07",
+  "title": "화면에 나오지 않는 SVG 인형이 계속 만들어진다",
+  "cat": "Q",
+  "dev": "공통",
+  "typ": "디자인 개선",
+  "pri": "P3",
+  "dif": "S",
+  "st": "보류",
+  "loc": "`character-rig.js` `createCharacterRig()` · `journey.js:75` `createCharacterRig(endingGuide)`",
+  "fix": "인형을 만들기 전에 붙을 자리가 실제로 크기를 갖는지 확인하고, 아니면 만들지 않는다 —"
+ },
+ {
   "id": "N08",
   "title": "같은 그림·같은 모듈을 서로 다른 `?v=` 로 두 번 이상 내려받음 (실행 중 실측)",
   "cat": "N",

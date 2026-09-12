@@ -14,11 +14,13 @@ const GOYA_V = 'eternal-beam-r51';
 const GOYA_POSES = {
   'tva-mascot-idle': `assets/goya/idle.png?v=${GOYA_V}`,
   'tva-mascot-sit': `assets/goya/sit.png?v=${GOYA_V}`,
-  'character-run': `assets/goya/walk1.png?v=${GOYA_V}`,
+  'character-run': `assets/goya/walk-a.png?v=${GOYA_V}`,
   'character-inspect': `assets/goya/idle.png?v=${GOYA_V}`,
 };
 const goyaFile = name => GOYA_POSES[name] || `assets/goya/idle.png?v=${GOYA_V}`;
-const GOYA_WALK = `assets/goya/walk1.png?v=${GOYA_V}`;
+// 2026-09-12: 걷기 그림을 walk1(긴소매) → walk-a(반소매)로. 서 있는 포즈(idle·sit 외 11장)가 모두
+// 반소매라, 다리 구간에서 걷다 멈출 때마다 소매 길이가 바뀌어 캐릭터가 두 종류로 보였다.
+const GOYA_WALK = `assets/goya/walk-a.png?v=${GOYA_V}`;
 const GOYA_FOOT = .92;
 
 export function initJourney(onScene, portfolio) {
@@ -232,7 +234,7 @@ export function initJourney(onScene, portfolio) {
       if (!from || !to || !from.width || !to.width) continue;
       if (dropHandoff && from.poseId) host.dataset.incomingPoseId = from.poseId;
       const dropTurn = 0;
-      if (!bridgeImage.src.includes('goya/walk1.png')) bridgeImage.src = GOYA_WALK;
+      if (!bridgeImage.src.includes('goya/walk-a.png')) bridgeImage.src = GOYA_WALK;
       const ease = progress * progress * (3 - 2 * progress);
       const contactAt = .84;
       const landing = dropHandoff ? smoothstep(.68, contactAt, progress) : 0;

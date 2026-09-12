@@ -23,7 +23,8 @@ const artInstances = new WeakMap();
 let actorSequence = 0;
 
 const idleSource = new URL('../assets/goya/idle.png?v=eternal-beam-r51', import.meta.url).href;
-const runSource = new URL('../assets/goya/walk1.png?v=eternal-beam-r51', import.meta.url).href;
+// 2026-09-12: walk1 은 긴소매 판이라 idle(반소매)과 섞였다 → 반소매 걷기 그림으로
+const runSource = new URL('../assets/goya/walk-a.png?v=eternal-beam-r51', import.meta.url).href;
 const inspectSource = new URL('../assets/character-inspect.webp', import.meta.url).href;
 
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));

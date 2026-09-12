@@ -498,8 +498,9 @@ function init02() {
     find: 'lookup.png',
     present: 'present.png',
     yield: 'sit.png',
-    leave: 'walk1.png',
-    walk: 'walk1.png',
+    // 2026-09-12: walk1.png 만 긴소매 판이라 read·find·present·yield(전부 반소매)와 섞였다
+    leave: 'walk-a.png',
+    walk: 'walk-a.png',
   });
   const goyaFace = document.createElement('span');
   goyaFace.className = 'g02-puller__face';

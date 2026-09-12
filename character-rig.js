@@ -1,6 +1,11 @@
 const instances = new WeakMap();
 let sequence = 0;
-const runUrl = new URL('./assets/goya/walk1.png?v=eternal-beam-r51', import.meta.url);
+// 2026-09-12: 이 인형(SVG 리그)은 그림을 조각내 팔·다리·몸으로 쓴다.
+// 걷는 몸통을 walk1(긴소매)에서 가져오고 발·손 흔들기는 idle(반소매)에서 가져와, 한 인형 안에서
+// 소매 길이가 달랐다. 반소매 판(walk-a)으로 맞춘다 — 이제 walk1·walk2 는 어디서도 쓰지 않는다.
+// 주의: 아래 clip-path 좌표는 walk1 그림을 보고 손으로 그린 것이다. 이 인형은 현재 화면에
+//       나오지 않지만(붙는 .ending-mascot 이 0x0), 다시 살릴 때는 좌표를 다시 맞춰야 한다.
+const runUrl = new URL('./assets/goya/walk-a.png?v=eternal-beam-r51', import.meta.url);
 const idleUrl = new URL('./assets/goya/idle.png?v=eternal-beam-r51', import.meta.url);
 const runSource = runUrl.href;
 const idleSource = idleUrl.href;
