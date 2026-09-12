@@ -121,3 +121,19 @@ html.ending-in-game .site-nav { opacity:0!important; pointer-events:none!importa
 .ending-screen-title:after { content:none; }
 .ending-glass { position:absolute; inset:0; border-radius:inherit; box-shadow:inset 0 0 18px #00000055; background:repeating-linear-gradient(0deg,#ffffff06 0 1px,transparent 1px 4px),radial-gradient(ellipse at center,transparent 62%,#00000018 100%); pointer-events:none; }
 .ending-screen .ending-crt-line { width:88%; min-width:2px; height:2px; z-index:2; }
+
+/* 2026-09-12 #B06: 오른쪽 아래에 고정된 '움직임 줄이기' 단추(styles.css .motion-toggle — 너비 약 90px + 여백 12px)가
+   끝 화면의 REPLAY·BACK TO HOME·저작권 표기를 덮고 있었다(1440x900 실측).
+   그 단추는 761px 이상에서만 고정이므로 그 구간에서만 오른쪽 자리를 비운다. */
+@media (min-width:761px){
+  .ending-actions{ right:max(3.3vw,116px); }
+  .ending-game-ui{ right:max(3.3vw,116px); }
+  #ending .site-footer{ right:max(clamp(24px,3.3vw,72px),116px); }
+}
+/* 2026-09-12 #D01: 끝 화면 글자가 사진 위에 바로 놓여 밝은 배경(소파·바닥)에서 읽기 어려웠다.
+   home 단계는 이미 어두운 배경용 그림자를 갖고 있으므로 그 단계만 빼고 흰 후광을 준다. */
+#ending:not([data-phase="home"]) .site-footer,
+#ending:not([data-phase="home"]) .ending-actions button,
+#ending:not([data-phase="home"]) .ending-game-ui{
+  text-shadow:0 1px 2px rgb(255 255 255 / .9), 0 0 10px rgb(255 255 255 / .6);
+}

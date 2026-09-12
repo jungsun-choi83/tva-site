@@ -2,3 +2,16 @@
 #portfolio-mount{height:calc(100svh - var(--nav-height));min-height:calc(100svh - var(--nav-height));background:#fff}
 .portfolio-original-frame{display:block;width:100%;height:100%;border:0;background:#fff}
 @media(max-width:760px){#portfolio-mount{height:calc(100svh - var(--nav-height));min-height:calc(100svh - var(--nav-height))}}
+
+/* 예시 자료 알림 띠 — 실제 촬영본이 들어오면 index.html 의 이 문단과 함께 지운다.
+   갤러리는 iframe 안에 있고 portfolio.js 가 mount 를 통째로 다시 그리므로,
+   띠는 mount 바깥(구역 위)에 두어야 살아남는다. */
+.portfolio-sample-note{
+  position:absolute;z-index:2;left:0;bottom:0;margin:0;
+  display:flex;flex-direction:column;gap:2px;
+  padding:10px 14px;pointer-events:none;
+  background:rgb(255 255 255 / .86);border-top:1px solid var(--line);border-right:1px solid var(--line);
+  color:var(--muted);font:11px/1.5 "Pretendard Variable",Pretendard,sans-serif;letter-spacing:0;
+}
+.portfolio-sample-note span{font:10px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:760px){.portfolio-sample-note{right:0;border-right:0;padding:8px 12px;font-size:10px}}

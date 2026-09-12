@@ -1,8 +1,8 @@
 const instances = new WeakMap();
 let sequence = 0;
-const runUrl = new URL('./assets/goya/walk1.png', import.meta.url);
+const runUrl = new URL('./assets/goya/walk1.png?v=eternal-beam-r51', import.meta.url);
 runUrl.searchParams.set('v', 'eternal-beam-r18');
-const idleUrl = new URL('./assets/goya/idle.png', import.meta.url);
+const idleUrl = new URL('./assets/goya/idle.png?v=eternal-beam-r51', import.meta.url);
 idleUrl.searchParams.set('v', 'eternal-beam-r18');
 const runSource = runUrl.href;
 const idleSource = idleUrl.href;

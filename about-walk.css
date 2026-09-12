@@ -67,7 +67,10 @@ html.is-about-walking{scroll-behavior:auto!important}
 #about.about-walk .beam-gold{
   position:absolute;
   z-index:10;
-  left:42.8%;
+  /* 2026-09-12: 42.8% → 46%. 캐릭터는 골드 칸 바로 왼쪽에 서서 칸을 가리키는데(STOPS 01),
+     내민 팔이 칸 왼쪽 안으로 들어와 'PHILOSOPHY / 필로소피' 머리글을 덮고 있었다.
+     캐릭터 x 는 5·6번 칸 전경 테이블과 맞춰 둔 값이라 건드리지 않고, 칸을 오른쪽으로 물린다. */
+  left:46%;
   right:0.9%;
   top:50%;
   bottom:16%;
@@ -115,6 +118,33 @@ html.is-about-walking{scroll-behavior:auto!important}
   max-width:none;
   font:15px/1.65 "Pretendard Variable",Pretendard,Arial,sans-serif;
 }
+/* 2026-09-12 #C02: 골드 칸은 높이가 `top:50% ~ bottom:16%`(카메라의 34%)로 고정인데 내용은 그보다 크다.
+   overflow:hidden + justify-content:center 라 위아래가 조용히 잘렸다 — 실측 넘침
+   1280x650 59px · 1280x720 47px · 1366x768 44px · 1536x864 35px · 1440x900 26px · 1024x768 24px
+   (1920x1080 이상만 0). 1280x720 에서는 영문 머리글 PHILOSOPHY 가 통째로 사라지고 마지막 줄이 반쯤 잘렸다.
+   칸의 top:50% 는 배경 그라디언트 이음새라 건드리지 않고, 화면이 낮을 때 내부 여백·행간만 줄여 넣는다. */
+@media (min-width:761px) and (max-height:920px){
+  #about.about-walk .beam-gold{padding:16px clamp(24px,2.6vw,40px)}
+  #about.about-walk .beam-gold__kicker-ko{margin:6px 0 11px}
+  #about.about-walk .beam-gold__lead{margin:0 0 11px;line-height:1.28}
+  #about.about-walk .beam-gold__body{gap:9px}
+  #about.about-walk .beam-gold__body p{line-height:1.5}
+}
+@media (min-width:761px) and (max-height:790px){
+  #about.about-walk .beam-gold{padding:12px clamp(20px,2.2vw,34px)}
+  #about.about-walk .beam-gold__kicker-ko{margin:5px 0 7px}
+  #about.about-walk .beam-gold__lead{margin:0 0 9px;font-size:clamp(18px,1.6vw,24px);line-height:1.22}
+  #about.about-walk .beam-gold__body{gap:7px}
+  #about.about-walk .beam-gold__body p{font-size:13.5px;line-height:1.45}
+}
+@media (min-width:761px) and (max-height:690px){
+  #about.about-walk .beam-gold{padding:9px clamp(18px,2vw,30px)}
+  #about.about-walk .beam-gold__kicker,#about.about-walk .beam-gold__kicker-ko{font-size:12px}
+  #about.about-walk .beam-gold__kicker-ko{margin:4px 0 6px}
+  #about.about-walk .beam-gold__lead{margin:0 0 8px;font-size:clamp(17px,1.5vw,22px);line-height:1.2}
+  #about.about-walk .beam-gold__body{gap:6px}
+  #about.about-walk .beam-gold__body p{font-size:13px;line-height:1.42}
+}
 #about.about-walk .studio-host{left:0;top:0;bottom:auto;width:0;height:0;transform-origin:50% 100%;transform:none;transition:none}
 #about.about-walk .studio-host.is-walking{transition:none;z-index:9}
 #about.about-walk .studio-host>img{position:absolute;bottom:0;left:50%;width:auto;height:100%;max-width:none;transform:translateX(-50%);filter:drop-shadow(3px 6px 2px #17192322);transform-origin:50% 100%}
@@ -147,6 +177,12 @@ html.is-about-walking{scroll-behavior:auto!important}
   #about.about-walk .station-goldpage .station-copy--head h3{font-size:32px}
   #about.about-walk .station-goldpage .eyebrow{font-size:14px}
   #about.about-walk .beam-gold{left:16px;right:16px;top:auto;bottom:96px;height:38%;min-height:180px;padding:18px 16px;border-radius:22px}
+  /* 2026-09-12: 휴대폰에서는 골드 칸이 화면 폭을 다 쓰고, 캐릭터가 서는 높이(발끝 기준 아래 1/4)가
+     그 칸 한가운데다. 두 개를 같은 자리에 넣을 여백이 없어 본문이 매번 두세 줄씩 가려졌다.
+     (칸을 캐릭터 아래층으로 내리면 칸의 불투명한 바탕이 캐릭터를 통째로 지운다 — 같은 결과에
+      애니메이션 비용만 남는다.) 그래서 폰에서는 ABOUT 의 걷는 캐릭터를 세우지 않는다.
+     데스크톱 ABOUT 과 다른 구역(낙하·RECORDS·ORIGINAL·CONTACT·마지막)에는 그대로 나온다. */
+  #about.about-walk .studio-host{display:none}
   #about.about-walk .beam-gold__lead{font-size:18px;margin-bottom:12px}
   #about.about-walk .beam-gold__body{gap:8px}
   #about.about-walk .beam-gold__body p{font-size:12px;line-height:1.5}

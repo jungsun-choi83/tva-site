@@ -22,8 +22,8 @@ const instances = new WeakMap();
 const artInstances = new WeakMap();
 let actorSequence = 0;
 
-const idleSource = new URL('../assets/goya/idle.png', import.meta.url).href;
-const runSource = new URL('../assets/goya/walk1.png', import.meta.url).href;
+const idleSource = new URL('../assets/goya/idle.png?v=eternal-beam-r51', import.meta.url).href;
+const runSource = new URL('../assets/goya/walk1.png?v=eternal-beam-r51', import.meta.url).href;
 const inspectSource = new URL('../assets/character-inspect.webp', import.meta.url).href;
 
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));

@@ -1,4 +1,4 @@
-// TVA ORIGINAL — 책상 위 네 칸의 자료.
+// Eternal Beam ORIGINAL — 책상 위 네 칸(LETTER · IDENTITY · HOLOGRAM · ARCHIVE)의 자료.
 // 실제 작품 자료가 오면 이 파일의 값만 채우면 상세창이 저절로 채워진다(다른 파일 수정 없음).
 //   title    작품 이름. 지금 값은 '자리 이름'이지 지어낸 작품명이 아니다.
 //   image    작품 그림 경로(.webp). null 이면 상세창에서 그림 자리가 통째로 사라진다.

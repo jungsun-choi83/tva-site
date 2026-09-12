@@ -335,7 +335,7 @@ function init01() {
     overlay.style.width = `${rect.width}px`;
     overlay.style.height = `${rect.height}px`;
     overlay.style.borderRadius = '2px';
-    overlay.innerHTML = `<img src="${photo(work)}" fetchpriority="high" alt="${work.title}"><figcaption><span>${work.title}</span><span>${work.year}</span></figcaption><button class="round-control close" aria-label="Close full image"></button>`;
+    overlay.innerHTML = `<img src="${photo(work)}" fetchpriority="high" alt="${work.title || 'Sample record ' + (index + 1)}"><figcaption><span>${work.title}</span><span>${work.year}</span></figcaption><button class="round-control close" aria-label="Close full image"></button>`;
     stage.append(overlay);
     stage.classList.add('is-open');
     requestAnimationFrame(() => {
@@ -387,23 +387,35 @@ function init02() {
     crop,
   });
   const macFolderIcon = '<svg viewBox="0 0 64 64" aria-hidden="true" focusable="false"><path class="g02-icon-shadow g02-icon-folder-shadow" d="M9 50h46v4H9z"/><path class="g02-icon-folder-back" d="M7 18a4 4 0 0 1 4-4h13l5 6h24a4 4 0 0 1 4 4v17a4 4 0 0 1-4 4H11a4 4 0 0 1-4-4z"/><path class="g02-icon-folder-tab" d="M8 18a3 3 0 0 1 3-3h12l5 5H8z"/><path class="g02-icon-folder-content" d="M17 14h32v28H17z"/><path class="g02-icon-folder-front" d="M7 24h50l-3 18a4 4 0 0 1-4 3H11a4 4 0 0 1-4-4z"/><path class="g02-icon-folder-highlight" d="M9 25h46"/><path class="g02-icon-folder-seam" d="M9 27h45"/><g class="g02-icon-open-folder"><path class="g02-icon-open-folder-body" d="M8 25a3 3 0 0 1 3-3h14l4 4h24a3 3 0 0 1 3 3v12a3 3 0 0 1-3 3H11a3 3 0 0 1-3-3z"/><path class="g02-icon-open-folder-sheet" d="M17 14h31v27H17z"/><path class="g02-icon-open-folder-flap" d="M8 29h48l-3 12a3 3 0 0 1-3 2H11a3 3 0 0 1-3-3z"/></g></svg>';
+  // ── 작품 한 장의 자료 ────────────────────────────────────────────────
+  // 지금 걸려 있는 것은 전부 '예시'다. 실제 촬영본과 이름이 오면 아래 값만 바꾸면 된다.
+  //   title      작품 이름   (비면 카드 이름·설명 글자가 통째로 사라진다)
+  //   discipline 분야        (비면 상세창 'Discipline' 줄이 사라진다)
+  //   year       연도        (비면 상세창 'Year' 줄이 사라진다)
+  //   file/crop  사진 파일과 보일 위치
+  //
+  // 2026-09-12: 예전에는 여기에 'Beam with Mina', 'Live letter drop' 같은 이름과
+  // 2024~2026 연도가 적혀 있어, 실제로 한 일처럼 보였다. 확인된 실적이 아니므로
+  // 이름은 SAMPLE 번호로 돌리고 연도는 비웠다. 잘라내기 위치(crop)는 손으로 맞춘
+  // 값이라 그대로 둔다. 실제 자료가 들어오면 #portfolio 의 '예시' 띠도 같이 내린다
+  // (index.html 의 .portfolio-sample-note).
   const categories = [
     {
       label: 'Influencer',
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
-        record('brand-01', 'Beam with Mina', 'Influencer', '2026', '01.jpg', '50% 42%'),
-        record('brand-02', 'Live letter drop', 'Influencer', '2025', '02.jpg', '42% 50%'),
-        record('brand-03', 'Sunday with us', 'Influencer', '2026', '03.jpg', '58% 45%'),
-        record('brand-04', 'Story for @slowday', 'Collaboration', '2024', '04.jpg', '48% 38%'),
-        record('brand-05', 'First collab reel', 'Influencer', '2025', '05.jpg', '55% 53%'),
-        record('brand-06', 'Keep this light', 'Together', '2026', '06.jpg', '43% 46%'),
-        record('brand-07', 'Guest on the beam', 'Influencer', '2024', '07.jpg', '62% 50%'),
-        record('brand-08', 'Shared archive day', 'Collaboration', '2025', '08.jpg', '50% 58%'),
-        record('brand-09', 'Second letter home', 'Letter', '2026', '01.jpg', '35% 54%'),
-        record('brand-10', 'Holo with us', 'Display', '2025', '04.jpg', '66% 42%'),
-        record('brand-11', 'Night visit note', 'Together', '2026', '03.jpg', '40% 62%'),
+        record('brand-01', 'SAMPLE 01', 'Influencer', '', '01.jpg', '50% 42%'),
+        record('brand-02', 'SAMPLE 02', 'Influencer', '', '02.jpg', '42% 50%'),
+        record('brand-03', 'SAMPLE 03', 'Influencer', '', '03.jpg', '58% 45%'),
+        record('brand-04', 'SAMPLE 04', 'Influencer', '', '04.jpg', '48% 38%'),
+        record('brand-05', 'SAMPLE 05', 'Influencer', '', '05.jpg', '55% 53%'),
+        record('brand-06', 'SAMPLE 06', 'Influencer', '', '06.jpg', '43% 46%'),
+        record('brand-07', 'SAMPLE 07', 'Influencer', '', '07.jpg', '62% 50%'),
+        record('brand-08', 'SAMPLE 08', 'Influencer', '', '08.jpg', '50% 58%'),
+        record('brand-09', 'SAMPLE 09', 'Influencer', '', '01.jpg', '35% 54%'),
+        record('brand-10', 'SAMPLE 10', 'Influencer', '', '04.jpg', '66% 42%'),
+        record('brand-11', 'SAMPLE 11', 'Influencer', '', '03.jpg', '40% 62%'),
       ],
     },
     {
@@ -411,17 +423,17 @@ function init02() {
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
-        record('campaign-01', 'Studio day together', 'Together', '2026', '04.jpg', '52% 44%'),
-        record('campaign-02', 'Weekend with us', 'Together', '2025', '05.jpg', '44% 48%'),
-        record('campaign-03', 'Making the beam', 'Collaboration', '2024', '07.jpg', '55% 42%'),
-        record('campaign-04', 'In bloom visit', 'Together', '2026', '01.jpg', '60% 55%'),
-        record('campaign-05', 'Long table talk', 'Together', '2025', '03.jpg', '48% 52%'),
-        record('campaign-06', 'Local weather walk', 'Together', '2026', '08.jpg', '58% 40%'),
-        record('campaign-07', 'Crossfade night', 'Collaboration', '2024', '02.jpg', '35% 47%'),
-        record('campaign-08', 'New season shoot', 'Together', '2025', '06.jpg', '62% 56%'),
-        record('campaign-09', 'Paper trail keep', 'Letter', '2026', '04.jpg', '38% 58%'),
-        record('campaign-10', 'First look with us', 'Together', '2025', '05.jpg', '66% 38%'),
-        record('campaign-11', 'After hours note', 'Together', '2024', '07.jpg', '42% 60%'),
+        record('campaign-01', 'SAMPLE 01', 'Together', '', '04.jpg', '52% 44%'),
+        record('campaign-02', 'SAMPLE 02', 'Together', '', '05.jpg', '44% 48%'),
+        record('campaign-03', 'SAMPLE 03', 'Together', '', '07.jpg', '55% 42%'),
+        record('campaign-04', 'SAMPLE 04', 'Together', '', '01.jpg', '60% 55%'),
+        record('campaign-05', 'SAMPLE 05', 'Together', '', '03.jpg', '48% 52%'),
+        record('campaign-06', 'SAMPLE 06', 'Together', '', '08.jpg', '58% 40%'),
+        record('campaign-07', 'SAMPLE 07', 'Together', '', '02.jpg', '35% 47%'),
+        record('campaign-08', 'SAMPLE 08', 'Together', '', '06.jpg', '62% 56%'),
+        record('campaign-09', 'SAMPLE 09', 'Together', '', '04.jpg', '38% 58%'),
+        record('campaign-10', 'SAMPLE 10', 'Together', '', '05.jpg', '66% 38%'),
+        record('campaign-11', 'SAMPLE 11', 'Together', '', '07.jpg', '42% 60%'),
       ],
     },
     {
@@ -429,17 +441,17 @@ function init02() {
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
-        record('media-01', 'Thank-you we kept', 'Letter', '2026', '07.jpg', '48% 45%'),
-        record('media-02', 'First letter home', 'Letter', '2025', '05.jpg', '57% 50%'),
-        record('media-03', 'Note from the field', 'Letter', '2024', '02.jpg', '45% 54%'),
-        record('media-04', 'Signal we saved', 'Letter', '2026', '03.jpg', '64% 42%'),
-        record('media-05', 'Recorded light', 'Letter', '2025', '01.jpg', '40% 48%'),
-        record('media-06', 'Wide letter', 'Letter', '2026', '08.jpg', '54% 60%'),
-        record('media-07', 'Broadcast note', 'Letter', '2024', '06.jpg', '46% 38%'),
-        record('media-08', 'Morning cut letter', 'Letter', '2025', '04.jpg', '60% 52%'),
-        record('media-09', 'Tidal loop keep', 'Letter', '2026', '07.jpg', '36% 58%'),
-        record('media-10', 'Sound of the visit', 'Letter', '2025', '03.jpg', '56% 58%'),
-        record('media-11', 'Field capture', 'Letter', '2024', '05.jpg', '38% 42%'),
+        record('media-01', 'SAMPLE 01', 'Letters', '', '07.jpg', '48% 45%'),
+        record('media-02', 'SAMPLE 02', 'Letters', '', '05.jpg', '57% 50%'),
+        record('media-03', 'SAMPLE 03', 'Letters', '', '02.jpg', '45% 54%'),
+        record('media-04', 'SAMPLE 04', 'Letters', '', '03.jpg', '64% 42%'),
+        record('media-05', 'SAMPLE 05', 'Letters', '', '01.jpg', '40% 48%'),
+        record('media-06', 'SAMPLE 06', 'Letters', '', '08.jpg', '54% 60%'),
+        record('media-07', 'SAMPLE 07', 'Letters', '', '06.jpg', '46% 38%'),
+        record('media-08', 'SAMPLE 08', 'Letters', '', '04.jpg', '60% 52%'),
+        record('media-09', 'SAMPLE 09', 'Letters', '', '07.jpg', '36% 58%'),
+        record('media-10', 'SAMPLE 10', 'Letters', '', '03.jpg', '56% 58%'),
+        record('media-11', 'SAMPLE 11', 'Letters', '', '05.jpg', '38% 42%'),
       ],
     },
     {
@@ -447,17 +459,17 @@ function init02() {
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
-        record('experience-01', 'Showroom night', 'Display', '2026', '08.jpg', '50% 44%'),
-        record('experience-02', 'Shared table', 'Display', '2025', '06.jpg', '42% 52%'),
-        record('experience-03', 'Slow room visit', 'Together', '2024', '04.jpg', '58% 46%'),
-        record('experience-04', 'Room tone keep', 'Display', '2026', '02.jpg', '50% 40%'),
-        record('experience-05', 'Public hologram', 'Display', '2025', '01.jpg', '64% 52%'),
-        record('experience-06', 'Night window', 'Display', '2026', '03.jpg', '38% 48%'),
-        record('experience-07', 'Landing with us', 'Display', '2024', '07.jpg', '57% 58%'),
-        record('experience-08', 'Open studio', 'Together', '2025', '05.jpg', '43% 40%'),
-        record('experience-09', 'Material test', 'Display', '2026', '06.jpg', '60% 46%'),
-        record('experience-10', 'Daylight loop', 'Display', '2025', '08.jpg', '36% 55%'),
-        record('experience-11', 'Common ground', 'Together', '2024', '02.jpg', '62% 44%'),
+        record('experience-01', 'SAMPLE 01', 'Display', '', '08.jpg', '50% 44%'),
+        record('experience-02', 'SAMPLE 02', 'Display', '', '06.jpg', '42% 52%'),
+        record('experience-03', 'SAMPLE 03', 'Display', '', '04.jpg', '58% 46%'),
+        record('experience-04', 'SAMPLE 04', 'Display', '', '02.jpg', '50% 40%'),
+        record('experience-05', 'SAMPLE 05', 'Display', '', '01.jpg', '64% 52%'),
+        record('experience-06', 'SAMPLE 06', 'Display', '', '03.jpg', '38% 48%'),
+        record('experience-07', 'SAMPLE 07', 'Display', '', '07.jpg', '57% 58%'),
+        record('experience-08', 'SAMPLE 08', 'Display', '', '05.jpg', '43% 40%'),
+        record('experience-09', 'SAMPLE 09', 'Display', '', '06.jpg', '60% 46%'),
+        record('experience-10', 'SAMPLE 10', 'Display', '', '08.jpg', '36% 55%'),
+        record('experience-11', 'SAMPLE 11', 'Display', '', '02.jpg', '62% 44%'),
       ],
     },
   ];

@@ -2,16 +2,16 @@
 // 포즈와 발 위치 값은 assets/mascot/manifest.json 원본을 그대로 옮긴 것이다.
 const BASE = 'assets/goya/';
 const POSES = {
-  run1: { f: 'walk1.png?v=eternal-beam-r18', fx: .52, fy: .92, top: .06, bot: .94 },
-  run2: { f: 'walk2.png?v=eternal-beam-r18', fx: .50, fy: .92, top: .06, bot: .94 },
-  run3: { f: 'walk1.png?v=eternal-beam-r18', fx: .52, fy: .92, top: .06, bot: .94 },
-  run4: { f: 'walk2.png?v=eternal-beam-r18', fx: .50, fy: .92, top: .06, bot: .94 },
-  run5: { f: 'walk1.png?v=eternal-beam-r18', fx: .52, fy: .92, top: .06, bot: .94 },
-  run6: { f: 'walk2.png?v=eternal-beam-r18', fx: .50, fy: .92, top: .06, bot: .94 },
-  brake1: { f: 'idle.png?v=eternal-beam-r18', fx: .50, fy: .94, top: .05, bot: .96 },
-  brake2: { f: 'sit.png?v=eternal-beam-r18', fx: .50, fy: .94, top: .05, bot: .96 },
-  idle: { f: 'idle.png?v=eternal-beam-r18', fx: .50, fy: .94, top: .05, bot: .96 },
-  wave: { f: 'idle.png?v=eternal-beam-r18', fx: .50, fy: .94, top: .05, bot: .96 },
+  run1: { f: 'walk1.png?v=eternal-beam-r51', fx: .52, fy: .92, top: .06, bot: .94 },
+  run2: { f: 'walk2.png?v=eternal-beam-r51', fx: .50, fy: .92, top: .06, bot: .94 },
+  run3: { f: 'walk1.png?v=eternal-beam-r51', fx: .52, fy: .92, top: .06, bot: .94 },
+  run4: { f: 'walk2.png?v=eternal-beam-r51', fx: .50, fy: .92, top: .06, bot: .94 },
+  run5: { f: 'walk1.png?v=eternal-beam-r51', fx: .52, fy: .92, top: .06, bot: .94 },
+  run6: { f: 'walk2.png?v=eternal-beam-r51', fx: .50, fy: .92, top: .06, bot: .94 },
+  brake1: { f: 'idle.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
+  brake2: { f: 'sit.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
+  idle: { f: 'idle.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
+  wave: { f: 'idle.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
 };
 const RUN = ['run1', 'run2', 'run3', 'run4', 'run5', 'run6'];
 // 감사 #7·#102: 멈춘 뒤 브레이크·인사 동작을 보여 주는 시간(ms). 이 시간이 지나면 루프를 재운다.
@@ -23,8 +23,9 @@ export function initNavShelf(nav) {
   if (!links.length) return;
   const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
   if (sections.length !== links.length) return;
-  // 감사 #55·#99: 메뉴에 대응 링크가 없는 구역(ONLY TVA·ENDING). 여기 있는 동안은 어떤 메뉴도 '현재'로 표시하지 않는다.
-  const linkless = ['only-tva', 'ending'].map(id => document.getElementById(id)).filter(Boolean);
+  // 메뉴에 대응 링크가 없는 구역(지금은 ENDING 하나). 여기 있는 동안은 어떤 메뉴도 '현재'로 표시하지 않는다.
+  // ('only-tva' 구역은 index.html 에서 사라졌다 — 없는 id 를 계속 찾고 있었다)
+  const linkless = ['ending'].map(id => document.getElementById(id)).filter(Boolean);
   const iLeftRest = Math.max(0, links.findIndex(a => (a.getAttribute('href') || '') === '#original'));
   const iRightRest = links.findIndex(a => (a.getAttribute('href') || '') === '#contact') >= 0
     ? links.findIndex(a => (a.getAttribute('href') || '') === '#contact') : links.length - 1;
@@ -47,14 +48,21 @@ export function initNavShelf(nav) {
   mascot.addEventListener('error', () => { mascot.style.visibility = 'hidden'; markBroken(true); });
   mascot.addEventListener('load', () => { mascot.style.visibility = ''; markBroken(false); });
   nav.append(mascot);
-  Object.values(POSES).forEach(p => { const i = new Image(); i.src = BASE + p.f; });
+  // 2026-09-12 #N05: 포즈 그림 4종(idle·sit·walk1·walk2)은 합쳐서 약 4.5MB 다.
+  // 상단바는 첫 화면에서 접혀 있으므로 브라우저가 한가할 때 받아 둔다.
+  const warmPoses = () => { for (const p of Object.values(POSES)) { const i = new Image(); i.decoding = 'async'; i.src = BASE + p.f; } };
+  if (typeof requestIdleCallback === 'function') requestIdleCallback(warmPoses, { timeout: 3000 });
+  else setTimeout(warmPoses, 1500);
 
   // ── 한 번 깨어날 때 한 번만 재는 값들 (예전에는 매 프레임 getComputedStyle·getBoundingClientRect 를 읽었다)
-  let bodyH = 0, navLeft = 0, navW = 0, centers = null, edges = null;
+  let bodyH = 0, navLeft = 0, navW = 0, centers = null, edges = null, listLeft = 0;
+  const list = nav.querySelector('nav');
   function measure() {
     bodyH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--shelf-body')) || (innerWidth <= 760 ? 38 : 48);
     const nr = nav.getBoundingClientRect();
     navLeft = nr.left; navW = nr.width;
+    // 메뉴 목록이 시작하는 자리. 첫 메뉴 왼쪽의 '빈칸'은 여기까지다 — 그 앞은 로고 자리다.
+    listLeft = (list ? list.getBoundingClientRect().left : nr.left) - navLeft;
     // 감사 [17]: 상자 끝(l·r)뿐 아니라 글자 끝(tl·tr = 좌우 여백을 뺀 자리)도 같이 잰다. 쉬는 자리를 정할 때 쓴다.
     edges = links.map(a => {
       const r = a.getBoundingClientRect(), cs = getComputedStyle(a);
@@ -68,11 +76,15 @@ export function initNavShelf(nav) {
   }
   // 서 있는 포즈일 때 캐릭터가 가로로 차지하는 폭
   const restWidth = () => (bodyH || (innerWidth <= 760 ? 48 : 60)) / (POSES.idle.bot - POSES.idle.top);
+  // 빈칸이 캐릭터보다 좁으면 그 칸에 맞게 줄여서 세운다. 이 배율보다 더 줄여야 하면 서지 않는다.
+  const MIN_FIT = .58;
+  let fit = 1;
+  const slotFit = (gap, w) => (gap >= w ? 1 : (gap / w >= MIN_FIT ? gap / w : 0));
   function place(pose, x, dir, lift, squash) {
     const p = POSES[pose] || POSES.idle;
     if (!Number.isFinite(x)) return;
     if (!bodyH) measure();
-    const size = bodyH / (p.bot - p.top);
+    const size = bodyH * fit / (p.bot - p.top);
     if (mascot.dataset.pose !== pose) { mascot.src = BASE + p.f; mascot.dataset.pose = pose; }
     mascot.style.width = mascot.style.height = size + 'px';
     mascot.style.left = (x - p.fx * size) + 'px';
@@ -101,14 +113,33 @@ export function initNavShelf(nav) {
     sections.forEach((s, i) => { if (s.getBoundingClientRect().top <= line) idx = i; });
     return idx;
   }
+  // 캐릭터가 설 자리 = 지금 보고 있는 메뉴 '옆'의 빈칸.
+  // 예전에는 메뉴 글자 한가운데(centers[i])에 세우고 그 글자를 color:transparent 로 지웠다.
+  // 그 결과 지금 보고 있는 칸의 이름이 화면에서 통째로 사라져, 메뉴가 세 개로 보였다.
+  // 이제 글자는 그대로 두고, 글자 끝(tl·tr)에서 시작하는 빈칸에 캐릭터를 세운다.
+  // 오른쪽 빈칸을 먼저 보고, 좁으면 왼쪽 빈칸, 둘 다 좁으면 선반 밖에서 기다린다(휴대폰).
   function targetX(i) {
     if (!centers) measure();
-    return Number.isFinite(centers[i]) ? centers[i] : 0;
+    const here = edges && edges[i];
+    if (!here) { fit = 1; return Number.isFinite(centers[i]) ? centers[i] : 0; }
+    const w = restWidth();
+    const next = edges[i + 1], prev = edges[i - 1];
+    const slots = [
+      [here.tr, next ? next.tl : navW],
+      [prev ? prev.tr : listLeft, here.tl],
+    ];
+    for (const [l, r] of slots) {
+      const f = slotFit(r - l, w);
+      if (f) { fit = f; return (l + r) / 2 + (POSES.idle.fx - .5) * w * f; }
+    }
+    fit = 1;
+    return navW + w;
   }
   // 메뉴에 없는 구역에서 캐릭터가 서는 자리 = ORIGINAL 과 CONTACT 글자 사이 빈칸
   // 감사 [17]: 휴대폰 세로에서는 그 빈칸이 11px 뿐이라 캐릭터(57px)가 두 메뉴 이름을 한꺼번에 덮었다.
   //            빈칸이 캐릭터보다 좁으면 선반 오른쪽 밖으로 걸어 나가 이름을 비켜 준다(바가 overflow:hidden 이라 잘린다).
   const restX = () => {
+    fit = 1;
     if (!centers) measure();
     const a = edges && edges[iLeftRest], b = edges && edges[iRightRest];
     if (!a || !b) return (targetX(iLeftRest) + targetX(iRightRest)) / 2;

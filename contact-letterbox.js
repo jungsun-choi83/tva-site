@@ -1,6 +1,7 @@
-// CONTACT — archive hall + letter sheet. Goya looks for a letter; SEND opens mail to jadechoi@eternalbeamapp.com
+// CONTACT — archive hall + letter sheet. SEND does not transmit anything itself:
+// it hands the filled letter to the visitor's own mail app as a draft addressed to jadechoi@eternalbeamapp.com.
 const A = 'assets/contact/';
-const GOYA = 'assets/goya/goya-letter-search.png?v=eternal-beam-r63';
+const GOYA = 'assets/goya/goya-letter-search.png?v=eternal-beam-r51';
 const MAIL = 'jadechoi@eternalbeamapp.com';
 const EMAIL_RE = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
 const LIM = { name: 60, email: 120, phone: 30, message: 2000 };
@@ -47,7 +48,7 @@ function markup() {
             <label class="f"><span>Phone <i>연락처</i><small class="cnt" hidden></small></span><input name="phone" type="tel" autocomplete="tel" maxlength="${LIM.phone}"></label>
           </div>
           <label class="f msg"><span>Message <i>문의 내용</i><small class="cnt" hidden></small></span><textarea name="message" required maxlength="${LIM.message}" rows="6"></textarea></label>
-          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true" aria-label="스팸 방지용 빈 칸">
+          <input type="text" name="_gotcha" class="hp" tabindex="-1" autocomplete="off" aria-hidden="true">
           <div class="foot">
             <div class="consent"><label><input type="checkbox" name="privacy_consent" required><span class="en">Privacy</span> <i>개인정보 동의</i></label><button type="button" class="pv" id="ctl-pvbtn" aria-expanded="false" aria-controls="ctl-privacy" aria-label="개인정보 처리방침 내용 보기"><span class="en">Details</span> <i>내용 보기</i></button></div>
             <button class="send" type="submit">SEND <i>보내기</i></button>
@@ -60,22 +61,35 @@ function markup() {
             <dt>수집 항목</dt><dd>이름, 이메일, 연락처, 문의 내용</dd>
             <dt>이용 목적</dt><dd>문의 확인과 회신</dd>
             <dt>보유 기간</dt><dd>회신 완료 후 1년, 이후 파기</dd>
-            <dt>처리 방법</dt><dd>보내기 시 ${MAIL} 메일 작성 창이 열립니다</dd>
+            <dt>처리 방법</dt><dd>보내기를 누르면 쓰시던 메일 앱에 편지가 담깁니다. 메일 앱에서 직접 보내 주셔야 ${MAIL} 로 전달됩니다.</dd>
+            <dt>처리 위탁</dt><dd>없음. 홈페이지는 문의 내용을 저장하지 않습니다.</dd>
           </dl>
+          <p class="pvmore"><a href="privacy.html" target="_blank" rel="noopener">개인정보 처리방침 전문 보기</a></p>
           <button type="button" class="pvclose" id="ctl-pvclose">Close 닫기</button>
         </div>
       </div>
     </div>
   </div>
-  <p class="posted" id="ctl-posted" hidden>편지를 보냈습니다<br><a href="mailto:${MAIL}">${MAIL}</a></p>
+  <p class="posted" id="ctl-posted" hidden><b>메일 앱에 편지를 담았습니다</b><span>메일 앱에서 보내기를 한 번 더 눌러 주셔야 전달됩니다.<br>창이 열리지 않았다면 이 주소로 보내 주셔도 됩니다.</span><a href="mailto:${MAIL}">${MAIL}</a></p>
   <button class="again" id="ctl-again" type="button" hidden>Write again <i>새 편지 쓰기</i></button>
 </div>
 </div>`;
 }
 
+// 한국어 목적격 조사 — 앞말에 받침이 있으면 '을', 없으면 '를'.
+// 예전에는 어느 칸이 비었든 '을(를)' 을 그대로 붙여 보여 주고 있었다.
+function objectParticle(word) {
+  const last = String(word).trim().slice(-1);
+  const code = last.charCodeAt(0);
+  if (!(code >= 0xac00 && code <= 0xd7a3)) return '을';   // 한글 음절이 아니면 안전한 쪽으로
+  return (code - 0xac00) % 28 ? '을' : '를';
+}
+
 function mailHref(name, email, phone, message) {
-  const lines = [`이름: ${name}`, `이메일: ${email}`, phone ? `연락처: ${phone}` : '', '', message].filter(v => v !== null);
-  return `mailto:${MAIL}?subject=${encodeURIComponent('Eternal Beam 홈페이지 문의 — ' + name)}&body=${encodeURIComponent(lines.join('\n'))}`;
+  const head = [`이름: ${name}`, `이메일: ${email}`];
+  if (phone) head.push(`연락처: ${phone}`);
+  const body = `${head.join('\n')}\n\n${message}`;
+  return `mailto:${MAIL}?subject=${encodeURIComponent('Eternal Beam 홈페이지 문의 — ' + name)}&body=${encodeURIComponent(body)}`;
 }
 
 export function initContact(root) {
@@ -190,13 +204,16 @@ export function initContact(root) {
     const msgArea = form.querySelector('textarea');
     const consentInp = form.querySelector('.consent input[type="checkbox"]');
     const name = nameInp.value.trim(), email = emailInp.value.trim(), phone = phoneInp.value.trim(), message = msgArea.value.trim();
-    let bad = false, msg = '', needConsent = false;
+    let msg = '', needConsent = false, emailBad = false;
     const missing = [];
-    if (!name) { markBad(fName); bad = true; missing.push('이름'); }
-    if (!email || !EMAIL_RE.test(email)) { markBad(fEmail); bad = true; missing.push(email ? '올바른 이메일' : '이메일'); }
-    if (!message) { markBad(msgArea.closest('.f')); bad = true; missing.push('문의 내용'); }
-    if (bad) { msg = missing.join(', ') + '을(를) 채워 주세요'; }
-    else if (!consentInp || !consentInp.checked) { bad = true; needConsent = true; msg = '개인정보 동의가 필요해요'; consentBox.classList.add('bad'); }
+    if (!name) { markBad(fName); missing.push('이름'); }
+    if (!email) { markBad(fEmail); missing.push('이메일'); }
+    else if (!EMAIL_RE.test(email)) { markBad(fEmail); emailBad = true; }
+    if (!message) { markBad(msgArea.closest('.f')); missing.push('문의 내용'); }
+    let bad = missing.length > 0 || emailBad;
+    if (missing.length) msg = missing.join(', ') + objectParticle(missing[missing.length - 1]) + ' 채워 주세요';
+    else if (emailBad) msg = '이메일 주소를 다시 확인해 주세요';
+    else if (!consentInp || !consentInp.checked) { bad = true; needConsent = true; msg = '개인정보 수집·이용에 동의해 주세요'; consentBox.classList.add('bad'); }
     if (bad) {
       showNote(msg); shakeSheet();
       if (needConsent) consentInp?.focus({ preventScroll: true });

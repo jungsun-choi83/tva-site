@@ -86,7 +86,8 @@
 .ctl .consent label,.ctl .consent .pv,.ctl .consent i{white-space:nowrap}
 .ctl .consent i{font:400 12px "Pretendard Variable",Pretendard,sans-serif;font-style:normal;color:#6a6258;text-transform:none;letter-spacing:0}
 .ctl .consent label{display:flex;gap:8px;align-items:center;min-height:44px;cursor:pointer}
-.ctl .consent input{width:20px;height:20px;flex:none;margin:0;accent-color:var(--cobalt)}
+/* WCAG 2.2 AA 2.5.8 최소 과녁 24x24 — 예전에는 데스크톱만 20px 였다(휴대폰 규칙에만 24px 이 있었다) */
+.ctl .consent input{width:24px;height:24px;flex:none;margin:0;accent-color:var(--cobalt)}
 .ctl .consent .pv{display:inline-flex;align-items:center;gap:.45em;min-height:44px;padding:0 2px;border:0;background:transparent;font:inherit;letter-spacing:inherit;text-transform:inherit;color:#8f7034;text-decoration:underline;text-underline-offset:3px;cursor:pointer}
 .ctl .consent .pv i{color:#8f7034}
 .ctl .consent .pv:focus-visible,.ctl .send:focus-visible,.ctl .again:focus-visible,.ctl .pvclose:focus-visible,.ctl .openbtn:focus-visible{outline:2px solid var(--cobalt);outline-offset:3px}
@@ -107,15 +108,19 @@
 .ctl .privacy dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 10px;font-size:12px;line-height:1.5}
 .ctl .privacy dt{font:500 11px var(--display);letter-spacing:.06em;color:#6a6258;white-space:nowrap}
 .ctl .privacy dd{margin:0;font:400 12px "Pretendard Variable",Pretendard,sans-serif;color:var(--ink)}
+.ctl .pvmore{margin:2px 0 0;font:400 12px "Pretendard Variable",Pretendard,sans-serif}
+.ctl .pvmore a{color:#8f7034;text-underline-offset:3px}
 .ctl .pvclose{align-self:flex-start;margin-top:6px;min-height:44px;padding:0 1.4em;border:1.5px solid #3a3228;background:#fff;color:#3a3228;font:500 11px var(--display);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:0}
 .ctl .posted{
   position:absolute;z-index:8;left:50%;top:50%;transform:translate(-50%,-50%);
-  margin:0;padding:1.4em 1.8em;text-align:center;
-  color:#f3ead6;font:500 clamp(16px,2vw,22px)/1.5 var(--display);letter-spacing:.12em;
-  text-shadow:0 2px 16px rgb(12 8 4 / .55);
+  margin:0;padding:1.4em 1.8em;text-align:center;max-width:min(92%,34em);
+  color:#f3ead6;text-shadow:0 2px 16px rgb(12 8 4 / .55);
 }
 .ctl .posted[hidden]{display:none}
-.ctl .posted a{display:inline-block;margin-top:.4em;color:var(--cobalt);letter-spacing:.04em;text-transform:none;font-size:.72em}
+/* 첫 줄만 크게. 아래 두 줄은 '아직 한 번 더 눌러야 한다'는 안내라 읽는 글씨로 둔다. */
+.ctl .posted b{display:block;font:500 clamp(16px,2vw,22px)/1.5 var(--display);letter-spacing:.12em}
+.ctl .posted span{display:block;margin-top:.7em;font:400 clamp(13px,1.3vw,15px)/1.65 "Pretendard Variable",Pretendard,sans-serif;letter-spacing:0;color:#e6dcc6}
+.ctl .posted a{display:inline-block;margin-top:.5em;color:var(--cobalt);letter-spacing:.04em;text-transform:none;font:400 clamp(13px,1.3vw,15px)/1.6 "Pretendard Variable",Pretendard,sans-serif}
 .ctl .again{
   position:absolute;left:50%;bottom:7%;transform:translateX(-50%);z-index:8;
   display:inline-flex;align-items:center;gap:.7em;min-height:44px;padding:0 1.8em;

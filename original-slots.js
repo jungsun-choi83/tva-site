@@ -77,7 +77,7 @@ export function populateOriginalSlot(button, work, index) {
   } else {
     const image = document.createElementNS(ns, 'image');
     image.dataset.originalImage = work.id;
-    image.setAttribute('href', document.querySelector('.original-table__image').currentSrc || 'assets/original-table/table-clean-1671.webp?v=r37');
+    image.setAttribute('href', document.querySelector('.original-table__image').currentSrc || 'assets/original-table/table-clean-1671.webp?v=eternal-beam-r3');
     image.setAttribute('width', '1671'); image.setAttribute('height', '941');
     svg.append(image);
   }

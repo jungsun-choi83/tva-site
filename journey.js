@@ -10,13 +10,13 @@ const smoothstep = (start, end, value) => {
 const lerp = (from, to, value) => from + (to - from) * value;
 const GOYA_V = 'eternal-beam-r51';
 const GOYA_POSES = {
-  'tva-mascot-idle': `assets/goya/idle.png?v=${GOYA_V}`,
-  'tva-mascot-sit': `assets/goya/sit.png?v=${GOYA_V}`,
-  'character-run': `assets/goya/walk1.png?v=${GOYA_V}`,
-  'character-inspect': `assets/goya/idle.png?v=${GOYA_V}`,
+  'tva-mascot-idle': `assets/goya/idle.png?v=eternal-beam-r51${GOYA_V}`,
+  'tva-mascot-sit': `assets/goya/sit.png?v=eternal-beam-r51${GOYA_V}`,
+  'character-run': `assets/goya/walk1.png?v=eternal-beam-r51${GOYA_V}`,
+  'character-inspect': `assets/goya/idle.png?v=eternal-beam-r51${GOYA_V}`,
 };
-const goyaFile = name => GOYA_POSES[name] || `assets/goya/idle.png?v=${GOYA_V}`;
-const GOYA_WALK = `assets/goya/walk1.png?v=${GOYA_V}`;
+const goyaFile = name => GOYA_POSES[name] || `assets/goya/idle.png?v=eternal-beam-r51${GOYA_V}`;
+const GOYA_WALK = `assets/goya/walk1.png?v=eternal-beam-r51${GOYA_V}`;
 const GOYA_FOOT = .92;
 
 export function initJourney(onScene, portfolio) {
@@ -87,7 +87,7 @@ export function initJourney(onScene, portfolio) {
   if (!aboutWalk) {
     import('./world-scene.js?v=integrated-20260907-r2.h2037775e')
       .then(m => { studioWorld = m.initWorldScene(camera, 'about', schedule); schedule(); })
-      .catch(error => console.warn('TVA: 3D 소품 세계를 불러오지 못했습니다', error));
+      .catch(error => console.warn('Eternal Beam: 3D 소품 세계를 불러오지 못했습니다', error));
   }
   const bridge = document.createElement('div');
   bridge.className = 'journey-bridge';
@@ -467,7 +467,7 @@ export function initJourney(onScene, portfolio) {
       dropActor.style.removeProperty('--guide-tilt-y');
       dropActor.style.removeProperty('--guide-contact');
       dropActor.style.removeProperty('--drop-guide-opacity');
-      if (!dropImage.src.includes('goya/idle.png')) dropImage.src = 'assets/goya/idle.png';
+      if (!dropImage.src.includes('goya/idle.png')) dropImage.src = 'assets/goya/idle.png?v=eternal-beam-r51';
     }
     const arrivalDepth = clamp((y - about.offsetTop) / viewport);
     const handoffProgress = reduced ? 0 : smoothstep(about.offsetTop - viewport, about.offsetTop + viewport * .2, y);

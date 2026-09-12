@@ -12,7 +12,7 @@ export function initOriginals(onInquiry) {
   // materials.' 는 아직 자료가 없다는 고백이라 화면에서 뺀다. 대신 작품별 실제 정보
   // (원작자·연도·출처)를 담을 칸을 두고, 그 값이 들어오기 전에는 칸 자체를 렌더하지
   // 않는다 — 빈 자리가 미완성 문구보다 낫다.
-  dialog.innerHTML = `<button class="dialog-close" type="button" aria-label="Close imported work">Close ×</button><p class="eyebrow">BEAM ARCHIVE / CONTENTS</p><h2 id="original-detail-title"></h2><img class="original-detail-image" hidden alt=""><p>아카이브가 방에 닿는 네 가지 자리 중 하나입니다.</p><dl class="original-metadata"><div><dt>BEAM’S ROLE</dt><dd>Contents archive</dd></div><div class="original-metadata__provenance" hidden><dt>ORIGINAL WORK</dt><dd></dd></div></dl><p>하드웨어는 상자입니다. 이 칸에 남는 것은 콘텐츠입니다.</p><button class="link-button original-inquiry" type="button">Ask about this archive <span aria-hidden="true">↗</span></button>`;
+  dialog.innerHTML = `<button class="dialog-close" type="button" aria-label="닫기 Close">Close ×</button><p class="eyebrow">BEAM ARCHIVE / CONTENTS</p><h2 id="original-detail-title"></h2><img class="original-detail-image" hidden alt=""><p>Eternal Beam 아카이브를 이루는 네 갈래 가운데 하나입니다.</p><dl class="original-metadata"><div><dt>BEAM’S ROLE</dt><dd>Contents archive</dd></div><div class="original-metadata__provenance" hidden><dt>ORIGINAL WORK</dt><dd></dd></div></dl><p>기기는 그릇이고, 이 자리에 남는 것은 그 안의 콘텐츠입니다.</p><button class="link-button original-inquiry" type="button">Ask about this archive <span aria-hidden="true">↗</span></button>`;
   document.body.append(dialog);
   let selected = works[0];
   let opener;
@@ -39,10 +39,10 @@ export function initOriginals(onInquiry) {
     button.type = 'button';
     button.className = 'original-table__work';
     button.style.setProperty('--work-index', index);
-    button.setAttribute('aria-label', `Open ${work.title}, imported work slot`);
+    button.setAttribute('aria-label', `${work.title} 자세히 보기`);
     button.setAttribute('aria-haspopup', 'dialog');
     button.dataset.workId = work.id;
-    button.innerHTML = `<span class="original-table__accessible">Open ${work.title}</span>`;
+    button.innerHTML = `<span class="original-table__accessible">${work.title} 자세히 보기</span>`;
     button.addEventListener('click', () => {
       // Natural scrolling does not change the URL; Back must return to this collection.
       if (location.hash !== '#original') history.replaceState(null, '', '#original');
@@ -121,28 +121,10 @@ function ensureMobileOriginalScene(root) {
   plate.decoding = 'async';
   scene.prepend(plate);
 
-  const heading = document.querySelector('.original-table__mobile-heading');
-  if (heading && !heading.querySelector('.original-table__mobile-titlemark')) {
-    heading.querySelector('span')?.classList.add('original-table__accessible');
-    const title = document.createElementNS('http://www.w3.org/2000/svg', 'svg');
-    title.classList.add('original-table__mobile-titlemark');
-    title.setAttribute('viewBox', '1360 100 310 230');
-    title.setAttribute('aria-hidden', 'true');
-    const source = document.createElementNS('http://www.w3.org/2000/svg', 'image');
-    source.setAttribute('href', 'assets/original-table/table-clean-1671.webp?v=r37');
-    source.setAttribute('width', '1671');
-    source.setAttribute('height', '941');
-    title.append(source);
-    const mask = document.createElementNS('http://www.w3.org/2000/svg', 'rect');
-    mask.setAttribute('x', '1360');
-    mask.setAttribute('y', '280');
-    mask.setAttribute('width', '44');
-    mask.setAttribute('height', '50');
-    mask.setAttribute('fill', '#fff');
-    title.append(mask);
-    heading.prepend(title);
-  }
-
+  // (2026-09-12) 휴대폰 제목은 원래 탁자 그림의 오른쪽 위에 그려져 있던 'TVA ORIGINAL' 마크를
+  // SVG 로 오려 내 보여 주었다. 그 마크는 Eternal Beam 그림(table-clean r3)에서 사라졌고,
+  // 남은 것은 빈 베이지 상자뿐이라 제목 자리에 정체 모를 네모가 떠 있었다(진짜 글자는 숨긴 채).
+  // 이제 오려 내기를 그만두고 heading 안의 'BEAM ARCHIVE' 글자를 그대로 보여 준다.
 }
 
 function populateMobileFallbackArt(root, works) {
@@ -174,7 +156,7 @@ function populateMobileFallbackArt(root, works) {
     frame.className = 'original-table__mobile-art-frame';
     frame.setAttribute('aria-hidden', 'true');
     const image = document.createElement('img');
-    image.src = 'assets/original-table/table-clean-1671.webp?v=r37';
+    image.src = 'assets/original-table/table-clean-1671.webp?v=eternal-beam-r3';
     image.alt = '';
     image.width = 1671;
     image.height = 941;

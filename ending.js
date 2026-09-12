@@ -39,7 +39,7 @@ export function initEnding({ onComplete, canComplete, onNav }) {
   function ensureScene() {
     if (loading || reduced || unavailable) return loading;
     section.dataset.renderer = 'loading';
-    rendererStatus.textContent = 'Preparing the game room…';
+    rendererStatus.textContent = '마지막 장면을 준비하고 있습니다…';
     loading = import('./ending-scene-r15.js?v=eternal-beam-r75').then(module => module.createEndingScene(canvas)).then(value => {
       scene = value;
       scene.resize(width, height);
@@ -49,8 +49,8 @@ export function initEnding({ onComplete, canComplete, onNav }) {
     }).catch(error => {
       unavailable = true;
       section.dataset.renderer = 'unavailable';
-      rendererStatus.textContent = 'The game room is unavailable here. Back to home takes you to the beginning.';
-      console.warn('TVA ending: game rendering unavailable', error);
+      rendererStatus.textContent = '이 브라우저에서는 마지막 장면을 띄울 수 없습니다. Back to home 을 누르면 처음 화면으로 돌아갑니다.';
+      console.warn('Eternal Beam ending: 마지막 장면 렌더링을 쓸 수 없습니다', error);
       schedule();
     });
     return loading;

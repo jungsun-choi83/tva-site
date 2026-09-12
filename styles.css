@@ -34,6 +34,7 @@ section{scroll-margin-top:0}
 .ctl-fallback{display:block;padding:48px 24px;text-align:center;font:14px/2.2 var(--serif);color:var(--ink)}
 .ctl-fallback__t{font:500 22px/1 var(--display);letter-spacing:.28em;margin:0 0 16px}
 .ctl-fallback p{margin:0 auto;max-width:34em}
+.ctl-fallback-hint a{color:var(--cobalt);font:500 16px/1.6 var(--mono);letter-spacing:.02em;word-break:break-all}
 /* [61] 회사 표기를 읽히는 크기로. ending.css 가 #ending 으로 잡고 있어 한 단계 높은 선택자로 덮는다 */
 html #ending .site-footer{font-size:11px;opacity:1;letter-spacing:.05em}
 html #ending .site-footer a{pointer-events:auto;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px;padding:4px 2px}
