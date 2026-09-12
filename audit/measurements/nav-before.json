@@ -1,0 +1,379 @@
+[
+ {
+  "폭": 320,
+  "inner": {
+   "left": 16,
+   "right": 304
+  },
+  "logoRight": 148,
+  "links": [
+   {
+    "t": "ABOUT",
+    "l": 160,
+    "r": 201,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "RECORDS",
+    "l": 201,
+    "r": 256,
+    "here": true,
+    "color": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "t": "ORIGINAL",
+    "l": 256,
+    "r": 313,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "CONTACT",
+    "l": 313,
+    "r": 369,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   }
+  ],
+  "mascot": {
+   "l": 202,
+   "r": 255
+  },
+  "메뉴넘침": [
+   "ORIGINAL",
+   "CONTACT"
+  ],
+  "캐릭터가덮은메뉴": [
+   "RECORDS"
+  ]
+ },
+ {
+  "폭": 360,
+  "inner": {
+   "left": 16,
+   "right": 344
+  },
+  "logoRight": 148,
+  "links": [
+   {
+    "t": "ABOUT",
+    "l": 161,
+    "r": 204,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "RECORDS",
+    "l": 204,
+    "r": 261,
+    "here": true,
+    "color": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "t": "ORIGINAL",
+    "l": 261,
+    "r": 322,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "CONTACT",
+    "l": 322,
+    "r": 379,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   }
+  ],
+  "mascot": {
+   "l": 206,
+   "r": 259
+  },
+  "메뉴넘침": [
+   "CONTACT"
+  ],
+  "캐릭터가덮은메뉴": [
+   "RECORDS"
+  ]
+ },
+ {
+  "폭": 390,
+  "inner": {
+   "left": 16,
+   "right": 374
+  },
+  "logoRight": 148,
+  "links": [
+   {
+    "t": "ABOUT",
+    "l": 162,
+    "r": 209,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "RECORDS",
+    "l": 209,
+    "r": 271,
+    "here": true,
+    "color": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "t": "ORIGINAL",
+    "l": 271,
+    "r": 336,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "CONTACT",
+    "l": 336,
+    "r": 398,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   }
+  ],
+  "mascot": {
+   "l": 213,
+   "r": 266
+  },
+  "메뉴넘침": [
+   "CONTACT"
+  ],
+  "캐릭터가덮은메뉴": [
+   "RECORDS"
+  ]
+ },
+ {
+  "폭": 414,
+  "inner": {
+   "left": 16,
+   "right": 398
+  },
+  "logoRight": 148,
+  "links": [
+   {
+    "t": "ABOUT",
+    "l": 163,
+    "r": 210,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "RECORDS",
+    "l": 210,
+    "r": 273,
+    "here": true,
+    "color": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "t": "ORIGINAL",
+    "l": 273,
+    "r": 338,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "CONTACT",
+    "l": 338,
+    "r": 401,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   }
+  ],
+  "mascot": {
+   "l": 215,
+   "r": 268
+  },
+  "메뉴넘침": [
+   "CONTACT"
+  ],
+  "캐릭터가덮은메뉴": [
+   "RECORDS"
+  ]
+ },
+ {
+  "폭": 768,
+  "inner": {
+   "left": 31,
+   "right": 737
+  },
+  "logoRight": 199,
+  "links": [
+   {
+    "t": "ABOUT",
+    "l": 262,
+    "r": 328,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "RECORDS",
+    "l": 371,
+    "r": 456,
+    "here": true,
+    "color": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "t": "ORIGINAL",
+    "l": 499,
+    "r": 588,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "CONTACT",
+    "l": 631,
+    "r": 716,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   }
+  ],
+  "mascot": {
+   "l": 381,
+   "r": 446
+  },
+  "메뉴넘침": [],
+  "캐릭터가덮은메뉴": [
+   "RECORDS"
+  ]
+ },
+ {
+  "폭": 1024,
+  "inner": {
+   "left": 41,
+   "right": 983
+  },
+  "logoRight": 209,
+  "links": [
+   {
+    "t": "ABOUT",
+    "l": 315,
+    "r": 380,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "RECORDS",
+    "l": 479,
+    "r": 563,
+    "here": true,
+    "color": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "t": "ORIGINAL",
+    "l": 661,
+    "r": 751,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "CONTACT",
+    "l": 849,
+    "r": 934,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   }
+  ],
+  "mascot": {
+   "l": 488,
+   "r": 554
+  },
+  "메뉴넘침": [],
+  "캐릭터가덮은메뉴": [
+   "RECORDS"
+  ]
+ },
+ {
+  "폭": 1440,
+  "inner": {
+   "left": 58,
+   "right": 1382
+  },
+  "logoRight": 226,
+  "links": [
+   {
+    "t": "ABOUT",
+    "l": 399,
+    "r": 465,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "RECORDS",
+    "l": 653,
+    "r": 738,
+    "here": true,
+    "color": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "t": "ORIGINAL",
+    "l": 926,
+    "r": 1015,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "CONTACT",
+    "l": 1203,
+    "r": 1288,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   }
+  ],
+  "mascot": {
+   "l": 662,
+   "r": 728
+  },
+  "메뉴넘침": [],
+  "캐릭터가덮은메뉴": [
+   "RECORDS"
+  ]
+ },
+ {
+  "폭": 1920,
+  "inner": {
+   "left": 64,
+   "right": 1856
+  },
+  "logoRight": 232,
+  "links": [
+   {
+    "t": "ABOUT",
+    "l": 488,
+    "r": 554,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "RECORDS",
+    "l": 852,
+    "r": 937,
+    "here": true,
+    "color": "rgba(0, 0, 0, 0)"
+   },
+   {
+    "t": "ORIGINAL",
+    "l": 1235,
+    "r": 1324,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   },
+   {
+    "t": "CONTACT",
+    "l": 1622,
+    "r": 1707,
+    "here": false,
+    "color": "rgb(111, 112, 119)"
+   }
+  ],
+  "mascot": {
+   "l": 862,
+   "r": 927
+  },
+  "메뉴넘침": [],
+  "캐릭터가덮은메뉴": [
+   "RECORDS"
+  ]
+ }
+]

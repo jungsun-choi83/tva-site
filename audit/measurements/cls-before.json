@@ -1,0 +1,63 @@
+{
+ "label": "before",
+ "base": "http://127.0.0.1:18769",
+ "ranAt": "2026-09-12T19:01:14.230Z",
+ "뷰포트": {
+  "1440x900": {
+   "로드후CLS": 0,
+   "누적CLS": 1.367,
+   "이동횟수": 33,
+   "원인상위": [
+    [
+     "div.studio-host",
+     1.3544
+    ],
+    [
+     "div.signal-passage",
+     1
+    ],
+    [
+     "button.original-table__work",
+     0.0356
+    ],
+    [
+     "img.nav-mascot",
+     0.0036
+    ],
+    [
+     "span.nav-puff",
+     0.0015
+    ]
+   ],
+   "문서높이": 30822
+  },
+  "390x844": {
+   "로드후CLS": 0,
+   "누적CLS": 0.3112,
+   "이동횟수": 26,
+   "원인상위": [
+    [
+     "div.sofa-journey__cushion",
+     0.1451
+    ],
+    [
+     "img.studio-host__swap",
+     0.0893
+    ],
+    [
+     "img.sofa-journey__bg",
+     0.0721
+    ],
+    [
+     "button.original-table__work",
+     0.0144
+    ],
+    [
+     "img.nav-mascot",
+     0.0009
+    ]
+   ],
+   "문서높이": 25148
+  }
+ }
+}

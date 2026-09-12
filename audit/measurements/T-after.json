@@ -1,0 +1,8840 @@
+{
+ "label": "after",
+ "base": "http://127.0.0.1:18768",
+ "ranAt": "2026-09-12T19:09:45.626Z",
+ "engine": "chromium",
+ "viewports": {
+  "1440x900": {
+   "T7_초기": {
+    "로딩": {
+     "TTFB_ms": 3,
+     "DOMContentLoaded_ms": 511,
+     "load_ms": 12613,
+     "HTML_KB": 30
+    },
+    "큰리소스": [
+     {
+      "파일": "goya-fall-surprise.png",
+      "종류": "img",
+      "KB": 1774,
+      "ms": 85
+     },
+     {
+      "파일": "goya-fall-flail.png",
+      "종류": "img",
+      "KB": 1774,
+      "ms": 189
+     },
+     {
+      "파일": "goya-fall-mid.png",
+      "종류": "img",
+      "KB": 1774,
+      "ms": 194
+     },
+     {
+      "파일": "goya-fall-tuck.png",
+      "종류": "img",
+      "KB": 1774,
+      "ms": 199
+     },
+     {
+      "파일": "sit.png",
+      "종류": "img",
+      "KB": 1443,
+      "ms": 87
+     },
+     {
+      "파일": "sit.png",
+      "종류": "img",
+      "KB": 1443,
+      "ms": 219
+     },
+     {
+      "파일": "photocard-insert-a.png",
+      "종류": "img",
+      "KB": 1256,
+      "ms": 63
+     },
+     {
+      "파일": "three.module.js",
+      "종류": "script",
+      "KB": 1192,
+      "ms": 11
+     },
+     {
+      "파일": "walk1.png",
+      "종류": "image",
+      "KB": 1102,
+      "ms": 179
+     },
+     {
+      "파일": "walk1.png",
+      "종류": "img",
+      "KB": 1102,
+      "ms": 158
+     },
+     {
+      "파일": "lookup.png",
+      "종류": "img",
+      "KB": 1097,
+      "ms": 223
+     },
+     {
+      "파일": "point.png",
+      "종류": "img",
+      "KB": 1097,
+      "ms": 220
+     },
+     {
+      "파일": "archive.png",
+      "종류": "img",
+      "KB": 1093,
+      "ms": 256
+     },
+     {
+      "파일": "usher.png",
+      "종류": "img",
+      "KB": 1090,
+      "ms": 266
+     },
+     {
+      "파일": "idle.png",
+      "종류": "img",
+      "KB": 1061,
+      "ms": 83
+     }
+    ]
+   },
+   "T1": {
+    "URL": "http://127.0.0.1:18768/",
+    "뷰포트": "1440×900",
+    "스크롤바폭": 0,
+    "DPR": 1,
+    "정밀포인터_hover": true,
+    "터치포인터존재": false,
+    "reducedMotion": false,
+    "다크모드": false,
+    "Lenis": false,
+    "Lenis클래스": "-",
+    "Locomotive_v4": false,
+    "GSAP": "-",
+    "ScrollTrigger개수": "-",
+    "ScrollSmoother": false,
+    "Three": "-",
+    "프레임워크": "-",
+    "CSS_scrollBehavior": "smooth",
+    "CSS_scrollSnap": "none",
+    "scrollRestoration": "manual",
+    "html_overflow": "visible/visible",
+    "body_overflow": "clip/visible",
+    "viewportMeta": "width=device-width,initial-scale=1",
+    "lang": "ko",
+    "colorScheme": "light",
+    "iframe": 1,
+    "video": 1,
+    "canvas": 3,
+    "문서높이": 30822
+   },
+   "T2": {
+    "가로스크롤px": 0,
+    "rows": [
+     {
+      "요소": "div.hero-original__tv",
+      "left": -80,
+      "right": 1520,
+      "넘침px": 80,
+      "상황": "부모에서 잘림: div.hero-original__stage"
+     },
+     {
+      "요소": "img.hero-original__housing",
+      "left": -80,
+      "right": 1520,
+      "넘침px": 80,
+      "상황": "부모에서 잘림: div.hero-original__stage"
+     },
+     {
+      "요소": "div.sofa-journey__hx-spin",
+      "left": -96,
+      "right": 1536,
+      "넘침px": 96,
+      "상황": "부모에서 잘림: div.sofa-journey__hx"
+     },
+     {
+      "요소": "img.sofa-journey__hx-still",
+      "left": -96,
+      "right": 1536,
+      "넘침px": 96,
+      "상황": "부모에서 잘림: div.sofa-journey__hx"
+     },
+     {
+      "요소": "video.sofa-journey__hx-video",
+      "left": -96,
+      "right": 1536,
+      "넘침px": 96,
+      "상황": "부모에서 잘림: div.sofa-journey__hx"
+     },
+     {
+      "요소": "div.sofa-journey__landing",
+      "left": -80,
+      "right": 1520,
+      "넘침px": 80,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "img.sofa-journey__bg",
+      "left": -80,
+      "right": 1520,
+      "넘침px": 80,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "div.sofa-journey__cushion",
+      "left": -80,
+      "right": 1520,
+      "넘침px": 80,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "img",
+      "left": -80,
+      "right": 1520,
+      "넘침px": 80,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "i.sofa-journey__grain",
+      "left": -298,
+      "right": 1718,
+      "넘침px": 298,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "div.about-sr-summary",
+      "left": -1,
+      "right": 0,
+      "넘침px": 1,
+      "상황": "부모에서 잘림: section#about.about-runway.about-walk"
+     },
+     {
+      "요소": "h2",
+      "left": -1,
+      "right": 0,
+      "넘침px": 1,
+      "상황": "부모에서 잘림: div.about-sr-summary"
+     },
+     {
+      "요소": "ul",
+      "left": -1,
+      "right": 39,
+      "넘침px": 1,
+      "상황": "부모에서 잘림: div.about-sr-summary"
+     },
+     {
+      "요소": "img.about-walk__strip",
+      "left": 0,
+      "right": 8640,
+      "넘침px": 7200,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.studio-track",
+      "left": 0,
+      "right": 10080,
+      "넘침px": 8640,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "article.studio-station.station-plan.station-goldpage",
+      "left": 1440,
+      "right": 2880,
+      "넘침px": 1440,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 1526,
+      "right": 2046,
+      "넘침px": 606,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 1526,
+      "right": 1649,
+      "넘침px": 209,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 1526,
+      "right": 2046,
+      "넘침px": 606,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 1526,
+      "right": 1806,
+      "넘침px": 366,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 1526,
+      "right": 1806,
+      "넘침px": 366,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 1526,
+      "right": 1806,
+      "넘침px": 366,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 2102,
+      "right": 2867,
+      "넘침px": 1427,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 2140,
+      "right": 2830,
+      "넘침px": 1390,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 2140,
+      "right": 2830,
+      "넘침px": 1390,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 2140,
+      "right": 2830,
+      "넘침px": 1390,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 2140,
+      "right": 2830,
+      "넘침px": 1390,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 2140,
+      "right": 2830,
+      "넘침px": 1390,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-space.station-goldpage",
+      "left": 2880,
+      "right": 4320,
+      "넘침px": 2880,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 2966,
+      "right": 3486,
+      "넘침px": 2046,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 2966,
+      "right": 3112,
+      "넘침px": 1672,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 2966,
+      "right": 3486,
+      "넘침px": 2046,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 2966,
+      "right": 3266,
+      "넘침px": 1826,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 2966,
+      "right": 3266,
+      "넘침px": 1826,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 2966,
+      "right": 3266,
+      "넘침px": 1826,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 3542,
+      "right": 4307,
+      "넘침px": 2867,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 3580,
+      "right": 4270,
+      "넘침px": 2830,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 3580,
+      "right": 4270,
+      "넘침px": 2830,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 3580,
+      "right": 4270,
+      "넘침px": 2830,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 3580,
+      "right": 4270,
+      "넘침px": 2830,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 3580,
+      "right": 4270,
+      "넘침px": 2830,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-creative.station-goldpage",
+      "left": 4320,
+      "right": 5760,
+      "넘침px": 4320,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 4406,
+      "right": 4926,
+      "넘침px": 3486,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 4406,
+      "right": 4674,
+      "넘침px": 3234,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 4406,
+      "right": 4926,
+      "넘침px": 3486,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 4406,
+      "right": 4701,
+      "넘침px": 3261,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 4406,
+      "right": 4701,
+      "넘침px": 3261,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 4406,
+      "right": 4701,
+      "넘침px": 3261,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 4982,
+      "right": 5747,
+      "넘침px": 4307,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 5020,
+      "right": 5710,
+      "넘침px": 4270,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 5020,
+      "right": 5710,
+      "넘침px": 4270,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 5020,
+      "right": 5710,
+      "넘침px": 4270,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 5020,
+      "right": 5710,
+      "넘침px": 4270,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 5020,
+      "right": 5710,
+      "넘침px": 4270,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-product.station-goldpage",
+      "left": 5760,
+      "right": 7200,
+      "넘침px": 5760,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 5846,
+      "right": 6366,
+      "넘침px": 4926,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 5846,
+      "right": 5974,
+      "넘침px": 4534,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 5846,
+      "right": 6366,
+      "넘침px": 4926,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 5846,
+      "right": 6072,
+      "넘침px": 4632,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 5846,
+      "right": 6072,
+      "넘침px": 4632,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 5846,
+      "right": 6072,
+      "넘침px": 4632,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 6422,
+      "right": 7187,
+      "넘침px": 5747,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 6460,
+      "right": 7150,
+      "넘침px": 5710,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 6460,
+      "right": 7150,
+      "넘침px": 5710,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 6460,
+      "right": 7150,
+      "넘침px": 5710,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 6460,
+      "right": 7150,
+      "넘침px": 5710,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 6460,
+      "right": 7150,
+      "넘침px": 5710,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-event.station-goldpage",
+      "left": 7200,
+      "right": 8640,
+      "넘침px": 7200,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 7286,
+      "right": 7806,
+      "넘침px": 6366,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 7286,
+      "right": 7424,
+      "넘침px": 5984,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 7286,
+      "right": 7806,
+      "넘침px": 6366,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 7286,
+      "right": 7586,
+      "넘침px": 6146,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 7286,
+      "right": 7586,
+      "넘침px": 6146,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 7286,
+      "right": 7586,
+      "넘침px": 6146,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 7862,
+      "right": 8627,
+      "넘침px": 7187,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 7900,
+      "right": 8590,
+      "넘침px": 7150,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 7900,
+      "right": 8590,
+      "넘침px": 7150,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 7900,
+      "right": 8590,
+      "넘침px": 7150,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 7900,
+      "right": 8590,
+      "넘침px": 7150,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 7900,
+      "right": 8590,
+      "넘침px": 7150,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-exit",
+      "left": 8640,
+      "right": 10080,
+      "넘침px": 8640,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy",
+      "left": 8726,
+      "right": 9216,
+      "넘침px": 7776,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 8726,
+      "right": 8794,
+      "넘침px": 7354,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "h3",
+      "left": 8726,
+      "right": 9216,
+      "넘침px": 7776,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "p",
+      "left": 8726,
+      "right": 9146,
+      "넘침px": 7706,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 8726,
+      "right": 9146,
+      "넘침px": 7706,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 8726,
+      "right": 9146,
+      "넘침px": 7706,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "img.about-walk__fg",
+      "left": 6474,
+      "right": 6864,
+      "넘침px": 5424,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "img.about-walk__fg",
+      "left": 8028,
+      "right": 8478,
+      "넘침px": 7038,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "h2#original-title.original-table__accessible",
+      "left": -1,
+      "right": 0,
+      "넘침px": 1,
+      "상황": "❌ 잘리지 않음"
+     },
+     {
+      "요소": "input.hp",
+      "left": -8915,
+      "right": -8700,
+      "넘침px": 8915,
+      "상황": "부모에서 잘림: div#ctl-paper.paper"
+     },
+     {
+      "요소": "img",
+      "left": -80,
+      "right": 1520,
+      "넘침px": 80,
+      "상황": "부모에서 잘림: div.ending-home-match"
+     },
+     {
+      "요소": "i.signal-veil__grain",
+      "left": -22,
+      "right": 1418,
+      "넘침px": 22,
+      "상황": "고정요소(fixed) 내부"
+     }
+    ]
+   },
+   "T3": {
+    "글꼴조합": [
+     {
+      "값": "Cinzel 19.52px/26.9376px w400 자간 1.952px",
+      "개수": 32
+     },
+     {
+      "값": "Cinzel 16px/24px w400 자간 normal",
+      "개수": 17
+     },
+     {
+      "값": "Pretendard Variable 12px/normal w400 자간 normal",
+      "개수": 13
+     },
+     {
+      "값": "Cinzel 11px/19.8px w400 자간 0.165px",
+      "개수": 7
+     },
+     {
+      "값": "Pretendard Variable 15px/22.5px w400 자간 normal",
+      "개수": 7
+     },
+     {
+      "값": "Cinzel 18px/21.6px w500 자간 2.88px",
+      "개수": 6
+     },
+     {
+      "값": "Cinzel 60.48px/67.7376px w400 자간 -2.4192px",
+      "개수": 6
+     },
+     {
+      "값": "Cinzel 13px/13px w500 자간 2.86px",
+      "개수": 6
+     },
+     {
+      "값": "Pretendard Variable 13px/13px w500 자간 1.56px",
+      "개수": 6
+     },
+     {
+      "값": "Pretendard Variable 27.36px/35.0208px w500 자간 -0.5472px",
+      "개수": 6
+     },
+     {
+      "값": "Cinzel 15.12px/21.924px w500 자간 1.8144px",
+      "개수": 5
+     },
+     {
+      "값": "Cinzel 11px/normal w500 자간 1.54px",
+      "개수": 5
+     },
+     {
+      "값": "Cinzel 11px/normal w500 자간 0.66px",
+      "개수": 5
+     },
+     {
+      "값": "Cinzel 13px/13px w500 자간 1.82px",
+      "개수": 4
+     },
+     {
+      "값": "Cinzel 9px/9px w600 자간 0.9px",
+      "개수": 4
+     },
+     {
+      "값": "Cinzel 12px/12px w600 자간 0.24px",
+      "개수": 4
+     },
+     {
+      "값": "Cinzel 11px/17.6px w400 자간 0.55px",
+      "개수": 4
+     },
+     {
+      "값": "Cinzel 10px/10px w600 자간 1.1px",
+      "개수": 3
+     },
+     {
+      "값": "IBM Plex Mono 12px/normal w500 자간 0.96px",
+      "개수": 3
+     },
+     {
+      "값": "Cinzel 10px/14px w700 자간 1.5px",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 302.4px/211.68px w900 자간 -30.24px",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 24px/36px w700 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 16px/23.36px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 11px/16.5px w400 자간 0.495px",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 22px/33px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 11px/11px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 11px/normal w500 자간 1.1px",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 18px/27px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 10px/17px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 9px/9.9px w700 자간 1.08px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 10px/12px w700 자간 0.8px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 9px/10.8px w700 자간 1.08px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 10px/10px w700 자간 1.4px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 57.6px/44.352px w900 자간 -4.032px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 15.12px/20.8656px w700 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 9px/9px w600 자간 1.08px",
+      "개수": 1
+     },
+     {
+      "값": "Archivo Black 77.76px/63.7632px w900 자간 -4.6656px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 32px/48px w700 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 10px/15.5px w400 자간 1.4px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 15.84px/15.84px w500 자간 2.8512px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 46.08px/54.3744px w600 자간 6.4512px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 11px/13.2px w500 자간 0.66px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 15px/20.7px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 63.36px/62.0928px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 13px/19.5px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 11px/16.5px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 10px/14px w400 자간 0.8px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 56px/50.4px w500 자간 17.92px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 13.151px/normal w500 자간 2.89323px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 11.1784px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 12px/normal w500 자간 1.68px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 22px/33px w500 자간 2.64px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 15px/24.75px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 15px/24px w400 자간 0.6px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 201.6px/177.408px w400 자간 -15.12px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 42px/37.8px w400 자간 6.72px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 27px/45.9px w500 자간 0.96px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/normal w400 자간 0.9px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 10px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 12px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 13px/22.1px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 12px/16.8px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 24px/24px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/10px w500 자간 2.4px",
+      "개수": 1
+     }
+    ],
+    "글자크기": [
+     {
+      "값": "19.52px",
+      "개수": 32
+     },
+     {
+      "값": "11px",
+      "개수": 29
+     },
+     {
+      "값": "12px",
+      "개수": 23
+     },
+     {
+      "값": "16px",
+      "개수": 19
+     },
+     {
+      "값": "13px",
+      "개수": 18
+     },
+     {
+      "값": "10px",
+      "개수": 14
+     },
+     {
+      "값": "15px",
+      "개수": 10
+     },
+     {
+      "값": "18px",
+      "개수": 8
+     },
+     {
+      "값": "9px",
+      "개수": 7
+     },
+     {
+      "값": "15.12px",
+      "개수": 6
+     },
+     {
+      "값": "60.48px",
+      "개수": 6
+     },
+     {
+      "값": "27.36px",
+      "개수": 6
+     },
+     {
+      "값": "24px",
+      "개수": 3
+     },
+     {
+      "값": "22px",
+      "개수": 3
+     },
+     {
+      "값": "302.4px",
+      "개수": 2
+     },
+     {
+      "값": "57.6px",
+      "개수": 1
+     },
+     {
+      "값": "77.76px",
+      "개수": 1
+     },
+     {
+      "값": "32px",
+      "개수": 1
+     },
+     {
+      "값": "15.84px",
+      "개수": 1
+     },
+     {
+      "값": "46.08px",
+      "개수": 1
+     },
+     {
+      "값": "63.36px",
+      "개수": 1
+     },
+     {
+      "값": "56px",
+      "개수": 1
+     },
+     {
+      "값": "13.151px",
+      "개수": 1
+     },
+     {
+      "값": "11.1784px",
+      "개수": 1
+     },
+     {
+      "값": "201.6px",
+      "개수": 1
+     },
+     {
+      "값": "42px",
+      "개수": 1
+     },
+     {
+      "값": "27px",
+      "개수": 1
+     }
+    ],
+    "글자색": [
+     {
+      "값": "rgb(23, 25, 35)",
+      "개수": 48
+     },
+     {
+      "값": "rgb(221, 214, 200)",
+      "개수": 32
+     },
+     {
+      "값": "rgb(13, 13, 15)",
+      "개수": 27
+     },
+     {
+      "값": "rgb(85, 86, 91)",
+      "개수": 12
+     },
+     {
+      "값": "rgb(180, 170, 137)",
+      "개수": 11
+     },
+     {
+      "값": "rgb(106, 98, 88)",
+      "개수": 10
+     },
+     {
+      "값": "rgb(58, 50, 40)",
+      "개수": 10
+     },
+     {
+      "값": "rgb(24, 28, 24)",
+      "개수": 9
+     },
+     {
+      "값": "rgb(240, 237, 230)",
+      "개수": 5
+     },
+     {
+      "값": "rgb(0, 0, 0)",
+      "개수": 5
+     },
+     {
+      "값": "rgb(92, 83, 72)",
+      "개수": 4
+     },
+     {
+      "값": "rgb(111, 112, 119)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(243, 234, 214)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(143, 112, 52)",
+      "개수": 3
+     },
+     {
+      "값": "rgba(239, 224, 184, 0.082)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(200, 161, 94)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(240, 232, 212)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(38, 51, 34)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(255, 195, 75)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(244, 239, 228)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(184, 176, 164)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(232, 213, 160)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(165, 166, 170)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(230, 220, 198)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(239, 230, 212)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(255, 255, 255)",
+      "개수": 1
+     }
+    ],
+    "배경색": [
+     {
+      "값": "rgb(255, 255, 255)",
+      "개수": 21
+     },
+     {
+      "값": "rgb(200, 161, 94)",
+      "개수": 5
+     },
+     {
+      "값": "rgb(239, 239, 239)",
+      "개수": 4
+     },
+     {
+      "값": "rgba(23, 25, 35, 0.2)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(0, 0, 0)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(17, 18, 13)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(17, 17, 13)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(5, 6, 6)",
+      "개수": 2
+     },
+     {
+      "값": "rgba(239, 224, 184, 0.16)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(240, 232, 212)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(5, 5, 8)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(27, 21, 17, 0.22)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(32, 35, 43)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(214, 215, 219)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(23, 25, 35)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(255, 255, 255, 0.86)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(216, 196, 166)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(26, 20, 14)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(255, 248, 232, 0.42)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(255, 250, 240, 0.35)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(246, 240, 228)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(224, 238, 235)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(239, 224, 184)",
+      "개수": 1
+     }
+    ],
+    "간격": [
+     {
+      "값": "6px",
+      "개수": 49
+     },
+     {
+      "값": "8px",
+      "개수": 38
+     },
+     {
+      "값": "10px",
+      "개수": 35
+     },
+     {
+      "값": "16px",
+      "개수": 29
+     },
+     {
+      "값": "11px",
+      "개수": 22
+     },
+     {
+      "값": "-1px",
+      "개수": 17
+     },
+     {
+      "값": "1px",
+      "개수": 17
+     },
+     {
+      "값": "9px",
+      "개수": 13
+     },
+     {
+      "값": "4px",
+      "개수": 13
+     },
+     {
+      "값": "37.44px",
+      "개수": 12
+     },
+     {
+      "값": "14px",
+      "개수": 11
+     },
+     {
+      "값": "2px",
+      "개수": 9
+     },
+     {
+      "값": "24px",
+      "개수": 6
+     },
+     {
+      "값": "12px",
+      "개수": 5
+     },
+     {
+      "값": "32px",
+      "개수": 4
+     },
+     {
+      "값": "18px",
+      "개수": 4
+     },
+     {
+      "값": "40px",
+      "개수": 3
+     },
+     {
+      "값": "5px",
+      "개수": 3
+     },
+     {
+      "값": "57.6px",
+      "개수": 2
+     },
+     {
+      "값": "3px",
+      "개수": 2
+     },
+     {
+      "값": "86.4px",
+      "개수": 2
+     },
+     {
+      "값": "20px",
+      "개수": 2
+     },
+     {
+      "값": "4.95px",
+      "개수": 2
+     },
+     {
+      "값": "26.3021px",
+      "개수": 2
+     },
+     {
+      "값": "7.23307px",
+      "개수": 2
+     },
+     {
+      "값": "15.4px",
+      "개수": 2
+     },
+     {
+      "값": "28px",
+      "개수": 2
+     },
+     {
+      "값": "79.4844px",
+      "개수": 1
+     },
+     {
+      "값": "8.28125px",
+      "개수": 1
+     },
+     {
+      "값": "8.45312px",
+      "개수": 1
+     },
+     {
+      "값": "5.625px",
+      "개수": 1
+     },
+     {
+      "값": "7.04688px",
+      "개수": 1
+     },
+     {
+      "값": "19.92px",
+      "개수": 1
+     },
+     {
+      "값": "210px",
+      "개수": 1
+     },
+     {
+      "값": "160px",
+      "개수": 1
+     },
+     {
+      "값": "13.0781px",
+      "개수": 1
+     },
+     {
+      "값": "10.5px",
+      "개수": 1
+     },
+     {
+      "값": "7.5px",
+      "개수": 1
+     },
+     {
+      "값": "80px",
+      "개수": 1
+     }
+    ],
+    "radius": [
+     {
+      "값": "50%",
+      "개수": 19
+     },
+     {
+      "값": "2px",
+      "개수": 8
+     },
+     {
+      "값": "49% 51% 48% 52% / 46% 45% 55% 54%",
+      "개수": 2
+     },
+     {
+      "값": "1px",
+      "개수": 1
+     },
+     {
+      "값": "15% 13% 11% 12%",
+      "개수": 1
+     },
+     {
+      "값": "999px",
+      "개수": 1
+     },
+     {
+      "값": "4% / 6%",
+      "개수": 1
+     }
+    ],
+    "그림자": [
+     {
+      "값": "rgba(255, 233, 176, 0.95) 0px 0px 4px 0px, rgba(200, 161, 94, 0.55) 0px 0px 9px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgba(187, 255, 204, 0.1) 2px 3px 8px 0px inset",
+      "개수": 1
+     },
+     {
+      "값": "rgb(200, 161, 94) 0px 0px 10px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgb(240, 237, 230) 0px -3px 0px 0px inset",
+      "개수": 1
+     },
+     {
+      "값": "rgba(0, 0, 0, 0.25) 0px 0px 0px 1px inset",
+      "개수": 1
+     },
+     {
+      "값": "rgba(240, 232, 212, 0.6) 0px 0px 6px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgb(142, 143, 149) 0px 5px 0px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgb(200, 218, 218) 0px 0px 8px 0px, rgb(183, 221, 211) 0px 0px 28px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgba(0, 0, 0, 0.333) 0px 0px 18px 0px inset",
+      "개수": 1
+     }
+    ],
+    "zIndex": [
+     {
+      "값": "5",
+      "개수": 18
+     },
+     {
+      "값": "1",
+      "개수": 14
+     },
+     {
+      "값": "2",
+      "개수": 11
+     },
+     {
+      "값": "3",
+      "개수": 10
+     },
+     {
+      "값": "10",
+      "개수": 9
+     },
+     {
+      "값": "4",
+      "개수": 5
+     },
+     {
+      "값": "0",
+      "개수": 4
+     },
+     {
+      "값": "7",
+      "개수": 4
+     },
+     {
+      "값": "8",
+      "개수": 4
+     },
+     {
+      "값": "6",
+      "개수": 3
+     },
+     {
+      "값": "9",
+      "개수": 3
+     },
+     {
+      "값": "12",
+      "개수": 2
+     },
+     {
+      "값": "15",
+      "개수": 2
+     },
+     {
+      "값": "30",
+      "개수": 2
+     },
+     {
+      "값": "11",
+      "개수": 1
+     },
+     {
+      "값": "13",
+      "개수": 1
+     },
+     {
+      "값": "14",
+      "개수": 1
+     },
+     {
+      "값": "17",
+      "개수": 1
+     },
+     {
+      "값": "22",
+      "개수": 1
+     },
+     {
+      "값": "40",
+      "개수": 1
+     },
+     {
+      "값": "60",
+      "개수": 1
+     },
+     {
+      "값": "90",
+      "개수": 1
+     },
+     {
+      "값": "1000",
+      "개수": 1
+     },
+     {
+      "값": "-1",
+      "개수": 1
+     }
+    ],
+    "CSS전환": [
+     {
+      "값": "opacity 0.18s",
+      "개수": 16
+     },
+     {
+      "값": "color 0.3s",
+      "개수": 4
+     },
+     {
+      "값": "color, background 0.16s, 0.16s",
+      "개수": 4
+     },
+     {
+      "값": "scale, filter 0.3s, 0.3s",
+      "개수": 4
+     },
+     {
+      "값": "opacity 0.2s",
+      "개수": 2
+     },
+     {
+      "값": "transform 0.35s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.7s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.34s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.25s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.16s",
+      "개수": 1
+     },
+     {
+      "값": "transform 0.5s",
+      "개수": 1
+     },
+     {
+      "값": "transform 0.16s",
+      "개수": 1
+     },
+     {
+      "값": "opacity, transform 0.45s, 0.45s",
+      "개수": 1
+     }
+    ],
+    "CSS_easing": [
+     {
+      "값": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "개수": 17
+     },
+     {
+      "값": "ease",
+      "개수": 11
+     },
+     {
+      "값": "ease, ease",
+      "개수": 5
+     },
+     {
+      "값": "cubic-bezier(0.16, 1, 0.3, 1), ease",
+      "개수": 4
+     },
+     {
+      "값": "linear",
+      "개수": 1
+     }
+    ],
+    "실행중애니메이션": [
+     {
+      "대상": "i",
+      "종류": "CSSAnimation",
+      "이름": "eb-a-pass",
+      "duration": 2800,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-original__stage",
+      "종류": "CSSAnimation",
+      "이름": "hero-frame-optics",
+      "duration": 6400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-original__stage",
+      "종류": "CSSAnimation",
+      "이름": "hero-grain-shift",
+      "duration": 1000,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-vintage__field",
+      "종류": "CSSAnimation",
+      "이름": "hero-optical-haze",
+      "duration": 9600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-original__tv",
+      "종류": "CSSAnimation",
+      "이름": "hero-computer-optics",
+      "duration": 6400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-vintage__copy",
+      "종류": "CSSAnimation",
+      "이름": "hero-copy-breathe",
+      "duration": 6400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-vintage__logo",
+      "종류": "CSSAnimation",
+      "이름": "hero-vintage-reveal",
+      "duration": 780,
+      "easing": "linear",
+      "반복": 1
+     },
+     {
+      "대상": "p.hero-vintage__statement",
+      "종류": "CSSAnimation",
+      "이름": "hero-vintage-reveal",
+      "duration": 780,
+      "easing": "linear",
+      "반복": 1
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span",
+      "종류": "CSSAnimation",
+      "이름": "scroll-cue-nudge",
+      "duration": 2100,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i",
+      "종류": "CSSAnimation",
+      "이름": "hero-scroll-drop",
+      "duration": 2200,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i.sofa-journey__grain",
+      "종류": "CSSAnimation",
+      "이름": "sofa-journey-grain",
+      "duration": 180,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "path",
+      "종류": "CSSAnimation",
+      "이름": "ctl-beamglow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "path",
+      "종류": "CSSAnimation",
+      "이름": "ctl-beamglow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "path",
+      "종류": "CSSAnimation",
+      "이름": "ctl-beamglow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.ending-pair",
+      "종류": "CSSAnimation",
+      "이름": "ending-app-use",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.ending-pair",
+      "종류": "CSSAnimation",
+      "이름": "ending-phone-glow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "img",
+      "종류": "CSSAnimation",
+      "이름": "ending-holo-play",
+      "duration": 3200,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i.signal-veil__grain",
+      "종류": "CSSAnimation",
+      "이름": "signal-veil-grain",
+      "duration": 200,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i.scroll-cue__arrow",
+      "종류": "CSSAnimation",
+      "이름": "scroll-cue-drop",
+      "duration": 1900,
+      "easing": "linear",
+      "반복": null
+     }
+    ]
+   },
+   "T4": [
+    {
+     "판정": "⚠️ 24~44px",
+     "가로": 215,
+     "세로": 30,
+     "텍스트": "",
+     "html": "<input type=\"text\" name=\"_gotcha\" class=\"hp\" tabindex=\"-1\" autocomplete=\"off\" aria-hidden="
+    },
+    {
+     "판정": "⚠️ 24~44px",
+     "가로": 24,
+     "세로": 24,
+     "텍스트": "on",
+     "html": "<input type=\"checkbox\" name=\"privacy_consent\" required=\"\">"
+    }
+   ],
+   "T6": {
+    "요약": {
+     "h1개수": 1,
+     "랜드마크": "header:2 nav:3 main:1 footer:2",
+     "alt 없는 img": 0,
+     "이름없는버튼링크": 4,
+     "라벨없는입력": 1,
+     "본문바로가기": "추정 있음 (첫 포커스 요소가 # 링크)",
+     "양수 tabindex": 0,
+     "lang": "ko"
+    },
+    "headings": [
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "YOUR PET.THEIR STORY.STILL GROWING."
+     },
+     {
+      "레벨": "H1",
+      "단계건너뜀": "",
+      "텍스트": "ETERNALBEAMEternal Beam — Soul Trace에서 홀로그램 기기로 이어지는 콘텐츠 아카이"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "Eternal Beam 아카이브 전체"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "ETERNAL BEAM / CONTENTS ARCHIVE"
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "함께하는 시간을,계속 이어지는 이야기로."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "그 아이의 하루를,한 통의 편지로 남깁니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "원본의 특징을 지키고,그 아이답게 움직입니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "기억 속 아이가공간 안에 다시 나타납니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "사진 한 장에서 시작해,움직임으로 연결됩니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "흩어진 기억을 모아,하나의 아카이브로 남깁니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "ALLPROCESSES"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "BEAM ARCHIVE"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "CONTACT"
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "개인정보 수집·이용 안내"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "기억을 간직하는 자리"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": ""
+     }
+    ],
+    "이름없는버튼링크": [
+     "<a href=\"#about\" class=\"is-here\">ABOUT</a>",
+     "<a href=\"#portfolio\">RECORDS</a>",
+     "<a href=\"#original\">ORIGINAL</a>",
+     "<a href=\"#contact\">CONTACT</a>"
+    ],
+    "라벨없는입력": [
+     "<input type=\"text\" name=\"_gotcha\" class=\"hp\" tabindex=\"-1\" autocomplete=\"off\" aria-hidden=\"true\">"
+    ]
+   },
+   "T8": [
+    {
+     "문제": "❌ aria-hidden 내부인데 포커스 가능",
+     "요소": "input.hp",
+     "텍스트": "",
+     "html": "<input type=\"text\" name=\"_gotcha\" class=\"hp\" tabindex=\"-1\" autocomplete=\"off\" aria-hidden="
+    }
+   ],
+   "T11": [
+    {
+     "판정": "❌",
+     "비율": 2.43,
+     "기준": 4.5,
+     "텍스트": "←",
+     "크기": "22px",
+     "글자색": "rgb(165, 166, 170)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "❌",
+     "비율": 2.42,
+     "기준": 4.5,
+     "텍스트": "Name 이름",
+     "크기": "11px",
+     "글자색": "rgb(92, 83, 72)",
+     "배경": "rgb(26, 20, 14)"
+    },
+    {
+     "판정": "❌",
+     "비율": 3.04,
+     "기준": 4.5,
+     "텍스트": "이름",
+     "크기": "12px",
+     "글자색": "rgb(106, 98, 88)",
+     "배경": "rgb(26, 20, 14)"
+    },
+    {
+     "판정": "❌",
+     "비율": 1.45,
+     "기준": 4.5,
+     "텍스트": "Privacy",
+     "크기": "11px",
+     "글자색": "rgb(58, 50, 40)",
+     "배경": "rgb(26, 20, 14)"
+    },
+    {
+     "판정": "❌",
+     "비율": 3.94,
+     "기준": 4.5,
+     "텍스트": "Details",
+     "크기": "11px",
+     "글자색": "rgb(143, 112, 52)",
+     "배경": "rgb(26, 20, 14)"
+    },
+    {
+     "판정": "❌",
+     "비율": 2.17,
+     "기준": 4.5,
+     "텍스트": "SEND 보내기",
+     "크기": "13.151px",
+     "글자색": "rgb(58, 50, 40)",
+     "배경": "rgb(106, 101, 93)"
+    },
+    {
+     "판정": "❌",
+     "비율": 1,
+     "기준": 4.5,
+     "텍스트": "SCROLL",
+     "크기": "10px",
+     "글자색": "rgb(255, 255, 255)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "❓",
+     "비율": "-",
+     "기준": "-",
+     "텍스트": "01. 회사소개",
+     "크기": "18px",
+     "글자색": "rgb(23, 25, 35)",
+     "배경": "배경 이미지·그라디언트 위"
+    },
+    {
+     "판정": "❓",
+     "비율": "-",
+     "기준": "-",
+     "텍스트": "사진 · 편지 · 오브제 · 아카이브",
+     "크기": "11px",
+     "글자색": "rgb(85, 86, 91)",
+     "배경": "배경 이미지·그라디언트 위"
+    },
+    {
+     "판정": "❓",
+     "비율": "-",
+     "기준": "-",
+     "텍스트": "PHILOSOPHY",
+     "크기": "13px",
+     "글자색": "rgb(13, 13, 15)",
+     "배경": "배경 이미지·그라디언트 위"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.5,
+     "기준": 4.5,
+     "텍스트": "본문 바로가기 Skip to content",
+     "크기": "16px",
+     "글자색": "rgb(23, 25, 35)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 9.05,
+     "기준": 4.5,
+     "텍스트": "Soul Trace × Device",
+     "크기": "9px",
+     "글자색": "rgb(180, 170, 137)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.96,
+     "기준": 4.5,
+     "텍스트": "IDENTITY LOCKEDBEAM–01 / SEOUL",
+     "크기": "10px",
+     "글자색": "rgb(240, 237, 230)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 13.16,
+     "기준": 4.5,
+     "텍스트": "SOUL TRACE / 01",
+     "크기": "10px",
+     "글자색": "rgb(255, 195, 75)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.96,
+     "기준": 3,
+     "텍스트": "YOUR PET.THEIR STORY.STILL GRO",
+     "크기": "57.6px",
+     "글자색": "rgb(240, 237, 230)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 8.06,
+     "기준": 4.5,
+     "텍스트": "CH 01",
+     "크기": "9px",
+     "글자색": "rgb(13, 13, 15)",
+     "배경": "rgb(200, 161, 94)"
+    },
+    {
+     "판정": "✅",
+     "비율": 8.72,
+     "기준": 4.5,
+     "텍스트": "●",
+     "크기": "10px",
+     "글자색": "rgb(200, 161, 94)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.2,
+     "기준": 3,
+     "텍스트": "ETERNALBEAM",
+     "크기": "77.76px",
+     "글자색": "rgb(240, 232, 212)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 18.31,
+     "기준": 3,
+     "텍스트": "Eternal Beam — Soul Trace에서 홀로",
+     "크기": "32px",
+     "글자색": "rgb(244, 239, 228)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 14.53,
+     "기준": 4.5,
+     "텍스트": "Y",
+     "크기": "19.52px",
+     "글자색": "rgb(221, 214, 200)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 9.78,
+     "기준": 4.5,
+     "텍스트": "FOR THE MOMENTS THAT DESERVE T",
+     "크기": "10px",
+     "글자색": "rgb(184, 176, 164)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.2,
+     "기준": 4.5,
+     "텍스트": "SCROLL TO ENTER",
+     "크기": "15.84px",
+     "글자색": "rgb(240, 232, 212)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 14.01,
+     "기준": 3,
+     "텍스트": "Keep OurMemory Moment",
+     "크기": "46.08px",
+     "글자색": "rgb(232, 213, 160)",
+     "배경": "rgb(5, 5, 8)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.5,
+     "기준": 3,
+     "텍스트": "Eternal Beam 아카이브 전체",
+     "크기": "24px",
+     "글자색": "rgb(23, 25, 35)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 7.32,
+     "기준": 4.5,
+     "텍스트": "Soul Trace, App, Device, Archi",
+     "크기": "13px",
+     "글자색": "rgb(85, 86, 91)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 21,
+     "기준": 4.5,
+     "텍스트": "LETTER 자세히 보기",
+     "크기": "16px",
+     "글자색": "rgb(0, 0, 0)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 15.26,
+     "기준": 3,
+     "텍스트": "CONTACT",
+     "크기": "56px",
+     "글자색": "rgb(243, 234, 214)",
+     "배경": "rgb(26, 20, 14)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.24,
+     "기준": 3,
+     "텍스트": "기억을 간직하는 자리",
+     "크기": "201.6px",
+     "글자색": "rgb(24, 28, 24)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.24,
+     "기준": 4.5,
+     "텍스트": "아래로 내리면 기기의 빛이 천천히 꺼집니다. 거실 소파",
+     "크기": "16px",
+     "글자색": "rgb(24, 28, 24)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 13.3,
+     "기준": 4.5,
+     "텍스트": "HOME IS A LITTLE CLOSER.",
+     "크기": "10px",
+     "글자색": "rgb(38, 51, 34)",
+     "배경": "rgb(255, 255, 255)"
+    }
+   ],
+   "T12": {
+    "더미링크": [],
+    "깨진앵커": [],
+    "상태": [
+     {
+      "링크": "/",
+      "코드": 200,
+      "판정": "✅"
+     },
+     {
+      "링크": "/privacy.html",
+      "코드": 200,
+      "판정": "✅"
+     }
+    ],
+    "외부": []
+   },
+   "T9_합성": [
+    {
+     "테스트": "일반 마우스 1칸 (deltaY 100)",
+     "총이동px": 825,
+     "반응시작ms": 98,
+     "90%도달ms": 1430,
+     "멈춤ms": 1562,
+     "끝에닿음": ""
+    },
+    {
+     "테스트": "마우스 3칸 연속 (100×3, 60ms 간격)",
+     "총이동px": 1115,
+     "반응시작ms": 9,
+     "90%도달ms": 1436,
+     "멈춤ms": 1510,
+     "끝에닿음": ""
+    },
+    {
+     "테스트": "Firefox 줄 단위 1칸 (deltaMode 1, 3줄)",
+     "총이동px": 1230,
+     "반응시작ms": 17,
+     "90%도달ms": 1437,
+     "멈춤ms": 1553,
+     "끝에닿음": ""
+    },
+    {
+     "테스트": "트랙패드 플릭 (감쇠하는 작은 delta 30회)",
+     "총이동px": 638,
+     "반응시작ms": 24,
+     "90%도달ms": 746,
+     "멈춤ms": 831,
+     "끝에닿음": ""
+    },
+    {
+     "테스트": "고해상도 휠 (deltaY 4 × 25회)",
+     "총이동px": 706,
+     "반응시작ms": 258,
+     "90%도달ms": 1365,
+     "멈춤ms": 1527,
+     "끝에닿음": ""
+    }
+   ],
+   "T9_실제휠": [
+    {
+     "테스트": "실제휠 1칸 (100)",
+     "총이동px": 1466,
+     "반응시작ms": 113,
+     "90%도달ms": 2014,
+     "멈춤ms": 2095
+    },
+    {
+     "테스트": "실제휠 3칸 연속 (100×3, 60ms)",
+     "총이동px": 1979,
+     "반응시작ms": 184,
+     "90%도달ms": 2282,
+     "멈춤ms": 2561
+    },
+    {
+     "테스트": "실제휠 고해상도 (4×25, 8ms)",
+     "총이동px": 5560,
+     "반응시작ms": 339,
+     "90%도달ms": 7755,
+     "멈춤ms": 8471
+    },
+    {
+     "테스트": "실제휠 트랙패드 플릭 (감쇠 30회)",
+     "총이동px": 5560,
+     "반응시작ms": 450,
+     "90%도달ms": 7837,
+     "멈춤ms": 8564
+    }
+   ],
+   "T10": {
+    "추정주사율Hz": 10,
+    "평균fps": 8.7,
+    "p95프레임ms": 183.3,
+    "최악프레임ms": 300.1,
+    "끊긴프레임수": 9,
+    "총프레임": 53
+   },
+   "T5": {
+    "imgs": [
+     {
+      "파일": "eternal-beam-mark.png",
+      "표시": "148×10",
+      "원본": "1400×99",
+      "판정": "⚠️ 과대 (필요 약 148px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "Eternal Beam",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "idle.png",
+      "표시": "66×66",
+      "원본": "1254×1254",
+      "판정": "⚠️ 과대 (필요 약 66px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "beam-device-1920x1080.png",
+      "표시": "9201×5176",
+      "원본": "1920×1080",
+      "판정": "⚠️ 흐림 가능 (필요 약 9201px)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "Eternal Beam 홀로그램 기기",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "high"
+     },
+     {
+      "파일": "eternal-beam-mark.png",
+      "표시": "362×207",
+      "원본": "1400×99",
+      "판정": "⚠️ 과대 (필요 약 362px)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "Eternal Beam",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "idle.png",
+      "표시": "230×230",
+      "원본": "1254×1254",
+      "판정": "⚠️ 과대 (필요 약 230px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "photo-shaft.jpg",
+      "표시": "3349×3603",
+      "원본": "1024×682",
+      "판정": "⚠️ 흐림 가능 (필요 약 3349px)",
+      "왜곡": "-",
+      "objectFit": "cover",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "landing-sofa-empty-v2.webp",
+      "표시": "1599×900",
+      "원본": "1672×941",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "landing-sofa-empty-v2.webp",
+      "표시": "1599×900",
+      "원본": "1672×941",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "photocard-insert-a.png",
+      "표시": "0×0",
+      "원본": "724×1158",
+      "판정": "숨김",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "goya-tada.png",
+      "표시": "289×450",
+      "원본": "698×1086",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "strip.webp",
+      "표시": "8640×720",
+      "원본": "10644×887",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "note.webp",
+      "표시": "0×0",
+      "원본": "116×200",
+      "판정": "숨김",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "present.png",
+      "표시": "279×279",
+      "원본": "1254×1254",
+      "판정": "⚠️ 과대 (필요 약 279px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "present.png",
+      "표시": "279×279",
+      "원본": "1254×1254",
+      "판정": "⚠️ 과대 (필요 약 279px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "table2_fg.webp",
+      "표시": "390×310",
+      "원본": "480×382",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "table_fg.webp",
+      "표시": "451×252",
+      "원본": "555×310",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "table-empty-clean.webp",
+      "표시": "0×0",
+      "원본": "0×0",
+      "판정": "미로딩(lazy일 수 있음, 스크롤 후 재실행)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "lazy",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "table-clean-1671.webp",
+      "표시": "1440×811",
+      "원본": "0×0",
+      "판정": "미로딩(lazy일 수 있음, 스크롤 후 재실행)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "위에서 내려다본 아카이브 탁자. 편지",
+      "크기속성": "O",
+      "loading": "lazy",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "paperweight.webp",
+      "표시": "73×74",
+      "원본": "85×86",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "sit.png",
+      "표시": "430×417",
+      "원본": "1254×1254",
+      "판정": "⚠️ 과대 (필요 약 430px)",
+      "왜곡": "❌ 비율 왜곡",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "archive-drawers.webp",
+      "표시": "979×824",
+      "원본": "535×682",
+      "판정": "⚠️ 흐림 가능 (필요 약 979px)",
+      "왜곡": "-",
+      "objectFit": "cover",
+      "alt": "Eternal Beam archive",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "goya-letter-search.png",
+      "표시": "461×461",
+      "원본": "1056×1056",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "letter-sheet.png",
+      "표시": "353×556",
+      "원본": "650×985",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "cover",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "living-room-clean-v1.webp",
+      "표시": "1440×810",
+      "원본": "0×0",
+      "판정": "미로딩(lazy일 수 있음, 스크롤 후 재실행)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "lazy",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "goya-girl-buddy.png",
+      "표시": "249×406",
+      "원본": "663×1090",
+      "판정": "⚠️ 과대 (필요 약 249px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "goya-holo-quad.png",
+      "표시": "76×62",
+      "원본": "696×891",
+      "판정": "⚠️ 과대 (필요 약 76px)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "beam-device-1920x1080.png",
+      "표시": "1600×900",
+      "원본": "1920×1080",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "",
+      "표시": "0×0",
+      "원본": "0×0",
+      "판정": "미로딩(lazy일 수 있음, 스크롤 후 재실행)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "idle.png",
+      "표시": "1254×1254",
+      "원본": "1254×1254",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "",
+      "표시": "1254×1254",
+      "원본": "0×0",
+      "판정": "미로딩(lazy일 수 있음, 스크롤 후 재실행)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     }
+    ],
+    "bgs": [
+     "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulen",
+     "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1672' height='941'><rect width='100%' height",
+     "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulen"
+    ]
+   },
+   "T7_끝까지": {
+    "LCP": [
+     {
+      "ms": 424,
+      "요소": "button.motion-toggle",
+      "url": ""
+     },
+     {
+      "ms": 2532,
+      "요소": "span.hero-vintage__logo",
+      "url": ""
+     }
+    ],
+    "CLS누적": 0.28496682098765436,
+    "레이아웃이동": [
+     {
+      "값": 0.0109,
+      "ms": 65752,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0216,
+      "ms": 65787,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0308,
+      "ms": 65822,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0384,
+      "ms": 65857,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0415,
+      "ms": 65893,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0409,
+      "ms": 65926,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0354,
+      "ms": 65957,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0274,
+      "ms": 65989,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0187,
+      "ms": 66020,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0108,
+      "ms": 66050,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0037,
+      "ms": 66078,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0034,
+      "ms": 66104,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0009,
+      "ms": 66127,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0005,
+      "ms": 66147,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0001,
+      "ms": 66167,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0,
+      "ms": 66189,
+      "요소": "div.sofa-journey__cushion"
+     }
+    ],
+    "긴프레임": [
+     {
+      "ms": 150,
+      "차단ms": 53,
+      "스크립트": ""
+     },
+     {
+      "ms": 277,
+      "차단ms": 144,
+      "스크립트": "app.js?v=eternal-beam-r91 http://127.0.0.1:18768/app.js?v=eternal-beam-r91 | about-walk.js?v=eternal-beam-r98 http://127.0.0.1:18768/about-walk.js?v=eternal-beam-r98 | journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 131,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 140,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 139,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 124,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 130,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 128,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 121,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 125,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 118,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 101,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 127,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 111,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 108,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 208,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 108,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 113,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 110,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 109,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 111,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 116,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 107,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 107,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 100,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 100,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 100,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 203,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 101,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 206,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 101,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 101,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 107,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 107,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 108,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 108,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 114,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 208,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 107,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 123,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 109,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 101,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": "nav-shelf.js?v=eb-20260912 Promise.resolve"
+     },
+     {
+      "ms": 101,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 113,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 107,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 107,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 107,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 118,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 109,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 204,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 109,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": " PerformanceObserverCallback"
+     },
+     {
+      "ms": 115,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 199,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 123,
+      "차단ms": 0,
+      "스크립트": "journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 115,
+      "차단ms": 0,
+      "스크립트": "journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 188,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 115,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 186,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 162,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 144,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 139,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 132,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 344,
+      "차단ms": 0,
+      "스크립트": "hero-original.js?v=eternal-beam-r25 holdOpening"
+     },
+     {
+      "ms": 146,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 161,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 126,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 127,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 163,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 118,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 108,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 108,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 111,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 107,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 159,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 160,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 110,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 114,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 262,
+      "차단ms": 0,
+      "스크립트": "journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 159,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 148,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 178,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 137,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 135,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 113,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 157,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 306,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 156,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 138,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 145,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 137,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 126,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 120,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 252,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 109,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 164,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 111,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 193,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 119,
+      "차단ms": 0,
+      "스크립트": "hero-original.js?v=eternal-beam-r25 holdOpening | app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 112,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 116,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 109,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 220,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 113,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 143,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick | journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": "hero-original.js?v=eternal-beam-r25 holdOpening | app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 119,
+      "차단ms": 68,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 179,
+      "차단ms": 0,
+      "스크립트": "journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 180,
+      "차단ms": 0,
+      "스크립트": "journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 151,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 200,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 159,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 160,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 132,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 170,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 306,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 137,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 124,
+      "차단ms": 0,
+      "스크립트": "journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 119,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 135,
+      "차단ms": 0,
+      "스크립트": "hero-original.js?v=eternal-beam-r25 holdOpening | app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 109,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 110,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 167,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 176,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 106,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 155,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 200,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 115,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 101,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 148,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 166,
+      "차단ms": 0,
+      "스크립트": "journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 147,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 167,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 169,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 297,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 113,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 130,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 164,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 163,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 140,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 131,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 121,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 120,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 129,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 117,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 120,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick | journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 104,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 158,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 191,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 161,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 162,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 157,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 302,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 134,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 145,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 127,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 298,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 147,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 116,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 131,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 123,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 112,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 115,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 126,
+      "차단ms": 0,
+      "스크립트": "scroll-cue.js?v=scroll-cue-r6.h255f18f1 update"
+     },
+     {
+      "ms": 108,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 177,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 164,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 166,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 103,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": ""
+     },
+     {
+      "ms": 173,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 102,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 193,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 188,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 173,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     },
+     {
+      "ms": 105,
+      "차단ms": 0,
+      "스크립트": "app.js?v=eternal-beam-r91 tick"
+     }
+    ],
+    "느린상호작용": [
+     {
+      "이벤트": "pointerover",
+      "ms": 248,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 248,
+      "대상": "#document"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 248,
+      "대상": "html"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 248,
+      "대상": "body"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 248,
+      "대상": "main"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 248,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 248,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 248,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 248,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 352,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 352,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 352,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 352,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 352,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 352,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 352,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 352,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 352,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 352,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 352,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 352,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 352,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 352,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 352,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 352,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 352,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 352,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 424,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 424,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 424,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 424,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 424,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 424,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 424,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 424,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 424,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 320,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 320,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 320,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 320,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 320,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 320,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 320,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 320,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 320,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 400,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 400,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 400,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 400,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 400,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 400,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 400,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 400,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 400,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 272,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 272,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 272,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 272,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 272,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 272,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 272,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 272,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 272,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 344,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 344,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 344,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 344,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 344,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 344,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 344,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 344,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 344,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 464,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 464,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 464,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 464,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 464,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 464,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 464,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 464,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 464,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 360,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 360,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 360,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 360,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 360,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 360,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 360,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 360,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 360,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 504,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 504,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 504,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 504,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 504,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 504,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 504,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 504,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 504,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 472,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 472,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 472,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 472,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 472,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 472,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 472,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 472,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 472,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 464,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 464,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 464,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 464,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 464,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 464,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 464,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 464,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 464,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 312,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 312,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 312,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 312,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 312,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 312,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 312,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 312,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 312,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 408,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 408,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 408,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 408,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 408,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 408,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 408,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 408,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 408,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 368,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 368,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 368,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 368,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 368,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 368,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 368,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 368,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 368,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerout",
+      "ms": 392,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 392,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 392,
+      "대상": "div.hero-original__stage"
+     },
+     {
+      "이벤트": "pointerleave",
+      "ms": 392,
+      "대상": "section#home.hero"
+     },
+     {
+      "이벤트": "pointerover",
+      "ms": 392,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 392,
+      "대상": "section#drop.drop-runway"
+     },
+     {
+      "이벤트": "pointerenter",
+      "ms": 392,
+      "대상": "div.drop-stage"
+     },
+     {
+      "이벤트": "mouseout",
+      "ms": 392,
+      "대상": "div.hero-original__tv"
+     },
+     {
+      "이벤트": "mouseover",
+      "ms": 392,
+      "대상": "div.drop-stage"
+     }
+    ]
+   },
+   "가로넘침_문서": 0,
+   "문서높이": 30822,
+   "콘솔에러": [
+    "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED",
+    "Failed to load resource: net::ERR_CONNECTION_RESET"
+   ],
+   "페이지에러": [],
+   "실패요청": [
+    "net::ERR_TUNNEL_CONNECTION_FAILED https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css",
+    "net::ERR_CONNECTION_RESET https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Archivo+Black&family=Big+Shoulders+Display:wght@900&family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Text:ital@0;1&family=Space+Grotesk:wght@700&display=swap",
+    "net::ERR_ABORTED http://127.0.0.1:18768/",
+    "net::ERR_ABORTED http://127.0.0.1:18768/privacy.html",
+    "net::ERR_ABORTED http://127.0.0.1:18768/sofa-journey/assets/bg/photo-shaft-fall.webm?v=eternal-beam-r96"
+   ]
+  },
+  "390x844": {
+   "T7_초기": {
+    "로딩": {
+     "TTFB_ms": 3,
+     "DOMContentLoaded_ms": 402,
+     "load_ms": 12551,
+     "HTML_KB": 30
+    },
+    "큰리소스": [
+     {
+      "파일": "goya-fall-surprise.png",
+      "종류": "img",
+      "KB": 1774,
+      "ms": 84
+     },
+     {
+      "파일": "goya-fall-flail.png",
+      "종류": "img",
+      "KB": 1774,
+      "ms": 297
+     },
+     {
+      "파일": "goya-fall-mid.png",
+      "종류": "img",
+      "KB": 1774,
+      "ms": 298
+     },
+     {
+      "파일": "goya-fall-tuck.png",
+      "종류": "img",
+      "KB": 1774,
+      "ms": 308
+     },
+     {
+      "파일": "sit.png",
+      "종류": "img",
+      "KB": 1443,
+      "ms": 83
+     },
+     {
+      "파일": "sit.png",
+      "종류": "img",
+      "KB": 1443,
+      "ms": 226
+     },
+     {
+      "파일": "photocard-insert-a.png",
+      "종류": "img",
+      "KB": 1256,
+      "ms": 62
+     },
+     {
+      "파일": "three.module.js",
+      "종류": "script",
+      "KB": 1192,
+      "ms": 10
+     },
+     {
+      "파일": "walk1.png",
+      "종류": "image",
+      "KB": 1102,
+      "ms": 177
+     },
+     {
+      "파일": "walk1.png",
+      "종류": "img",
+      "KB": 1102,
+      "ms": 270
+     },
+     {
+      "파일": "lookup.png",
+      "종류": "img",
+      "KB": 1097,
+      "ms": 239
+     },
+     {
+      "파일": "point.png",
+      "종류": "img",
+      "KB": 1097,
+      "ms": 236
+     },
+     {
+      "파일": "archive.png",
+      "종류": "img",
+      "KB": 1093,
+      "ms": 312
+     },
+     {
+      "파일": "usher.png",
+      "종류": "img",
+      "KB": 1090,
+      "ms": 303
+     },
+     {
+      "파일": "idle.png",
+      "종류": "img",
+      "KB": 1061,
+      "ms": 80
+     }
+    ]
+   },
+   "T1": {
+    "URL": "http://127.0.0.1:18768/",
+    "뷰포트": "390×844",
+    "스크롤바폭": 0,
+    "DPR": 2,
+    "정밀포인터_hover": false,
+    "터치포인터존재": true,
+    "reducedMotion": false,
+    "다크모드": false,
+    "Lenis": false,
+    "Lenis클래스": "-",
+    "Locomotive_v4": false,
+    "GSAP": "-",
+    "ScrollTrigger개수": "-",
+    "ScrollSmoother": false,
+    "Three": "-",
+    "프레임워크": "-",
+    "CSS_scrollBehavior": "smooth",
+    "CSS_scrollSnap": "none",
+    "scrollRestoration": "manual",
+    "html_overflow": "visible/visible",
+    "body_overflow": "clip/visible",
+    "viewportMeta": "width=device-width,initial-scale=1",
+    "lang": "ko",
+    "colorScheme": "light",
+    "iframe": 1,
+    "video": 1,
+    "canvas": 3,
+    "문서높이": 25148
+   },
+   "T2": {
+    "가로스크롤px": 0,
+    "rows": [
+     {
+      "요소": "img.nav-mascot",
+      "left": 416,
+      "right": 469,
+      "넘침px": 79,
+      "상황": "고정요소(fixed) 내부"
+     },
+     {
+      "요소": "div.hero-original__tv",
+      "left": -555,
+      "right": 945,
+      "넘침px": 555,
+      "상황": "부모에서 잘림: div.hero-original__stage"
+     },
+     {
+      "요소": "img.hero-original__housing",
+      "left": -555,
+      "right": 945,
+      "넘침px": 555,
+      "상황": "부모에서 잘림: div.hero-original__stage"
+     },
+     {
+      "요소": "span.hero-original__portal-underlay",
+      "left": 383,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: div.hero-original__stage"
+     },
+     {
+      "요소": "section.hero-original__broadcast",
+      "left": 383,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: div.hero-original__stage"
+     },
+     {
+      "요소": "canvas.hero-original__power-noise",
+      "left": 383,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "span.hero-original__scanlines",
+      "left": 383,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "span.hero-original__glare",
+      "left": 383,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "span.hero-original__interior-wash",
+      "left": 382,
+      "right": 695,
+      "넘침px": 305,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "span.hero-original__orbit",
+      "left": 563,
+      "right": 669,
+      "넘침px": 279,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "i",
+      "left": 682,
+      "right": 686,
+      "넘침px": 296,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "i",
+      "left": 582,
+      "right": 588,
+      "넘침px": 198,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "i",
+      "left": 582,
+      "right": 588,
+      "넘침px": 198,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "header.hero-original__station-head",
+      "left": 383,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "span.hero-original__brand",
+      "left": 383,
+      "right": 420,
+      "넘침px": 30,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "img",
+      "left": 383,
+      "right": 420,
+      "넘침px": 30,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "p",
+      "left": 501,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "i",
+      "left": 501,
+      "right": 506,
+      "넘침px": 116,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "small",
+      "left": 610,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "section.hero-original__program",
+      "left": 383,
+      "right": 656,
+      "넘침px": 266,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "p.hero-original__kicker",
+      "left": 383,
+      "right": 656,
+      "넘침px": 266,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "h2.hero-original__title",
+      "left": 383,
+      "right": 656,
+      "넘침px": 266,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "p.hero-original__body",
+      "left": 383,
+      "right": 656,
+      "넘침px": 266,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "p.hero-original__program-index",
+      "left": 383,
+      "right": 656,
+      "넘침px": 266,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "nav.hero-original__channels",
+      "left": 383,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "button.hero-original__channel.is-selected",
+      "left": 384,
+      "right": 461,
+      "넘침px": 71,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "small",
+      "left": 389,
+      "right": 455,
+      "넘침px": 65,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "strong",
+      "left": 389,
+      "right": 455,
+      "넘침px": 65,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "button.hero-original__channel",
+      "left": 461,
+      "right": 538,
+      "넘침px": 148,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "small",
+      "left": 466,
+      "right": 532,
+      "넘침px": 142,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "strong",
+      "left": 466,
+      "right": 532,
+      "넘침px": 142,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "button.hero-original__channel",
+      "left": 538,
+      "right": 615,
+      "넘침px": 225,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "small",
+      "left": 543,
+      "right": 609,
+      "넘침px": 219,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "strong",
+      "left": 543,
+      "right": 609,
+      "넘침px": 219,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "button.hero-original__channel",
+      "left": 615,
+      "right": 693,
+      "넘침px": 303,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "small",
+      "left": 620,
+      "right": 688,
+      "넘침px": 298,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "strong",
+      "left": 620,
+      "right": 688,
+      "넘침px": 298,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "footer.hero-original__foot",
+      "left": 383,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "button.hero-original__replay",
+      "left": 599,
+      "right": 694,
+      "넘침px": 304,
+      "상황": "부모에서 잘림: section.hero-original__broadcast"
+     },
+     {
+      "요소": "div.sofa-journey__hx-spin",
+      "left": -26,
+      "right": 416,
+      "넘침px": 26,
+      "상황": "부모에서 잘림: div.sofa-journey__hx"
+     },
+     {
+      "요소": "img.sofa-journey__hx-still",
+      "left": -26,
+      "right": 416,
+      "넘침px": 26,
+      "상황": "부모에서 잘림: div.sofa-journey__hx"
+     },
+     {
+      "요소": "video.sofa-journey__hx-video",
+      "left": -26,
+      "right": 416,
+      "넘침px": 26,
+      "상황": "부모에서 잘림: div.sofa-journey__hx"
+     },
+     {
+      "요소": "div.sofa-journey__landing",
+      "left": -555,
+      "right": 945,
+      "넘침px": 555,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "img.sofa-journey__bg",
+      "left": -555,
+      "right": 945,
+      "넘침px": 555,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "p.sofa-journey__moment",
+      "left": 225,
+      "right": 765,
+      "넘침px": 375,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "div.sofa-journey__cushion",
+      "left": -555,
+      "right": 945,
+      "넘침px": 555,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "img",
+      "left": -555,
+      "right": 945,
+      "넘침px": 555,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "img.sofa-journey__sit.sofa-journey__goya",
+      "left": 48,
+      "right": 437,
+      "넘침px": 47,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "i.sofa-journey__grain",
+      "left": -81,
+      "right": 465,
+      "넘침px": 81,
+      "상황": "부모에서 잘림: div.signal-passage.sofa-journey.sofa-journey--shaft"
+     },
+     {
+      "요소": "div.about-sr-summary",
+      "left": -1,
+      "right": 0,
+      "넘침px": 1,
+      "상황": "부모에서 잘림: section#about.about-runway.about-walk"
+     },
+     {
+      "요소": "h2",
+      "left": -1,
+      "right": 0,
+      "넘침px": 1,
+      "상황": "부모에서 잘림: div.about-sr-summary"
+     },
+     {
+      "요소": "ul",
+      "left": -1,
+      "right": 39,
+      "넘침px": 1,
+      "상황": "부모에서 잘림: div.about-sr-summary"
+     },
+     {
+      "요소": "img.about-walk__strip",
+      "left": 0,
+      "right": 4254,
+      "넘침px": 3864,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.studio-track",
+      "left": 0,
+      "right": 2730,
+      "넘침px": 2340,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "article.studio-station.station-plan.station-goldpage",
+      "left": 390,
+      "right": 780,
+      "넘침px": 390,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 414,
+      "right": 704,
+      "넘침px": 314,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 414,
+      "right": 510,
+      "넘침px": 120,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 414,
+      "right": 704,
+      "넘침px": 314,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 414,
+      "right": 655,
+      "넘침px": 265,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 414,
+      "right": 655,
+      "넘침px": 265,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 414,
+      "right": 655,
+      "넘침px": 265,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 406,
+      "right": 764,
+      "넘침px": 374,
+      "상황": "부모에서 잘림: article.studio-station.station-plan.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 422,
+      "right": 748,
+      "넘침px": 358,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 422,
+      "right": 748,
+      "넘침px": 358,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 422,
+      "right": 748,
+      "넘침px": 358,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 422,
+      "right": 748,
+      "넘침px": 358,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 422,
+      "right": 748,
+      "넘침px": 358,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-space.station-goldpage",
+      "left": 780,
+      "right": 1170,
+      "넘침px": 780,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 804,
+      "right": 1094,
+      "넘침px": 704,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 804,
+      "right": 917,
+      "넘침px": 527,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 804,
+      "right": 1094,
+      "넘침px": 704,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 804,
+      "right": 1074,
+      "넘침px": 684,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 804,
+      "right": 1074,
+      "넘침px": 684,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 804,
+      "right": 1074,
+      "넘침px": 684,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 796,
+      "right": 1154,
+      "넘침px": 764,
+      "상황": "부모에서 잘림: article.studio-station.station-space.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 812,
+      "right": 1138,
+      "넘침px": 748,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 812,
+      "right": 1138,
+      "넘침px": 748,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 812,
+      "right": 1138,
+      "넘침px": 748,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 812,
+      "right": 1138,
+      "넘침px": 748,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 812,
+      "right": 1138,
+      "넘침px": 748,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-creative.station-goldpage",
+      "left": 1170,
+      "right": 1560,
+      "넘침px": 1170,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 1194,
+      "right": 1484,
+      "넘침px": 1094,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 1194,
+      "right": 1402,
+      "넘침px": 1012,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 1194,
+      "right": 1484,
+      "넘침px": 1094,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 1194,
+      "right": 1447,
+      "넘침px": 1057,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 1194,
+      "right": 1447,
+      "넘침px": 1057,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 1194,
+      "right": 1447,
+      "넘침px": 1057,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 1186,
+      "right": 1544,
+      "넘침px": 1154,
+      "상황": "부모에서 잘림: article.studio-station.station-creative.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 1202,
+      "right": 1528,
+      "넘침px": 1138,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 1202,
+      "right": 1528,
+      "넘침px": 1138,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 1202,
+      "right": 1528,
+      "넘침px": 1138,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 1202,
+      "right": 1528,
+      "넘침px": 1138,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 1202,
+      "right": 1528,
+      "넘침px": 1138,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-product.station-goldpage",
+      "left": 1560,
+      "right": 1950,
+      "넘침px": 1560,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 1584,
+      "right": 1874,
+      "넘침px": 1484,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 1584,
+      "right": 1683,
+      "넘침px": 1293,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 1584,
+      "right": 1874,
+      "넘침px": 1484,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 1584,
+      "right": 1778,
+      "넘침px": 1388,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 1584,
+      "right": 1778,
+      "넘침px": 1388,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 1584,
+      "right": 1778,
+      "넘침px": 1388,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 1576,
+      "right": 1934,
+      "넘침px": 1544,
+      "상황": "부모에서 잘림: article.studio-station.station-product.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 1592,
+      "right": 1918,
+      "넘침px": 1528,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 1592,
+      "right": 1918,
+      "넘침px": 1528,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 1592,
+      "right": 1918,
+      "넘침px": 1528,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 1592,
+      "right": 1918,
+      "넘침px": 1528,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 1592,
+      "right": 1918,
+      "넘침px": 1528,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-event.station-goldpage",
+      "left": 1950,
+      "right": 2340,
+      "넘침px": 1950,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy.station-copy--head",
+      "left": 1974,
+      "right": 2264,
+      "넘침px": 1874,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 1974,
+      "right": 2081,
+      "넘침px": 1691,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "h3",
+      "left": 1974,
+      "right": 2264,
+      "넘침px": 1874,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "div.station-copy.station-copy--foot",
+      "left": 1974,
+      "right": 2244,
+      "넘침px": 1854,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 1974,
+      "right": 2244,
+      "넘침px": 1854,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 1974,
+      "right": 2244,
+      "넘침px": 1854,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "aside.beam-gold",
+      "left": 1966,
+      "right": 2324,
+      "넘침px": 1934,
+      "상황": "부모에서 잘림: article.studio-station.station-event.station-goldpage"
+     },
+     {
+      "요소": "span.beam-gold__kicker",
+      "left": 1982,
+      "right": 2308,
+      "넘침px": 1918,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "span.beam-gold__kicker-ko",
+      "left": 1982,
+      "right": 2308,
+      "넘침px": 1918,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p.beam-gold__lead",
+      "left": 1982,
+      "right": 2308,
+      "넘침px": 1918,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "div.beam-gold__body",
+      "left": 1982,
+      "right": 2308,
+      "넘침px": 1918,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "p",
+      "left": 1982,
+      "right": 2308,
+      "넘침px": 1918,
+      "상황": "부모에서 잘림: aside.beam-gold"
+     },
+     {
+      "요소": "article.studio-station.station-exit",
+      "left": 2340,
+      "right": 2730,
+      "넘침px": 2340,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "div.station-copy",
+      "left": 2364,
+      "right": 2654,
+      "넘침px": 2264,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "span.eyebrow",
+      "left": 2364,
+      "right": 2432,
+      "넘침px": 2042,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "h3",
+      "left": 2364,
+      "right": 2654,
+      "넘침px": 2264,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "p",
+      "left": 2364,
+      "right": 2634,
+      "넘침px": 2244,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "p.service-en",
+      "left": 2364,
+      "right": 2634,
+      "넘침px": 2244,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "p.service-scope",
+      "left": 2364,
+      "right": 2634,
+      "넘침px": 2244,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "img.about-walk__fg",
+      "left": 3188,
+      "right": 3379,
+      "넘침px": 2989,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "img.about-walk__fg",
+      "left": 3952,
+      "right": 4174,
+      "넘침px": 3784,
+      "상황": "부모에서 잘림: div.about-camera"
+     },
+     {
+      "요소": "h2#original-title.original-table__accessible",
+      "left": -1,
+      "right": 0,
+      "넘침px": 1,
+      "상황": "❌ 잘리지 않음"
+     },
+     {
+      "요소": "div.original-table__scene",
+      "left": 0,
+      "right": 404,
+      "넘침px": 14,
+      "상황": "부모에서 잘림: div.original-table__viewport"
+     },
+     {
+      "요소": "img.original-table__image",
+      "left": 0,
+      "right": 404,
+      "넘침px": 14,
+      "상황": "부모에서 잘림: div.original-table__scene"
+     },
+     {
+      "요소": "div#original-folios.original-table__works",
+      "left": 0,
+      "right": 404,
+      "넘침px": 14,
+      "상황": "부모에서 잘림: div.original-table__scene"
+     },
+     {
+      "요소": "input.hp",
+      "left": -9945,
+      "right": -9730,
+      "넘침px": 9945,
+      "상황": "부모에서 잘림: div#ctl-paper.paper"
+     },
+     {
+      "요소": "img",
+      "left": -322,
+      "right": 422,
+      "넘침px": 322,
+      "상황": "부모에서 잘림: div.ending-home-match"
+     },
+     {
+      "요소": "i.signal-veil__grain",
+      "left": -12,
+      "right": 378,
+      "넘침px": 12,
+      "상황": "고정요소(fixed) 내부"
+     }
+    ]
+   },
+   "T3": {
+    "글꼴조합": [
+     {
+      "값": "Cinzel 24.96px/22.9632px w400 자간 2.496px",
+      "개수": 32
+     },
+     {
+      "값": "Cinzel 16px/24px w400 자간 normal",
+      "개수": 16
+     },
+     {
+      "값": "Pretendard Variable 12px/18px w400 자간 normal",
+      "개수": 7
+     },
+     {
+      "값": "Pretendard Variable 12px/normal w400 자간 normal",
+      "개수": 7
+     },
+     {
+      "값": "Cinzel 14px/16.8px w500 자간 2.24px",
+      "개수": 6
+     },
+     {
+      "값": "Cinzel 32px/35.84px w400 자간 -1.28px",
+      "개수": 6
+     },
+     {
+      "값": "Cinzel 11px/18.15px w400 자간 0.165px",
+      "개수": 6
+     },
+     {
+      "값": "Cinzel 13px/13px w500 자간 2.86px",
+      "개수": 6
+     },
+     {
+      "값": "Pretendard Variable 13px/13px w500 자간 1.56px",
+      "개수": 6
+     },
+     {
+      "값": "Pretendard Variable 18px/24.3px w500 자간 -0.36px",
+      "개수": 6
+     },
+     {
+      "값": "Pretendard Variable 11px/normal w400 자간 normal",
+      "개수": 6
+     },
+     {
+      "값": "Cinzel 13px/18.85px w500 자간 1.56px",
+      "개수": 5
+     },
+     {
+      "값": "Cinzel 11px/normal w500 자간 1.54px",
+      "개수": 5
+     },
+     {
+      "값": "Cinzel 11px/normal w500 자간 0.66px",
+      "개수": 5
+     },
+     {
+      "값": "Cinzel 10.53px/10.53px w500 자간 0.4212px",
+      "개수": 4
+     },
+     {
+      "값": "Cinzel 9px/9px w600 자간 0.9px",
+      "개수": 4
+     },
+     {
+      "값": "Cinzel 11px/11px w600 자간 0.22px",
+      "개수": 4
+     },
+     {
+      "값": "Cinzel 10px/17px w400 자간 0.5px",
+      "개수": 4
+     },
+     {
+      "값": "Cinzel 8px/11.2px w700 자간 1.2px",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 115.2px/80.64px w900 자간 -11.52px",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 10px/10px w600 자간 1.1px",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 24px/36px w700 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 13px/18.98px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 11px/16.5px w400 자간 0.495px",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 22px/33px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 10.5px/normal w500 자간 1.05px",
+      "개수": 2
+     },
+     {
+      "값": "IBM Plex Mono 10px/normal w500 자간 0.8px",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 10px/17px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 9px/10.8px w700 자간 0.72px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 8px/9.6px w700 자간 0.96px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 9px/9px w700 자간 1.26px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 29.25px/23.1075px w900 자간 -2.0475px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 12px/15.36px w700 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 8px/8px w600 자간 0.96px",
+      "개수": 1
+     },
+     {
+      "값": "Archivo Black 38.4px/31.488px w900 자간 -2.304px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 32px/48px w700 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 8px/12.4px w400 자간 0.8px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 13px/13px w500 자간 2.34px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 16.38px/19.3284px w600 자간 1.638px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 11px/13.2px w500 자간 0.66px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 11px/15.18px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 36px/35.28px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 13px/19.5px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 11px/19.8px w400 자간 0.165px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 8px/8px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 10px/15px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 10px/14px w400 자간 0.8px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 24px/24px w500 자간 1.44px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 11px/14.3px w400 자간 0.88px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 31.2px/28.08px w500 자간 7.488px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 13px/normal w500 자간 2.08px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 13px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 13.756px/normal w500 자간 3.02632px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 11.6926px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 12px/normal w500 자간 1.68px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 16px/24px w500 자간 1.92px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 13px/21.45px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 13px/20.8px w400 자간 0.52px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 70.2px/66.69px w400 자간 -5.265px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 42px/37.8px w400 자간 6.72px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 27px/45.9px w500 자간 0.8px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/normal w400 자간 0.9px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 12px/normal w500 자간 0.96px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 10px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 12px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 13px/22.1px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 12px/16.8px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 24px/24px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/10px w500 자간 2.4px",
+      "개수": 1
+     }
+    ],
+    "글자크기": [
+     {
+      "값": "11px",
+      "개수": 32
+     },
+     {
+      "값": "24.96px",
+      "개수": 32
+     },
+     {
+      "값": "13px",
+      "개수": 26
+     },
+     {
+      "값": "12px",
+      "개수": 19
+     },
+     {
+      "값": "16px",
+      "개수": 17
+     },
+     {
+      "값": "10px",
+      "개수": 15
+     },
+     {
+      "값": "32px",
+      "개수": 7
+     },
+     {
+      "값": "8px",
+      "개수": 6
+     },
+     {
+      "값": "9px",
+      "개수": 6
+     },
+     {
+      "값": "14px",
+      "개수": 6
+     },
+     {
+      "값": "18px",
+      "개수": 6
+     },
+     {
+      "값": "10.53px",
+      "개수": 4
+     },
+     {
+      "값": "24px",
+      "개수": 4
+     },
+     {
+      "값": "115.2px",
+      "개수": 2
+     },
+     {
+      "값": "22px",
+      "개수": 2
+     },
+     {
+      "값": "10.5px",
+      "개수": 2
+     },
+     {
+      "값": "29.25px",
+      "개수": 1
+     },
+     {
+      "값": "38.4px",
+      "개수": 1
+     },
+     {
+      "값": "16.38px",
+      "개수": 1
+     },
+     {
+      "값": "36px",
+      "개수": 1
+     },
+     {
+      "값": "31.2px",
+      "개수": 1
+     },
+     {
+      "값": "13.756px",
+      "개수": 1
+     },
+     {
+      "값": "11.6926px",
+      "개수": 1
+     },
+     {
+      "값": "70.2px",
+      "개수": 1
+     },
+     {
+      "값": "42px",
+      "개수": 1
+     },
+     {
+      "값": "27px",
+      "개수": 1
+     }
+    ],
+    "글자색": [
+     {
+      "값": "rgb(23, 25, 35)",
+      "개수": 47
+     },
+     {
+      "값": "rgb(221, 214, 200)",
+      "개수": 32
+     },
+     {
+      "값": "rgb(13, 13, 15)",
+      "개수": 27
+     },
+     {
+      "값": "rgb(85, 86, 91)",
+      "개수": 12
+     },
+     {
+      "값": "rgb(106, 98, 88)",
+      "개수": 10
+     },
+     {
+      "값": "rgb(58, 50, 40)",
+      "개수": 10
+     },
+     {
+      "값": "rgb(180, 170, 137)",
+      "개수": 9
+     },
+     {
+      "값": "rgb(24, 28, 24)",
+      "개수": 9
+     },
+     {
+      "값": "rgb(240, 237, 230)",
+      "개수": 5
+     },
+     {
+      "값": "rgb(243, 234, 214)",
+      "개수": 5
+     },
+     {
+      "값": "rgb(0, 0, 0)",
+      "개수": 4
+     },
+     {
+      "값": "rgb(92, 83, 72)",
+      "개수": 4
+     },
+     {
+      "값": "rgb(111, 112, 119)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(143, 112, 52)",
+      "개수": 3
+     },
+     {
+      "값": "rgba(239, 224, 184, 0.082)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(200, 161, 94)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(240, 232, 212)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(38, 51, 34)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(255, 195, 75)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(244, 239, 228)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(184, 176, 164)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(232, 213, 160)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(165, 166, 170)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(230, 220, 198)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(239, 230, 212)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(255, 255, 255)",
+      "개수": 1
+     }
+    ],
+    "배경색": [
+     {
+      "값": "rgb(255, 255, 255)",
+      "개수": 23
+     },
+     {
+      "값": "rgb(200, 161, 94)",
+      "개수": 5
+     },
+     {
+      "값": "rgba(23, 25, 35, 0.2)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(0, 0, 0)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(17, 18, 13)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(17, 17, 13)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(5, 6, 6)",
+      "개수": 2
+     },
+     {
+      "값": "rgba(239, 224, 184, 0.16)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(240, 232, 212)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(5, 5, 8)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(27, 21, 17, 0.22)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(32, 35, 43)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(214, 215, 219)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(23, 25, 35)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(255, 255, 255, 0.86)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(216, 196, 166)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(26, 20, 14)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(13, 13, 15, 0.28)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(255, 248, 232, 0.42)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(255, 250, 240, 0.35)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(246, 240, 228)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(224, 238, 235)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(239, 224, 184)",
+      "개수": 1
+     }
+    ],
+    "간격": [
+     {
+      "값": "6px",
+      "개수": 44
+     },
+     {
+      "값": "8px",
+      "개수": 41
+     },
+     {
+      "값": "16px",
+      "개수": 33
+     },
+     {
+      "값": "10px",
+      "개수": 19
+     },
+     {
+      "값": "5px",
+      "개수": 18
+     },
+     {
+      "값": "18px",
+      "개수": 18
+     },
+     {
+      "값": "-1px",
+      "개수": 17
+     },
+     {
+      "값": "1px",
+      "개수": 17
+     },
+     {
+      "값": "12px",
+      "개수": 16
+     },
+     {
+      "값": "4px",
+      "개수": 12
+     },
+     {
+      "값": "14px",
+      "개수": 11
+     },
+     {
+      "값": "3px",
+      "개수": 9
+     },
+     {
+      "값": "24px",
+      "개수": 9
+     },
+     {
+      "값": "2px",
+      "개수": 9
+     },
+     {
+      "값": "13px",
+      "개수": 7
+     },
+     {
+      "값": "20px",
+      "개수": 5
+     },
+     {
+      "값": "40px",
+      "개수": 4
+     },
+     {
+      "값": "11px",
+      "개수": 2
+     },
+     {
+      "값": "148px",
+      "개수": 2
+     },
+     {
+      "값": "15.6px",
+      "개수": 2
+     },
+     {
+      "값": "10.4px",
+      "개수": 2
+     },
+     {
+      "값": "4.725px",
+      "개수": 2
+     },
+     {
+      "값": "27.512px",
+      "개수": 2
+     },
+     {
+      "값": "7.5658px",
+      "개수": 2
+     },
+     {
+      "값": "15.4px",
+      "개수": 2
+     },
+     {
+      "값": "7px",
+      "개수": 2
+     },
+     {
+      "값": "32px",
+      "개수": 2
+     },
+     {
+      "값": "3.10938px",
+      "개수": 1
+     },
+     {
+      "값": "8.20312px",
+      "개수": 1
+     },
+     {
+      "값": "5.46875px",
+      "개수": 1
+     },
+     {
+      "값": "6.82812px",
+      "개수": 1
+     },
+     {
+      "값": "19.92px",
+      "개수": 1
+     },
+     {
+      "값": "9.1px",
+      "개수": 1
+     },
+     {
+      "값": "6.5px",
+      "개수": 1
+     },
+     {
+      "값": "28px",
+      "개수": 1
+     }
+    ],
+    "radius": [
+     {
+      "값": "50%",
+      "개수": 19
+     },
+     {
+      "값": "2px",
+      "개수": 8
+     },
+     {
+      "값": "22px",
+      "개수": 6
+     },
+     {
+      "값": "49% 51% 48% 52% / 46% 45% 55% 54%",
+      "개수": 2
+     },
+     {
+      "값": "1px",
+      "개수": 1
+     },
+     {
+      "값": "15% 13% 11% 12%",
+      "개수": 1
+     },
+     {
+      "값": "999px",
+      "개수": 1
+     },
+     {
+      "값": "4% / 6%",
+      "개수": 1
+     }
+    ],
+    "그림자": [
+     {
+      "값": "rgba(255, 233, 176, 0.95) 0px 0px 4px 0px, rgba(200, 161, 94, 0.55) 0px 0px 9px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgba(187, 255, 204, 0.1) 2px 3px 8px 0px inset",
+      "개수": 1
+     },
+     {
+      "값": "rgb(200, 161, 94) 0px 0px 10px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgb(240, 237, 230) 0px -3px 0px 0px inset",
+      "개수": 1
+     },
+     {
+      "값": "rgba(0, 0, 0, 0.25) 0px 0px 0px 1px inset",
+      "개수": 1
+     },
+     {
+      "값": "rgba(240, 232, 212, 0.6) 0px 0px 6px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgb(142, 143, 149) 0px 5px 0px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgb(200, 218, 218) 0px 0px 8px 0px, rgb(183, 221, 211) 0px 0px 28px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgba(0, 0, 0, 0.333) 0px 0px 18px 0px inset",
+      "개수": 1
+     }
+    ],
+    "zIndex": [
+     {
+      "값": "5",
+      "개수": 19
+     },
+     {
+      "값": "1",
+      "개수": 13
+     },
+     {
+      "값": "2",
+      "개수": 11
+     },
+     {
+      "값": "3",
+      "개수": 10
+     },
+     {
+      "값": "10",
+      "개수": 9
+     },
+     {
+      "값": "4",
+      "개수": 7
+     },
+     {
+      "값": "0",
+      "개수": 4
+     },
+     {
+      "값": "7",
+      "개수": 4
+     },
+     {
+      "값": "6",
+      "개수": 3
+     },
+     {
+      "값": "8",
+      "개수": 3
+     },
+     {
+      "값": "9",
+      "개수": 3
+     },
+     {
+      "값": "12",
+      "개수": 2
+     },
+     {
+      "값": "15",
+      "개수": 2
+     },
+     {
+      "값": "30",
+      "개수": 2
+     },
+     {
+      "값": "11",
+      "개수": 1
+     },
+     {
+      "값": "13",
+      "개수": 1
+     },
+     {
+      "값": "14",
+      "개수": 1
+     },
+     {
+      "값": "17",
+      "개수": 1
+     },
+     {
+      "값": "22",
+      "개수": 1
+     },
+     {
+      "값": "40",
+      "개수": 1
+     },
+     {
+      "값": "60",
+      "개수": 1
+     },
+     {
+      "값": "90",
+      "개수": 1
+     },
+     {
+      "값": "1000",
+      "개수": 1
+     },
+     {
+      "값": "-1",
+      "개수": 1
+     }
+    ],
+    "CSS전환": [
+     {
+      "값": "opacity 0.18s",
+      "개수": 16
+     },
+     {
+      "값": "color 0.3s",
+      "개수": 4
+     },
+     {
+      "값": "color, background 0.16s, 0.16s",
+      "개수": 4
+     },
+     {
+      "값": "opacity 0.2s",
+      "개수": 2
+     },
+     {
+      "값": "transform 0.35s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.7s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.34s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.25s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.16s",
+      "개수": 1
+     },
+     {
+      "값": "transform 0.5s",
+      "개수": 1
+     },
+     {
+      "값": "transform 0.16s",
+      "개수": 1
+     },
+     {
+      "값": "opacity, transform 0.45s, 0.45s",
+      "개수": 1
+     }
+    ],
+    "CSS_easing": [
+     {
+      "값": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "개수": 17
+     },
+     {
+      "값": "ease",
+      "개수": 11
+     },
+     {
+      "값": "ease, ease",
+      "개수": 5
+     },
+     {
+      "값": "linear",
+      "개수": 1
+     }
+    ],
+    "실행중애니메이션": [
+     {
+      "대상": "i",
+      "종류": "CSSAnimation",
+      "이름": "eb-a-pass",
+      "duration": 2800,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-original__stage",
+      "종류": "CSSAnimation",
+      "이름": "hero-frame-optics",
+      "duration": 6400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-original__stage",
+      "종류": "CSSAnimation",
+      "이름": "hero-grain-shift",
+      "duration": 1000,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-vintage__field",
+      "종류": "CSSAnimation",
+      "이름": "hero-optical-haze",
+      "duration": 9600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-original__tv",
+      "종류": "CSSAnimation",
+      "이름": "hero-computer-optics",
+      "duration": 6400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-vintage__copy",
+      "종류": "CSSAnimation",
+      "이름": "hero-copy-breathe",
+      "duration": 6400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-vintage__logo",
+      "종류": "CSSAnimation",
+      "이름": "hero-vintage-reveal",
+      "duration": 780,
+      "easing": "linear",
+      "반복": 1
+     },
+     {
+      "대상": "p.hero-vintage__statement",
+      "종류": "CSSAnimation",
+      "이름": "hero-vintage-reveal",
+      "duration": 780,
+      "easing": "linear",
+      "반복": 1
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span",
+      "종류": "CSSAnimation",
+      "이름": "scroll-cue-nudge",
+      "duration": 2100,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i",
+      "종류": "CSSAnimation",
+      "이름": "hero-scroll-drop",
+      "duration": 2200,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i.sofa-journey__grain",
+      "종류": "CSSAnimation",
+      "이름": "sofa-journey-grain",
+      "duration": 180,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "path",
+      "종류": "CSSAnimation",
+      "이름": "ctl-beamglow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "path",
+      "종류": "CSSAnimation",
+      "이름": "ctl-beamglow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "path",
+      "종류": "CSSAnimation",
+      "이름": "ctl-beamglow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.ending-pair",
+      "종류": "CSSAnimation",
+      "이름": "ending-app-use",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.ending-pair",
+      "종류": "CSSAnimation",
+      "이름": "ending-phone-glow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "img",
+      "종류": "CSSAnimation",
+      "이름": "ending-holo-play",
+      "duration": 3200,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i.signal-veil__grain",
+      "종류": "CSSAnimation",
+      "이름": "signal-veil-grain",
+      "duration": 200,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i.scroll-cue__arrow",
+      "종류": "CSSAnimation",
+      "이름": "scroll-cue-drop",
+      "duration": 1900,
+      "easing": "linear",
+      "반복": null
+     }
+    ]
+   },
+   "T4": [],
+   "T6": {
+    "요약": {
+     "h1개수": 1,
+     "랜드마크": "header:2 nav:3 main:1 footer:2",
+     "alt 없는 img": 0,
+     "이름없는버튼링크": 5,
+     "라벨없는입력": 1,
+     "본문바로가기": "추정 있음 (첫 포커스 요소가 # 링크)",
+     "양수 tabindex": 0,
+     "lang": "ko"
+    },
+    "headings": [
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "YOUR PET.THEIR STORY.STILL GROWING."
+     },
+     {
+      "레벨": "H1",
+      "단계건너뜀": "",
+      "텍스트": "ETERNALBEAMEternal Beam — Soul Trace에서 홀로그램 기기로 이어지는 콘텐츠 아카이"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "Eternal Beam 아카이브 전체"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "ETERNAL BEAM / CONTENTS ARCHIVE"
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "함께하는 시간을,계속 이어지는 이야기로."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "그 아이의 하루를,한 통의 편지로 남깁니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "원본의 특징을 지키고,그 아이답게 움직입니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "기억 속 아이가공간 안에 다시 나타납니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "사진 한 장에서 시작해,움직임으로 연결됩니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "흩어진 기억을 모아,하나의 아카이브로 남깁니다."
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "ALLPROCESSES"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "BEAM ARCHIVE"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "CONTACT"
+     },
+     {
+      "레벨": "H3",
+      "단계건너뜀": "",
+      "텍스트": "개인정보 수집·이용 안내"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": "기억을 간직하는 자리"
+     },
+     {
+      "레벨": "H2",
+      "단계건너뜀": "",
+      "텍스트": ""
+     }
+    ],
+    "이름없는버튼링크": [
+     "<a href=\"#about\" class=\"is-here\">ABOUT</a>",
+     "<a href=\"#portfolio\">RECORDS</a>",
+     "<a href=\"#original\">ORIGINAL</a>",
+     "<a href=\"#contact\">CONTACT</a>",
+     "<button class=\"send\" type=\"submit\">SEND <i>보내기</i></button>"
+    ],
+    "라벨없는입력": [
+     "<input type=\"text\" name=\"_gotcha\" class=\"hp\" tabindex=\"-1\" autocomplete=\"off\" aria-hidden=\"true\">"
+    ]
+   },
+   "T8": [],
+   "T11": [
+    {
+     "판정": "❌",
+     "비율": 2.43,
+     "기준": 4.5,
+     "텍스트": "←",
+     "크기": "22px",
+     "글자색": "rgb(165, 166, 170)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "❌",
+     "비율": 1,
+     "기준": 4.5,
+     "텍스트": "SCROLL",
+     "크기": "10px",
+     "글자색": "rgb(255, 255, 255)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "❓",
+     "비율": "-",
+     "기준": "-",
+     "텍스트": "01. 회사소개",
+     "크기": "14px",
+     "글자색": "rgb(23, 25, 35)",
+     "배경": "배경 이미지·그라디언트 위"
+    },
+    {
+     "판정": "❓",
+     "비율": "-",
+     "기준": "-",
+     "텍스트": "사진 · 편지 · 오브제 · 아카이브",
+     "크기": "11px",
+     "글자색": "rgb(85, 86, 91)",
+     "배경": "배경 이미지·그라디언트 위"
+    },
+    {
+     "판정": "❓",
+     "비율": "-",
+     "기준": "-",
+     "텍스트": "PHILOSOPHY",
+     "크기": "13px",
+     "글자색": "rgb(13, 13, 15)",
+     "배경": "배경 이미지·그라디언트 위"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.5,
+     "기준": 4.5,
+     "텍스트": "본문 바로가기 Skip to content",
+     "크기": "16px",
+     "글자색": "rgb(23, 25, 35)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.96,
+     "기준": 4.5,
+     "텍스트": "IDENTITY LOCKEDBEAM–01 / SEOUL",
+     "크기": "9px",
+     "글자색": "rgb(240, 237, 230)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 9.05,
+     "기준": 4.5,
+     "텍스트": "BEAM–01 / SEOUL",
+     "크기": "8px",
+     "글자색": "rgb(180, 170, 137)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 13.16,
+     "기준": 4.5,
+     "텍스트": "SOUL TRACE / 01",
+     "크기": "9px",
+     "글자색": "rgb(255, 195, 75)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.96,
+     "기준": 3,
+     "텍스트": "YOUR PET.THEIR STORY.STILL GRO",
+     "크기": "29.25px",
+     "글자색": "rgb(240, 237, 230)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 8.06,
+     "기준": 4.5,
+     "텍스트": "CH 01",
+     "크기": "9px",
+     "글자색": "rgb(13, 13, 15)",
+     "배경": "rgb(200, 161, 94)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.2,
+     "기준": 3,
+     "텍스트": "ETERNALBEAM",
+     "크기": "38.4px",
+     "글자색": "rgb(240, 232, 212)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 18.31,
+     "기준": 3,
+     "텍스트": "Eternal Beam — Soul Trace에서 홀로",
+     "크기": "32px",
+     "글자색": "rgb(244, 239, 228)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 14.53,
+     "기준": 3,
+     "텍스트": "Y",
+     "크기": "24.96px",
+     "글자색": "rgb(221, 214, 200)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 9.78,
+     "기준": 4.5,
+     "텍스트": "FOR THE MOMENTS THAT DESERVE T",
+     "크기": "8px",
+     "글자색": "rgb(184, 176, 164)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.2,
+     "기준": 4.5,
+     "텍스트": "SCROLL TO ENTER",
+     "크기": "13px",
+     "글자색": "rgb(240, 232, 212)",
+     "배경": "rgb(0, 0, 0)"
+    },
+    {
+     "판정": "✅",
+     "비율": 14.01,
+     "기준": 4.5,
+     "텍스트": "Keep OurMemory Moment",
+     "크기": "16.38px",
+     "글자색": "rgb(232, 213, 160)",
+     "배경": "rgb(5, 5, 8)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.5,
+     "기준": 3,
+     "텍스트": "Eternal Beam 아카이브 전체",
+     "크기": "24px",
+     "글자색": "rgb(23, 25, 35)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 7.32,
+     "기준": 4.5,
+     "텍스트": "Soul Trace, App, Device, Archi",
+     "크기": "13px",
+     "글자색": "rgb(85, 86, 91)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 21,
+     "기준": 4.5,
+     "텍스트": "LETTER 자세히 보기",
+     "크기": "16px",
+     "글자색": "rgb(0, 0, 0)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 15.26,
+     "기준": 3,
+     "텍스트": "CONTACT",
+     "크기": "31.2px",
+     "글자색": "rgb(243, 234, 214)",
+     "배경": "rgb(26, 20, 14)"
+    },
+    {
+     "판정": "✅",
+     "비율": 15.56,
+     "기준": 4.5,
+     "텍스트": "Write 편지 쓰기",
+     "크기": "13px",
+     "글자색": "rgb(243, 234, 214)",
+     "배경": "rgb(22, 18, 14)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.24,
+     "기준": 3,
+     "텍스트": "기억을 간직하는 자리",
+     "크기": "70.2px",
+     "글자색": "rgb(24, 28, 24)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 17.24,
+     "기준": 4.5,
+     "텍스트": "아래로 내리면 기기의 빛이 천천히 꺼집니다. 거실 소파",
+     "크기": "16px",
+     "글자색": "rgb(24, 28, 24)",
+     "배경": "rgb(255, 255, 255)"
+    },
+    {
+     "판정": "✅",
+     "비율": 13.3,
+     "기준": 4.5,
+     "텍스트": "HOME IS A LITTLE CLOSER.",
+     "크기": "10px",
+     "글자색": "rgb(38, 51, 34)",
+     "배경": "rgb(255, 255, 255)"
+    }
+   ],
+   "T12": {
+    "더미링크": [],
+    "깨진앵커": [],
+    "상태": [
+     {
+      "링크": "/",
+      "코드": 200,
+      "판정": "✅"
+     },
+     {
+      "링크": "/privacy.html",
+      "코드": 200,
+      "판정": "✅"
+     }
+    ],
+    "외부": []
+   },
+   "T9_합성": [
+    {
+     "테스트": "일반 마우스 1칸 (deltaY 100)",
+     "총이동px": 743,
+     "반응시작ms": 18,
+     "90%도달ms": 1402,
+     "멈춤ms": 1505,
+     "끝에닿음": ""
+    },
+    {
+     "테스트": "마우스 3칸 연속 (100×3, 60ms 간격)",
+     "총이동px": 993,
+     "반응시작ms": 31,
+     "90%도달ms": 1399,
+     "멈춤ms": 1534,
+     "끝에닿음": ""
+    },
+    {
+     "테스트": "Firefox 줄 단위 1칸 (deltaMode 1, 3줄)",
+     "총이동px": 1060,
+     "반응시작ms": 23,
+     "90%도달ms": 1370,
+     "멈춤ms": 1504,
+     "끝에닿음": ""
+    },
+    {
+     "테스트": "트랙패드 플릭 (감쇠하는 작은 delta 30회)",
+     "총이동px": 624,
+     "반응시작ms": 10,
+     "90%도달ms": 761,
+     "멈춤ms": 845,
+     "끝에닿음": ""
+    },
+    {
+     "테스트": "고해상도 휠 (deltaY 4 × 25회)",
+     "총이동px": 723,
+     "반응시작ms": 43,
+     "90%도달ms": 1426,
+     "멈춤ms": 1521,
+     "끝에닿음": ""
+    }
+   ],
+   "T9_실제휠": [
+    {
+     "테스트": "실제휠 1칸 (100)",
+     "총이동px": 1161,
+     "반응시작ms": 49,
+     "90%도달ms": 1619,
+     "멈춤ms": 1780
+    },
+    {
+     "테스트": "실제휠 3칸 연속 (100×3, 60ms)",
+     "총이동px": 1444,
+     "반응시작ms": 16,
+     "90%도달ms": 1842,
+     "멈춤ms": 2012
+    },
+    {
+     "테스트": "실제휠 고해상도 (4×25, 8ms)",
+     "총이동px": 0,
+     "반응시작ms": "무반응",
+     "90%도달ms": "-",
+     "멈춤ms": "-"
+    },
+    {
+     "테스트": "실제휠 트랙패드 플릭 (감쇠 30회)",
+     "총이동px": 3174,
+     "반응시작ms": 48,
+     "90%도달ms": 4866,
+     "멈춤ms": 5302
+    }
+   ],
+   "T10": {
+    "추정주사율Hz": 60,
+    "평균fps": 58.7,
+    "p95프레임ms": 16.8,
+    "최악프레임ms": 33.4,
+    "끊긴프레임수": 8,
+    "총프레임": 353
+   },
+   "T5": {
+    "imgs": [
+     {
+      "파일": "eternal-beam-mark.png",
+      "표시": "112×8",
+      "원본": "1400×99",
+      "판정": "⚠️ 과대 (필요 약 224px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "Eternal Beam",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "idle.png",
+      "표시": "53×53",
+      "원본": "1254×1254",
+      "판정": "⚠️ 과대 (필요 약 105px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "beam-device-1920x1080.png",
+      "표시": "7763×4366",
+      "원본": "1920×1080",
+      "판정": "⚠️ 흐림 가능 (필요 약 15525px)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "Eternal Beam 홀로그램 기기",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "high"
+     },
+     {
+      "파일": "eternal-beam-mark.png",
+      "표시": "191×114",
+      "원본": "1400×99",
+      "판정": "⚠️ 과대 (필요 약 383px)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "Eternal Beam",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "idle.png",
+      "표시": "144×144",
+      "원본": "1254×1254",
+      "판정": "⚠️ 과대 (필요 약 288px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "photo-shaft.jpg",
+      "표시": "1940×1726",
+      "원본": "1024×682",
+      "판정": "⚠️ 흐림 가능 (필요 약 3880px)",
+      "왜곡": "-",
+      "objectFit": "cover",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "landing-sofa-empty-v2.webp",
+      "표시": "1500×844",
+      "원본": "1672×941",
+      "판정": "⚠️ 흐림 가능 (필요 약 2999px)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "landing-sofa-empty-v2.webp",
+      "표시": "1500×844",
+      "원본": "1672×941",
+      "판정": "⚠️ 흐림 가능 (필요 약 2999px)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "photocard-insert-a.png",
+      "표시": "0×0",
+      "원본": "724×1158",
+      "판정": "숨김",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "goya-tada.png",
+      "표시": "271×422",
+      "원본": "698×1086",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "strip.webp",
+      "표시": "4254×354",
+      "원본": "10644×887",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "note.webp",
+      "표시": "0×0",
+      "원본": "116×200",
+      "판정": "숨김",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "letter.png",
+      "표시": "0×0",
+      "원본": "1254×1254",
+      "판정": "숨김",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "letter.png",
+      "표시": "0×0",
+      "원본": "1254×1254",
+      "판정": "숨김",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "table2_fg.webp",
+      "표시": "192×153",
+      "원본": "480×382",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "table_fg.webp",
+      "표시": "222×124",
+      "원본": "555×310",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "table-empty-clean.webp",
+      "표시": "0×0",
+      "원본": "0×0",
+      "판정": "미로딩(lazy일 수 있음, 스크롤 후 재실행)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "lazy",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "table-clean-nologo-1671.webp",
+      "표시": "404×228",
+      "원본": "1100×619",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "위에서 내려다본 아카이브 탁자. 편지",
+      "크기속성": "O",
+      "loading": "lazy",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "paperweight.webp",
+      "표시": "21×21",
+      "원본": "85×86",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "sit.png",
+      "표시": "121×117",
+      "원본": "1254×1254",
+      "판정": "⚠️ 과대 (필요 약 241px)",
+      "왜곡": "❌ 비율 왜곡",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "archive-drawers.webp",
+      "표시": "390×780",
+      "원본": "535×682",
+      "판정": "⚠️ 흐림 가능 (필요 약 780px)",
+      "왜곡": "-",
+      "objectFit": "cover",
+      "alt": "Eternal Beam archive",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "goya-letter-search.png",
+      "표시": "390×452",
+      "원본": "1056×1056",
+      "판정": "OK",
+      "왜곡": "❌ 비율 왜곡",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "letter-sheet.png",
+      "표시": "369×581",
+      "원본": "650×985",
+      "판정": "⚠️ 흐림 가능 (필요 약 738px)",
+      "왜곡": "-",
+      "objectFit": "cover",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "living-room-clean-v1.webp",
+      "표시": "390×219",
+      "원본": "0×0",
+      "판정": "미로딩(lazy일 수 있음, 스크롤 후 재실행)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "lazy",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "goya-girl-buddy.png",
+      "표시": "67×110",
+      "원본": "663×1090",
+      "판정": "⚠️ 과대 (필요 약 134px)",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "goya-holo-quad.png",
+      "표시": "21×17",
+      "원본": "696×891",
+      "판정": "⚠️ 과대 (필요 약 41px)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "beam-device-1920x1080.png",
+      "표시": "744×418",
+      "원본": "1920×1080",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "fill",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "O",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "",
+      "표시": "0×0",
+      "원본": "0×0",
+      "판정": "미로딩(lazy일 수 있음, 스크롤 후 재실행)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "idle.png",
+      "표시": "390×390",
+      "원본": "1254×1254",
+      "판정": "OK",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     },
+     {
+      "파일": "",
+      "표시": "390×390",
+      "원본": "0×0",
+      "판정": "미로딩(lazy일 수 있음, 스크롤 후 재실행)",
+      "왜곡": "-",
+      "objectFit": "contain",
+      "alt": "(빈 alt: 장식)",
+      "크기속성": "❌",
+      "loading": "auto",
+      "첫화면": "예",
+      "fetchpriority": "-"
+     }
+    ],
+    "bgs": [
+     "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulen",
+     "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1672' height='941'><rect width='100%' height",
+     "url(\"data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulen"
+    ]
+   },
+   "T7_끝까지": {
+    "LCP": [
+     {
+      "ms": 2088,
+      "요소": "span.hero-vintage__logo",
+      "url": ""
+     }
+    ],
+    "CLS누적": 1.4763931627771163,
+    "레이아웃이동": [
+     {
+      "값": 0.0071,
+      "ms": 47240,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0116,
+      "ms": 47260,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.016,
+      "ms": 47271,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0212,
+      "ms": 47283,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0249,
+      "ms": 47300,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0282,
+      "ms": 47316,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.032,
+      "ms": 47334,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0342,
+      "ms": 47351,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0357,
+      "ms": 47367,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0358,
+      "ms": 47383,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0353,
+      "ms": 47401,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0336,
+      "ms": 47417,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0315,
+      "ms": 47433,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.028,
+      "ms": 47450,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0241,
+      "ms": 47467,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0207,
+      "ms": 47483,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0165,
+      "ms": 47500,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.013,
+      "ms": 47517,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0096,
+      "ms": 47533,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0068,
+      "ms": 47550,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0046,
+      "ms": 47566,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0029,
+      "ms": 47583,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0017,
+      "ms": 47600,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0009,
+      "ms": 47616,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0004,
+      "ms": 47633,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0.0001,
+      "ms": 47649,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 0,
+      "ms": 47668,
+      "요소": "div.sofa-journey__cushion"
+     },
+     {
+      "값": 1,
+      "ms": 47684,
+      "요소": "div.sofa-journey__mascot"
+     }
+    ],
+    "긴프레임": [
+     {
+      "ms": 131,
+      "차단ms": 32,
+      "스크립트": ""
+     },
+     {
+      "ms": 186,
+      "차단ms": 124,
+      "스크립트": "app.js?v=eternal-beam-r91 http://127.0.0.1:18768/app.js?v=eternal-beam-r91 | about-walk.js?v=eternal-beam-r98 http://127.0.0.1:18768/about-walk.js?v=eternal-beam-r98 | journey.js?v=eb-20260912 update"
+     },
+     {
+      "ms": 116,
+      "차단ms": 0,
+      "스크립트": ""
+     }
+    ],
+    "느린상호작용": []
+   },
+   "가로넘침_문서": 0,
+   "문서높이": 25148,
+   "콘솔에러": [
+    "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED",
+    "Failed to load resource: net::ERR_CONNECTION_RESET"
+   ],
+   "페이지에러": [],
+   "실패요청": [
+    "net::ERR_TUNNEL_CONNECTION_FAILED https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css",
+    "net::ERR_CONNECTION_RESET https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Archivo+Black&family=Big+Shoulders+Display:wght@900&family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Text:ital@0;1&family=Space+Grotesk:wght@700&display=swap",
+    "net::ERR_ABORTED http://127.0.0.1:18768/",
+    "net::ERR_ABORTED http://127.0.0.1:18768/privacy.html",
+    "net::ERR_ABORTED http://127.0.0.1:18768/sofa-journey/assets/bg/photo-shaft-fall.webm?v=eternal-beam-r96"
+   ]
+  }
+ }
+}

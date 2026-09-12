@@ -1,0 +1,47 @@
+{
+ "열림": {
+  "stage": "stage open",
+  "이름칸": true
+ },
+ "빈칸오류": {
+  "문구": "이름, 이메일, 문의 내용을 채워 주세요",
+  "표시된칸": 3
+ },
+ "이메일형식오류": "이메일 주소를 다시 확인해 주세요",
+ "동의미체크": {
+  "문구": "개인정보 수집·이용에 동의해 주세요",
+  "consentBad": true
+ },
+ "개인정보패널열림": {
+  "hidden": false,
+  "전문링크": true
+ },
+ "개인정보패널ESC": true,
+ "글자수경고": {
+  "hidden": false,
+  "글": "55 / 60"
+ },
+ "보낸뒤": {
+  "hidden": false,
+  "문구": "메일 앱에 편지를 담았습니다 메일 앱에서 보내기를 한 번 더 눌러 주셔야 전달됩니다. 창이 열리지 않았다면 이 주소로 보내 주셔도 됩니다. jadechoi@eternalbeamapp.com",
+  "다시쓰기": true
+ },
+ "다시쓰기후": {
+  "posted숨김": true,
+  "이름칸비었나": true
+ },
+ "original상세": {
+  "open": true,
+  "제목": "LETTER",
+  "본문": [
+   "BEAM ARCHIVE / CONTENTS",
+   "Eternal Beam 아카이브를 이루는 네 갈래 가운데 하나입니다.",
+   "기기는 그릇이고, 이 자리에 남는 것은 그 안의 콘텐츠입니다."
+  ],
+  "해시": "#original/collection-01"
+ },
+ "original상세ESC": {
+  "open": false,
+  "해시": "#original"
+ }
+}

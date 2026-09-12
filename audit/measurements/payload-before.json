@@ -1,0 +1,61 @@
+{
+ "label": "before",
+ "base": "http://127.0.0.1:18769",
+ "ranAt": "2026-09-12T20:29:59.058Z",
+ "머무는초": 9,
+ "transfer합MB": 55.76,
+ "contentLength합MB": 76.79,
+ "요청수": 134,
+ "큰것": [
+  {
+   "파일": "photo-shaft-fall.webm",
+   "KB": 10075
+  },
+  {
+   "파일": "goya-fall-surprise.png",
+   "KB": 1774
+  },
+  {
+   "파일": "goya-fall-flail.png",
+   "KB": 1774
+  },
+  {
+   "파일": "goya-fall-mid.png",
+   "KB": 1774
+  },
+  {
+   "파일": "goya-fall-tuck.png",
+   "KB": 1774
+  },
+  {
+   "파일": "sit.png",
+   "KB": 1443
+  },
+  {
+   "파일": "sit.png",
+   "KB": 1443
+  },
+  {
+   "파일": "sit.png",
+   "KB": 1443
+  },
+  {
+   "파일": "photocard-insert-a.png",
+   "KB": 1256
+  },
+  {
+   "파일": "three.module.js",
+   "KB": 1192
+  }
+ ],
+ "낙하영상": [
+  {
+   "파일": "photo-shaft-fall.mp4",
+   "KB": 0
+  },
+  {
+   "파일": "photo-shaft-fall.webm",
+   "KB": 10075
+  }
+ ]
+}

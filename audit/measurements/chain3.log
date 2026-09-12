@@ -1,0 +1,250 @@
+=== verify2 after2
+── 입력칸 글자 {"320":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}],"360":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}],"390":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}],"414":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}],"768":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}]}
+── 상단바
+┌─────────┬──────┬─────────┬─────────────┬────────┬──────────┬───────────┬──────┐
+│ (index) │ 폭   │ 표시    │ 그림        │ 화면밖 │ 글자겹침 │ 현재      │ 넘침 │
+├─────────┼──────┼─────────┼─────────────┼────────┼──────────┼───────────┼──────┤
+│ 0       │ 320  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 1       │ 360  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 2       │ 390  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 3       │ 414  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 4       │ 480  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 5       │ 560  │ 'block' │ '319~343'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 6       │ 640  │ 'block' │ '357~385'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 7       │ 700  │ 'block' │ '387~415'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 8       │ 760  │ 'block' │ '417~445'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 9       │ 768  │ 'block' │ '463~492'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 10      │ 900  │ 'block' │ '529~564'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 11      │ 1024 │ 'block' │ '595~630'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 12      │ 1440 │ 'block' │ '814~849'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 13      │ 1920 │ 'block' │ '1068~1103' │ false  │ '-'      │ 'RECORDS' │ '-'  │
+└─────────┴──────┴─────────┴─────────────┴────────┴──────────┴───────────┴──────┘
+── 중복 주소 []
+── 이름표 {
+ "390x844": [
+  {
+   "글": "Letter",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Identity",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Motion",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  }
+ ],
+ "1440x900": [
+  {
+   "글": "Letter",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Identity",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Hologram",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Archive",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  }
+ ]
+}
+저장 verify2-after2.json
+=== wheelpath before
+CONTACT 에 멈춘 적: false · 마지막 {"굴린횟수":60,"y":8100,"구역":"about","contact화면중앙":false,"contactTop":9748}
+구역별 굴린 횟수: {"home":6,"drop":18,"about":37}
+ 0회 y=     0 home
+ 1회 y=    35 home
+ 2회 y=   242 home
+ 3회 y=   386 home
+ 4회 y=   595 home
+ 5회 y=   959 home
+ 6회 y=  1364 drop
+ 7회 y=  1718 drop
+ 8회 y=  1990 drop
+ 9회 y=  2314 drop
+10회 y=  2584 drop
+11회 y=  2918 drop
+12회 y=  3196 drop
+13회 y=  3466 drop
+14회 y=  3750 drop
+15회 y=  4125 drop
+16회 y=  4467 drop
+17회 y=  4619 drop
+18회 y=  4735 drop
+19회 y=  5147 drop
+20회 y=  5433 drop
+21회 y=  5616 drop
+22회 y=  5760 drop
+23회 y=  5833 drop
+24회 y=  6408 about
+25회 y=  6660 about
+26회 y=  6660 about
+27회 y=  6660 about
+28회 y=  6660 about
+29회 y=  6660 about
+30회 y=  6660 about
+31회 y=  6660 about
+32회 y=  6660 about
+33회 y=  6660 about
+34회 y=  6660 about
+35회 y=  6660 about
+36회 y=  6660 about
+37회 y=  6660 about
+38회 y=  6660 about
+39회 y=  6660 about
+40회 y=  6660 about
+41회 y=  6660 about
+42회 y=  6660 about
+43회 y=  6660 about
+44회 y=  6660 about
+45회 y=  6660 about
+46회 y=  6660 about
+47회 y=  6660 about
+48회 y=  6660 about
+49회 y=  6660 about
+50회 y=  8100 about
+51회 y=  8100 about
+52회 y=  8100 about
+53회 y=  8100 about
+54회 y=  8100 about
+55회 y=  8100 about
+56회 y=  8100 about
+57회 y=  8100 about
+58회 y=  8100 about
+59회 y=  8100 about
+60회 y=  8100 about
+=== wheelpath after
+CONTACT 에 멈춘 적: false · 마지막 {"굴린횟수":60,"y":8100,"구역":"about","contact화면중앙":false,"contactTop":9748}
+구역별 굴린 횟수: {"home":6,"drop":16,"about":39}
+ 0회 y=     0 home
+ 1회 y=    31 home
+ 2회 y=   177 home
+ 3회 y=   398 home
+ 4회 y=   638 home
+ 5회 y=  1110 home
+ 6회 y=  1688 drop
+ 7회 y=  2132 drop
+ 8회 y=  2458 drop
+ 9회 y=  2766 drop
+10회 y=  3164 drop
+11회 y=  3507 drop
+12회 y=  3941 drop
+13회 y=  4344 drop
+14회 y=  4496 drop
+15회 y=  4649 drop
+16회 y=  4790 drop
+17회 y=  5060 drop
+18회 y=  5255 drop
+19회 y=  5502 drop
+20회 y=  5725 drop
+21회 y=  5811 drop
+22회 y=  6451 about
+23회 y=  6660 about
+24회 y=  6660 about
+25회 y=  6660 about
+26회 y=  6660 about
+27회 y=  6660 about
+28회 y=  6660 about
+29회 y=  6660 about
+30회 y=  6660 about
+31회 y=  6660 about
+32회 y=  6660 about
+33회 y=  6660 about
+34회 y=  6660 about
+35회 y=  6660 about
+36회 y=  6660 about
+37회 y=  6660 about
+38회 y=  6660 about
+39회 y=  6660 about
+40회 y=  6660 about
+41회 y=  6660 about
+42회 y=  6660 about
+43회 y=  6660 about
+44회 y=  6660 about
+45회 y=  6660 about
+46회 y=  6660 about
+47회 y=  6660 about
+48회 y=  8100 about
+49회 y=  8100 about
+50회 y=  8100 about
+51회 y=  8100 about
+52회 y=  8100 about
+53회 y=  8100 about
+54회 y=  8100 about
+55회 y=  8100 about
+56회 y=  8100 about
+57회 y=  8100 about
+58회 y=  8100 about
+59회 y=  8100 about
+60회 y=  8100 about
+=== cls after3
+1440x900 누적CLS 0.3717 (로드 직후 0.0000) · 이동 44회 · 원인 [["div.studio-host",0.3594],["button.original-table__work",0.0356],["img.nav-mascot",0.0033]]
+390x844 누적CLS 0.2208 (로드 직후 0.0000) · 이동 3회 · 원인 [["div.sofa-journey__cushion",0.1451],["img.sofa-journey__bg",0.0721],["button.original-table__work",0.0144]]
+저장 cls-after3.json
+=== cls before2
+1440x900 누적CLS 0.3715 (로드 직후 0.0000) · 이동 32회 · 원인 [["div.studio-host",0.3594],["button.original-table__work",0.0356],["img.nav-mascot",0.0032]]
+390x844 누적CLS 0.3113 (로드 직후 0.0000) · 이동 27회 · 원인 [["div.sofa-journey__cushion",0.1451],["img.studio-host__swap",0.0893],["img.sofa-journey__bg",0.0721]]
+저장 cls-before2.json
+=== CHAIN3 DONE

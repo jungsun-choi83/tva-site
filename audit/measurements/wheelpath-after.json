@@ -1,0 +1,449 @@
+{
+ "label": "after",
+ "base": "http://127.0.0.1:18768",
+ "한번delta": 100,
+ "간격ms": 150,
+ "ranAt": "2026-09-12T19:34:53.544Z",
+ "경로": [
+  {
+   "굴린횟수": 0,
+   "y": 0,
+   "구역": "home",
+   "contact화면중앙": false,
+   "contactTop": 17848
+  },
+  {
+   "굴린횟수": 1,
+   "y": 31,
+   "구역": "home",
+   "contact화면중앙": false,
+   "contactTop": 17817
+  },
+  {
+   "굴린횟수": 2,
+   "y": 177,
+   "구역": "home",
+   "contact화면중앙": false,
+   "contactTop": 17671
+  },
+  {
+   "굴린횟수": 3,
+   "y": 398,
+   "구역": "home",
+   "contact화면중앙": false,
+   "contactTop": 17450
+  },
+  {
+   "굴린횟수": 4,
+   "y": 638,
+   "구역": "home",
+   "contact화면중앙": false,
+   "contactTop": 17210
+  },
+  {
+   "굴린횟수": 5,
+   "y": 1110,
+   "구역": "home",
+   "contact화면중앙": false,
+   "contactTop": 16738
+  },
+  {
+   "굴린횟수": 6,
+   "y": 1688,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 16160
+  },
+  {
+   "굴린횟수": 7,
+   "y": 2132,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 15716
+  },
+  {
+   "굴린횟수": 8,
+   "y": 2458,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 15390
+  },
+  {
+   "굴린횟수": 9,
+   "y": 2766,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 15082
+  },
+  {
+   "굴린횟수": 10,
+   "y": 3164,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 14684
+  },
+  {
+   "굴린횟수": 11,
+   "y": 3507,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 14341
+  },
+  {
+   "굴린횟수": 12,
+   "y": 3941,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 13907
+  },
+  {
+   "굴린횟수": 13,
+   "y": 4344,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 13504
+  },
+  {
+   "굴린횟수": 14,
+   "y": 4496,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 13352
+  },
+  {
+   "굴린횟수": 15,
+   "y": 4649,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 13199
+  },
+  {
+   "굴린횟수": 16,
+   "y": 4790,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 13058
+  },
+  {
+   "굴린횟수": 17,
+   "y": 5060,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 12788
+  },
+  {
+   "굴린횟수": 18,
+   "y": 5255,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 12593
+  },
+  {
+   "굴린횟수": 19,
+   "y": 5502,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 12346
+  },
+  {
+   "굴린횟수": 20,
+   "y": 5725,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 12123
+  },
+  {
+   "굴린횟수": 21,
+   "y": 5811,
+   "구역": "drop",
+   "contact화면중앙": false,
+   "contactTop": 12037
+  },
+  {
+   "굴린횟수": 22,
+   "y": 6451,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11397
+  },
+  {
+   "굴린횟수": 23,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 24,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 25,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 26,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 27,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 28,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 29,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 30,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 31,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 32,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 33,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 34,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 35,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 36,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 37,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 38,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 39,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 40,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 41,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 42,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 43,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 44,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 45,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 46,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 47,
+   "y": 6660,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 11188
+  },
+  {
+   "굴린횟수": 48,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 49,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 50,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 51,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 52,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 53,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 54,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 55,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 56,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 57,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 58,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 59,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  },
+  {
+   "굴린횟수": 60,
+   "y": 8100,
+   "구역": "about",
+   "contact화면중앙": false,
+   "contactTop": 9748
+  }
+ ],
+ "CONTACT에멈춘적": false,
+ "구역별굴린횟수": {
+  "home": 6,
+  "drop": 16,
+  "about": 39
+ },
+ "마지막": {
+  "굴린횟수": 60,
+  "y": 8100,
+  "구역": "about",
+  "contact화면중앙": false,
+  "contactTop": 9748
+ }
+}

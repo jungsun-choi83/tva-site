@@ -1,4 +1,4 @@
-import { createFallActor, getActorFrames } from './actor.js?v=unified-r1.h0d1594b9';
+import { createFallActor, getActorFrames } from './actor.js?v=eb-20260912';
 import { createFallEnvironment } from './environment.js';
 import { createFracture } from './fracture.mjs';
 import { createGlassFragments } from './glass.js';

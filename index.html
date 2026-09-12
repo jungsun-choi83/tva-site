@@ -39,20 +39,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"></noscript>
   <link rel="preload" as="image" href="assets/hero/beam-device-1920x1080.png?v=eternal-beam-r31" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=eternal-beam-r63">
+  <link rel="stylesheet" href="styles.css?v=eb-20260912">
   <link rel="stylesheet" href="hero.css?v=eternal-beam-r31">
   <link rel="stylesheet" href="brand-mark.css?v=eternal-beam-r29">
   <link rel="stylesheet" href="hero-material.css?v=entry-optics-sync-r3.hdee4aa4f">
   <link rel="stylesheet" href="about.css?v=exit-copy-r3.h82d1f28b">
-  <link rel="stylesheet" href="about-walk.css?v=eternal-beam-r98">
+  <link rel="stylesheet" href="about-walk.css?v=eb-20260912">
   <link rel="stylesheet" href="signal-passage.css?v=fall-welcome-production-r3.h98421667">
   <link rel="stylesheet" href="fall-welcome/actor.css?v=fall-welcome-production-r3.h492e636f" data-fall-actor-style>
-  <link rel="stylesheet" href="portfolio.css?v=portfolio-corner-r4.h027321e3">
-  <link rel="stylesheet" href="original-table.css?v=table-fit-r4.h181db0a3">
-  <link rel="stylesheet" href="contact-letterbox.css?v=eternal-beam-r67">
-  <link rel="stylesheet" href="ending.css?v=eternal-beam-r98">
+  <link rel="stylesheet" href="portfolio.css?v=eb-20260912">
+  <link rel="stylesheet" href="original-table.css?v=eb-20260912">
+  <link rel="stylesheet" href="contact-letterbox.css?v=eb-20260912">
+  <link rel="stylesheet" href="ending.css?v=eb-20260912">
   <link rel="stylesheet" href="scroll-cue.css?v=scroll-cue-r3.h52f59f0f">
-  <link rel="stylesheet" href="nav-shelf.css?v=eternal-beam-r29">
+  <link rel="stylesheet" href="nav-shelf.css?v=eb-20260912">
   <link rel="stylesheet" href="archive-pillars.css?v=eternal-beam-r3">
   <!-- 2026-09-12 감사 [7]: 느린 회선에서 PORTFOLIO·ORIGINAL 에 도착하면 4초 동안 화면이 통째로 흰 종이였다.
        대표 그림(작업대)이 오기 전까지 그 그림의 평균색을 자리에 깔아 둔다. 그림은 불투명하고 상자를 꽉 채우므로
@@ -66,7 +66,11 @@
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
 </head>
 <body>
+  <!-- 2026-09-12 #M04: 상단바는 첫 화면에서 inert 라 탭 순서에 없다. 키보드만 쓰는 사람이 문의까지
+       가려면 낙하 통로와 ABOUT 일곱 칸을 전부 탭으로 지나야 했다. 건너뛰기 링크를 두 개 둔다.
+       초점을 받을 때만 보이므로 일반 화면에는 변화가 없다. -->
   <a class="skip-link" href="#about">본문 바로가기 Skip to content</a>
+  <a class="skip-link" href="#contact">문의 바로가기 Skip to contact</a>
   <header class="site-nav" inert aria-hidden="true">
     <a class="nav-logo" href="#home" aria-label="Eternal Beam 첫 화면으로"><span class="eb-mark eb-mark--nav"><img src="assets/brand/eternal-beam-mark.png?v=eternal-beam-r29" width="1400" height="99" alt="Eternal Beam"><span class="eb-a-slot" aria-hidden="true"><i></i></span></span></a>
     <nav aria-label="주 메뉴">
@@ -210,7 +214,7 @@ STILL GROWING.</span><span class="hero-vintage__stmt-sub">FOR THE MOMENTS THAT D
               </div>
             </aside>
           </article>
-          <article class="studio-station station-exit" data-station="All processes">
+          <article class="studio-station station-exit" data-station="Process">
             <div class="station-copy"><span class="eyebrow">07. 모든 과정</span><h3>ALL<br>PROCESSES</h3><p>편지에서 빛까지<br>한 줄로 이어집니다.</p><p class="service-en">Soul Trace, App, Device, Archive — one line.</p><p class="service-scope">Soul Trace · App · Device · Archive</p></div>
             <div class="exit-arrow" aria-hidden="true">↗</div>
           </article>
@@ -273,8 +277,8 @@ STILL GROWING.</span><span class="hero-vintage__stmt-sub">FOR THE MOMENTS THAT D
   <!-- 2026-09-12 감사 [119]: 장식용 그림(alt="")이 안 오면 흰 깨진-그림 상자 대신 자리를 비운다 -->
   <script>addEventListener('error',e=>{const t=e.target;if(t&&t.tagName==='IMG'&&t.getAttribute('alt')==='')t.style.visibility='hidden'},true);for(const i of document.querySelectorAll('img[alt=""]'))if(i.complete&&i.naturalWidth===0)i.style.visibility='hidden';</script>
   <button class="motion-toggle" type="button" aria-pressed="false">움직임 줄이기</button>
-  <script src="app.js?v=eternal-beam-r91" type="module"></script>
+  <script src="app.js?v=eb-20260912" type="module"></script>
   <script type="module" src="scroll-cue.js?v=scroll-cue-r6.h255f18f1"></script>
-  <script type="module" src="about-walk.js?v=eternal-beam-r98"></script>
+  <script type="module" src="about-walk.js?v=eb-20260912"></script>
 </body>
 </html>

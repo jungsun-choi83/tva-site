@@ -1,0 +1,7 @@
+# 전체 캡처는 저장소에 넣지 않는다 (7뷰포트 × 2페이지 × 전 구간 × 여러 판 = 약 2.7GB).
+# 다시 만들려면: 서버 두 개를 띄우고
+#   node audit/capture.mjs capture <라벨> chromium      (AUDIT_PROXY 를 주면 웹폰트까지 받는다)
+#   node audit/capture.mjs diff <이전라벨> <이후라벨>
+# 보고서가 가리키는 증거 장면만 screenshots/evidence/ 에 합쳐서 남긴다.
+screenshots/*
+!screenshots/evidence/

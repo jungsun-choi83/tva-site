@@ -1,0 +1,87 @@
+{
+ "첫화면": {
+  "문서가로스크롤": 0,
+  "넘친요소": [
+   "div.hero-original__tv",
+   "img.hero-original__housing",
+   "div.sofa-journey__hx-spin",
+   "img.sofa-journey__hx-still",
+   "video.sofa-journey__hx-video",
+   "div.sofa-journey__landing",
+   "img.sofa-journey__bg",
+   "div.sofa-journey__cushion",
+   "img.",
+   "i.sofa-journey__grain",
+   "div.about-sr-summary",
+   "h2."
+  ]
+ },
+ "about": {
+  "문서가로스크롤": 0,
+  "넘친요소": [
+   "div.hero-original__tv",
+   "img.hero-original__housing",
+   "span.hero-original__portal-underlay",
+   "section.hero-original__broadcast",
+   "canvas.hero-original__power-noise",
+   "span.hero-original__scanlines",
+   "span.hero-original__glare",
+   "span.hero-original__interior-wash",
+   "span.hero-original__orbit",
+   "i.",
+   "header.hero-original__station-head",
+   "span.hero-original__brand"
+  ]
+ },
+ "portfolio": {
+  "문서가로스크롤": 0,
+  "넘친요소": [
+   "div.hero-original__tv",
+   "img.hero-original__housing",
+   "span.hero-original__portal-underlay",
+   "section.hero-original__broadcast",
+   "canvas.hero-original__power-noise",
+   "span.hero-original__scanlines",
+   "span.hero-original__glare",
+   "span.hero-original__interior-wash",
+   "span.hero-original__orbit",
+   "i.",
+   "header.hero-original__station-head",
+   "span.hero-original__brand"
+  ]
+ },
+ "original": {
+  "문서가로스크롤": 0,
+  "넘친요소": [
+   "div.hero-original__tv",
+   "img.hero-original__housing",
+   "span.hero-original__portal-underlay",
+   "section.hero-original__broadcast",
+   "canvas.hero-original__power-noise",
+   "span.hero-original__scanlines",
+   "span.hero-original__glare",
+   "span.hero-original__interior-wash",
+   "span.hero-original__orbit",
+   "i.",
+   "header.hero-original__station-head",
+   "span.hero-original__brand"
+  ]
+ },
+ "contact": {
+  "문서가로스크롤": 0,
+  "넘친요소": [
+   "div.hero-original__tv",
+   "img.hero-original__housing",
+   "span.hero-original__portal-underlay",
+   "section.hero-original__broadcast",
+   "canvas.hero-original__power-noise",
+   "span.hero-original__scanlines",
+   "span.hero-original__glare",
+   "span.hero-original__interior-wash",
+   "span.hero-original__orbit",
+   "i.",
+   "header.hero-original__station-head",
+   "span.hero-original__brand"
+  ]
+ }
+}

@@ -1,6 +1,6 @@
-import { initSignalPassage } from './signal-passage.js?v=eternal-beam-r91';
-import { createCharacterRig } from './character-rig.js?v=eternal-beam-r25';
-import { ACTOR_ASSET_KIND, getActorPose } from './fall-welcome/actor.js?v=eternal-beam-r2';
+import { initSignalPassage } from './signal-passage.js?v=eb-20260912';
+import { createCharacterRig } from './character-rig.js?v=eb-20260912';
+import { ACTOR_ASSET_KIND, getActorPose } from './fall-welcome/actor.js?v=eb-20260912';
 import { measureAperture } from './fall-welcome/home-bridge.mjs';
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 const smoothstep = (start, end, value) => {
@@ -8,15 +8,17 @@ const smoothstep = (start, end, value) => {
   return progress * progress * (3 - 2 * progress);
 };
 const lerp = (from, to, value) => from + (to - from) * value;
+// 캐릭터 그림(assets/goya/*)의 공통 판 번호. nav-shelf.js·about-walk.js·character-rig.js·
+// ending-scene-r15.js·index.html 이 모두 이 값을 써야 같은 그림을 한 번만 내려받는다.
 const GOYA_V = 'eternal-beam-r51';
 const GOYA_POSES = {
-  'tva-mascot-idle': `assets/goya/idle.png?v=eternal-beam-r51${GOYA_V}`,
-  'tva-mascot-sit': `assets/goya/sit.png?v=eternal-beam-r51${GOYA_V}`,
-  'character-run': `assets/goya/walk1.png?v=eternal-beam-r51${GOYA_V}`,
-  'character-inspect': `assets/goya/idle.png?v=eternal-beam-r51${GOYA_V}`,
+  'tva-mascot-idle': `assets/goya/idle.png?v=${GOYA_V}`,
+  'tva-mascot-sit': `assets/goya/sit.png?v=${GOYA_V}`,
+  'character-run': `assets/goya/walk1.png?v=${GOYA_V}`,
+  'character-inspect': `assets/goya/idle.png?v=${GOYA_V}`,
 };
-const goyaFile = name => GOYA_POSES[name] || `assets/goya/idle.png?v=eternal-beam-r51${GOYA_V}`;
-const GOYA_WALK = `assets/goya/walk1.png?v=eternal-beam-r51${GOYA_V}`;
+const goyaFile = name => GOYA_POSES[name] || `assets/goya/idle.png?v=${GOYA_V}`;
+const GOYA_WALK = `assets/goya/walk1.png?v=${GOYA_V}`;
 const GOYA_FOOT = .92;
 
 export function initJourney(onScene, portfolio) {

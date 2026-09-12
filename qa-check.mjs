@@ -44,14 +44,25 @@ for (const f of codeFiles) {
 }
 if (missing.size) [...missing].forEach(bad); else console.log('  ✅ 없는 파일 0건');
 
-// ── 2. 같은 그림, 다른 ?v= ──────────────────────────────────────────
-console.log('\n[2] 같은 그림을 여러 주소로 부르는 곳');
+// ── 2. 같은 파일, 다른 ?v= ──────────────────────────────────────────
+// 그림이면 같은 그림을 두 번 내려받고, 자바스크립트 모듈이면 같은 모듈이 두 벌 올라간다.
+console.log('\n[2] 같은 파일을 여러 주소로 부르는 곳');
 const vers = new Map();
 for (const f of codeFiles) {
   const src = fs.readFileSync(f, 'utf8');
   for (const m of src.matchAll(/((?:assets|gallery-assets)\/[A-Za-z0-9_./-]+\.(?:png|jpg|jpeg|webp|avif|svg))(\?v=[A-Za-z0-9._-]*)?/g)) {
+    // `?v=${GOYA_V}` 같은 템플릿 자리는 값이 실행할 때 정해지므로 정적 검사 대상이 아니다
+    if (m[2] === '?v=' && src.slice(m.index + m[0].length, m.index + m[0].length + 2) === '${') continue;
     if (!vers.has(m[1])) vers.set(m[1], new Set());
     vers.get(m[1]).add(m[2] || '(없음)');
+  }
+  // 스타일·스크립트는 상대 경로로 부르므로 부르는 파일 기준으로 풀어서 같은 파일인지 본다
+  for (const m of src.matchAll(/((?:\.\.?\/)?[A-Za-z0-9_./-]+\.(?:css|js|mjs))\?v=([A-Za-z0-9._-]+)/g)) {
+    const abs = path.resolve(path.dirname(f), m[1]);
+    if (!fs.existsSync(abs)) continue;
+    const key = path.relative(ROOT, abs);
+    if (!vers.has(key)) vers.set(key, new Set());
+    vers.get(key).add('?v=' + m[2]);
   }
 }
 let dup = 0;

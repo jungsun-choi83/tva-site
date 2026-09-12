@@ -1,4 +1,4 @@
-import {createFallingActor} from './actor.js?v=eternal-beam-r91';
+import {createFallingActor} from './actor.js?v=eb-20260912';
 import {createHallucinationVortex} from './vortex.js?v=eternal-beam-r49';
 import {installSignalVeil} from './veil.js?v=fall-lab-54.hc254e7b1';
 import {TYPE_CHUNKS, TYPE_STARS} from './type-layout.js?v=fall-lab-54.h87786693';
@@ -57,7 +57,7 @@ function installStyle(documentRef){
     const link=documentRef.createElement('link'); link.dataset.sofaJourneyStyle=''; link.rel='stylesheet'; const styleUrl=new URL('./scene.css',import.meta.url); styleUrl.search=new URL(import.meta.url).search; link.href=styleUrl.href; documentRef.head.append(link);
   }
   if(!documentRef.querySelector('link[data-brand-mark-style]')){
-    const brand=documentRef.createElement('link'); brand.dataset.brandMarkStyle=''; brand.rel='stylesheet'; const brandUrl=new URL('../brand-mark.css',import.meta.url); brandUrl.search=new URL(import.meta.url).search; brand.href=brandUrl.href; documentRef.head.append(brand);
+    const brand=documentRef.createElement('link'); brand.dataset.brandMarkStyle=''; brand.rel='stylesheet'; const brandUrl=new URL('../brand-mark.css',import.meta.url); brandUrl.search='?v=eternal-beam-r29'; /* index.html 과 같은 판 번호여야 한 번만 받는다 */ brand.href=brandUrl.href; documentRef.head.append(brand);
   }
 }
 
@@ -90,7 +90,7 @@ function projectedSourceRect(aperture, bridge, reduced, width, height){
 export function createSofaJourneyScene(mount, wake=()=>{}){
   installStyle(mount.ownerDocument); mount.classList.add('sofa-journey'); mount.closest('#drop')?.classList.add('sofa-journey-ready');
   const hxWebm=asset('bg/photo-shaft-fall.webm'),hxMp4=asset('bg/photo-shaft-fall.mp4'),hxStill=asset('bg/photo-shaft.jpg');
-  mount.innerHTML=`<div class="sofa-journey__hx"><div class="sofa-journey__hx-spin"><img class="sofa-journey__hx-still" src="${hxStill}" alt=""><video class="sofa-journey__hx-video" muted playsinline preload="metadata" disablepictureinpicture poster="${hxStill}"><source src="${hxWebm}" type="video/webm"><source src="${hxMp4}" type="video/mp4"></video></div></div><div class="sofa-journey__camera"></div><i class="sofa-journey__white"></i><div class="sofa-journey__landing"><img class="sofa-journey__bg" src="${asset('bg/landing-sofa-empty-v2.webp')}" alt=""><p class="sofa-journey__moment">Keep Our<br>Memory Moment</p><div class="sofa-journey__type" aria-hidden="true"></div></div><div class="sofa-journey__cushion"><img src="${asset('bg/landing-sofa-empty-v2.webp')}" alt=""></div><i class="sofa-journey__contact-shadow"></i><i class="sofa-journey__burst"></i><div class="sofa-journey__streak-layer"><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i></div><div class="sofa-journey__dust-layer"><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i></div><div class="sofa-journey__mascot sofa-journey__actor"></div><i class="sofa-journey__grain"></i><i class="sofa-journey__mask"></i>`;
+  mount.innerHTML=`<div class="sofa-journey__hx"><div class="sofa-journey__hx-spin"><img class="sofa-journey__hx-still" src="${hxStill}" alt=""><video class="sofa-journey__hx-video" muted playsinline preload="none" disablepictureinpicture poster="${hxStill}"><source src="${hxWebm}" type="video/webm"><source src="${hxMp4}" type="video/mp4"></video></div></div><div class="sofa-journey__camera"></div><i class="sofa-journey__white"></i><div class="sofa-journey__landing"><img class="sofa-journey__bg" src="${asset('bg/landing-sofa-empty-v2.webp')}" alt=""><p class="sofa-journey__moment">Keep Our<br>Memory Moment</p><div class="sofa-journey__type" aria-hidden="true"></div></div><div class="sofa-journey__cushion"><img src="${asset('bg/landing-sofa-empty-v2.webp')}" alt=""></div><i class="sofa-journey__contact-shadow"></i><i class="sofa-journey__burst"></i><div class="sofa-journey__streak-layer"><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i></div><div class="sofa-journey__dust-layer"><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i></div><div class="sofa-journey__mascot sofa-journey__actor"></div><i class="sofa-journey__grain"></i><i class="sofa-journey__mask"></i>`;
   const camera=mount.querySelector('.sofa-journey__camera'),hx=mount.querySelector('.sofa-journey__hx'),hxSpin=mount.querySelector('.sofa-journey__hx-spin'),hxVid=mount.querySelector('.sofa-journey__hx-video'),underlay=mount.querySelector('.sofa-journey__white'),landing=mount.querySelector('.sofa-journey__landing'),cushion=mount.querySelector('.sofa-journey__cushion'),actor=mount.querySelector('.sofa-journey__actor'),shadow=mount.querySelector('.sofa-journey__contact-shadow'),burstGlow=mount.querySelector('.sofa-journey__burst'),dust=[...mount.querySelectorAll('.sofa-journey__dust')],speed=[...mount.querySelectorAll('.sofa-journey__speed')],grain=mount.querySelector('.sofa-journey__grain'),mask=mount.querySelector('.sofa-journey__mask'),streakLayer=mount.querySelector('.sofa-journey__streak-layer'),dustLayer=mount.querySelector('.sofa-journey__dust-layer');
   const rig=createFallingActor(actor),seated=rig.goya,card=rig.cards[0];
   mount.classList.add('sofa-journey--shaft');
@@ -104,12 +104,22 @@ export function createSofaJourneyScene(mount, wake=()=>{}){
   mount.querySelectorAll('img').forEach(image=>{if(!image.complete)image.addEventListener('load',wake,{once:true});});
   // [107] 낙하 구간이 화면에서 멀면 합성 레이어 예약(will-change)을 통째로 내린다.
   // 화면 앞뒤 60% 여유를 두고 미리 켜므로, 되돌아올 때 레이어가 늦게 올라오는 일은 없다.
-  let liveWatcher=null;
+  let liveWatcher=null, videoWatcher=null, videoOn=false;
   const liveTarget=mount.closest('#drop')||mount;
   if(typeof IntersectionObserver==='function'){
     liveWatcher=new IntersectionObserver(entries=>{for(const entry of entries)mount.classList.toggle('is-live',entry.isIntersecting);},{rootMargin:'60% 0px 60% 0px'});
     liveWatcher.observe(liveTarget);
-  } else mount.classList.add('is-live');
+    // 2026-09-12 #N02: 재생 판단은 is-live 로 하면 안 된다. is-live 는 합성 레이어를 미리 올리려고
+    // 앞뒤 60% 를 더 보기 때문에, 첫 화면(y=0)에서 이미 켜져 있다 — 그 값으로 재생을 판단하면
+    // 10MB 영상을 첫 로드에 그대로 얹는다(실측으로 확인). 재생은 '진짜로 화면에 걸쳐 있을 때'만 한다.
+    // 그리고 관찰자가 켜질 때 한 번 깨워야 한다 — 안 그러면 통로에 가만히 서 있을 때
+    // 다음 스크롤이 올 때까지 배경 영상이 첫 프레임에 멈춰 있다(실측: y=1400 에서 2.2초 뒤에도 paused).
+    videoWatcher=new IntersectionObserver(entries=>{for(const entry of entries){
+      const on=entry.isIntersecting;
+      if(on!==videoOn){videoOn=on;wake();}
+    }},{rootMargin:'0px'});
+    videoWatcher.observe(liveTarget);
+  } else {mount.classList.add('is-live');videoOn=true;}
   let handoff=0, impactAt=0, cardImpactAt=0;
   // [8] 시대 사진 16장의 transform 은 화면 높이가 바뀔 때만 달라진다 — 프레임마다 다시 만들지 않는다
   let tfStep=-1; const tfCache=new Array(N);
@@ -138,9 +148,9 @@ export function createSofaJourneyScene(mount, wake=()=>{}){
     if(hxVid){
       // 2026-09-12 #N02: 낙하 구간이 아직 화면 근처에 오지도 않았는데 첫 화면에서 바로 play() 가 불려
       // 10MB(webm)/21MB(mp4) 영상을 통째로 내려받고 있었다(실측: 첫 로드 전송 1위 10,075KB).
-      // is-live 는 위의 IntersectionObserver 가 '화면 앞뒤 60% 안'일 때만 붙인다 —
-      // 그 조건을 재생에도 그대로 쓴다. (예전에는 여기서 is-live 를 직접 붙여 관찰자를 건너뛰었다)
-      const wantPlay=!reduced&&hxO>.02&&mount.classList.contains('is-live');
+      // videoOn 은 #drop 이 '진짜로 화면에 걸쳐 있을 때'만 참이다(rootMargin 0).
+      // (예전에는 여기서 is-live 를 직접 붙여 관찰자를 건너뛰었다)
+      const wantPlay=!reduced&&hxO>.02&&videoOn;
       if(wantPlay){
         if(hxVid.paused&&hxVid.currentTime<Math.max(0,(hxVid.duration||8)-.08))hxVid.play().catch(()=>{});
         const rate=0.94+suck*0.18;
@@ -290,7 +300,7 @@ export function createSofaJourneyScene(mount, wake=()=>{}){
   }
   function drawArrival(progress=0,reduced=false){handoff=reduced?(clamp(progress)>=.2?1:0):smooth(0,.2,progress);sv(mount,'opacity',(1-handoff).toFixed(4));}
   function setHandoffProgress(progress=0){handoff=clamp(progress);sv(mount,'opacity',(1-handoff).toFixed(4));}
-  return {draw,drawArrival,resize(){vortex.resize();},getCharacterRect(){return null;},setCharacterHidden(){},setHandoffProgress,dispose(){liveWatcher?.disconnect();hxVid.pause();vortex.dispose();mount.closest('#drop')?.classList.remove('sofa-journey-ready');mount.replaceChildren();mount.classList.remove('sofa-journey','is-live');}};
+  return {draw,drawArrival,resize(){vortex.resize();},getCharacterRect(){return null;},setCharacterHidden(){},setHandoffProgress,dispose(){liveWatcher?.disconnect();videoWatcher?.disconnect();hxVid.pause();vortex.dispose();mount.closest('#drop')?.classList.remove('sofa-journey-ready');mount.replaceChildren();mount.classList.remove('sofa-journey','is-live');}};
 }
 
 export const createRoomEntryScene=createSofaJourneyScene;

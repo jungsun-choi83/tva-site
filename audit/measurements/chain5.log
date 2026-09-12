@@ -1,0 +1,276 @@
+=== verify2 final
+── 입력칸 글자 {"320":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}],"360":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}],"390":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}],"414":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}],"768":[{"이름":"name","px":16},{"이름":"email","px":16},{"이름":"phone","px":16},{"이름":"message","px":16}]}
+── 상단바
+┌─────────┬──────┬─────────┬─────────────┬────────┬──────────┬───────────┬──────┐
+│ (index) │ 폭   │ 표시    │ 그림        │ 화면밖 │ 글자겹침 │ 현재      │ 넘침 │
+├─────────┼──────┼─────────┼─────────────┼────────┼──────────┼───────────┼──────┤
+│ 0       │ 320  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 1       │ 360  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 2       │ 390  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 3       │ 414  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 4       │ 480  │ 'none'  │ '-'         │ true   │ '-'      │ 'RECORDS' │ '-'  │
+│ 5       │ 560  │ 'block' │ '319~343'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 6       │ 640  │ 'block' │ '357~385'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 7       │ 700  │ 'block' │ '387~415'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 8       │ 760  │ 'block' │ '417~445'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 9       │ 768  │ 'block' │ '463~492'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 10      │ 900  │ 'block' │ '529~564'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 11      │ 1024 │ 'block' │ '595~630'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 12      │ 1440 │ 'block' │ '814~849'   │ false  │ '-'      │ 'RECORDS' │ '-'  │
+│ 13      │ 1920 │ 'block' │ '1068~1103' │ false  │ '-'      │ 'RECORDS' │ '-'  │
+└─────────┴──────┴─────────┴─────────────┴────────┴──────────┴───────────┴──────┘
+── 중복 주소 []
+── 이름표 {
+ "390x844": [
+  {
+   "글": "Letter",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Identity",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Motion",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 8,
+   "줄높이": 8,
+   "폭": 56
+  }
+ ],
+ "1440x900": [
+  {
+   "글": "Letter",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Identity",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Hologram",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Archive",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  },
+  {
+   "글": "Process",
+   "줄수": 1,
+   "상자높이": 11,
+   "줄높이": 11,
+   "폭": 92
+  }
+ ]
+}
+저장 verify2-final.json
+=== capture final1
+chromium 320 /: 39장
+chromium 320 /privacy.html: 4장
+chromium 390 /: 38장
+chromium 390 /privacy.html: 2장
+chromium 768 /: 37장
+chromium 768 /privacy.html: 2장
+chromium 1024x768 /: 41장
+chromium 1024x768 /privacy.html: 2장
+chromium 1280x650 /: 46장
+chromium 1280x650 /privacy.html: 3장
+chromium 1440 /: 43장
+chromium 1440 /privacy.html: 2장
+chromium 1920 /: 44장
+chromium 1920 /privacy.html: 2장
+=== capture final2
+chromium 320 /: 39장
+chromium 320 /privacy.html: 4장
+chromium 390 /: 38장
+chromium 390 /privacy.html: 2장
+chromium 768 /: 37장
+chromium 768 /privacy.html: 2장
+chromium 1024x768 /: 41장
+chromium 1024x768 /privacy.html: 2장
+chromium 1280x650 /: 46장
+chromium 1280x650 /privacy.html: 3장
+chromium 1440 /: 43장
+chromium 1440 /privacy.html: 2장
+chromium 1920 /: 44장
+chromium 1920 /privacy.html: 2장
+=== diff before→final1
+┌─────────┬─────────────────────────────────────────┬────────┐
+│ (index) │ 파일                                    │ 변화율 │
+├─────────┼─────────────────────────────────────────┼────────┤
+│ 0       │ 'chromium/1024x768/home/01.png'         │ 73.157 │
+│ 1       │ 'chromium/768/home/01.png'              │ 69.742 │
+│ 2       │ 'chromium/320/home/01.png'              │ 68.566 │
+│ 3       │ 'chromium/390/home/01.png'              │ 68.346 │
+│ 4       │ 'chromium/1024x768/home/03.png'         │ 45.364 │
+│ 5       │ 'chromium/1024x768/home/02.png'         │ 40.447 │
+│ 6       │ 'chromium/768/home/03.png'              │ 38.986 │
+│ 7       │ 'chromium/768/home/02.png'              │ 38.455 │
+│ 8       │ 'chromium/320/home/05.png'              │ 34.886 │
+│ 9       │ 'chromium/320/home/04.png'              │ 33.381 │
+│ 10      │ 'chromium/390/home/04.png'              │ 33.099 │
+│ 11      │ 'chromium/320/home/03.png'              │ 32.542 │
+│ 12      │ 'chromium/390/home/03.png'              │ 31.336 │
+│ 13      │ 'chromium/320/home/02.png'              │ 23.863 │
+│ 14      │ 'chromium/390/home/02.png'              │ 22.546 │
+│ 15      │ 'chromium/1920/home/03.png'             │ 19.054 │
+│ 16      │ 'chromium/1280x650/home/05.png'         │ 17.344 │
+│ 17      │ 'chromium/1280x650/home/04.png'         │ 13.792 │
+│ 18      │ 'chromium/1440/home/04.png'             │ 12.9   │
+│ 19      │ 'chromium/1920/home/02.png'             │ 12.702 │
+│ 20      │ 'chromium/1280x650/home/02.png'         │ 11.203 │
+│ 21      │ 'chromium/1440/home/02.png'             │ 9.13   │
+│ 22      │ 'chromium/1024x768/home/05.png'         │ 9.113  │
+│ 23      │ 'chromium/1024x768/home/04.png'         │ 9.049  │
+│ 24      │ 'chromium/1280x650/home/01.png'         │ 8.714  │
+│ 25      │ 'chromium/1920/home/01.png'             │ 8.5    │
+│ 26      │ 'chromium/1440/home/01.png'             │ 7.818  │
+│ 27      │ 'chromium/1280x650/home/03.png'         │ 7.536  │
+│ 28      │ 'chromium/320/privacy_html/02.png'      │ 7.217  │
+│ 29      │ 'chromium/320/privacy_html/01.png'      │ 6.679  │
+│ 30      │ 'chromium/320/home/18.png'              │ 5.456  │
+│ 31      │ 'chromium/320/home/19.png'              │ 5.452  │
+│ 32      │ 'chromium/320/home/16.png'              │ 5.448  │
+│ 33      │ 'chromium/390/privacy_html/01.png'      │ 5.331  │
+│ 34      │ 'chromium/320/home/17.png'              │ 4.662  │
+│ 35      │ 'chromium/1280x650/home/10.png'         │ 3.813  │
+│ 36      │ 'chromium/768/privacy_html/01.png'      │ 3.796  │
+│ 37      │ 'chromium/768/home/05.png'              │ 3.741  │
+│ 38      │ 'chromium/768/home/04.png'              │ 3.613  │
+│ 39      │ 'chromium/320/privacy_html/00.png'      │ 3.422  │
+│ 40      │ 'chromium/1440/home/10.png'             │ 3.312  │
+│ 41      │ 'chromium/1280x650/home/09.png'         │ 3.292  │
+│ 42      │ 'chromium/390/home/22.png'              │ 3.26   │
+│ 43      │ 'chromium/1280x650/home/11.png'         │ 3.223  │
+│ 44      │ 'chromium/1024x768/home/10.png'         │ 3.22   │
+│ 45      │ 'chromium/390/home/15.png'              │ 3.053  │
+│ 46      │ 'chromium/390/home/17.png'              │ 2.999  │
+│ 47      │ 'chromium/390/home/18.png'              │ 2.997  │
+│ 48      │ 'chromium/1280x650/home/13.png'         │ 2.978  │
+│ 49      │ 'chromium/320/home/23.png'              │ 2.978  │
+│ 50      │ 'chromium/320/home/20.png'              │ 2.922  │
+│ 51      │ 'chromium/768/home/09.png'              │ 2.921  │
+│ 52      │ 'chromium/1280x650/privacy_html/02.png' │ 2.909  │
+│ 53      │ 'chromium/1280x650/home/12.png'         │ 2.875  │
+│ 54      │ 'chromium/1280x650/privacy_html/01.png' │ 2.835  │
+│ 55      │ 'chromium/1280x650/home/14.png'         │ 2.823  │
+│ 56      │ 'chromium/1440/home/09.png'             │ 2.812  │
+│ 57      │ 'chromium/1280x650/home/22.png'         │ 2.757  │
+│ 58      │ 'chromium/390/home/19.png'              │ 2.751  │
+│ 59      │ 'chromium/320/home/14.png'              │ 2.729  │
+└─────────┴─────────────────────────────────────────┴────────┘
+변화 있는 파일 281 / 전체 304. 차이 이미지: screenshots/diff_before_final1/
+=== diff final1→final2 (같은 판 두 번 = 잡음 바닥)
+┌─────────┬─────────────────────────────────┬────────┐
+│ (index) │ 파일                            │ 변화율 │
+├─────────┼─────────────────────────────────┼────────┤
+│ 0       │ 'chromium/390/home/04.png'      │ 20.559 │
+│ 1       │ 'chromium/320/home/05.png'      │ 18.642 │
+│ 2       │ 'chromium/390/home/05.png'      │ 16.57  │
+│ 3       │ 'chromium/390/home/02.png'      │ 15.153 │
+│ 4       │ 'chromium/1280x650/home/04.png' │ 15.04  │
+│ 5       │ 'chromium/768/home/02.png'      │ 14.76  │
+│ 6       │ 'chromium/1440/home/03.png'     │ 11.482 │
+│ 7       │ 'chromium/320/home/04.png'      │ 10.412 │
+│ 8       │ 'chromium/1920/home/01.png'     │ 10.104 │
+│ 9       │ 'chromium/768/home/03.png'      │ 10.086 │
+│ 10      │ 'chromium/1920/home/03.png'     │ 9.943  │
+│ 11      │ 'chromium/1280x650/home/05.png' │ 8.207  │
+│ 12      │ 'chromium/1920/home/02.png'     │ 7.957  │
+│ 13      │ 'chromium/1440/home/04.png'     │ 7.321  │
+│ 14      │ 'chromium/1280x650/home/03.png' │ 6.896  │
+│ 15      │ 'chromium/1024x768/home/02.png' │ 6.513  │
+│ 16      │ 'chromium/1440/home/02.png'     │ 4.638  │
+│ 17      │ 'chromium/390/home/03.png'      │ 4.235  │
+│ 18      │ 'chromium/390/home/22.png'      │ 3.25   │
+│ 19      │ 'chromium/320/home/03.png'      │ 3.062  │
+│ 20      │ 'chromium/1024x768/home/03.png' │ 2.858  │
+│ 21      │ 'chromium/1280x650/home/01.png' │ 1.373  │
+│ 22      │ 'chromium/320/home/00.png'      │ 1.264  │
+│ 23      │ 'chromium/1920/home/00.png'     │ 1.041  │
+│ 24      │ 'chromium/390/home/19.png'      │ 0.8    │
+│ 25      │ 'chromium/1280x650/home/02.png' │ 0.767  │
+│ 26      │ 'chromium/768/home/18.png'      │ 0.615  │
+│ 27      │ 'chromium/768/home/00.png'      │ 0.603  │
+│ 28      │ 'chromium/768/home/08.png'      │ 0.584  │
+│ 29      │ 'chromium/390/home/00.png'      │ 0.542  │
+│ 30      │ 'chromium/1280x650/home/00.png' │ 0.535  │
+│ 31      │ 'chromium/1440/home/26.png'     │ 0.526  │
+│ 32      │ 'chromium/1280x650/home/29.png' │ 0.475  │
+│ 33      │ 'chromium/768/home/19.png'      │ 0.442  │
+│ 34      │ 'chromium/390/home/21.png'      │ 0.35   │
+│ 35      │ 'chromium/1024x768/home/00.png' │ 0.349  │
+│ 36      │ 'chromium/768/home/20.png'      │ 0.334  │
+│ 37      │ 'chromium/390/home/20.png'      │ 0.223  │
+│ 38      │ 'chromium/1920/home/25.png'     │ 0.147  │
+│ 39      │ 'chromium/768/home/21.png'      │ 0.122  │
+│ 40      │ 'chromium/1440/home/25.png'     │ 0.117  │
+│ 41      │ 'chromium/1280x650/home/28.png' │ 0.11   │
+│ 42      │ 'chromium/320/home/23.png'      │ 0.106  │
+│ 43      │ 'chromium/1024x768/home/21.png' │ 0.078  │
+│ 44      │ 'chromium/1920/home/28.png'     │ 0.071  │
+│ 45      │ 'chromium/768/home/16.png'      │ 0.065  │
+│ 46      │ 'chromium/1280x650/home/25.png' │ 0.06   │
+│ 47      │ 'chromium/768/home/11.png'      │ 0.058  │
+│ 48      │ 'chromium/1280x650/home/30.png' │ 0.055  │
+│ 49      │ 'chromium/1920/home/27.png'     │ 0.05   │
+│ 50      │ 'chromium/1024x768/home/10.png' │ 0.048  │
+│ 51      │ 'chromium/1440/home/22.png'     │ 0.047  │
+│ 52      │ 'chromium/1440/home/28.png'     │ 0.045  │
+│ 53      │ 'chromium/320/home/07.png'      │ 0.044  │
+│ 54      │ 'chromium/320/home/08.png'      │ 0.043  │
+│ 55      │ 'chromium/390/home/08.png'      │ 0.043  │
+│ 56      │ 'chromium/1280x650/home/11.png' │ 0.042  │
+│ 57      │ 'chromium/1280x650/home/27.png' │ 0.042  │
+│ 58      │ 'chromium/768/home/17.png'      │ 0.041  │
+│ 59      │ 'chromium/1440/home/23.png'     │ 0.031  │
+└─────────┴─────────────────────────────────┴────────┘
+변화 있는 파일 100 / 전체 305. 차이 이미지: screenshots/diff_final1_final2/
+=== CHAIN5 DONE

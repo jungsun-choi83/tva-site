@@ -43,16 +43,23 @@ export function initNavShelf(nav) {
   mascot.alt = '';
   mascot.setAttribute('aria-hidden', 'true');
   // 감사 #119: 그림이 끊기면 깨진-이미지 흰 상자 대신 자리를 비운다 (장식용이라 없어도 뜻이 사라지지 않는다)
-  // 클래스는 값이 바뀔 때만 건드린다 (classList 를 그냥 호출하면 값이 같아도 속성이 다시 쓰여 루프가 깨어난다)
-  const markBroken = on => { if (nav.classList.contains('has-broken-mascot') !== on) nav.classList.toggle('has-broken-mascot', on); };
-  mascot.addEventListener('error', () => { mascot.style.visibility = 'hidden'; markBroken(true); });
-  mascot.addEventListener('load', () => { mascot.style.visibility = ''; markBroken(false); });
+  // 예전에는 .has-broken-mascot 클래스로 '지워 뒀던 현재 메뉴 글자'를 되살렸지만, 이제 글자를 지우지 않으므로
+  // 그 클래스는 아무 데서도 쓰이지 않는다. 그림만 감춘다.
+  mascot.addEventListener('error', () => { mascot.style.visibility = 'hidden'; });
+  mascot.addEventListener('load', () => { mascot.style.visibility = ''; });
   nav.append(mascot);
   // 2026-09-12 #N05: 포즈 그림 4종(idle·sit·walk1·walk2)은 합쳐서 약 4.5MB 다.
   // 상단바는 첫 화면에서 접혀 있으므로 브라우저가 한가할 때 받아 둔다.
-  const warmPoses = () => { for (const p of Object.values(POSES)) { const i = new Image(); i.decoding = 'async'; i.src = BASE + p.f; } };
-  if (typeof requestIdleCallback === 'function') requestIdleCallback(warmPoses, { timeout: 3000 });
-  else setTimeout(warmPoses, 1500);
+  // 2026-09-12 #N08: 휴대폰에서는 선반에 설 자리가 없어 캐릭터가 한 번도 그려지지 않는다.
+  // 그래서 '한 번이라도 선 뒤'에만 나머지 포즈를 받는다(전에는 무조건 4장 약 4.5MB 를 받았다).
+  let warmed = false;
+  const warmPoses = () => {
+    if (warmed) return;
+    warmed = true;
+    const go = () => { for (const p of Object.values(POSES)) { const i = new Image(); i.decoding = 'async'; i.src = BASE + p.f; } };
+    if (typeof requestIdleCallback === 'function') requestIdleCallback(go, { timeout: 3000 });
+    else setTimeout(go, 1500);
+  };
 
   // ── 한 번 깨어날 때 한 번만 재는 값들 (예전에는 매 프레임 getComputedStyle·getBoundingClientRect 를 읽었다)
   let bodyH = 0, navLeft = 0, navW = 0, centers = null, edges = null, listLeft = 0;
@@ -79,13 +86,16 @@ export function initNavShelf(nav) {
   // 빈칸이 캐릭터보다 좁으면 그 칸에 맞게 줄여서 세운다. 이 배율보다 더 줄여야 하면 서지 않는다.
   const MIN_FIT = .58;
   let fit = 1;
+  // 선반에 캐릭터가 설 빈칸이 아예 없는 상태(휴대폰 세로). 예전에는 선반 밖으로 걸어 나가
+  // '보이지 않는 채로' 계속 그려졌다 — 그림(1MB)을 받고 프레임도 돌면서 화면에는 없었다.
+  let noRoom = false;
   const slotFit = (gap, w) => (gap >= w ? 1 : (gap / w >= MIN_FIT ? gap / w : 0));
   function place(pose, x, dir, lift, squash) {
     const p = POSES[pose] || POSES.idle;
     if (!Number.isFinite(x)) return;
     if (!bodyH) measure();
     const size = bodyH * fit / (p.bot - p.top);
-    if (mascot.dataset.pose !== pose) { mascot.src = BASE + p.f; mascot.dataset.pose = pose; }
+    if (mascot.dataset.pose !== pose) { mascot.src = BASE + p.f; mascot.dataset.pose = pose; warmPoses(); }
     mascot.style.width = mascot.style.height = size + 'px';
     mascot.style.left = (x - p.fx * size) + 'px';
     mascot.style.bottom = (2 - (1 - p.fy) * size - lift) + 'px';
@@ -130,9 +140,10 @@ export function initNavShelf(nav) {
     ];
     for (const [l, r] of slots) {
       const f = slotFit(r - l, w);
-      if (f) { fit = f; return (l + r) / 2 + (POSES.idle.fx - .5) * w * f; }
+      if (f) { fit = f; noRoom = false; return (l + r) / 2 + (POSES.idle.fx - .5) * w * f; }
     }
     fit = 1;
+    noRoom = true;
     return navW + w;
   }
   // 메뉴에 없는 구역에서 캐릭터가 서는 자리 = ORIGINAL 과 CONTACT 글자 사이 빈칸
@@ -145,7 +156,8 @@ export function initNavShelf(nav) {
     if (!a || !b) return (targetX(iLeftRest) + targetX(iRightRest)) / 2;
     const w = restWidth();
     const l = Math.min(a.tr, b.tl), r = Math.max(a.tr, b.tl);
-    if (r - l >= w) return (l + r) / 2 + (POSES.idle.fx - .5) * w;   // 빈칸 한가운데에 캐릭터 상자를 맞춘다
+    if (r - l >= w) { noRoom = false; return (l + r) / 2 + (POSES.idle.fx - .5) * w; }   // 빈칸 한가운데에 캐릭터 상자를 맞춘다
+    noRoom = true;
     return navW + w;                                                  // 좁으면 선반 밖에서 기다린다
   };
 
@@ -158,7 +170,7 @@ export function initNavShelf(nav) {
   const reduced = () => document.documentElement.classList.contains('reduced-motion') || rmq.matches;
   // 바가 실제로 눈에 보이는 상태인가 — 클래스만 보므로 레이아웃을 건드리지 않는다
   // is-away 는 이제 아무도 붙이지 않는다(감사 [56], 접힘 판단은 app.js applyNav 소관). 혹시 다시 붙는 날을 대비해 읽기만 남겨 둔다.
-  const navShown = () => !document.hidden && nav.classList.contains('is-visible') && !nav.classList.contains('is-away') && !reduced();
+  const navShown = () => !document.hidden && nav.classList.contains('is-visible') && !nav.classList.contains('is-away') && !reduced() && !noRoom;
 
   function step(now) {
     const dt = Math.max(0, Math.min(64, now - last)); last = now;
@@ -170,6 +182,8 @@ export function initNavShelf(nav) {
     }
     let awake = now < awakeUntil;
     const t = current < 0 ? restX() : targetX(current);
+    // targetX·restX 가 noRoom 을 갱신한 뒤에 판단한다
+    if (mascot.classList.contains('is-noroom') !== noRoom) mascot.classList.toggle('is-noroom', noRoom);
     if (!navShown()) {
       // 바가 안 보이는 동안은 그림을 그리지 않는다. 자리만 맞춰 두어 다시 나타날 때 제자리에 서 있게 한다.
       x = t;

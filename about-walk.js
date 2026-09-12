@@ -45,7 +45,9 @@ function init() {
   host.dataset.characterPhase = 'rest';
   const base = new URL('./assets/about-walk/', import.meta.url).href;
   // 그림 파일 이름이 늘 같으므로(strip.webp 등) 스크립트의 ?v= 를 그림 주소에도 붙여 옛 캐시를 쓰지 않게 한다
-  const ver = new URL(import.meta.url).searchParams.get('v') || '';
+  // 캐릭터 그림의 판 번호는 이 모듈의 판 번호와 별개다. 전에는 모듈의 ?v= 를 그대로 찍어
+  // 같은 idle.png 를 nav-shelf(r51) 와 다른 주소로 한 번 더 내려받았다. journey.js 의 GOYA_V 와 같은 값을 쓴다.
+  const ver = 'eternal-beam-r51';
   const asset = name => `${base}${name}${ver ? `?v=${encodeURIComponent(ver)}` : ''}`;
   const strip = document.createElement('img');
   strip.className = 'about-walk__strip';

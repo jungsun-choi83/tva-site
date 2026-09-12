@@ -1,5 +1,5 @@
-import { originalWorks } from './original-works.js?v=eternal-beam-r3';
-import { populateOriginalSlot, preserveOriginalForeground, observeOriginalSlotSize } from './original-slots.js?v=zoom-r2.h8665fcea';
+import { originalWorks } from './original-works.js?v=eb-20260912';
+import { populateOriginalSlot, preserveOriginalForeground, observeOriginalSlotSize } from './original-slots.js?v=eb-20260912';
 
 export function initOriginals(onInquiry) {
   const root = document.querySelector('#original-folios');

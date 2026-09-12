@@ -1,0 +1,445 @@
+=== journeys after2
+저장 journeys-after2.json
+
+── 1_Windows노트북_125%_마우스휠
+{
+ "뷰포트": "1536x864 @1.25x",
+ "페이지에러": [],
+ "첫화면": {
+  "한국어글자수": 20,
+  "보이는CTA": [
+   "CH 01 INTRO",
+   "CH 02 WHO WE ARE",
+   "CH 03 ARCHIVE",
+   "CH 04 CONTACT",
+   "REPLAY SIGNAL",
+   "SCROLL TO ENTER"
+  ]
+ },
+ "한칸이동": {
+  "휠한칸deltaY": 100,
+  "실제이동px": 756,
+  "뷰포트배수": 0.88
+ },
+ "CONTACT까지": {
+  "휠굴린횟수": 120,
+  "걸린초": 22.3,
+  "도달": false
+ },
+ "편지함": {
+  "열림": true,
+  "이름칸": true
+ },
+ "배율125에서겹침": [
+  "input.hp"
+ ]
+}
+
+── 2_MacBook_트랙패드_120Hz
+{
+ "뷰포트": "1512x982 @2x",
+ "페이지에러": [],
+ "미세스크롤": {
+  "보낸총delta": 100,
+  "실제이동px": 6285,
+  "걸린ms": 9736
+ },
+ "관성플릭": {
+  "보낸총delta": 331,
+  "실제이동px": 6285,
+  "멈추기까지ms": 9571
+ },
+ "CONTACT까지": {
+  "휠굴린횟수": 300,
+  "걸린초": 28.9,
+  "도달": false
+ },
+ "프레임": {
+  "표본": 40,
+  "평균fps": 6.2,
+  "p95프레임ms": 316.7,
+  "50ms초과": 40
+ }
+}
+
+── 3_키보드만
+{
+ "뷰포트": "1440x900",
+ "페이지에러": [],
+ "탭순서": [
+  {
+   "이름": "본문 바로가기 Skip to content",
+   "태그": "a",
+   "화면밖": false,
+   "과녁": 56,
+   "초점표시": true
+  },
+  {
+   "이름": "문의 바로가기 Skip to contact",
+   "태그": "a",
+   "화면밖": false,
+   "과녁": 56,
+   "초점표시": true
+  },
+  {
+   "이름": "SCROLL TO ENTER",
+   "태그": "a",
+   "화면밖": false,
+   "과녁": 44,
+   "초점표시": true
+  },
+  {
+   "이름": "→",
+   "태그": "button",
+   "화면밖": true,
+   "과녁": 44,
+   "초점표시": true
+  },
+  {
+   "이름": "IFRAME",
+   "태그": "iframe",
+   "화면밖": false,
+   "과녁": 824,
+   "초점표시": false
+  },
+  {
+   "이름": "IFRAME",
+   "태그": "iframe",
+   "화면밖": false,
+   "과녁": 824,
+   "초점표시": false
+  },
+  {
+   "이름": "IFRAME",
+   "태그": "iframe",
+   "화면밖": false,
+   "과녁": 824,
+   "초점표시": false
+  },
+  {
+   "이름": "IFRAME",
+   "태그": "iframe",
+   "화면밖": false,
+   "과녁": 824,
+   "초점표시": false
+  },
+  {
+   "이름": "IFRAME",
+   "태그": "iframe",
+   "화면밖": false,
+   "과녁": 824,
+   "초점표시": false
+  },
+  {
+   "이름": "IFRAME",
+   "태그": "iframe",
+   "화면밖": false,
+   "과녁": 824,
+   "초점표시": false
+  },
+  {
+   "이름": "IFRAME",
+   "태그": "iframe",
+   "화면밖": false,
+   "과녁": 824,
+   "초점표시": false
+  },
+  {
+   "이름": "IFRAME",
+   "태그": "iframe",
+   "화면밖": false,
+   "과녁": 824,
+   "초점표시": false
+  },
+  {
+   "이름": "IFRAME",
+   "태그": "iframe",
+   "화면밖": false,
+   "과녁": 824,
+   "초점표시": false
+  },
+  {
+   "이름": "LETTER 자세히 보기",
+   "태그": "button",
+   "화면밖": true,
+   "과녁": 362,
+   "초점표시": false
+  },
+  {
+
+
+── 4_카카오톡인앱_모바일_한손
+{
+ "뷰포트": "iPhone 13 (390x844 @3x) · UA 에 KAKAOTALK",
+ "페이지에러": [],
+ "실패요청4xx": [],
+ "첫화면": {
+  "가로넘침px": 0,
+  "한국어글자수": 20,
+  "메뉴항목": [
+   {
+    "글": "",
+    "오른쪽끝": 181,
+    "화면폭": 390,
+    "잘림": false
+   },
+   {
+    "글": "",
+    "오른쪽끝": 243,
+    "화면폭": 390,
+    "잘림": false
+   },
+   {
+    "글": "",
+    "오른쪽끝": 307,
+    "화면폭": 390,
+    "잘림": false
+   },
+   {
+    "글": "",
+    "오른쪽끝": 370,
+    "화면폭": 390,
+    "잘림": false
+   }
+  ],
+  "로고폭": 112
+ },
+ "엄지사정권": {
+  "사정권안": [
+   {
+    "이름": "SCROLL TO ENTER",
+    "과녁": 44,
+    "y": 604
+   }
+  ],
+  "사정권밖": [
+   {
+    "이름": "CH 01 INTRO",
+    "과녁": 44,
+    "y": 250
+   },
+   {
+    "이름": "CH 02 WHO WE ARE",
+    "과녁": 44,
+    "y": 250
+   },
+   {
+    "이름": "CH 03 ARCHIVE",
+    "과녁": 44,
+    "y": 250
+   },
+   {
+    "이름": "CH 04 CONTACT",
+    "과녁": 44,
+    "y": 250
+   },
+   {
+    "이름": "REPLAY SIGNAL",
+    "과녁": 44,
+    "y": 297
+   }
+  ]
+ },
+ "CONTACT까지_터치": {
+  "스와이프횟수": 20,
+  "걸린초": 7.9,
+  "도달": true
+ },
+ "편지함": {
+  "열림": true,
+  "입력칸": [
+   {
+    "이름": "name",
+    "글자크기": "16px",
+    "높이": 44
+   },
+   {
+    "이름": "email",
+    "글자크기": "16px",
+    "높이": 44
+   },
+   {
+    "이름": "phone",
+    "글자크기": "16px",
+    "높이": 44
+   },
+   {
+    "이름": "message",
+    "글자크기": "16px",
+    "높이": 122
+   },
+   {
+    "이름": "_gotcha",
+    "글자크기": "16px",
+    "높이": 30
+   },
+   {
+    "이름": "privacy_consent",
+    "글자크기": "10.5px",
+    "높이": 24
+   }
+  ],
+  "동의체크박스":
+=== capture after2
+chromium 320 /: 39장
+chromium 320 /privacy.html: 4장
+chromium 390 /: 38장
+chromium 390 /privacy.html: 2장
+chromium 768 /: 37장
+chromium 768 /privacy.html: 2장
+chromium 1024x768 /: 41장
+chromium 1024x768 /privacy.html: 2장
+chromium 1280x650 /: 46장
+chromium 1280x650 /privacy.html: 3장
+chromium 1440 /: 43장
+chromium 1440 /privacy.html: 2장
+chromium 1920 /: 44장
+chromium 1920 /privacy.html: 2장
+=== capture after3
+chromium 320 /: 39장
+chromium 320 /privacy.html: 4장
+chromium 390 /: 38장
+chromium 390 /privacy.html: 2장
+chromium 768 /: 37장
+chromium 768 /privacy.html: 2장
+chromium 1024x768 /: 41장
+chromium 1024x768 /privacy.html: 2장
+chromium 1280x650 /: 46장
+chromium 1280x650 /privacy.html: 3장
+chromium 1440 /: 43장
+chromium 1440 /privacy.html: 2장
+chromium 1920 /: 44장
+chromium 1920 /privacy.html: 2장
+=== diff before→after2
+┌─────────┬─────────────────────────────────────────┬────────┐
+│ (index) │ 파일                                    │ 변화율 │
+├─────────┼─────────────────────────────────────────┼────────┤
+│ 0       │ 'chromium/1024x768/home/01.png'         │ 73.157 │
+│ 1       │ 'chromium/768/home/01.png'              │ 69.742 │
+│ 2       │ 'chromium/1440/home/01.png'             │ 69.256 │
+│ 3       │ 'chromium/320/home/01.png'              │ 68.566 │
+│ 4       │ 'chromium/390/home/01.png'              │ 68.346 │
+│ 5       │ 'chromium/1024x768/home/03.png'         │ 45.213 │
+│ 6       │ 'chromium/1024x768/home/02.png'         │ 41.653 │
+│ 7       │ 'chromium/768/home/03.png'              │ 40.886 │
+│ 8       │ 'chromium/768/home/02.png'              │ 38.324 │
+│ 9       │ 'chromium/1280x650/home/05.png'         │ 36.5   │
+│ 10      │ 'chromium/1440/home/04.png'             │ 35.934 │
+│ 11      │ 'chromium/1280x650/home/04.png'         │ 35.446 │
+│ 12      │ 'chromium/320/home/05.png'              │ 34.709 │
+│ 13      │ 'chromium/390/home/04.png'              │ 34.345 │
+│ 14      │ 'chromium/390/home/03.png'              │ 34.289 │
+│ 15      │ 'chromium/1920/home/02.png'             │ 33.899 │
+│ 16      │ 'chromium/1440/home/03.png'             │ 33.154 │
+│ 17      │ 'chromium/1920/home/03.png'             │ 33.056 │
+│ 18      │ 'chromium/320/home/04.png'              │ 32.768 │
+│ 19      │ 'chromium/1440/home/02.png'             │ 31.573 │
+│ 20      │ 'chromium/1280x650/home/03.png'         │ 31.137 │
+│ 21      │ 'chromium/320/home/03.png'              │ 30.45  │
+│ 22      │ 'chromium/1280x650/home/02.png'         │ 29.263 │
+│ 23      │ 'chromium/320/home/02.png'              │ 26.526 │
+│ 24      │ 'chromium/1920/home/01.png'             │ 22.882 │
+│ 25      │ 'chromium/390/home/02.png'              │ 22.546 │
+│ 26      │ 'chromium/1280x650/home/01.png'         │ 22.38  │
+│ 27      │ 'chromium/1920/home/04.png'             │ 21.142 │
+│ 28      │ 'chromium/1440/home/05.png'             │ 17.536 │
+│ 29      │ 'chromium/1024x768/home/05.png'         │ 9.116  │
+│ 30      │ 'chromium/1024x768/home/04.png'         │ 9.043  │
+│ 31      │ 'chromium/320/privacy_html/02.png'      │ 7.217  │
+│ 32      │ 'chromium/320/privacy_html/01.png'      │ 6.679  │
+│ 33      │ 'chromium/320/home/00.png'              │ 5.923  │
+│ 34      │ 'chromium/320/home/16.png'              │ 5.471  │
+│ 35      │ 'chromium/320/home/18.png'              │ 5.457  │
+│ 36      │ 'chromium/320/home/19.png'              │ 5.45   │
+│ 37      │ 'chromium/390/privacy_html/01.png'      │ 5.331  │
+│ 38      │ 'chromium/1440/home/41.png'             │ 4.874  │
+│ 39      │ 'chromium/320/home/17.png'              │ 4.663  │
+│ 40      │ 'chromium/1280x650/home/10.png'         │ 3.813  │
+│ 41      │ 'chromium/768/privacy_html/01.png'      │ 3.796  │
+│ 42      │ 'chromium/390/home/00.png'              │ 3.769  │
+│ 43      │ 'chromium/768/home/05.png'              │ 3.741  │
+│ 44      │ 'chromium/768/home/04.png'              │ 3.625  │
+│ 45      │ 'chromium/320/privacy_html/00.png'      │ 3.422  │
+│ 46      │ 'chromium/1440/home/10.png'             │ 3.312  │
+│ 47      │ 'chromium/1280x650/home/09.png'         │ 3.292  │
+│ 48      │ 'chromium/1024x768/home/10.png'         │ 3.22   │
+│ 49      │ 'chromium/1280x650/home/11.png'         │ 3.22   │
+│ 50      │ 'chromium/390/home/15.png'              │ 3.054  │
+│ 51      │ 'chromium/390/home/18.png'              │ 2.998  │
+│ 52      │ 'chromium/390/home/17.png'              │ 2.989  │
+│ 53      │ 'chromium/1280x650/home/13.png'         │ 2.978  │
+│ 54      │ 'chromium/768/home/09.png'              │ 2.921  │
+│ 55      │ 'chromium/1280x650/privacy_html/02.png' │ 2.909  │
+│ 56      │ 'chromium/1280x650/home/12.png'         │ 2.874  │
+│ 57      │ 'chromium/1280x650/privacy_html/01.png' │ 2.835  │
+│ 58      │ 'chromium/1280x650/home/14.png'         │ 2.823  │
+│ 59      │ 'chromium/1440/home/09.png'             │ 2.812  │
+└─────────┴─────────────────────────────────────────┴────────┘
+변화 있는 파일 282 / 전체 304. 차이 이미지: screenshots/diff_before_after2/
+=== diff after2→after3 (같은 판을 두 번 찍은 잡음 바닥)
+┌─────────┬─────────────────────────────────┬────────┐
+│ (index) │ 파일                            │ 변화율 │
+├─────────┼─────────────────────────────────┼────────┤
+│ 0       │ 'chromium/1920/home/04.png'     │ 21.524 │
+│ 1       │ 'chromium/1920/home/03.png'     │ 20.146 │
+│ 2       │ 'chromium/1280x650/home/04.png' │ 20.084 │
+│ 3       │ 'chromium/320/home/02.png'      │ 16.663 │
+│ 4       │ 'chromium/1920/home/02.png'     │ 15.86  │
+│ 5       │ 'chromium/390/home/02.png'      │ 15.155 │
+│ 6       │ 'chromium/320/home/03.png'      │ 15.126 │
+│ 7       │ 'chromium/1280x650/home/03.png' │ 14.535 │
+│ 8       │ 'chromium/1024x768/home/03.png' │ 10.326 │
+│ 9       │ 'chromium/768/home/03.png'      │ 8.933  │
+│ 10      │ 'chromium/1280x650/home/05.png' │ 8.661  │
+│ 11      │ 'chromium/320/home/04.png'      │ 8.161  │
+│ 12      │ 'chromium/320/home/05.png'      │ 8.055  │
+│ 13      │ 'chromium/768/home/02.png'      │ 6.941  │
+│ 14      │ 'chromium/1280x650/home/02.png' │ 6.757  │
+│ 15      │ 'chromium/1440/home/04.png'     │ 6.055  │
+│ 16      │ 'chromium/1440/home/03.png'     │ 5.756  │
+│ 17      │ 'chromium/390/home/03.png'      │ 4.923  │
+│ 18      │ 'chromium/1440/home/41.png'     │ 4.874  │
+│ 19      │ 'chromium/1024x768/home/02.png' │ 4.838  │
+│ 20      │ 'chromium/1440/home/05.png'     │ 4.644  │
+│ 21      │ 'chromium/1440/home/02.png'     │ 4.604  │
+│ 22      │ 'chromium/768/home/05.png'      │ 2.981  │
+│ 23      │ 'chromium/768/home/04.png'      │ 2.969  │
+│ 24      │ 'chromium/390/home/04.png'      │ 2.867  │
+│ 25      │ 'chromium/320/home/23.png'      │ 2.687  │
+│ 26      │ 'chromium/320/home/00.png'      │ 2.141  │
+│ 27      │ 'chromium/390/home/00.png'      │ 1.237  │
+│ 28      │ 'chromium/1280x650/home/00.png' │ 1.073  │
+│ 29      │ 'chromium/390/home/05.png'      │ 1.057  │
+│ 30      │ 'chromium/1920/home/29.png'     │ 0.962  │
+│ 31      │ 'chromium/1440/home/00.png'     │ 0.921  │
+│ 32      │ 'chromium/1920/home/00.png'     │ 0.856  │
+│ 33      │ 'chromium/390/home/19.png'      │ 0.739  │
+│ 34      │ 'chromium/390/home/21.png'      │ 0.691  │
+│ 35      │ 'chromium/1440/home/26.png'     │ 0.574  │
+│ 36      │ 'chromium/1280x650/home/29.png' │ 0.56   │
+│ 37      │ 'chromium/320/home/22.png'      │ 0.529  │
+│ 38      │ 'chromium/768/home/08.png'      │ 0.392  │
+│ 39      │ 'chromium/1920/home/25.png'     │ 0.364  │
+│ 40      │ 'chromium/1024x768/home/39.png' │ 0.326  │
+│ 41      │ 'chromium/1280x650/home/30.png' │ 0.237  │
+│ 42      │ 'chromium/1280x650/home/28.png' │ 0.218  │
+│ 43      │ 'chromium/320/home/20.png'      │ 0.212  │
+│ 44      │ 'chromium/1440/home/24.png'     │ 0.211  │
+│ 45      │ 'chromium/1920/home/27.png'     │ 0.191  │
+│ 46      │ 'chromium/768/home/00.png'      │ 0.166  │
+│ 47      │ 'chromium/1024x768/home/08.png' │ 0.157  │
+│ 48      │ 'chromium/1440/home/27.png'     │ 0.153  │
+│ 49      │ 'chromium/1024x768/home/25.png' │ 0.151  │
+│ 50      │ 'chromium/1024x768/home/22.png' │ 0.105  │
+│ 51      │ 'chromium/1920/home/28.png'     │ 0.1    │
+│ 52      │ 'chromium/1280x650/home/27.png' │ 0.069  │
+│ 53      │ 'chromium/1920/home/26.png'     │ 0.065  │
+│ 54      │ 'chromium/768/home/22.png'      │ 0.062  │
+│ 55      │ 'chromium/1024x768/home/20.png' │ 0.056  │
+│ 56      │ 'chromium/1024x768/home/24.png' │ 0.056  │
+│ 57      │ 'chromium/1440/home/25.png'     │ 0.055  │
+│ 58      │ 'chromium/1024x768/home/21.png' │ 0.053  │
+│ 59      │ 'chromium/1280x650/home/25.png' │ 0.053  │
+└─────────┴─────────────────────────────────┴────────┘
+변화 있는 파일 104 / 전체 305. 차이 이미지: screenshots/diff_after2_after3/
+=== CHAIN4 DONE

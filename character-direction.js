@@ -1,5 +1,5 @@
-import { createCharacterRig } from './character-rig.js?v=lusion-passage-20260907-r7.h9a48721e';
-import { createArtActor } from './fall-welcome/actor.js?v=unified-r1.h0d1594b9';
+import { createCharacterRig } from './character-rig.js?v=eb-20260912';
+import { createArtActor } from './fall-welcome/actor.js?v=eb-20260912';
 
 const ACTS = {
   plan: { role: 1, label: 'planning', direction: 1 },

@@ -10,7 +10,8 @@ Thumbs.db
 sofa-journey/assets/bg/hx-vortex-loop.mp4
 sofa-journey/assets/bg/hx-vortex-loop.webm
 
-# 감사용 캡처(용량이 크다)
-audit/screenshots/
+# 감사용 캡처(약 2.7GB). 보고서가 가리키는 증거 장면만 evidence/ 에 남긴다.
+audit/screenshots/*
+!audit/screenshots/evidence/
 node_modules/
 package-lock.json
