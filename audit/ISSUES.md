@@ -380,17 +380,18 @@
 - 기기: 공통 | 유형: 결함 | 체크: N8, O8, **체크리스트 외 발견**
 - 위치: `index.html` 스타일시트 7줄 · `app.js` 5줄 · `originals.js` 2줄 · `ending.js` · `journey.js` · `signal-passage.js` 등
 - 재현: 이번 감사에서 고친 파일 목록(`git diff --name-only f2d8262`)과 그 파일을 부르는 주소의 `?v=` 를 대조
-- 증거: 고친 파일 20개 가운데 **12개가 옛 판 번호 그대로**였다 —
+- 증거(1차·2차 커밋 직후 기준): 그때까지 고친 파일 20개 가운데 **12개가 옛 판 번호 그대로**였다 —
   `styles.css?v=eternal-beam-r63`, `nav-shelf.css?v=eternal-beam-r29`, `ending.css?v=eternal-beam-r98`,
   `contact-letterbox.css?v=eternal-beam-r67`, `about-walk.css?v=eternal-beam-r98`, `portfolio.css`, `original-table.css`,
   `contact-letterbox.js`, `ending.js`, `journey.js`, `nav-shelf.js`, `originals.js` | 신뢰도: 코드
 - 현재(before): 이미 방문한 적 있는 사람은 배포 뒤에도 **고치기 전 CSS·JS 를 그대로 받는다**.
   이번 수정의 핵심(메뉴 잘림·거짓 완료 안내·캐릭터 겹침)이 그 사람에게는 반영되지 않는다.
 - 개선안: 내용이 바뀐 파일만 `?v=eb-20260912` 로 올린다. 같은 파일을 부르는 **모든 곳**을 함께 바꾼다.
-- 확인 기준: 바뀐 파일의 참조 24곳이 모두 `?v=eb-20260912`, `qa-check.mjs [2]` 0건
+- 확인 기준: 바뀐 파일의 참조가 모두 `?v=eb-20260912`, `qa-check.mjs [2]` 0건
 - 부작용·주의: 다음 배포 때도 같은 일을 해야 한다 → `README.md` 배포 절차에 명시.
 - 관련: #N08, #N07 | 우선순위: P1 | 난이도: S
-- 상태: 수정됨 | 재측정: 참조 24곳 치환, `qa-check.mjs` 0건
+- 상태: 수정됨 | 재측정: 참조 **28곳** 치환(`grep -ro 'v=eb-20260912'` = 28), `qa-check.mjs` 확인 권장 0건,
+  `verify2-final.json` 중복주소 0건
 
 ### #H14 휴대폰에서 상단바 캐릭터가 화면 밖에 선 채로 계속 그려짐
 - 기기: 모바일 | 유형: 결함 | 체크: H12, N5, J19, **체크리스트 외 발견**
@@ -828,6 +829,11 @@
 - 기기: 공통 | 유형: 결함 | 체크: N2, N4, N5, E33, E34, F12 | 위치: `app.js tick`, `sofa-journey/scene.js`
 - 증거(T-before 1440): 긴 애니메이션 프레임 **230회**(최장 354ms, 원인 `app.js tick`), CLS 누적 **0.278**(390 은 1.56),
   CLS 상위 4건 전부 `div.sofa-journey__cushion`. hover 판정이 256~688ms 지연 | 신뢰도: 실측
+- 통제 조건 재측정(`cls.mjs`, 같은 절대 위치를 40단계로 지나감 — T7 의 CLS 는 스크롤 경로에 따라 달라져 두 판을 견줄 수 없다):
+  - 1440: **값이 두 갈래**(1.366대 / 0.371대). 두 갈래가 before·after 양쪽에 똑같이 나타나므로 **수정 전후 차이 없음**.
+    낮은 갈래의 원인 1위는 `div.studio-host` 0.3594, 높은 갈래는 거기에 `div.signal-passage` 1.000 이 더해진다.
+  - 390: before **0.3113**(이동 26~27회) → after **0.2208**(이동 3~4회). 줄어든 0.0893 은 사라진
+    `img.studio-host__swap` 의 몫과 정확히 같다(#B04 로 휴대폰에서 ABOUT 캐릭터를 세우지 않게 된 결과).
 - 개선안: ①낙하 구간의 위치 변화를 `top` 이 아니라 `transform` 으로 → CLS 소멸 ②`app.js tick` 의 프레임당 작업을 줄이거나 나눠 실행
 - 부작용·주의: 낙하 연출 전체를 건드려야 하고 값이 손으로 맞춰져 있다 → 모드 B 범위 밖
 - 보류 사유: 낙하 연출의 위치 계산을 `top` 에서 `transform` 으로 옮기는 작업이라 연출 값 전체를 다시 맞춰야 한다 — 모드 B 범위 밖. 다만 모바일 몫(`studio-host__swap`)은 #B04 로 사라져 CLS 0.311→0.221 로 줄었다.
