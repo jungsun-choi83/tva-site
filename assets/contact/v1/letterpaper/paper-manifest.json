@@ -1,0 +1,33 @@
+{
+  "asset": "contact-letterpaper-white.png",
+  "dimensions": {
+    "width": 1560,
+    "height": 1008
+  },
+  "mode": "RGB",
+  "background": {
+    "alpha": false,
+    "description": "near-white generated studio background",
+    "cornerSamplesRgb": {
+      "topLeft": [253, 253, 253],
+      "topRight": [255, 255, 255],
+      "bottomLeft": [254, 253, 253],
+      "bottomRight": [254, 253, 253]
+    }
+  },
+  "paperBoundsPx": {
+    "x": 143,
+    "y": 92,
+    "width": 1275,
+    "height": 825
+  },
+  "safeInputRectPx": {
+    "x": 220,
+    "y": 160,
+    "width": 1120,
+    "height": 690
+  },
+  "foldYpx": [357, 638],
+  "foldYNormalized": [0.354167, 0.632937],
+  "notes": "Safe input rectangle stays inside the cream field and clear of the coral frame. Fold coordinates are measured on the full raster and should remain visible beneath or between HTML input regions."
+}

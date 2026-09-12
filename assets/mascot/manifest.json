@@ -1,0 +1,47 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-pose-sequence",
+  "poses": {
+    "fall-surprise":{"file":"fall-surprise.webp","width":1254,"height":1254,"footAnchor":{"x":0.530,"y":0.920},"bodyAnchor":{"x":0.530,"y":0.395},"bounds":{"left":0.050,"top":0.063,"right":0.982,"bottom":0.921}},
+    "fall-panic-left":{"file":"fall-flail.webp","width":1254,"height":1254,"footAnchor":{"x":0.480,"y":0.930},"bodyAnchor":{"x":0.480,"y":0.400},"bounds":{"left":0.041,"top":0.027,"right":0.951,"bottom":0.934}},
+    "fall-panic-right":{"file":"fall-flail-mid.webp","width":1254,"height":1254,"footAnchor":{"x":0.520,"y":0.900},"bodyAnchor":{"x":0.520,"y":0.360},"bounds":{"left":0.082,"top":0.095,"right":0.973,"bottom":0.900}},
+    "fall-brace":{"file":"pre-impact-tuck.webp","width":1254,"height":1254,"footAnchor":{"x":0.500,"y":0.896},"bodyAnchor":{"x":0.514,"y":0.430},"bounds":{"left":0.135,"top":0.140,"right":0.873,"bottom":0.896}},
+    "fall-relief-wave":{"file":"greeting-wave.webp","width":1254,"height":1254,"footAnchor":{"x":0.550,"y":0.946},"bodyAnchor":{"x":0.542,"y":0.349},"bounds":{"left":0.058,"top":0.044,"right":0.915,"bottom":0.946}},
+    "run-01":{"file":"run-01.webp","width":1254,"height":1254,"footAnchor":{"x":0.770,"y":0.915},"bodyAnchor":{"x":0.550,"y":0.390},"bounds":{"left":0.081,"top":0.098,"right":0.949,"bottom":0.916}},
+    "run-02":{"file":"run-02.webp","width":1254,"height":1254,"footAnchor":{"x":0.720,"y":0.886},"bodyAnchor":{"x":0.580,"y":0.425},"bounds":{"left":0.084,"top":0.148,"right":0.934,"bottom":0.886}},
+    "run-03":{"file":"run-03.webp","width":1254,"height":1254,"footAnchor":{"x":0.700,"y":0.911},"bodyAnchor":{"x":0.545,"y":0.365},"bounds":{"left":0.104,"top":0.077,"right":0.959,"bottom":0.911}},
+    "run-04":{"file":"transparent/run-04.webp","width":1254,"height":1254,"footAnchor":{"x":0.250,"y":0.920},"bodyAnchor":{"x":0.518,"y":0.343},"bounds":{"left":0.152,"top":0.078,"right":0.927,"bottom":0.919}},
+    "run-05":{"file":"transparent/run-05.webp","width":1254,"height":1254,"footAnchor":{"x":0.760,"y":0.916},"bodyAnchor":{"x":0.518,"y":0.367},"bounds":{"left":0.065,"top":0.089,"right":0.882,"bottom":0.915}},
+    "run-06":{"file":"transparent/run-06.webp","width":1254,"height":1254,"footAnchor":{"x":0.455,"y":0.911},"bodyAnchor":{"x":0.516,"y":0.351},"bounds":{"left":0.240,"top":0.085,"right":0.764,"bottom":0.911}},
+    "brake-01":{"file":"brake-01.webp","width":1254,"height":1254,"footAnchor":{"x":0.690,"y":0.897},"bodyAnchor":{"x":0.410,"y":0.405},"bounds":{"left":0.094,"top":0.095,"right":0.960,"bottom":0.897}},
+    "brake-02":{"file":"brake-02.webp","width":1254,"height":1254,"footAnchor":{"x":0.520,"y":0.912},"bodyAnchor":{"x":0.520,"y":0.365},"bounds":{"left":0.105,"top":0.077,"right":0.901,"bottom":0.912}},
+    "service-01":{"file":"service-01.webp","width":1254,"height":1254,"footAnchor":{"x":0.520,"y":0.950},"bodyAnchor":{"x":0.505,"y":0.355},"bounds":{"left":0.197,"top":0.036,"right":0.851,"bottom":0.950}},
+    "service-02":{"file":"service-02.webp","width":1254,"height":1254,"footAnchor":{"x":0.500,"y":0.946},"bodyAnchor":{"x":0.465,"y":0.355},"bounds":{"left":0.149,"top":0.021,"right":0.953,"bottom":0.946}},
+    "service-03":{"file":"service-03.webp","width":1254,"height":1254,"footAnchor":{"x":0.505,"y":0.946},"bodyAnchor":{"x":0.455,"y":0.355},"bounds":{"left":0.129,"top":0.030,"right":0.900,"bottom":0.946}},
+    "service-04":{"file":"service-04.webp","width":1254,"height":1254,"footAnchor":{"x":0.520,"y":0.948},"bodyAnchor":{"x":0.520,"y":0.360},"bounds":{"left":0.061,"top":0.051,"right":0.974,"bottom":0.948}},
+    "archive-01":{"file":"archive-01.webp","width":1402,"height":1122,"footAnchor":{"x":0.350,"y":0.880},"bodyAnchor":{"x":0.430,"y":0.380},"bounds":{"left":0.123,"top":0.087,"right":0.805,"bottom":0.914}},
+    "archive-02":{"file":"transparent/archive-02.webp","width":1239,"height":1269,"footAnchor":{"x":0.680,"y":0.890},"bodyAnchor":{"x":0.580,"y":0.360},"bounds":{"left":0.095,"top":0.083,"right":0.935,"bottom":0.898}},
+    "archive-03":{"file":"archive-03.webp","width":1374,"height":1145,"footAnchor":{"x":0.360,"y":0.900},"bodyAnchor":{"x":0.330,"y":0.420},"bounds":{"left":0.093,"top":0.139,"right":0.768,"bottom":0.907}},
+    "archive-04":{"file":"archive-04.webp","width":1374,"height":1145,"footAnchor":{"x":0.620,"y":0.950},"bodyAnchor":{"x":0.650,"y":0.360},"bounds":{"left":0.108,"top":0.014,"right":0.873,"bottom":0.974}}
+  },
+  "supplementaryPoses": {
+    "fall-relief":{"file":"relief.webp","width":1254,"height":1254,"footAnchor":{"x":0.553,"y":0.936},"bodyAnchor":{"x":0.475,"y":0.353},"bounds":{"left":0.147,"top":0.058,"right":0.949,"bottom":0.936}},
+    "fall-panic-mid":{"file":"fall-flail-mid.webp","width":1254,"height":1254,"footAnchor":{"x":0.520,"y":0.900},"bodyAnchor":{"x":0.520,"y":0.360},"bounds":{"left":0.082,"top":0.095,"right":0.973,"bottom":0.900}},
+    "fall-relief-wave-02":{"file":"greeting-wave-02.webp","width":1254,"height":1254,"footAnchor":{"x":0.520,"y":0.918},"bodyAnchor":{"x":0.530,"y":0.370},"bounds":{"left":0.083,"top":0.077,"right":0.899,"bottom":0.918}}
+  },
+  "animations": {
+    "fall":["fall-surprise","fall-panic-left","fall-panic-right","fall-brace","fall-relief","fall-relief-wave"],
+    "flail":["fall-panic-left","fall-panic-mid"],
+    "wave":["fall-relief-wave","fall-relief-wave-02"],
+    "run":["run-01","run-02","run-03","run-04","run-05","run-06"],
+    "brake":["brake-01","brake-02"]
+  },
+  "limitations": [
+    "All files are independent raster poses; no body parts were separated and no rigging was performed.",
+    "The dedicated opposite panic pose failed twice with baked checkerboard RGB; fall-panic-right currently adapts the distinct transparent mid-flail pose.",
+    "Run frames 04-06 use corrected opposite arm phases. Their generated RGB shapes and colors were preserved exactly while only the baked neutral checker background was converted to alpha in transparent/.",
+    "Archive-04 presents a generic blue-circle sample sheet, not an actual selected gallery project; use it only as a presentation gesture.",
+    "Airborne foot anchors are virtual alignment points. Body anchors are manual physical CRT-case-center estimates. Bounds are measured alpha bboxes.",
+    "Canvas dimensions vary for archive poses and are recorded per file."
+  ]
+}

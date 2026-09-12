@@ -1,0 +1,328 @@
+{
+  "schemaVersion": 1,
+  "kind": "individual-transparent-stickers",
+  "status": "file-and-composite-checked",
+  "assets": [
+    {
+      "id": "01-hammer",
+      "file": "transparent/01-hammer.png",
+      "source": "01-hammer.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        111,
+        319,
+        1183,
+        909
+      ],
+      "sourceRGBExact": true,
+      "sha256": "8bb7cd4db096ae03a503e86d82fe45d7b4d370d261e44c8ae1c6ace2cd404e46"
+    },
+    {
+      "id": "02-notebook",
+      "file": "transparent/02-notebook.png",
+      "source": "02-notebook.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        151,
+        138,
+        1104,
+        1076
+      ],
+      "sourceRGBExact": true,
+      "sha256": "00e0ff1b8d272a677ee59046266dd3dae7c0a58e788928d544d346141191eb1a"
+    },
+    {
+      "id": "03-pencil",
+      "file": "transparent/03-pencil.png",
+      "source": "03-pencil.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        267,
+        208,
+        1046,
+        1024
+      ],
+      "sourceRGBExact": true,
+      "sha256": "9e0f228c5cd8a75a9de59d3770ec4a569572e8e60c0a23f97cdd47423fbef78b"
+    },
+    {
+      "id": "04-fountain-pen",
+      "file": "transparent/04-fountain-pen.png",
+      "source": "04-fountain-pen.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        170,
+        127,
+        1115,
+        1109
+      ],
+      "sourceRGBExact": true,
+      "sha256": "8b9232b0d2c6053c611e3b286ad64252bb62b41895d6c0dfe88af8df9761610e"
+    },
+    {
+      "id": "05-scissors",
+      "file": "transparent/05-scissors.png",
+      "source": "05-scissors.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        163,
+        306,
+        1122,
+        903
+      ],
+      "sourceRGBExact": true,
+      "sha256": "e8e5c8a68afa7b9426f931a4dcd4d8fa6edeaa11957d3e23ec8c9ce32f0ea0e7"
+    },
+    {
+      "id": "06-ruler",
+      "file": "transparent/06-ruler.png",
+      "source": "06-ruler.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        98,
+        492,
+        1164,
+        714
+      ],
+      "sourceRGBExact": true,
+      "sha256": "ff7f25f556d9fa48a18c57a826ea6b379c463077abd1e4e871653389ff0b85fe"
+    },
+    {
+      "id": "07-drafting-compass",
+      "file": "transparent/07-drafting-compass.png",
+      "source": "07-drafting-compass.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        332,
+        79,
+        935,
+        1117
+      ],
+      "sourceRGBExact": true,
+      "sha256": "d6b87af9dbe5ed1d2c92c86bbc5da875538dd534a305445e36bf0880d3463875"
+    },
+    {
+      "id": "08-measuring-tape",
+      "file": "transparent/08-measuring-tape.png",
+      "source": "08-measuring-tape.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        112,
+        217,
+        1141,
+        994
+      ],
+      "sourceRGBExact": true,
+      "sha256": "e62f5e303f98123b79025288444f113e471f45aa837f1a7e47b95e0d20957a36"
+    },
+    {
+      "id": "09-utility-knife",
+      "file": "transparent/09-utility-knife.png",
+      "source": "09-utility-knife.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        182,
+        295,
+        1081,
+        891
+      ],
+      "sourceRGBExact": true,
+      "sha256": "8c72f7bf65ec8f1bb348aff40703ecb7305ab51716225f485f5f856e3d5667b5"
+    },
+    {
+      "id": "10-paintbrush",
+      "file": "10-paintbrush.png",
+      "source": "10-paintbrush.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        176,
+        50,
+        1112,
+        1203
+      ],
+      "sourceRGBExact": true,
+      "sha256": "9a7b8c4c10e895cf69180849d8fcd5723ea57934d507967f07b877251a16979d"
+    },
+    {
+      "id": "11-color-swatch-fan",
+      "file": "transparent/11-color-swatch-fan.png",
+      "source": "11-color-swatch-fan.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        98,
+        174,
+        1164,
+        1092
+      ],
+      "sourceRGBExact": true,
+      "sha256": "135bbee6e2acf052c635da8cef487bc2534d63ca34ac61d0d1f36e5ad4aac16e"
+    },
+    {
+      "id": "12-camera",
+      "file": "transparent/12-camera.png",
+      "source": "12-camera.png",
+      "width": 1402,
+      "height": 1122,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        190,
+        160,
+        1195,
+        938
+      ],
+      "sourceRGBExact": true,
+      "sha256": "391dab18af8c3d9d167384f9421a68bcf50d2cee6f7df74fd11598170570a7d9"
+    },
+    {
+      "id": "13-desk-lamp",
+      "file": "transparent/13-desk-lamp.png",
+      "source": "13-desk-lamp.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        280,
+        133,
+        995,
+        1097
+      ],
+      "sourceRGBExact": true,
+      "sha256": "0f307b1219047717784a8e35e3182cde6d698e273121549bafd2434342c7aabe"
+    },
+    {
+      "id": "14-paperclip",
+      "file": "transparent/14-paperclip.png",
+      "source": "14-paperclip.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        289,
+        85,
+        945,
+        1110
+      ],
+      "sourceRGBExact": true,
+      "sha256": "d05450226ca680604f921045d0b9d0a3cf57416b0c76d406a7a024071fd28cdc"
+    },
+    {
+      "id": "15-binder-clip",
+      "file": "transparent/15-binder-clip.png",
+      "source": "15-binder-clip.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        225,
+        177,
+        1026,
+        1046
+      ],
+      "sourceRGBExact": true,
+      "sha256": "a4e09c20b4b2a1b4c463cef677e4ba2e4d3e162beac4740becab42f77db64bc2"
+    },
+    {
+      "id": "16-masking-tape-roll",
+      "file": "transparent/16-masking-tape-roll.png",
+      "source": "16-masking-tape-roll.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        157,
+        201,
+        1120,
+        1026
+      ],
+      "sourceRGBExact": true,
+      "sha256": "9f05727cee7f69fa61a6367cf773686a02fe07f4a3b433a2ff417292fb3e561b"
+    },
+    {
+      "id": "17-cutting-mat",
+      "file": "transparent/17-cutting-mat.png",
+      "source": "17-cutting-mat.png",
+      "width": 1536,
+      "height": 1024,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        142,
+        194,
+        1383,
+        826
+      ],
+      "sourceRGBExact": true,
+      "sha256": "e735837b0c490f4b34ec007e86bf832f74f7b90b6df47f4daa67b2df7d07d87b"
+    },
+    {
+      "id": "18-set-square",
+      "file": "transparent/18-set-square.png",
+      "source": "18-set-square.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        191,
+        178,
+        1087,
+        1049
+      ],
+      "sourceRGBExact": true,
+      "sha256": "a8a1da686d5b71c89c8ac36df53a834c11c92cadd96281ceaf1c53ceac2845e3"
+    },
+    {
+      "id": "19-material-sample-stack",
+      "file": "transparent/19-material-sample-stack.png",
+      "source": "19-material-sample-stack.png",
+      "width": 1254,
+      "height": 1254,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        185,
+        188,
+        1060,
+        1056
+      ],
+      "sourceRGBExact": true,
+      "sha256": "6dc9abc29a9d83ed67d2951c4df8bbac176ae4bcfa62fb3995fe56d01c10a0ee"
+    },
+    {
+      "id": "20-archive-folder",
+      "file": "transparent/20-archive-folder.png",
+      "source": "20-archive-folder.png",
+      "width": 1402,
+      "height": 1122,
+      "hasRealTransparency": true,
+      "boundsPixels": [
+        217,
+        155,
+        1190,
+        966
+      ],
+      "sourceRGBExact": true,
+      "sha256": "73939c869654dd0d478364e03fd6fbdf0700a31ce0876c31987ff8638c14771f"
+    }
+  ],
+  "note": "19 originals received alpha-only cutouts,10-paintbrush already transparent and unchanged. Root viewed all19 processed composites on contrasting backgrounds. User quality approval and web integration are separate."
+}

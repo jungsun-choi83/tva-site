@@ -1,0 +1,140 @@
+.sofa-journey{position:absolute;inset:0;overflow:hidden;background:#050505;color:#f1e9d6;isolation:isolate;perspective:1200px;perspective-origin:50% 42%;transform-style:preserve-3d}
+#drop.sofa-journey-ready{height:560svh}
+.sofa-journey__hx{position:absolute;z-index:0;inset:0;overflow:hidden;pointer-events:none;background:#000;opacity:0;perspective:900px;transform-style:preserve-3d}
+.sofa-journey__hx-spin{position:absolute;inset:-18%;--hx-scale:1.06;transform-origin:50% 48%;will-change:transform}
+.sofa-journey__hx-still,.sofa-journey__hx-video{position:absolute;inset:0;display:block;width:100%;height:100%;object-fit:cover;transform-origin:50% 50%}
+.sofa-journey__hx-still{z-index:0}
+.sofa-journey__hx-video{z-index:1}
+.sofa-journey--shaft{background:#050508}
+.sofa-journey--shaft .sofa-journey__hx-spin{inset:0;transform-origin:50% 50%}
+.sofa-journey--shaft .sofa-journey__hx:before,.sofa-journey--shaft .sofa-journey__hx:after{opacity:0}
+.sofa-journey--shaft .sofa-journey__vortex{display:none!important}
+.sofa-journey--shaft .sofa-journey__grain,.sofa-journey--shaft .sofa-journey__mask{opacity:0!important}
+.sofa-journey__hx:after{content:"";position:absolute;inset:0;pointer-events:none;background:radial-gradient(circle at 50% 42%,transparent 18%,rgba(0,0,0,.08) 42%,rgba(0,0,0,.52) 88%);mix-blend-mode:multiply}
+.sofa-journey__hx:before{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(72,214,206,.08),transparent 38%,rgba(200,161,94,.06));mix-blend-mode:screen;opacity:.85}
+.reduced-motion .sofa-journey__hx-spin{transform:scale(1.08)}
+@media(prefers-reduced-motion:reduce){.sofa-journey__hx-spin{transform:scale(1.08)}}
+.sofa-journey__camera{position:absolute;z-index:1;inset:0;transform-style:preserve-3d;opacity:0;pointer-events:none}
+.sofa-journey__frame{position:absolute;left:50%;top:50%;width:96vw;aspect-ratio:1100/619;overflow:hidden;background:#000;transform-style:preserve-3d;backface-visibility:hidden}
+.sofa-journey__frame img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block}
+.sofa-journey__white,.sofa-journey__underlay{position:absolute;z-index:2;inset:0;pointer-events:none;background:#fff;opacity:0}
+.sofa-journey__landing{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:var(--sofa-room-width,min(100vw,177.6833vh));aspect-ratio:1672/941;opacity:0}
+.sofa-journey__landing img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+.sofa-journey__moment{position:absolute;z-index:5;left:53.4%;top:5.6%;transform:none;margin:0;width:32%;max-width:36%;color:#e8d5a0;font:600 clamp(20px,3.2vw,48px)/1.18 "Cinzel",Georgia,serif;letter-spacing:.14em;text-transform:uppercase;text-align:left;text-shadow:0 2px 16px rgba(13,13,15,.58);pointer-events:none;white-space:normal}
+@media(max-width:760px){.sofa-journey__moment{left:52%;width:40%;letter-spacing:.1em;font-size:clamp(16px,4.2vw,28px)}}
+.sofa-journey__device-mark{display:none}
+.sofa-journey__landing:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(255,246,228,.22),rgba(255,236,200,.08) 22%,transparent 46%),radial-gradient(ellipse 42% 62% at 7% 26%,rgba(255,250,240,.28),transparent 72%);mix-blend-mode:screen}
+.sofa-journey__settled{will-change:transform,opacity}
+/* [107] 합성 레이어 예약(will-change)은 낙하 구간이 화면 가까이 있을 때만 켠다.
+   항상 켜 두면 프레임 16장(≈13.7M px)을 포함해 상시 84개 요소가 GPU 텍스처를 잡고 있었다.
+   .is-live 는 scene.js 의 IntersectionObserver 가 #drop 기준(앞뒤 60%)으로 켜고 끈다. */
+.sofa-journey.is-live .sofa-journey__camera{will-change:transform}
+.sofa-journey.is-live .sofa-journey__frame{will-change:transform,opacity,filter}
+.sofa-journey.is-live .sofa-journey__white{will-change:opacity}
+.sofa-journey.is-live .sofa-journey__landing{will-change:opacity}
+.sofa-journey.is-live .sofa-journey__dust{will-change:transform,opacity}
+.sofa-journey.is-live .sofa-journey__speed{will-change:transform,opacity,height}
+.sofa-journey.is-live .sofa-journey__cushion{will-change:transform,opacity}
+.sofa-journey.is-live .sofa-journey__contact-shadow{will-change:transform,opacity}
+.sofa-journey.is-live .sofa-journey__actor-fall,.sofa-journey.is-live .sofa-journey__sit{will-change:transform,opacity}
+.sofa-journey.is-live .sofa-journey__landing .sofa-journey__type>img{will-change:transform,opacity}
+.sofa-journey__fx{position:absolute;inset:0;pointer-events:none}
+.sofa-journey__scan{background:repeating-linear-gradient(180deg,transparent 0 8px,rgba(90,220,210,.08) 8px 9px,transparent 9px 21px,rgba(200,161,94,.05) 21px 22px);mix-blend-mode:screen;opacity:.62}
+.sofa-journey__vig{background:radial-gradient(ellipse at center,transparent 55%,rgba(0,0,0,.6) 100%)}
+.sofa-journey__label{position:absolute;top:3%;font:600 clamp(12px,1.3vw,18px)/1 ui-monospace,monospace;letter-spacing:.12em;color:#fff;text-shadow:0 1px 2px #000}
+.sofa-journey__year{left:2%}.sofa-journey__channel{right:2%;color:#c8a15e;text-shadow:0 0 8px #c8a15e88}
+.sofa-journey__wall{position:absolute;left:50%;top:50%;width:var(--tunnel-length);height:110vh;transform-style:preserve-3d;background:#0a0a0a repeating-linear-gradient(90deg,transparent 0 46px,#fff 46px 70px,transparent 70px 96px) 0 8vh/96px 34px repeat-x;opacity:.85}
+.sofa-journey__wall--top,.sofa-journey__wall--bottom{height:132vw;background:#070707;opacity:.95}
+.sofa-journey__mascot{position:absolute;z-index:8;inset:0;pointer-events:none;overflow:visible;transform-style:preserve-3d;perspective:inherit}
+.sofa-journey__actor-fall,.sofa-journey__sit{position:absolute;left:0;top:0;display:block;max-width:none;object-fit:contain;pointer-events:none;filter:drop-shadow(0 18px 22px rgba(0,0,0,.5));transform-style:preserve-3d;backface-visibility:visible}
+.sofa-journey__vortex{position:absolute;z-index:0;inset:0;pointer-events:none;mix-blend-mode:normal;display:block}
+.sofa-journey--lusion{background:#0d0d0f}
+.sofa-journey--lusion .sofa-journey__hx{opacity:0!important;visibility:hidden}
+.sofa-journey--lusion .sofa-journey__camera{opacity:0!important}
+.sofa-journey--lusion .sofa-journey__grain,.sofa-journey--lusion .sofa-journey__mask{opacity:0!important}
+.sofa-journey--lusion .sofa-journey__streak-layer{display:none}
+.sofa-journey--lusion .sofa-journey__vortex{filter:saturate(1.02) contrast(1.08)}
+.sofa-journey__card{display:none!important}
+.sofa-journey__card--b{filter:drop-shadow(0 10px 14px rgba(20,12,8,.5))}
+.sofa-journey__card.is-slotted{filter:drop-shadow(0 6px 8px rgba(20,12,8,.4))}
+.sofa-journey__goya{z-index:8;filter:drop-shadow(0 12px 16px rgba(0,0,0,.45))}
+.sofa-journey__contact-shadow{position:absolute;z-index:3;width:24%;height:3%;border-radius:50%;background:rgb(27 21 17/.22);filter:blur(7px);opacity:0}
+.sofa-journey__streaks{position:absolute;z-index:4;inset:-10%;pointer-events:none;opacity:0;background:repeating-conic-gradient(from 0deg,transparent 0 4deg,rgba(255,255,255,.35) 4deg 4.6deg);mask:radial-gradient(circle at center,transparent 22%,#000 70%);-webkit-mask:radial-gradient(circle at center,transparent 22%,#000 70%)}
+.sofa-journey__grain{position:absolute;z-index:6;inset:-20%;pointer-events:none;opacity:.16;mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='300' height='300'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:sofa-journey-grain .18s steps(2) infinite}
+.sofa-journey__mask{position:absolute;z-index:7;inset:0;pointer-events:none;background:radial-gradient(ellipse at center,transparent 60%,rgba(0,0,0,.45) 100%)}
+.sofa-journey__flash{position:absolute;z-index:8;inset:0;background:#fff;opacity:0;pointer-events:none}
+@keyframes sofa-journey-grain{0%{transform:translate(0)}50%{transform:translate(-3%,2%)}100%{transform:translate(2%,-3%)}}
+.reduced-motion .sofa-journey__grain{animation:none}
+.reduced-motion .sofa-journey__actor-fall,.reduced-motion .sofa-journey__sit,.reduced-motion .sofa-journey__settled{transition:none}
+/* [104] 2026-09-12 — 동작 줄이기(reduced-motion)에서도 낙하 구간의 스크롤 길이를 그대로 둔다.
+   예전에는 여기에 '.reduced-motion #drop.sofa-journey-ready{height:100svh}' 가 있어 100svh 로 접었는데,
+   그러면 시대 배경 16장과 연도·채널 라벨이 화면에 나올 자리 자체가 사라져 도달 불가능했다(실측 0/16장).
+   움직임(관성·기울기·속도선)은 scene.js 안에서 reduced 일 때 이미 전부 0 으로 꺼져 있으므로,
+   길이만 남겨 두면 굴릴 때마다 시대 사진이 한 칸씩 '툭' 바뀌는 정지화면 넘기기가 된다.
+   그래서 여기서는 높이를 다시 정하지 않고, 위 2행의 기본 길이를 그대로 따르게 둔다.
+   (다시 접는 규칙을 넣지 말 것. signal-passage.css 의 같은 항목도 짝으로 맞춰 두었다.) */
+
+.sofa-journey__dust-layer{position:absolute;z-index:4;inset:0;pointer-events:none}
+.sofa-journey__dust{position:absolute;left:0;top:0;width:2.2%;aspect-ratio:1;border-radius:50%;background:#fff;border:2px solid #171923;opacity:0;transform-origin:center}
+
+.sofa-journey__burst{position:absolute;z-index:7;left:0;top:0;width:18%;aspect-ratio:1;border-radius:50%;pointer-events:none;opacity:0;background:radial-gradient(circle,rgba(255,244,210,.95) 0%,rgba(200,161,94,.55) 34%,transparent 70%);mix-blend-mode:screen;transform-origin:center}
+.sofa-journey__streak-layer{position:absolute;z-index:3;inset:0;pointer-events:none}
+.sofa-journey__speed{position:absolute;left:0;top:0;width:3px;height:0;border-radius:2px;background:linear-gradient(to bottom,rgba(90,220,210,0),rgba(200,161,94,.92),rgba(90,220,210,.45));opacity:0;transform-origin:50% 0}
+
+.sofa-journey__cushion{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:var(--sofa-room-width,min(100vw,177.6833vh));aspect-ratio:1672/941;opacity:0;pointer-events:none;-webkit-mask:radial-gradient(ellipse 18% 13% at 30.2% 54.8%,#000 38%,rgb(0 0 0/.55) 66%,transparent 100%);mask:radial-gradient(ellipse 18% 13% at 30.2% 54.8%,#000 38%,rgb(0 0 0/.55) 66%,transparent 100%);transform-origin:30.2% 54.8%}
+.sofa-journey__cushion img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
+
+/* ---- signal veil: HOME broadcast texture carried over the fall, strength 0..1 via --signal ---- */
+.signal-veil{position:fixed;inset:0;z-index:30;pointer-events:none;opacity:0;--signal:0;--glitch:0;will-change:opacity}
+.signal-veil>i{position:absolute;inset:0;display:block;pointer-events:none}
+.signal-veil__scan{background:repeating-linear-gradient(0deg,transparent 0 2px,#efe0b82b 2px 3px);opacity:calc(.2*var(--signal) + .5*var(--glitch));transform:translateX(calc(var(--glitch)*7px))}
+.signal-veil__grain{inset:-20%;opacity:calc(.085*var(--signal));mix-blend-mode:overlay;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='260' height='260'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='2' stitchTiles='stitch'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");animation:signal-veil-grain .2s steps(2) infinite}
+.signal-veil__vignette{background:radial-gradient(ellipse at center,transparent 52%,rgba(4,7,5,.62) 100%);opacity:var(--signal)}
+.signal-veil__fringe{background:linear-gradient(90deg,rgba(84,220,205,.09),transparent 12%,transparent 88%,rgba(214,96,52,.09));opacity:calc(.6*var(--signal));mix-blend-mode:screen;transform:translateX(calc(var(--glitch)*-9px))}
+.signal-veil__flash{background:#efe0b8;opacity:calc(var(--glitch)*.16)}
+@keyframes signal-veil-grain{0%{transform:translate(0)}50%{transform:translate(-3%,2%)}100%{transform:translate(2%,-3%)}}
+.reduced-motion .signal-veil{display:none}
+@media(prefers-reduced-motion:reduce){.signal-veil{display:none}}
+
+/* ---- wall typography: live type that pops in letter by letter after the thump ---- */
+.sofa-journey__type{display:none!important}
+.sofa-journey__line{display:block;white-space:nowrap;font-size:calc(var(--sofa-room-width,1672px)*.076);color:#1f3fc4}
+.sofa-journey__line--solid{text-shadow:calc(var(--sofa-room-width,1672px)*.0045) calc(var(--sofa-room-width,1672px)*.0045) 0 #f6c414}
+.sofa-journey__line--outline{color:transparent;-webkit-text-stroke:calc(var(--sofa-room-width,1672px)*.0032) #1f3fc4}
+.sofa-journey__hello{display:block;margin-top:.55em;font:500 calc(var(--sofa-room-width,1672px)*.021)/1 "IBM Plex Mono",monospace;letter-spacing:.18em;text-transform:uppercase;color:#e0322d}
+.sofa-journey__type i{display:inline-block;font-style:normal;opacity:0;transform:translateY(.45em) rotate(-7deg) scale(.55);transform-origin:50% 100%;transition:transform .55s cubic-bezier(.2,1.55,.4,1),opacity .18s linear;transition-delay:calc(var(--i)*42ms)}
+.sofa-journey__type.is-in i{opacity:1;transform:translateY(0) rotate(0) scale(1)}
+.sofa-journey__type.is-in .sofa-journey__hello i{transition-delay:calc(680ms + var(--i)*28ms)}
+.reduced-motion .sofa-journey__type i{transition:none}
+
+/* ---- wall lettering v2: chosen cobalt script as image layers; inflates in after the thump, stars twinkle, block floats ---- */
+.sofa-journey__type{display:none!important}
+.sofa-journey__landing .sofa-journey__type>img{position:absolute;inset:auto;display:block;height:auto;object-fit:fill;opacity:0}
+.sofa-journey__landing .sofa-journey__type .sofa-journey__tl--1{left:1.786%;top:0.000%;width:98.214%;transform-origin:0% 100%;transform:scale(.55) rotate(-7deg)}
+.sofa-journey__landing .sofa-journey__type .sofa-journey__tl--2{left:3.571%;top:50.635%;width:91.741%;transform-origin:0% 100%;transform:scale(.55) rotate(-7deg)}
+.sofa-journey__landing .sofa-journey__type .sofa-journey__ts--l{left:0.000%;top:11.001%;width:5.134%;transform-origin:50% 50%;transform:scale(0)}
+.sofa-journey__landing .sofa-journey__type .sofa-journey__ts--r{left:92.708%;top:67.701%;width:5.283%;transform-origin:50% 50%;transform:scale(0)}
+.sofa-journey__type.is-in .sofa-journey__tl{opacity:1;transform:scale(1) rotate(0);transition:transform .72s cubic-bezier(.22,1.55,.36,1),opacity .2s linear}
+.sofa-journey__type.is-in .sofa-journey__tl--2{transition-delay:.16s}
+.sofa-journey__landing .sofa-journey__type.is-in .sofa-journey__ts--l{opacity:1;animation:sofa-type-twinkle 1.7s ease-in-out .55s infinite}
+.sofa-journey__landing .sofa-journey__type.is-in .sofa-journey__ts--r{opacity:1;animation:sofa-type-twinkle 2.3s ease-in-out .95s infinite}
+.sofa-journey__type.is-in{animation:sofa-type-float 4.6s ease-in-out 1s infinite}
+@keyframes sofa-type-twinkle{0%,100%{transform:scale(0) rotate(-20deg);opacity:0}18%{transform:scale(1.25) rotate(8deg);opacity:1}42%{transform:scale(.9) rotate(0);opacity:1}62%{transform:scale(1.1) rotate(6deg);opacity:1}82%{transform:scale(0) rotate(20deg);opacity:0}}
+@keyframes sofa-type-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-.55%)}}
+.reduced-motion .sofa-journey__type>img{transition:none!important;animation:none!important}
+.reduced-motion .sofa-journey__type{animation:none!important}
+
+/* ---- effect #3: letter bounce. Each piece inflates in (staggered), then a hop wave runs left→right every 6s ---- */
+.sofa-journey__landing .sofa-journey__type>img.sofa-journey__tp{position:absolute;inset:auto;display:block;height:auto;object-fit:fill;opacity:0;transform-origin:50% 100%;transform:translateY(.3em) scale(.55) rotate(-7deg)}
+.sofa-journey__landing .sofa-journey__type.is-in>img.sofa-journey__tp{opacity:1;transform:translateY(0) scale(1) rotate(0);transition:transform .62s cubic-bezier(.22,1.5,.36,1),opacity .18s linear;transition-delay:calc(var(--i)*52ms);animation:sofa-type-hop 6s ease-in-out calc(1.5s + var(--i)*85ms) infinite}
+@keyframes sofa-type-hop{0%,16%,100%{transform:translateY(0) scale(1,1)}4%{transform:translateY(-14%) scale(.96,1.08)}8%{transform:translateY(0) scale(1.08,.92)}11%{transform:translateY(-5%) scale(.99,1.02)}14%{transform:translateY(0) scale(1.02,.98)}}
+.reduced-motion .sofa-journey__landing .sofa-journey__type>img.sofa-journey__tp{transition:none!important;animation:none!important;opacity:1;transform:none}
+
+/* ---- 작은 반짝임: 글자 주변 빈 벽에서 서로 다른 박자로 깜빡인다 ---- */
+.sofa-journey__landing .sofa-journey__type>img.sofa-journey__ts--sp{position:absolute;inset:auto;display:block;height:auto;object-fit:fill;opacity:0;transform-origin:50% 50%;transform:scale(0)}
+.sofa-journey__landing .sofa-journey__type.is-in>img.sofa-journey__ts--sp{opacity:1;animation:sofa-type-twinkle var(--dur,2.4s) ease-in-out var(--dly,2s) infinite}
+.reduced-motion .sofa-journey__landing .sofa-journey__type>img.sofa-journey__ts--sp{animation:none!important;opacity:1;transform:scale(1)}
+
+/* ---- 별·반짝임 위치는 가로/세로 화면을 각각 따로 잡는다 ---- */
+.sofa-journey__landing .sofa-journey__type>img.sofa-journey__ts{left:var(--l);top:var(--t);width:var(--w)}
+@media(max-aspect-ratio:5/4){.sofa-journey__landing .sofa-journey__type>img.sofa-journey__ts{left:var(--ml,var(--l));top:var(--mt,var(--t));width:var(--mw,var(--w))}}

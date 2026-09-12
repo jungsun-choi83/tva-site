@@ -1,0 +1,464 @@
+#contact {
+  --contact-blue: #c8a15e;
+  --contact-ink: #111217;
+  --contact-rule: #aeb5c0;
+  --contact-muted: #646a73;
+  background: #fff;
+}
+
+.tva-contact {
+  min-height: 100dvh;
+  padding: clamp(56px, 4.4vw, 64px) clamp(20px, 5vw, 80px) clamp(64px, 7vw, 96px);
+  overflow: hidden;
+  color: var(--contact-ink);
+  background: #fff;
+}
+
+.tva-contact * {
+  box-sizing: border-box;
+}
+
+.tva-contact__stage {
+  display: grid;
+  grid-template-columns: minmax(0, 1.06fr) minmax(420px, .94fr);
+  align-items: center;
+  gap: clamp(28px, 5vw, 88px);
+  width: min(100%, 1440px);
+  min-height: min(740px, calc(100dvh - 136px));
+  margin: 0 auto;
+}
+
+.tva-contact__art {
+  position: relative;
+  align-self: stretch;
+  min-height: 460px;
+  overflow: hidden;
+  isolation: isolate;
+}
+
+.tva-contact__art img {
+  position: absolute;
+  top: 50%;
+  left: -30%;
+  display: block;
+  width: 160%;
+  max-width: none;
+  height: auto;
+  transform: translateY(-50%);
+  user-select: none;
+}
+
+.tva-contact__form-wrap {
+  width: min(100%, 650px);
+  margin-inline: auto;
+}
+
+.tva-contact-form {
+  width: 100%;
+}
+
+.tva-contact-form__header {
+  margin-bottom: clamp(20px, 2vw, 28px);
+}
+
+.tva-contact-form__header h2 {
+  display: flex;
+  align-items: baseline;
+  flex-wrap: wrap;
+  gap: .25em;
+  margin: 0;
+  color: var(--contact-ink);
+  font: 900 clamp(38px, 4.2vw, 64px)/.98 var(--sans, Arial, sans-serif);
+  letter-spacing: -.055em;
+}
+
+.tva-contact-form__header h2 span {
+  font-family: var(--sans, Arial, sans-serif);
+  font-size: .56em;
+  font-weight: 700;
+  letter-spacing: -.04em;
+}
+
+.tva-contact__eyebrow,
+.tva-contact-context,
+.tva-contact-form__status,
+.tva-details-button,
+.tva-contact-form__submit,
+.tva-field > span,
+.tva-check > span {
+  font-family: var(--sans, Arial, sans-serif);
+}
+
+.tva-contact-context {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px 16px;
+  margin: -24px 0 24px;
+  color: var(--contact-blue);
+  font-size: 10px;
+  letter-spacing: .06em;
+}
+
+.tva-contact-context button {
+  padding: 0;
+  color: inherit;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  font: inherit;
+  cursor: pointer;
+}
+
+.tva-contact-form__grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: clamp(14px, 1.3vw, 20px) clamp(22px, 2.2vw, 34px);
+}
+
+.tva-field {
+  display: grid;
+  min-width: 0;
+  gap: 6px;
+}
+
+.tva-field--wide,
+.tva-field--message {
+  grid-column: 1 / -1;
+}
+
+.tva-field > span:first-child,
+.tva-check > span,
+.tva-details-button {
+  color: var(--contact-ink);
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: -.02em;
+}
+
+.tva-field > span:first-child {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+}
+
+.tva-field > span b,
+.tva-check > span b,
+.tva-details-button b {
+  font-family: var(--sans, Arial, sans-serif);
+  font-weight: 600;
+}
+
+.tva-field > span i {
+  color: var(--contact-blue);
+  font-style: normal;
+}
+
+.tva-field input:not([type="file"]),
+.tva-field textarea {
+  width: 100%;
+  min-height: 46px;
+  padding: 10px 12px;
+  font-size: 16px;
+  color: var(--contact-ink);
+  border: 1px solid var(--contact-rule);
+  border-radius: 3px;
+  outline: none;
+  background: #fff;
+  transition: border-color .18s ease, box-shadow .18s ease;
+}
+
+.tva-field textarea {
+  height: 132px;
+  min-height: 132px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.tva-field input:not([type="file"]):focus,
+.tva-field textarea:focus {
+  border-color: var(--contact-blue);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--contact-blue) 16%, transparent);
+}
+
+.tva-field input[aria-invalid="true"],
+.tva-field textarea[aria-invalid="true"],
+.tva-check input[aria-invalid="true"] {
+  border-color: #b12834;
+}
+
+.tva-file-control {
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-height: 46px;
+  overflow: hidden;
+  border: 1px solid var(--contact-rule);
+  border-radius: 3px;
+  color: var(--contact-blue);
+  background: #fff;
+}
+
+.tva-file-control svg {
+  width: 24px;
+  height: 24px;
+  margin-inline: 14px 12px;
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke-width: 1.8;
+}
+
+.tva-file-control::before {
+  width: 1px;
+  height: 28px;
+  content: "";
+  background: var(--contact-rule);
+}
+
+.tva-file-control em {
+  min-width: 0;
+  padding-inline: 14px;
+  overflow: hidden;
+  color: var(--contact-blue);
+  font: 600 14px/1.2 var(--sans, Arial, sans-serif);
+  font-style: normal;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.tva-file-control em[data-has-file="true"] {
+  color: var(--contact-ink);
+}
+
+.tva-file-control input[type="file"] {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+  opacity: 0;
+}
+
+.tva-file-control:focus-within {
+  border-color: var(--contact-blue);
+  box-shadow: 0 0 0 2px color-mix(in srgb, var(--contact-blue) 16%, transparent);
+}
+
+.tva-file-clear {
+  position: relative;
+  z-index: 2;
+  flex: 0 0 34px;
+  width: 34px;
+  height: 34px;
+  margin-right: 6px;
+  color: var(--contact-muted);
+  border: 0;
+  background: transparent;
+  font-size: 20px;
+}
+
+.tva-contact-form__consent {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 16px 28px;
+  margin-top: 16px;
+}
+
+.tva-check,
+.tva-details-button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.tva-check input {
+  width: 22px;
+  height: 22px;
+  margin: 0;
+  accent-color: var(--contact-blue);
+}
+
+.tva-details-button {
+  min-height: 44px;
+  padding: 0;
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  background: transparent;
+  cursor: pointer;
+}
+
+.tva-contact-form__submit {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-width: 220px;
+  min-height: 50px;
+  margin-top: 16px;
+  padding: 10px 20px;
+  color: var(--contact-blue);
+  border: 2px solid var(--contact-blue);
+  border-radius: 4px;
+  background: #fff;
+  font-size: 16px;
+  font-weight: 600;
+  transition: color .18s ease, background-color .18s ease, transform .18s ease;
+}
+
+.tva-contact-form__submit b {
+  font-family: var(--sans, Arial, sans-serif);
+}
+
+.tva-contact-form__submit:hover,
+.tva-contact-form__submit:focus-visible {
+  color: #fff;
+  background: var(--contact-blue);
+}
+
+.tva-contact-form__submit:active {
+  transform: translateY(2px);
+}
+
+.tva-contact-form__status {
+  min-height: 1.5em;
+  margin: 12px 0 0;
+  color: var(--contact-muted);
+  font-size: 10px;
+  letter-spacing: .045em;
+}
+
+.tva-contact-form__status[data-state="error"] {
+  color: #b12834;
+}
+
+.tva-contact-form__status[data-state="ready"] {
+  color: var(--contact-blue);
+}
+
+.tva-privacy-dialog {
+  width: min(520px, calc(100vw - 32px));
+  padding: 32px;
+  color: var(--contact-ink);
+  border: 1px solid var(--contact-ink);
+  border-radius: 4px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgb(17 18 23 / 18%);
+}
+
+.tva-privacy-dialog::backdrop {
+  background: rgb(17 18 23 / 28%);
+}
+
+.tva-privacy-dialog form {
+  position: relative;
+}
+
+.tva-privacy-dialog__close {
+  position: absolute;
+  top: -18px;
+  right: -14px;
+  width: 44px;
+  height: 44px;
+  border: 0;
+  background: transparent;
+  font-size: 28px;
+}
+
+.tva-privacy-dialog h3 {
+  margin: 16px 0 12px;
+  font-size: 28px;
+}
+
+.tva-privacy-dialog p:last-child {
+  margin: 0;
+  color: var(--contact-muted);
+  line-height: 1.65;
+}
+
+@media (max-width: 900px) {
+  .tva-contact {
+    padding-inline: clamp(20px, 4vw, 48px);
+  }
+
+  .tva-contact__stage {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, .95fr);
+    gap: 28px;
+  }
+
+  .tva-contact__art {
+    min-height: 480px;
+  }
+
+  .tva-contact-form__header h2 {
+    font-size: clamp(34px, 5vw, 48px);
+  }
+}
+
+@media (max-width: 760px) {
+  .tva-contact {
+    min-height: auto;
+    padding: 88px 20px 72px;
+  }
+
+  .tva-contact__stage {
+    display: block;
+    min-height: 0;
+  }
+
+  .tva-contact__art {
+    height: clamp(280px, 68vw, 420px);
+    min-height: 0;
+    margin: -12px -20px 34px;
+  }
+
+  .tva-contact__art img {
+    left: -12%;
+    width: 124%;
+  }
+
+  .tva-contact__form-wrap {
+    width: 100%;
+  }
+
+  .tva-contact-form__header {
+    margin-bottom: 30px;
+  }
+
+  .tva-contact-form__header h2 {
+    font-size: clamp(36px, 11vw, 52px);
+  }
+
+  .tva-contact-form__grid {
+    grid-template-columns: 1fr;
+    gap: 22px;
+  }
+
+  .tva-field,
+  .tva-field--wide,
+  .tva-field--message {
+    grid-column: auto;
+  }
+
+  .tva-contact-form__consent {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  .tva-contact-form__submit {
+    width: 100%;
+    margin-top: 24px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .tva-field input:not([type="file"]),
+  .tva-field textarea,
+  .tva-contact-form__submit {
+    transition: none;
+  }
+}

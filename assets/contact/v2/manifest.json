@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "version": "contact-v2",
+  "approved": false,
+  "status": "review-drafts-rgb-white",
+  "styleReferences": [
+    "/Volumes/교육자료/AI_Hub/Design_Studies/tva-world-concepts-20260908/references/mame-CSOwZhThO4t-full.jpg",
+    "/Volumes/교육자료/AI_Hub/Design_Studies/tva-world-concepts-20260908/references/mame-book-laundry-dining.png",
+    "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio/assets/mascot/greeting-wave-02.png"
+  ],
+  "assets": {
+    "envelope-front": {"file":"envelopes/envelope-front.png","width":1729,"height":910,"mode":"RGB","alphaValid":false,"bodyBounds":{"left":0.097,"top":0.187,"right":0.904,"bottom":0.811},"visualContentRatio":2.46,"sha256":"0efdc5301decb9a0aea57cb580e0654c75a8d8ca5ea4b3a71d57d1ab73fcfe65"},
+    "envelope-back": {"file":"envelopes/envelope-back.png","width":1729,"height":910,"mode":"RGB","alphaValid":false,"bodyBounds":{"left":0.097,"top":0.187,"right":0.904,"bottom":0.811},"visualContentRatio":2.46,"sha256":"de92a36da545716d6addb6155f5ae8c7a16a6e3a9c223d4e0cc9f2aec34559f1"},
+    "envelope-open": {"file":"envelopes/envelope-open.png","width":1457,"height":1079,"mode":"RGB","alphaValid":false,"artBounds":{"left":0.056,"top":0.1,"right":0.944,"bottom":0.866},"bodyBounds":{"left":0.056,"top":0.419,"right":0.944,"bottom":0.866},"bodyVisualRatioEstimate":2.68,"recommendedBodyScaleX":0.918,"sha256":"9c6cc56a9df7c7bd4cf5a06a8f6752a3309254d94fe3d9fc44c900b2f03406d7"},
+    "mailbox": {"file":"mailbox-white.png","width":1254,"height":1254,"mode":"RGB","alphaValid":false,"bodyBounds":{"left":0.239,"top":0.088,"right":0.756,"bottom":0.932},"floorAnchor":{"x":0.5,"y":0.93},"slotBounds":{"left":0.27,"top":0.26,"right":0.56,"bottom":0.31},"sha256":"5714a306e6aad965c2de91146ed83b49814bd1d197824dd03cc2c420230c470b"},
+    "pickup": {"file":"pickup.png","width":1254,"height":1254,"mode":"RGB","alphaValid":false,"bodyBounds":{"left":0.101,"top":0.089,"right":0.89,"bottom":0.92},"embeddedEnvelope":true,"envelopeBounds":{"left":0.59,"top":0.74,"right":0.89,"bottom":0.92},"handContacts":{"left":{"x":0.62,"y":0.84},"right":{"x":0.84,"y":0.79},"basis":"manual estimate; screen-left/screen-right"},"footAnchor":{"x":0.43,"y":0.895},"sha256":"5874e45086d0a84930bdb01633988690b06b4c9eb24304c63de86d9125307f18"},
+    "carry-01": {"file":"carry-01.png","width":1254,"height":1254,"mode":"RGB","alphaValid":false,"bodyBounds":{"left":0.143,"top":0.087,"right":0.858,"bottom":0.91},"embeddedEnvelope":true,"envelopeBounds":{"left":0.43,"top":0.53,"right":0.81,"bottom":0.68},"handContacts":{"left":{"x":0.45,"y":0.62},"right":{"x":0.80,"y":0.60},"basis":"manual estimate; screen-left/screen-right"},"footAnchor":{"x":0.58,"y":0.91},"gait":"screen-right shoe planted forward","sha256":"8a6e8a1faeddb0390e2e1ed6fc874d67d6c108a4ee33a6108f06cfe0d3971372"},
+    "carry-02": {"file":"carry-02.png","width":1254,"height":1254,"mode":"RGB","alphaValid":false,"bodyBounds":{"left":0.16,"top":0.087,"right":0.858,"bottom":0.91},"embeddedEnvelope":true,"envelopeBounds":{"left":0.43,"top":0.53,"right":0.81,"bottom":0.68},"handContacts":{"left":{"x":0.45,"y":0.62},"right":{"x":0.80,"y":0.60},"basis":"manual estimate; screen-left/screen-right"},"footAnchor":{"x":0.58,"y":0.91},"gait":"screen-right shoe lifted forward with sole visible; opposite phase","sha256":"7d35797e42bbfcba8d8a475b8e396cf47fa4eaf9941403b4a4d290f8fd554361"},
+    "insertion": {"file":"insertion.png","width":1254,"height":1254,"mode":"RGB","alphaValid":false,"bodyBounds":{"left":0.037,"top":0.145,"right":0.98,"bottom":0.87},"embeddedEnvelope":true,"envelopeBounds":{"left":0.65,"top":0.41,"right":0.98,"bottom":0.54},"handContacts":{"left":{"x":0.66,"y":0.49},"right":{"x":0.71,"y":0.44},"basis":"manual estimate; screen-left/screen-right"},"footAnchor":{"x":0.31,"y":0.87},"envelopeTip":{"x":0.98,"y":0.475},"sha256":"ff270b1400037452b3583a19ad5f14248781889f7e8c983aeb3e085878d61c35"}
+  },
+  "drawOrder": ["character-with-embedded-envelope", "mailbox"],
+  "limitations": [
+    "All v2 files are RGB on white; none are transparent production sprites.",
+    "Hide separate envelope artwork during pickup, carry, and insertion because each pose has an embedded envelope.",
+    "The open envelope no longer has duplicated closed-flap geometry, but its body visual ratio is estimated at 2.68 rather than the front/back 2.46 and remains a review limitation.",
+    "No composite placement QA or animation integration was performed.",
+    "The letterpaper directory is owned by another worker and was not modified."
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "status": "candidate-not-user-approved",
+  "background": "pure-white RGB; no alpha",
+  "palette": {
+    "cobalt": "#2454B8",
+    "vermilion": "#E95036",
+    "butter": "#EEC75D",
+    "paper": "white"
+  },
+  "measurementNote": "Body bounds are manual visual estimates from the rendered PNGs, not pixel segmentation.",
+  "assets": [
+    {
+      "file": "envelope-front.png",
+      "canvas": [1966, 800],
+      "mode": "RGB",
+      "sha256": "2db64597890be2d8673c8499f1a9df96b1f1e5db528a5af7ee025367bc4431a0",
+      "bodyBounds": {"x": 159, "y": 100, "width": 1649, "height": 597},
+      "bodyBoundsNormalized": {"x": 0.0809, "y": 0.125, "width": 0.8388, "height": 0.7463},
+      "bodyAspect": 2.762
+    },
+    {
+      "file": "envelope-back.png",
+      "canvas": [1966, 800],
+      "mode": "RGB",
+      "sha256": "608c9740f7d9f7a6aff00be2a5a721ea13345ceaa6f51af34864c64288c7d9c7",
+      "bodyBounds": {"x": 159, "y": 100, "width": 1649, "height": 597},
+      "bodyBoundsNormalized": {"x": 0.0809, "y": 0.125, "width": 0.8388, "height": 0.7463},
+      "bodyAspect": 2.762
+    },
+    {
+      "file": "envelope-open.png",
+      "canvas": [1606, 979],
+      "mode": "RGB",
+      "sha256": "51acb485aeb117aac4fc7eafa9f949fbf7002e13ae8dd6f6e741a4ffe5fed873",
+      "bodyBounds": {"x": 124, "y": 397, "width": 1358, "height": 497},
+      "bodyBoundsNormalized": {"x": 0.0772, "y": 0.4055, "width": 0.8456, "height": 0.5077},
+      "flapBounds": {"x": 124, "y": 34, "width": 1358, "height": 363},
+      "hingeLine": [{"x": 124, "y": 397}, {"x": 1482, "y": 397}],
+      "flapPolygon": [{"x": 124, "y": 397}, {"x": 803, "y": 34}, {"x": 1482, "y": 397}],
+      "rimOcclusionLine": [{"x": 267, "y": 473}, {"x": 1339, "y": 473}],
+      "bodyAspect": 2.732,
+      "normalizationToClosed": {"scaleX": 1.2143, "scaleY": 1.2012},
+      "structure": "one upward open flap; shallow opening and side/bottom pocket seams; no duplicate downward closed-flap triangle"
+    }
+  ],
+  "renderContract": {
+    "canonicalBodyPixels": [1649, 597],
+    "canonicalBodyAspect": 2.762,
+    "frontScale": {"x": 1.0, "y": 1.0},
+    "backScale": {"x": 1.0, "y": 1.0},
+    "openScale": {"x": 1.2143, "y": 1.2012},
+    "alignment": "Map each listed bodyBounds rectangle to the canonical 1649×597 render rectangle. Align open hingeLine to the canonical body's top edge. This makes all three perceived envelope bodies identical in runtime while the open flap remains above the body."
+  },
+  "consistency": "Front and back share the same canvas and body bounds. Open uses the explicit independent X/Y render normalization above; after mapping, all three bodies are the same 2.762:1 perceived rectangle.",
+  "references": [
+    "/Volumes/교육자료/AI_Hub/Design_Studies/tva-world-concepts-20260908/references/mame-book-laundry-dining.png",
+    "/Volumes/교육자료/AI_Hub/Design_Studies/tva-world-concepts-20260908/references/mame-CSOwZhThO4t-full.jpg",
+    "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio/assets/contact/v2/envelopes/envelope-front.png"
+  ]
+}

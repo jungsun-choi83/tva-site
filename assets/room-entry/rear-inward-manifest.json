@@ -1,0 +1,82 @@
+{
+  "source": {
+    "pose_reference": "/Volumes/교육자료/AI_Hub/Design_Studies/tva-world-concepts-20260908/room-entry-storyboard-v1/02-threshold/02-threshold.png",
+    "identity_reference": "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio/assets/tva-mascot-idle.png"
+  },
+  "generation": {
+    "tool": "built-in image_gen",
+    "initial": "/Users/mac/.codex/generated_images/01a07dce-853a-7c32-90dc-fd445d1c4361/exec-dadd3657-1359-4666-b7e5-23ee2bd5192d.png",
+    "correction_attempt": "/Users/mac/.codex/generated_images/01a07dce-853a-7c32-90dc-fd445d1c4361/exec-dd066eeb-c499-497a-9e1e-9fe887d14503.png",
+    "correction_accepted": false,
+    "correction_rejection_reason": "RGB 이미지에 체크무늬가 박혀 실제 알파 투명이 아니므로 제외했다."
+  },
+  "finalPath": "/Volumes/교육자료/AI_Hub/Design_Studies/tva-world-concepts-20260908/room-entry-runtime-assets-v1/actor/rear-inward.png",
+  "intrinsicDims": {
+    "width": 1239,
+    "height": 1270
+  },
+  "sha256": "2fdabe4352bc8f5806bde5a1cf83b395119ca55d97a77b54e69bf96f54924286",
+  "alpha": {
+    "mode": "RGBA",
+    "extrema": [
+      0,
+      255
+    ],
+    "bbox": {
+      "left": 124,
+      "top": 23,
+      "rightExclusive": 1211,
+      "bottomExclusive": 1214
+    },
+    "paddingPercent": {
+      "left": 10.01,
+      "top": 1.81,
+      "right": 2.26,
+      "bottom": 4.41
+    },
+    "cornerAlpha": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "transparentBackground": true,
+    "bakedCheckerboard": false
+  },
+  "bodyCenter": {
+    "x": 667.5,
+    "y": 618.5,
+    "xNormalized": 0.5387,
+    "yNormalized": 0.487
+  },
+  "footAnchor": {
+    "x": 609,
+    "y": 1166,
+    "xNormalized": 0.4915,
+    "yNormalized": 0.9181,
+    "basis": "두 신발을 포함한 외곽의 최저점과 가로 중심에 가까운 런타임 접지 기준점"
+  },
+  "qa": {
+    "viewedFull": true,
+    "singleCharacter": true,
+    "rearInwardPose": true,
+    "faceVisible": false,
+    "allBodyPartsUncropped": true,
+    "floorOrAttachedShadow": false,
+    "backgroundObjects": false,
+    "minimumPadding12Percent": false
+  },
+  "limitations": [
+    "유효한 초기 RGBA는 장갑과 발이 잘리지 않았지만 실측 투명 여백이 요청한 12%에 미달한다.",
+    "허용된 한 번의 imagegen 교정은 체크무늬 RGB로 반환되어 채택하지 않았고, 임의 알파 후처리는 하지 않았다."
+  ],
+  "runtimeAnchorNotes": {
+    "bodyCenterMeaning": "The producer bodyCenter is the complete alpha-bounds centre, including limbs; it is not the CRT case pivot.",
+    "caseBodyAnchorApproximate": {
+      "x": 0.5044390637610977,
+      "y": 0.3543307086614173,
+      "basis": "Root full-image visual inspection of the CRT enclosure centre; approximate transition pivot, not an alpha-derived measurement."
+    },
+    "rearFootMeaning": "Airborne pose registration only; real floor contact uses the existing grounded relief pose and its verified foot anchor."
+  }
+}

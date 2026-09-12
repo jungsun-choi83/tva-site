@@ -1,0 +1,52 @@
+[data-fall-actor-phase] {
+  isolation: isolate;
+}
+
+[data-fall-actor-phase] > .fall-actor {
+  display: block;
+  width: 100%;
+  height: 100%;
+  overflow: visible;
+  pointer-events: none;
+  contain: layout paint style;
+}
+
+.art-actor__pose {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+  opacity: 0;
+  pointer-events: none;
+}
+
+[data-art-actor-ready] > .art-actor__pose {
+  opacity: 1;
+}
+
+[data-art-actor-ready] > .fall-actor--legacy {
+  opacity: 0;
+}
+
+.fall-actor__limb {
+  fill: none;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+
+.fall-actor__limb--outline {
+  stroke: #17120f;
+  stroke-width: 58;
+}
+
+.fall-actor__limb--fill {
+  stroke: #6b330d;
+  stroke-width: 38;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  [data-fall-actor-phase] > .fall-actor { filter: none; }
+}

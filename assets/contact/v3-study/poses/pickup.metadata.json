@@ -1,0 +1,19 @@
+{
+  "asset": "pickup.png",
+  "source": "../../v2/pickup.png",
+  "envelope_reference": "../envelopes/envelope-front.png",
+  "generator": "built-in image_gen precise-object-edit",
+  "width": 1254,
+  "height": 1254,
+  "color_space": "RGB",
+  "coordinate_mapping_from_source": "1:1",
+  "source_sha256": "5874e45086d0a84930bdb01633988690b06b4c9eb24304c63de86d9125307f18",
+  "output_sha256": "abd457cd624e87fe4150270c39f103f2ef44f66d7ceed5b8983799f171370abc",
+  "pixel_difference_bbox_threshold_8": [131, 109, 1113, 1146],
+  "pixel_difference_count_threshold_8": 68304,
+  "left_shoe_bbox_source": [136, 910, 424, 1121],
+  "left_shoe_bbox_output": [136, 910, 424, 1122],
+  "right_shoe_bbox_source": [498, 935, 702, 1102],
+  "right_shoe_bbox_output": [497, 935, 702, 1102],
+  "inspection": "One front-facing decorated envelope remains in the original two-hand pickup grip. No detached duplicate. Pose, expression, silhouette, scale, and foot placement are visually preserved. Built-in edit regenerated antialias/color pixels beyond the envelope, so pixel differences are not limited to the envelope region; the 1 px shoe-mask variations are recorded rather than claimed identical."
+}

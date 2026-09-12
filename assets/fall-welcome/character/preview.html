@@ -1,0 +1,21 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Fall actor pose QA</title>
+  <style>
+    :root{color-scheme:dark;font:14px/1.4 system-ui;background:#151515;color:#f5ead7}body{margin:0;padding:24px}h1{font-size:18px;margin:0 0 16px}.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:12px}.card{background:#262421;border:1px solid #484238;border-radius:10px;padding:10px}.stage{height:300px;background:radial-gradient(circle,#444039,#171614 70%);overflow:hidden}.label{display:flex;justify-content:space-between;margin-bottom:8px;color:#d9cdbb}
+  </style>
+</head>
+<body>
+  <h1>Original CRT articulated fall sequence — all authored checkpoints</h1>
+  <main class="grid"></main>
+  <script type="module">
+    import { createFallActor } from '../../../fall-welcome/actor.js?v=unified-r1.h0d1594b9';
+    const frames=[['stumble',.03],['panic A',.12],['panic B',.29],['approach',.46],['brace',.57],['impact',.61],['emerge',.70],['recover',.84],['greet',.92,.1],['wave 1',.94,.35],['wave 2',.94,.68],['settled',.94,1]];
+    const grid=document.querySelector('.grid');
+    frames.forEach(([name,progress,waveProgress])=>{const card=document.createElement('section');card.className='card';card.innerHTML=`<div class="label"><span>${name}</span><span>p=${progress}</span></div><div class="stage"></div>`;grid.append(card);createFallActor(card.querySelector('.stage')).draw({progress,nowMs:1000,waveProgress});});
+  </script>
+</body>
+</html>

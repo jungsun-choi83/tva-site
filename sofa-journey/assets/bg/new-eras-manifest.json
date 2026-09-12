@@ -1,0 +1,100 @@
+{
+  "images": [
+    {
+      "key": "c1-1936",
+      "year": "1936",
+      "file": "c1-1936.webp",
+      "prompt": "Match the three reference frames exactly in concept and finish: each is a single frame of TELEVISION FOOTAGE of a famous moment of its era, where every person is drawn as a 1930s rubber-hose cartoon character (round heads, dot eyes, big smiles, white four-finger gloves, simple bodies) while the venue, city, sky and objects are painted semi-realistically. Wide shot; a crowd seen from behind fills the foreground bottom; the event happens in the middle distance. The frame carries the era-correct broadcast artifacts described below (this is essential). Landscape 3:2. No text, no captions, no logos, no channel bugs, no real identifiable faces.\n\nSCENE: 1936, the first live television broadcast of the Olympic Games in a Berlin stadium: cartoon athletes on the track, cartoon spectators, huge stadium, a bulky iconoscope camera on a tripod at the edge. Artifacts: black-and-white, very grainy, soft, low contrast, flicker bands, dust and scratches, slightly wobbly 4:3 image with dark pillar bars on both sides.",
+      "refs": [
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b2-1956.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b7-2002.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b4-1988.png"
+      ],
+      "seconds": 174
+    },
+    {
+      "key": "c2-1945",
+      "year": "1945",
+      "file": "c2-1945.webp",
+      "prompt": "Match the three reference frames exactly in concept and finish: each is a single frame of TELEVISION FOOTAGE of a famous moment of its era, where every person is drawn as a 1930s rubber-hose cartoon character (round heads, dot eyes, big smiles, white four-finger gloves, simple bodies) while the venue, city, sky and objects are painted semi-realistically. Wide shot; a crowd seen from behind fills the foreground bottom; the event happens in the middle distance. The frame carries the era-correct broadcast artifacts described below (this is essential). Landscape 3:2. No text, no captions, no logos, no channel bugs, no real identifiable faces.\n\nSCENE: 1945, victory day celebration in a big-city square (Times Square-like): confetti, sailors and nurses as cartoon characters cheering, newspaper pages flying, tall buildings with light bulbs. Artifacts: black-and-white newsreel 16mm film, heavy grain, vertical scratches, jitter, vignetted corners, 4:3 with dark pillar bars.",
+      "refs": [
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b2-1956.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b7-2002.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b4-1988.png"
+      ],
+      "seconds": 92
+    },
+    {
+      "key": "c4-1977",
+      "year": "1977",
+      "file": "c4-1977.webp",
+      "prompt": "Match the three reference frames exactly in concept and finish: each is a single frame of TELEVISION FOOTAGE of a famous moment of its era, where every person is drawn as a 1930s rubber-hose cartoon character (round heads, dot eyes, big smiles, white four-finger gloves, simple bodies) while the venue, city, sky and objects are painted semi-realistically. Wide shot; a crowd seen from behind fills the foreground bottom; the event happens in the middle distance. The frame carries the era-correct broadcast artifacts described below (this is essential). Landscape 3:2. No text, no captions, no logos, no channel bugs, no real identifiable faces.\n\nSCENE: 1977, a disco television dance show: a mirror ball, a lit checkerboard floor, cartoon dancers in flared trousers and big collars, TV studio lights. Artifacts: early color television with bleeding saturated colors, chroma fringing, soft scan lines, slightly blurry, 4:3 with pillar bars, warm faded tint.",
+      "refs": [
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b2-1956.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b7-2002.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b4-1988.png"
+      ],
+      "seconds": 168
+    },
+    {
+      "key": "c6-1996",
+      "year": "1996",
+      "file": "c6-1996.webp",
+      "prompt": "Match the three reference frames exactly in concept and finish: each is a single frame of TELEVISION FOOTAGE of a famous moment of its era, where every person is drawn as a 1930s rubber-hose cartoon character (round heads, dot eyes, big smiles, white four-finger gloves, simple bodies) while the venue, city, sky and objects are painted semi-realistically. Wide shot; a crowd seen from behind fills the foreground bottom; the event happens in the middle distance. The frame carries the era-correct broadcast artifacts described below (this is essential). Landscape 3:2. No text, no captions, no logos, no channel bugs, no real identifiable faces.\n\nSCENE: 1996, a summer Olympics stadium at night: a cartoon legend lighting the cauldron with a torch, a cascade of sparks, the crowd holding up small lights. Artifacts: 1990s broadcast video, moderate sharpness, slight tape softness, small chroma noise, 4:3 with pillar bars.",
+      "refs": [
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b2-1956.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b7-2002.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b4-1988.png"
+      ],
+      "seconds": 84
+    },
+    {
+      "key": "c8-2012",
+      "year": "2012",
+      "file": "c8-2012.webp",
+      "prompt": "Match the three reference frames exactly in concept and finish: each is a single frame of TELEVISION FOOTAGE of a famous moment of its era, where every person is drawn as a 1930s rubber-hose cartoon character (round heads, dot eyes, big smiles, white four-finger gloves, simple bodies) while the venue, city, sky and objects are painted semi-realistically. Wide shot; a crowd seen from behind fills the foreground bottom; the event happens in the middle distance. The frame carries the era-correct broadcast artifacts described below (this is essential). Landscape 3:2. No text, no captions, no logos, no channel bugs, no real identifiable faces.\n\nSCENE: 2012, a giant outdoor K-pop flash mob in a city plaza at dusk: thousands of cartoon fans doing the same horse-riding dance, a big LED screen, smartphones held up glowing, skyscrapers behind. Artifacts: crisp HD, full 16:9 frame, saturated modern digital look, lens flares from the screen.",
+      "refs": [
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b2-1956.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b7-2002.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b4-1988.png"
+      ],
+      "seconds": 181
+    },
+    {
+      "key": "c3-1964",
+      "year": "1964",
+      "file": "c3-1964.webp",
+      "prompt": "Match the three reference frames exactly in concept and finish: each is a single frame of TELEVISION FOOTAGE of a famous moment of its era, where every person is drawn as a 1930s rubber-hose cartoon character (round heads, dot eyes, big smiles, white four-finger gloves, simple bodies) while the venue, city, sky and objects are painted semi-realistically. Wide shot; a crowd seen from behind fills the foreground bottom; the event happens in the middle distance. The frame carries the era-correct broadcast artifacts described below (this is essential). Landscape 3:2. No text, no captions, no logos, no channel bugs, no real identifiable faces.\n\nSCENE: 1964, a black-and-white television variety show: a four-piece cartoon beat band with mop-top haircuts and matching suits on a small stage with a big round logo-free backdrop, studio cameras, a screaming cartoon audience of teenagers waving. Artifacts: black-and-white television, soft scan lines, slight horizontal roll, low resolution, warm gray tones, 4:3 pillar bars.",
+      "refs": [
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b2-1956.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b7-2002.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b4-1988.png"
+      ],
+      "seconds": 89
+    },
+    {
+      "key": "c5-1985",
+      "year": "1985",
+      "file": "c5-1985.webp",
+      "prompt": "Match the three reference frames exactly in concept and finish: each is a single frame of TELEVISION FOOTAGE of a famous moment of its era, where every person is drawn as a 1930s rubber-hose cartoon character (round heads, dot eyes, big smiles, white four-finger gloves, simple bodies) while the venue, city, sky and objects are painted semi-realistically. Wide shot; a crowd seen from behind fills the foreground bottom; the event happens in the middle distance. The frame carries the era-correct broadcast artifacts described below (this is essential). Landscape 3:2. No text, no captions, no logos, no channel bugs, no real identifiable faces.\n\nSCENE: 1985, a giant stadium charity rock concert broadcast worldwide in daylight: a cartoon band on a huge stage with speaker towers, a sea of cartoon fans with raised arms and homemade banners left blank, TV cameras on cranes. Artifacts: 1980s analog broadcast video, bright slightly oversaturated colors, faint scan lines, gentle color bleed, 4:3 with pillar bars.",
+      "refs": [
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b2-1956.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b7-2002.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b4-1988.png"
+      ],
+      "seconds": 168
+    },
+    {
+      "key": "c7-2006",
+      "year": "2006",
+      "file": "c7-2006.webp",
+      "prompt": "Match the three reference frames exactly in concept and finish: each is a single frame of TELEVISION FOOTAGE of a famous moment of its era, where every person is drawn as a 1930s rubber-hose cartoon character (round heads, dot eyes, big smiles, white four-finger gloves, simple bodies) while the venue, city, sky and objects are painted semi-realistically. Wide shot; a crowd seen from behind fills the foreground bottom; the event happens in the middle distance. The frame carries the era-correct broadcast artifacts described below (this is essential). Landscape 3:2. No text, no captions, no logos, no channel bugs, no real identifiable faces.\n\nSCENE: 2006, a big outdoor public viewing of a football match at night in a city square: a huge screen showing a stadium, cartoon fans in matching team colors with painted cheeks and scarves jumping together, fireworks. Artifacts: 2000s digital broadcast, fairly sharp, slight compression blockiness in dark areas, widescreen 16:9 full frame.",
+      "refs": [
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b2-1956.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b7-2002.png",
+        "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio-claude-20260909/sofa-journey/assets/bg/b4-1988.png"
+      ],
+      "seconds": 84
+    }
+  ]
+}

@@ -1,0 +1,19 @@
+Sniglet ExtraBold font attribution
+=================================
+
+Font file used for the converted Bézier glyph outlines in
+our-works-bubbly.svg:
+
+  Sniglet-ExtraBold.ttf
+  Copyright (c) 2008, Haley Fiege
+  Copyright (c) 2012, Brenda Gallo
+  Copyright (c) 2013, Pablo Impallari
+
+The font's embedded name table declares the SIL Open Font License,
+Version 1.1 (OFL-1.1), with no Reserved Font Name. The complete license
+text and FAQ are available from the SIL at:
+
+  https://scripts.sil.org/OFL
+
+This asset contains converted outline data only; the original font file
+is not redistributed here.

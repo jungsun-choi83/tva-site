@@ -1,0 +1,48 @@
+/* Optical passes share the photograph's coordinate system and scroll transform.
+   They improve the image presentation, not replace it with a 3D mesh. */
+.hero-material{position:absolute;inset:0;z-index:3;pointer-events:none;opacity:calc(var(--power-housing,1) * var(--hero-field-opacity,1));transition:opacity .35s ease}
+/* During entry, the shared scroll value owns every overlay, including stops. */
+.hero[data-hero-visual="keyvisual-v1"][data-hero-resting="false"] .hero-original__stage:after,
+.hero[data-hero-visual="keyvisual-v1"][data-hero-resting="false"] .hero-vintage__field,
+.hero[data-hero-visual="keyvisual-v1"][data-hero-resting="false"] .hero-material,
+.hero[data-hero-visual="keyvisual-v1"][data-hero-resting="false"] .hero-original__blink:after{transition:none}
+/* 2026-09-12 감사 [108]: 항등 필터(brightness(1) saturate(1) contrast(1))는 보이는 효과가 0인데
+   filter 가 none 이 아니라는 이유만으로 별도 래스터 레이어가 생긴다. 30행 hero-computer-optics 는
+   0%/50% 키프레임에 값이 모두 적혀 있어 기본값이 none 이어도 그대로 돈다. */
+.hero[data-hero-visual="keyvisual-v1"] .hero-original__tv{filter:none}
+.hero[data-hero-visual="keyvisual-v1"] .hero-original__stage{--entry-optics-strength:1;--frame-soft-rest:.28px;--frame-soft-peak:.45px;filter:blur(calc(var(--frame-soft-rest) * var(--entry-optics-strength,1))) contrast(calc(1 - (.03 * var(--entry-optics-strength,1)))) saturate(calc(1 - (.06 * var(--entry-optics-strength,1))))}
+.hero[data-hero-visual="keyvisual-v1"][data-power-state="locked"][data-hero-resting="true"][data-hero-document-visible="true"][data-hero-in-view="true"] .hero-original__stage{animation:hero-frame-optics 6.4s cubic-bezier(.45,0,.55,1) infinite}
+@keyframes hero-frame-optics{0%,100%{filter:blur(calc(var(--frame-soft-rest) * var(--entry-optics-strength,1))) contrast(calc(1 - (.03 * var(--entry-optics-strength,1)))) saturate(calc(1 - (.06 * var(--entry-optics-strength,1))))}50%{filter:blur(calc(var(--frame-soft-peak) * var(--entry-optics-strength,1))) contrast(calc(1 - (.06 * var(--entry-optics-strength,1)))) saturate(calc(1 - (.08 * var(--entry-optics-strength,1))))}}
+/* 2026-09-12 감사 [105]: 첫 화면 전체가 계속 흐려 보이고 6.4초마다 초점이 들락거린다는 지적.
+   호흡은 남기되 기본 흐림 .65px→.28px, 최대 1px→.45px 로 낮춰 진폭을 0.35px→0.17px 로 줄였다. */
+@media(max-width:760px){.hero[data-hero-visual="keyvisual-v1"] .hero-original__stage{--frame-soft-rest:.2px;--frame-soft-peak:.32px}}
+.hero-material:before,.hero-material:after{content:"";position:absolute;z-index:0;inset:0;pointer-events:none;opacity:0;background:url('assets/hero/tva-hero-keyvisual-1920x1080-v1.webp') center/100% 100% no-repeat;clip-path:polygon(61% 9%,89% 8%,94% 19%,96% 88%,85% 95%,47% 89%,44% 73%,57% 61%,60% 14%);-webkit-mask-image:radial-gradient(ellipse 11% 16% at 72.4% 36.3%,transparent 0 82%,rgba(0,0,0,.18) 91%,#000 100%);mask-image:radial-gradient(ellipse 11% 16% at 72.4% 36.3%,transparent 0 82%,rgba(0,0,0,.18) 91%,#000 100%);mix-blend-mode:screen}
+.hero-material:before{filter:sepia(1) saturate(4.2) hue-rotate(128deg) brightness(.8) blur(.7px)}
+.hero-material:after{filter:sepia(1) saturate(4.6) hue-rotate(318deg) brightness(.72) blur(.7px)}
+.hero-material i{position:absolute;display:block;pointer-events:none}
+/* Inter-dot gaps break the baked smooth face into a fine phosphor lattice.
+   Kept above the eyelids so open and closed eyes share the same display. */
+.hero[data-hero-visual="keyvisual-v1"] .hero-original__blink:after{content:"";position:absolute;z-index:2;left:62.9%;top:23.1%;width:19.8%;height:27.9%;border-radius:15% 13% 11% 12%;transform:skewY(2deg) skewX(-5deg);pointer-events:none;opacity:var(--hero-field-opacity,1);background:radial-gradient(circle at center,transparent 0 .7px,rgba(3,23,16,.64) .95px);background-size:2.5px 2.5px;transition:opacity .25s ease}
+@media(max-width:760px){.hero[data-hero-visual="keyvisual-v1"] .hero-original__blink:after{background:radial-gradient(circle at center,transparent 0 .55px,rgba(3,23,16,.6) .8px);background-size:2px 2px}}
+.hero[data-hero-visual="keyvisual-v1"] .hero-original__blink:after{-webkit-mask-image:radial-gradient(ellipse at center,#000 0 64%,rgba(0,0,0,.8) 77%,transparent 96%);mask-image:radial-gradient(ellipse at center,#000 0 64%,rgba(0,0,0,.8) 77%,transparent 96%)}
+.hero-material__housing-light{inset:0;mix-blend-mode:soft-light;background:radial-gradient(ellipse 19% 4% at 74% 17%,#fff4d8a6,transparent 78%),radial-gradient(ellipse 13% 17% at 64% 43%,#f9edc247,transparent 80%),radial-gradient(ellipse 5% 28% at 89% 44%,#071511b8,transparent 85%)}
+.hero-material__glass{left:62.9%;top:23.1%;width:19.8%;height:27.9%;border-radius:15% 13% 11% 12%;overflow:hidden;transform:skewY(2deg) skewX(-5deg);mix-blend-mode:screen;background:linear-gradient(118deg,rgba(206,240,217,.22),rgba(222,242,211,.06) 11%,transparent 26% 72%,rgba(125,214,175,.08));box-shadow:inset 2px 3px 8px #bbffcc1a}
+.hero-material__glass:after{content:"";position:absolute;inset:-40%;background:linear-gradient(114deg,transparent 23%,#dbf5d617 35%,#fff7df26 38%,transparent 43%);transform:translateX(-15%);opacity:.45}
+.hero-material__spill{left:56%;top:43%;width:31%;height:30%;background:radial-gradient(ellipse at 58% 12%,#a7e0a52b,transparent 57%);mix-blend-mode:screen;filter:blur(9px)}
+.hero-material__contact{left:45.5%;top:81.5%;width:41%;height:12%;background:radial-gradient(ellipse,#02050466,transparent 68%);mix-blend-mode:multiply;transform:rotate(6deg)}
+.hero[data-power-state="locked"][data-hero-resting="true"][data-hero-document-visible="true"][data-hero-in-view="true"] .hero-material__glass:after{animation:hero-glass-light 9s ease-in-out infinite}
+.hero[data-power-state="locked"][data-hero-resting="true"][data-hero-document-visible="true"][data-hero-in-view="true"] .hero-material__spill{animation:hero-screen-light 6.4s ease-in-out infinite}
+.hero[data-power-state="locked"][data-hero-resting="true"][data-hero-document-visible="true"][data-hero-in-view="true"] .hero-original__tv{animation:hero-computer-optics 6.4s cubic-bezier(.45,0,.55,1) infinite}
+.hero[data-power-state="locked"][data-hero-resting="true"][data-hero-document-visible="true"][data-hero-in-view="true"] .hero-material:before{animation:hero-computer-cyan 6.4s cubic-bezier(.45,0,.55,1) infinite}
+.hero[data-power-state="locked"][data-hero-resting="true"][data-hero-document-visible="true"][data-hero-in-view="true"] .hero-material:after{animation:hero-computer-oxide 6.4s cubic-bezier(.45,0,.55,1) infinite}
+@keyframes hero-glass-light{0%,100%{transform:translateX(-15%);opacity:.35}50%{transform:translateX(10%);opacity:.7}}
+@keyframes hero-screen-light{0%,100%{opacity:.6}50%{opacity:1}}
+@keyframes hero-computer-optics{0%,100%{filter:brightness(.94) saturate(.97) contrast(.98)}50%{filter:brightness(.96) saturate(1) contrast(.98)}}
+@keyframes hero-computer-cyan{0%,100%{opacity:.018;transform:translate3d(-.35px,0,0)}50%{opacity:.07;transform:translate3d(-1.2px,-.2px,0)}}
+@keyframes hero-computer-oxide{0%,100%{opacity:.016;transform:translate3d(.35px,0,0)}50%{opacity:.064;transform:translate3d(1.2px,.2px,0)}}
+.reduced-motion .hero-original__tv,.reduced-motion .hero-material:before,.reduced-motion .hero-material:after,.reduced-motion .hero-material__glass:after,.reduced-motion .hero-material__spill{animation:none!important}
+.reduced-motion .hero[data-hero-visual="keyvisual-v1"] .hero-original__tv{filter:none}
+.reduced-motion .hero-material:before,.reduced-motion .hero-material:after{opacity:0!important;transform:none!important}
+.reduced-motion .hero-original__stage{animation:none!important;filter:none!important}
+@media(prefers-reduced-motion:reduce){.hero-original__stage{animation:none!important;filter:none!important}}
+@media(prefers-reduced-motion:reduce){.hero-original__tv,.hero-material:before,.hero-material:after,.hero-material__glass:after,.hero-material__spill{animation:none!important}.hero[data-hero-visual="keyvisual-v1"] .hero-original__tv{filter:none}.hero-material:before,.hero-material:after{opacity:0!important;transform:none!important}}

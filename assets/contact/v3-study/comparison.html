@@ -1,0 +1,142 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Contact assets — v2 / v3 study</title>
+<style>
+  :root { color-scheme: light; --ink:#183328; --green:#0e4936; --paper:#fbfaf5; --line:#d9d7ca; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:#efeee7; color:var(--ink); font:14px/1.45 ui-sans-serif,system-ui,-apple-system,sans-serif; }
+  main { width:1360px; margin:0 auto; padding:38px 42px 54px; background:var(--paper); }
+  h1 { margin:0 0 5px; font:700 29px/1.1 Georgia,serif; }
+  .dek { margin:0 0 26px; color:#52645b; }
+  .grid { display:grid; grid-template-columns:150px 1fr 1fr; gap:10px 18px; align-items:stretch; }
+  .head { font-weight:700; color:#56665d; padding:0 10px 5px; }
+  .rowlabel { display:flex; flex-direction:column; justify-content:center; border-top:1px solid var(--line); }
+  .rowlabel strong { font-size:17px; }
+  .rowlabel span { color:#6d776f; font-size:12px; }
+  figure { margin:0; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:white; }
+  .stage { height:305px; display:flex; align-items:center; justify-content:center; padding:18px; background:white; }
+  .stage img { display:block; max-width:100%; max-height:100%; width:auto; height:auto; object-fit:contain; }
+  .paper img { height:265px; }
+  .closed img { width:520px; }
+  .open img { width:430px; }
+  .mail img { height:262px; }
+  figcaption { border-top:1px solid var(--line); padding:9px 12px; color:#58665e; font-size:12px; }
+  figcaption b { color:var(--ink); }
+  .proofs { display:grid; grid-template-columns:1fr 94px 94px; gap:8px; width:100%; height:100%; }
+  .proofs > div { display:flex; align-items:center; justify-content:center; overflow:hidden; }
+  .proofs .white { background:white; }
+  .proofs .dark { background:#172422; }
+  .proofs .green { background:#176b4d; }
+  .proofs img { max-width:100%; max-height:100%; object-fit:contain; }
+  .proofs .white img { height:260px; }
+  .proofs .dark img,.proofs .green img { width:86px; height:86px; }
+  h2 { margin:42px 0 5px; font:700 24px/1.15 Georgia,serif; }
+  .note { margin:0 0 18px; color:#52645b; }
+  #geometry-proof { border-top:2px solid var(--ink); padding-top:26px; }
+  .sequence { display:grid; grid-template-columns:300px 42px 300px 42px 1fr; align-items:center; gap:12px; }
+  .arrow { font-size:30px; color:#869087; text-align:center; }
+  .proofcard { height:430px; position:relative; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; }
+  .proofcard h3 { position:absolute; z-index:9; left:12px; top:10px; margin:0; font-size:13px; }
+  .fullsheet { position:absolute; left:66px; top:110px; width:168px; height:auto; }
+  .foldline { position:absolute; left:78.6px; width:143.2px; border-top:2px dashed #e95036; z-index:3; }
+  .foldline.one { top:184px; } .foldline.two { top:238.6px; }
+  .folded { position:absolute; left:25px; top:155px; width:250px; height:97px; border:1px solid #c8c6ba; overflow:hidden; background:#fff; transform:rotate(-2deg); box-shadow:0 8px 18px #1833281b; }
+  .folded img { position:absolute; width:293.4px; height:auto; left:-22px; top:-224.5px; }
+  .folded::after { content:"three panels stacked"; position:absolute; inset:auto 8px 6px; color:#58665e; font-size:11px; text-align:right; }
+  .state { height:430px; position:relative; overflow:hidden; background:#fff; border:1px solid var(--line); border-radius:8px; }
+  .state h3 { position:absolute; z-index:9; left:12px; top:10px; margin:0; font-size:13px; }
+  .mapped { position:absolute; overflow:visible; left:30px; right:30px; bottom:28px; height:330px; }
+  .mapped img { position:absolute; max-width:none; max-height:none; }
+  .canonical { position:absolute; left:0; bottom:0; width:100%; height:112px; border:1px dashed #0e493680; z-index:8; pointer-events:none; }
+  .canonical span { position:absolute; right:5px; bottom:3px; font-size:10px; color:#0e4936; background:#ffffffcc; }
+  .insert-paper { position:absolute; z-index:8; width:62%; height:60px; left:19%; top:160px; overflow:hidden; transform:rotate(-1deg); box-shadow:0 2px 4px #18332822; }
+  .insert-paper img { position:absolute; max-width:none; max-height:none; }
+  .openimg { z-index:7; }
+  .alignment { margin-top:18px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .alignstate { position:relative; height:224px; border:1px solid var(--line); border-radius:8px; overflow:hidden; background:#fff; }
+  .alignstate h3 { position:absolute; z-index:9; left:10px; top:8px; margin:0; font-size:12px; }
+  .alignmap { position:absolute; left:24px; right:24px; top:34px; height:176px; overflow:hidden; }
+  .alignmap img { position:absolute; max-width:none; max-height:none; }
+  .alignbox { position:absolute; left:0; top:70px; width:100%; height:106px; border:1px dashed #0e493680; z-index:8; pointer-events:none; }
+  .measurements { margin-top:18px; display:grid; grid-template-columns:repeat(3,1fr); gap:10px; }
+  .measurements div { border-top:1px solid var(--line); padding-top:8px; color:#52645b; font-size:12px; }
+  .measurements b { display:block; color:var(--ink); font-size:13px; }
+</style>
+</head>
+<body><main>
+  <h1>Contact asset study: v2 → v3</h1>
+  <p class="dek">Native browser layout at equal visible object scale. Source PNGs remain undistorted in this comparison.</p>
+  <section class="grid" id="before-after">
+    <div></div><div class="head">Before · v2</div><div class="head">Candidate · v3</div>
+    <div class="rowlabel"><strong>Paper</strong><span>unfolded sheet</span></div>
+    <figure><div class="stage paper"><img src="../v2/letterpaper/contact-letterpaper-portrait.png"></div><figcaption><b>1136×1385 RGB</b> · no alpha</figcaption></figure>
+    <figure><div class="stage paper"><img src="letterpaper/contact-letterpaper-v3.png"></div><figcaption><b>1136×1385 RGB</b> · no alpha · measured folded panel 2.577:1</figcaption></figure>
+    <div class="rowlabel"><strong>Front</strong><span>closed envelope</span></div>
+    <figure><div class="stage closed"><img src="../v2/envelopes/envelope-front.png"></div><figcaption><b>1729×910 RGB</b> · no alpha</figcaption></figure>
+    <figure><div class="stage closed"><img src="envelopes/envelope-front.png"></div><figcaption><b>1966×800 RGB</b> · no alpha · estimated body 1649×597 = 2.762:1 (target 2.78)</figcaption></figure>
+    <div class="rowlabel"><strong>Back</strong><span>closed envelope</span></div>
+    <figure><div class="stage closed"><img src="../v2/envelopes/envelope-back.png"></div><figcaption><b>1729×910 RGB</b> · no alpha</figcaption></figure>
+    <figure><div class="stage closed"><img src="envelopes/envelope-back.png"></div><figcaption><b>1966×800 RGB</b> · no alpha · same estimated body bounds as front</figcaption></figure>
+    <div class="rowlabel"><strong>Open</strong><span>single-flap state</span></div>
+    <figure><div class="stage open"><img src="../v2/envelopes/envelope-open.png"></div><figcaption><b>1457×1079 RGB</b> · no alpha</figcaption></figure>
+    <figure><div class="stage open"><img src="envelopes/envelope-open.png"></div><figcaption><b>1606×979 RGB</b> · no alpha · one upward flap; body estimate 2.732:1</figcaption></figure>
+    <div class="rowlabel"><strong>Mailbox</strong><span>white + alpha proofs</span></div>
+    <figure><div class="stage mail"><img src="../v2/production/mailbox.png"></div><figcaption><b>1254×1254 RGBA</b> · alpha present</figcaption></figure>
+    <figure><div class="stage mail"><div class="proofs"><div class="white"><img src="mailbox/mailbox-v3.png"></div><div class="dark"><img src="mailbox/mailbox-v3.png"></div><div class="green"><img src="mailbox/mailbox-v3.png"></div></div></div><figcaption><b>1230×1278 RGBA</b> · alpha present · browser proof on white, dark, and green</figcaption></figure>
+  </section>
+
+  <section id="geometry-proof">
+    <h2>Fold and envelope geometry proof</h2>
+    <p class="note">The paper and envelope are displayed from source PNGs. CSS maps each envelope’s measured body bounds to one canonical rectangle; only the open state uses the manifest’s X/Y normalization.</p>
+    <div class="sequence">
+      <div class="proofcard"><h3>1 · Sheet / thirds</h3><img class="fullsheet" src="letterpaper/contact-letterpaper-v3.png"><i class="foldline one"></i><i class="foldline two"></i></div>
+      <div class="arrow">→</div>
+      <div class="proofcard"><h3>2 · Folded packet</h3><div class="folded"><img src="letterpaper/contact-letterpaper-v3.png"></div></div>
+      <div class="arrow">→</div>
+      <div class="state"><h3>3 · Open + insertion opening</h3><div class="mapped" data-map="open"><div class="insert-paper"><img src="letterpaper/contact-letterpaper-v3.png"></div><img class="openimg" src="envelopes/envelope-open.png"><div class="canonical"><span>canonical body 2.762:1</span></div></div></div>
+    </div>
+    <div class="alignment">
+      <div class="alignstate"><h3>Front · canonical body</h3><div class="alignmap" data-align="front"><img src="envelopes/envelope-front.png"><i class="alignbox"></i></div></div>
+      <div class="alignstate"><h3>Back · canonical body</h3><div class="alignmap" data-align="back"><img src="envelopes/envelope-back.png"><i class="alignbox"></i></div></div>
+      <div class="alignstate"><h3>Open · normalized to same body</h3><div class="alignmap" data-align="open"><img src="envelopes/envelope-open.png"><i class="alignbox"></i></div></div>
+    </div>
+    <div class="measurements">
+      <div><b>Paper</b>bounds 968×1127; fold lines 0.336 / 0.664; folded-panel ratio 2.577:1.</div>
+      <div><b>Closed front/back</b>body estimate 1649×597 = 2.762:1, a close candidate for the 2.78 target.</div>
+      <div><b>Open mapping</b>body 1358×497; CSS normalization X 1.2143 / Y 1.2012; single upward flap remains visible.</div>
+    </div>
+  </section>
+</main>
+<script>
+  const map = document.querySelector('[data-map="open"]');
+  const art = map.querySelector('.openimg');
+  const body = {x:124,y:397,w:1358,h:497};
+  const target = {x:0,y:218,w:parseFloat(getComputedStyle(map).width),h:112};
+  art.style.width = `${1606 * target.w / body.w}px`;
+  art.style.height = `${979 * target.h / body.h}px`;
+  art.style.left = `${target.x - body.x * target.w / body.w}px`;
+  art.style.top = `${target.y - body.y * target.h / body.h}px`;
+  const insert = map.querySelector('.insert-paper'), insertImg = insert.querySelector('img');
+  const paperScale = parseFloat(getComputedStyle(insert).width) / 968;
+  insertImg.style.width = `${1136 * paperScale}px`;
+  insertImg.style.height = `${1385 * paperScale}px`;
+  insertImg.style.left = `${-85 * paperScale}px`;
+  insertImg.style.top = `${-121 * paperScale}px`;
+  const specs = {
+    front:{canvas:[1966,800],body:[159,100,1649,597]},
+    back:{canvas:[1966,800],body:[159,100,1649,597]},
+    open:{canvas:[1606,979],body:[124,397,1358,497]}
+  };
+  document.querySelectorAll('[data-align]').forEach(node => {
+    const s = specs[node.dataset.align], img = node.querySelector('img');
+    const w = parseFloat(getComputedStyle(node).width), h = 106, top = 70;
+    img.style.width = `${s.canvas[0] * w / s.body[2]}px`;
+    img.style.height = `${s.canvas[1] * h / s.body[3]}px`;
+    img.style.left = `${-s.body[0] * w / s.body[2]}px`;
+    img.style.top = `${top - s.body[1] * h / s.body[3]}px`;
+  });
+</script>
+</body></html>

@@ -1,0 +1,190 @@
+/* 칸을 걸어 가는 동안 html{scroll-behavior:smooth} 가 고야를 밀지 않게 */
+html.is-about-walking{scroll-behavior:auto!important}
+#about.about-walk .about-camera:before,#about.about-walk .world-canvas,#about.about-walk .studio-object,#about.about-walk .intro-worktable,#about.about-walk .material-pieces{display:none}
+#about.about-walk .studio-ledge{opacity:0}
+#about.about-walk .exit-arrow{display:none}
+#about.about-walk .about-topline{visibility:hidden}
+#about.about-walk .studio-station:before{display:none}   /* 글 위의 짧은 올리브색 줄도 숨김 */   /* 위쪽 'TVA / DESIGN STUDIO'·'Ideas, spaces…' 글과 가로줄 숨김(사장님 지시 09-10) */
+#about.about-walk .about-walk__note{position:absolute;z-index:7;left:0;top:0;display:block;max-width:none;pointer-events:none}
+#about.about-walk .studio-host.is-hopping{animation:aw-hop 1.5s cubic-bezier(.3,.8,.4,1) infinite}
+@keyframes aw-hop{0%,58%,100%{transform:translateY(0) scaleY(1)}62%{transform:translateY(0) scaleY(.94)}74%{transform:translateY(-8%) scaleY(1.04)}86%{transform:translateY(0) scaleY(.96)}92%{transform:translateY(0) scaleY(1.01)}}
+@media(prefers-reduced-motion:reduce){#about.about-walk .studio-host.is-hopping{animation:none}}
+#about.about-walk .about-walk__fg{position:absolute;z-index:9;left:0;top:0;display:block;max-width:none;pointer-events:none;will-change:transform}
+#about.about-walk .about-walk__strip{position:absolute;z-index:1;left:0;top:0;display:block;max-width:none;pointer-events:none;will-change:transform;user-select:none}
+#about.about-walk .station-goldpage{
+  display:block;
+  padding:0;
+  overflow:clip;
+  background:linear-gradient(180deg,#fff 0 50%,#f3eee4 50% 100%);
+}
+#about.about-walk .station-goldpage:before{display:none}
+#about.about-walk .station-goldpage .station-copy--head{
+  position:absolute;
+  z-index:5;
+  left:6vw;
+  top:clamp(92px,12.5vh,138px);
+  max-width:min(38vw,520px);
+  padding:0;
+  display:block;
+}
+#about.about-walk .station-goldpage .station-copy--head h3{
+  margin:14px 0 0;
+  font-size:clamp(34px,4.2vw,62px);
+  line-height:1.12;
+  letter-spacing:-.04em;
+}
+#about.about-walk .station-goldpage .station-copy--foot{
+  position:absolute;
+  z-index:5;
+  left:6vw;
+  top:52%;
+  max-width:min(24vw,300px);
+  padding:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-start;
+  gap:10px;
+}
+#about.about-walk .station-goldpage .station-copy p{max-width:none}
+#about.about-walk .station-goldpage .eyebrow{
+  font:500 clamp(15px,1.25vw,20px)/1.2 var(--display,"Cinzel",Georgia,serif);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
+#about.about-walk .station-copy{max-width:min(34vw,520px)}
+#about.about-walk .station-copy p{max-width:min(30vw,420px)}
+#about.about-walk .station-copy .service-en{margin-top:8px;color:var(--about-muted);font:13px/1.5 var(--sans)}
+#about.about-walk .station-goldpage .service-en{
+  margin:0;
+  color:var(--about-ink);
+  font:500 clamp(13px,1.05vw,16px)/1.45 var(--display,"Cinzel",Georgia,serif);
+  letter-spacing:.12em;
+}
+#about.about-walk .station-goldpage .service-scope{margin-top:6px}
+#about.about-walk .station-goldpage .station-screen{display:none}
+
+/* 골드 화면은 아래 베이지 칸 안에만. 위 흰색으로 올리지 않음 */
+#about.about-walk .beam-gold{
+  position:absolute;
+  z-index:10;
+  left:42.8%;
+  right:0.9%;
+  top:50%;
+  bottom:16%;
+  height:auto;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  min-height:0;
+  overflow:hidden;
+  padding:clamp(22px,2.4vw,36px) clamp(24px,2.6vw,40px);
+  border-radius:0;
+  background:linear-gradient(165deg,#e8d39a 0%,#c8a15e 46%,#b8903c 100%);
+  color:#0d0d0f;
+  box-shadow:none;
+  word-break:keep-all;
+  overflow-wrap:break-word;
+  scrollbar-width:none;
+  -ms-overflow-style:none;
+}
+#about.about-walk .beam-gold::-webkit-scrollbar{display:none}
+#about.about-walk .beam-gold__kicker{
+  display:block;
+  margin:0;
+  color:#0d0d0f;
+  font:500 13px/1 var(--display,"Cinzel",Georgia,serif);
+  letter-spacing:.22em;
+}
+#about.about-walk .beam-gold__kicker-ko{
+  display:block;
+  margin:6px 0 18px;
+  color:#0d0d0f;
+  font:500 13px/1 "Pretendard Variable",Pretendard,Arial,sans-serif;
+  letter-spacing:.12em;
+  opacity:.82;
+}
+#about.about-walk .beam-gold__lead{
+  margin:0 0 18px;
+  max-width:none;
+  font:500 clamp(20px,1.9vw,28px)/1.35 "Pretendard Variable",Pretendard,Arial,sans-serif;
+  letter-spacing:-.02em;
+}
+#about.about-walk .beam-gold__body{display:grid;gap:12px}
+#about.about-walk .beam-gold__body p{
+  margin:0;
+  max-width:none;
+  font:15px/1.65 "Pretendard Variable",Pretendard,Arial,sans-serif;
+}
+#about.about-walk .studio-host{left:0;top:0;bottom:auto;width:0;height:0;transform-origin:50% 100%;transform:none;transition:none}
+#about.about-walk .studio-host.is-walking{transition:none;z-index:9}
+#about.about-walk .studio-host>img{position:absolute;bottom:0;left:50%;width:auto;height:100%;max-width:none;transform:translateX(-50%);filter:drop-shadow(3px 6px 2px #17192322);transform-origin:50% 100%}
+#about.about-walk .studio-host>img.studio-host__swap{opacity:0;pointer-events:none;z-index:1;transition:opacity .34s ease}
+#about.about-walk .studio-host>img.studio-host__swap.is-in{opacity:1}
+#about.about-walk .studio-host.is-pose-swap>img:not(.studio-host__swap){opacity:0;transition:opacity .34s ease}
+#about.about-walk .studio-host.is-pose-swap>img.studio-host__swap.is-in{animation:aw-pose-in .38s cubic-bezier(.2,.85,.3,1)}
+@keyframes aw-pose-in{0%{transform:translateX(-50%) scaleY(.92) scaleX(1.05) rotate(-5deg)}55%{transform:translateX(-50%) scaleY(1.04) scaleX(.97) rotate(2deg)}100%{transform:translateX(-50%) scaleY(1) scaleX(1) rotate(0)}}
+@media(prefers-reduced-motion:reduce){#about.about-walk .studio-host.is-pose-swap>img.studio-host__swap.is-in{animation:none}}
+#about.about-walk .studio-host .host-shadow{right:12%;left:12%;bottom:-3px;height:6px;transition:opacity .25s}
+#about.about-walk .studio-host.is-seated .host-shadow{opacity:0}
+#about.about-walk.is-linear .about-walk__strip{display:none}
+/* 2026-09-12 지적 [101] 움직임 줄이기(reduced-motion)·낮은 화면에서 ABOUT 이 세로로 펼쳐질 때(is-linear):
+   가로로 흐르던 손그림이 통째로 꺼져 글자만 남고, 앞 소품 두 장만 엉뚱한 자리에 겹쳐 있었다.
+   → 정거장마다 띠에서 제 칸 하나만 잘라 정지 화면으로 깔고(about-walk.js buildLinear), 원래 앞 소품은 감춘다. */
+#about.about-walk .about-walk__panel{display:none}
+#about.about-walk.is-linear .about-walk__fg{display:none}
+#about.about-walk.is-linear .studio-station{overflow:clip}   /* 칸 그림이 위아래 칸으로 새지 않게 */
+#about.about-walk.is-linear .about-walk__panel{display:block;position:absolute;z-index:0;right:0;bottom:0;left:0;aspect-ratio:1774/887;overflow:clip;pointer-events:none}
+#about.about-walk.is-linear .about-walk__panel img{position:absolute;display:block;max-width:none}
+#about.about-walk.is-linear .about-walk__panel .awp-strip{top:0;width:600%;height:auto}
+#about.about-walk.is-linear .about-walk__panel .awp-figure{z-index:2}
+#about.about-walk.is-linear .about-walk__panel .awp-note{z-index:3}
+#about.about-walk.is-linear .about-walk__panel .awp-fg{z-index:4}
+@media(max-width:760px){
+  #about.about-walk .station-goldpage .station-copy--head{left:24px;top:120px;max-width:290px}
+  #about.about-walk .station-goldpage .station-copy--foot{left:24px;top:52%;max-width:270px}
+  #about.about-walk .station-copy{max-width:290px}
+  #about.about-walk .station-copy p{max-width:270px}
+  #about.about-walk .station-goldpage .station-copy--head h3{font-size:32px}
+  #about.about-walk .station-goldpage .eyebrow{font-size:14px}
+  #about.about-walk .beam-gold{left:16px;right:16px;top:auto;bottom:96px;height:38%;min-height:180px;padding:18px 16px;border-radius:22px}
+  #about.about-walk .beam-gold__lead{font-size:18px;margin-bottom:12px}
+  #about.about-walk .beam-gold__body{gap:8px}
+  #about.about-walk .beam-gold__body p{font-size:12px;line-height:1.5}
+}
+
+/* 2026-09-11 착지: 도착 순간 살짝 눌렸다 펴진다 (걷기 기울임·박자 맞춘 위아래는 about-walk.js) */
+#about.about-walk .studio-host.is-landing{animation:aw-land .26s cubic-bezier(.2,.8,.3,1) 1}
+@keyframes aw-land{0%{transform:scaleY(.93) scaleX(1.04)}55%{transform:scaleY(1.02) scaleX(.99)}100%{transform:none}}
+@media(prefers-reduced-motion:reduce){#about.about-walk .studio-host.is-landing{animation:none}}
+
+/* 낮은 화면(가로로 든 휴대폰)에서 ABOUT 이 줄 배치로 바뀔 때, 칸 위 여백 170px 때문에
+   화면(390px)에 아무것도 안 보이고 흰 화면만 나왔다. about-walk.css 의 #about.about-walk
+   규칙이 더 세서 about.css 쪽 수정이 안 먹으므로 같은 세기로 여기에 둔다. */
+@media (max-height:560px){
+  #about.about-walk.is-linear .studio-station{height:auto;min-height:0;padding:16px 6vw 28px}
+  #about.about-walk.is-linear .station-intro{height:auto;padding:12px 6vw 24px}
+  #about.about-walk.is-linear .station-exit{height:auto;padding:12px 6vw 28px}
+  #about.about-walk.is-linear .studio-intro-copy{position:relative;top:auto;left:auto}
+  /* 2026-09-12 지적 [12] 가로로 눕힌 폰(844x390·932x430)에서 본문 글이 손그림 위에 얹혀
+     'the day it runs.'·'운영' 같은 문장 끝이 안 읽혔다(글자 뒤 배경의 18.6%가 대비 4.5:1 미달, 최악 1.00:1).
+     화면에 실제로 나오는 그림은 칸마다 깔리는 .about-walk__panel(그 안의 .awp-strip)이라
+     그 칸을 글 오른쪽 끝 다음부터 시작하게 민다 → 왼쪽=글(흰 종이) · 오른쪽=손그림.
+     왼쪽 자리 = 칸 좌우 여백 6vw + 글 상자 치우침 2%(=1.76vw) + 글 상자 최대 너비 + 사이 20px.
+     글 상자 너비는 그대로 두어 줄바꿈은 변하지 않는다. */
+  #about.about-walk.is-linear .about-walk__panel{left:calc(7.8vw + max(290px,min(34vw,520px)) + 20px)}
+  /* 같은 [12] — 위 여백을 12px 로 줄인 탓에, 첫 칸의 짧은 올리브색 표시줄(원래 top:138px)이
+     본문 한가운데를 가로질렀다(844x390 실측: y=183 에서 x 65~92 의 28px 가 본문 상자 안). 글 바로 위로 올린다. */
+  #about.about-walk.is-linear .station-intro:before{top:4px}
+  #about.about-walk.is-linear .station-screen{display:none}
+  #about.about-walk.is-linear .station-goldpage{display:block;padding:12px 6vw 24px}
+  #about.about-walk.is-linear .station-goldpage .station-copy--head,
+  #about.about-walk.is-linear .station-goldpage .station-copy--foot{position:relative;left:auto;top:auto;max-width:none;margin:0 0 16px}
+  #about.about-walk.is-linear .beam-gold{
+    position:relative;
+    top:auto;right:auto;bottom:auto;left:auto;
+    width:100%;
+    max-height:none;
+    margin:16px 0 0;
+    padding:22px 22px 24px;
+  }
+}

@@ -1,0 +1,20 @@
+#drop.signal-passage-ready{height:320svh;background:#19130e}
+.room-entry{position:absolute;inset:0;z-index:1;overflow:hidden;isolation:isolate;background:#19130e;pointer-events:none;opacity:calc(1 - var(--room-handoff,0));will-change:clip-path,transform,opacity}
+.room-entry.is-home-bridge{position:fixed;z-index:14}
+.room-entry.is-home-bridge.is-stage-bridge{position:absolute;inset:0;z-index:14}
+.room-entry__defs{position:absolute;pointer-events:none}
+.room-entry__camera{position:absolute;left:0;top:0;width:1600px;height:983px;overflow:hidden;transform-origin:0 0;will-change:transform}
+.room-entry__plate{position:absolute;inset:0;width:100%;height:100%;max-width:none;object-fit:cover;object-position:center center;pointer-events:none;user-select:none}
+.room-entry__underlay{z-index:0}
+.room-entry__middle{z-index:1}
+.room-entry__middle{clip-path:url(#room-entry-middle)}
+.room-entry__actor{position:absolute;z-index:2;inset:0;pointer-events:none}
+.room-entry__pose{position:absolute;display:block;max-width:none;object-fit:contain;pointer-events:none;user-select:none}
+.room-entry__shadow{position:absolute;z-index:2;width:112px;height:22px;border-radius:50%;background:#3b1b0b;filter:blur(4px);transform-origin:center;will-change:left,top,transform,opacity}
+.room-entry__foreground{z-index:3}
+.room-entry__foreground{transform-origin:50% 70%;will-change:transform}
+.room-entry__marker,.room-entry__feature{position:absolute;width:0;height:0;visibility:hidden;pointer-events:none}
+@media(max-width:760px),(max-aspect-ratio:92/100){
+  #drop.signal-passage-ready{height:300svh}
+  .room-entry__plate{object-position:50% center}
+}

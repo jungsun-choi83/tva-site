@@ -1,0 +1,28 @@
+{
+  "source": "/Volumes/교육자료/AI_Hub/Design_Studies/tva-world-concepts-20260908/room-entry-storyboard-v1/03-arrival/03-arrival.png",
+  "assets": [
+    {
+      "name": "room-clean.png",
+      "generated_source": "/Users/mac/.codex/generated_images/01a07dce-4286-7d80-9e8b-f7d97ea06c3c/exec-31fd606d-fcb5-461a-919c-81284a859c4f.png",
+      "final_path": "/Volumes/교육자료/AI_Hub/Design_Studies/tva-world-concepts-20260908/room-entry-runtime-assets-v1/room-clean.png",
+      "width": 1600,
+      "height": 983,
+      "sha256": "15eae48b2e81b7f48b0cc1ed573a939ac6285230128fb53751697d2b7512ef02",
+      "observed": "TVA mascot and both foot shadows are fully absent. The central wooden floor is continuous. The camera and all surrounding room furniture, patterns, windows, bed, bookcase, stool, bags and slippers remain recognizable."
+    },
+    {
+      "name": "room-underlay.png",
+      "generated_source": "/Users/mac/.codex/generated_images/01a07dce-4286-7d80-9e8b-f7d97ea06c3c/exec-f79d9380-b678-4821-a65f-bedeed209f81.png",
+      "final_path": "/Volumes/교육자료/AI_Hub/Design_Studies/tva-world-concepts-20260908/room-entry-runtime-assets-v1/room-underlay.png",
+      "width": 1601,
+      "height": 983,
+      "sha256": "ff0fca5b6e97455081eacacd55fee63c77e3c2f86269fda748c4c02cfff3426b",
+      "observed": "Foreground bookcase, bed, low table, bag, slippers, checked cushion, house and cat box are absent. Cream walls and perspective-aligned wooden floor fill the hidden regions. Rear windows, curtains, hanging clothes, beams, CRT cabinet, fruit tree, stool and clothes rack remain. No character or black void is present."
+    }
+  ],
+  "residual_issues": [
+    "The built-in image editor returned room-clean at 1600×983 and room-underlay at 1601×983 despite explicit same-canvas instructions. A single permitted correction again returned 1601×983, so the more faithful first underlay was retained without prohibited code resizing.",
+    "These are flattened static background plates. Runtime layering, animation and site integration are handled separately."
+  ],
+  "viewed_full": true
+}

@@ -1,0 +1,19 @@
+{
+  "asset": "carry-01.png",
+  "source": "../../v2/carry-01.png",
+  "envelope_reference": "../envelopes/envelope-front.png",
+  "generator": "built-in image_gen precise-object-edit",
+  "width": 1254,
+  "height": 1254,
+  "color_space": "RGB",
+  "coordinate_mapping_from_source": "1:1",
+  "source_sha256": "8a6e8a1faeddb0390e2e1ed6fc874d67d6c108a4ee33a6108f06cfe0d3971372",
+  "output_sha256": "1f81e5420d39559e91bf0d89d9c6e57e4d7ede4002739e8be6727aa09e0cb319",
+  "pixel_difference_bbox_threshold_8": [180, 104, 1074, 1141],
+  "pixel_difference_count_threshold_8": 99905,
+  "left_shoe_bbox_source": [186, 896, 447, 1134],
+  "left_shoe_bbox_output": [186, 896, 447, 1134],
+  "right_shoe_bbox_source": [697, 955, 999, 1128],
+  "right_shoe_bbox_output": [697, 955, 999, 1128],
+  "inspection": "One decorated envelope remains horizontal in the original two-hand carry grip. No detached duplicate. Pose, expression, silhouette, scale, and both foot anchors are visually and geometrically preserved. Built-in edit regenerated antialias/color pixels beyond the envelope, so pixel differences are not limited to the envelope region."
+}

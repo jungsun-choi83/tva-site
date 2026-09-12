@@ -1,0 +1,55 @@
+@font-face{font-family:"Fall Welcome Aeonik";src:url("externalassets/fall-welcome/reference/Aeonik-Regular.woff2") format("woff2");font-style:normal;font-weight:400;font-display:swap}
+
+#drop.signal-passage-ready{height:760svh;max-width:100%;overflow:clip;background:#11110d}
+#drop.signal-passage-ready .drop-stage{background:#11110d}
+#drop.signal-passage-ready .drop-stage.is-tv-exit,#drop.signal-passage-ready .drop-stage.is-arrival-continuum{position:fixed;inset:0;z-index:14;height:100svh;min-height:0;background:transparent}
+#drop.signal-passage-ready .drop-stage.is-arrival-continuum{z-index:0}
+#drop.signal-passage-ready .drop-stage::after{display:none}
+#drop.signal-passage-ready .drop-actor{visibility:hidden!important}
+
+.hero-original__portal-underlay{position:absolute;z-index:2;left:23.2%;top:11.4%;width:54.8%;height:68.7%;overflow:hidden;border-radius:12%/15%;background:radial-gradient(circle at 50% 52%,#101711,#050706 74%);box-shadow:inset 0 0 40px #000;pointer-events:none}
+.signal-passage,.fall-environment,.fall-glass-plane,.fall-whiteout,.fall-shards{position:absolute;inset:0;overflow:hidden}
+.signal-passage{--handoff:0;z-index:1;pointer-events:none;isolation:isolate;background:#080806;will-change:clip-path}
+.signal-passage.is-home-bridge{position:fixed;z-index:14}
+.signal-passage.is-stage-bridge{position:absolute}
+.fall-environment{z-index:1}
+.fall-environment__canvas{display:block;width:100%;height:100%}
+.fall-whiteout{z-index:2;background:#fff;opacity:0;will-change:opacity}
+.fall-glass-plane{z-index:5;opacity:0;transform-origin:center;will-change:transform,opacity;background:linear-gradient(118deg,#fff0 0 36%,#ffff 49.7%,#dce4e65c 50.2%,#fff0 64%),linear-gradient(18deg,#fff0 0 47%,#fff8 49.8%,#fff0 52%);box-shadow:inset 0 0 0 1px #f7fbfb8c,inset 0 0 80px #dce4e63d}
+.fall-glass-plane svg{display:block;width:100%;height:100%}
+.fall-glass-plane path{fill:#f5e8c808;stroke:#fff;stroke-width:.8;vector-effect:non-scaling-stroke}
+.fall-shards{z-index:7;overflow:visible;pointer-events:none}
+.fall-shards canvas{display:block;width:100%;height:100%}
+
+.fall-actor-mount{position:absolute;left:50%;top:0;width:clamp(170px,22vw,300px);height:clamp(210px,28vw,380px);transform:translate3d(calc(-50% + var(--actor-x,0px)),var(--actor-y,50vh),0) scale(var(--actor-scale,1)) rotate(var(--actor-roll,0deg));transform-origin:50% 54%;will-change:transform,clip-path}
+.fall-actor-mount--rear{z-index:3}
+.fall-actor-mount--front{z-index:8}
+.signal-passage .fall-actor-mount{position:absolute}
+
+.fall-cta{position:absolute;z-index:9;inset:0;color:#171923;opacity:calc(1 - var(--handoff));pointer-events:none;font-family:"Fall Welcome Aeonik","Helvetica Neue",Arial,sans-serif;transition:opacity .32s ease}
+.fall-cta:not([hidden]){display:block}
+.fall-cta__prompt{position:absolute;z-index:3;top:18%;left:var(--pad);width:43%;margin:0;font:400 14px/19.6px "Fall Welcome Aeonik","Helvetica Neue",Arial,sans-serif;text-align:left;letter-spacing:normal}
+.fall-cta__title{position:absolute;z-index:10;top:31%;left:var(--pad);display:flex;width:46%;transform:none;flex-direction:column;align-items:flex-start;color:inherit;text-decoration:none;font:400 clamp(64px,7.6vw,112px)/.94 "Fall Welcome Aeonik","Helvetica Neue",Arial,sans-serif;letter-spacing:-.035em;text-align:left;pointer-events:auto}
+.fall-cta__title span{display:block;white-space:nowrap}
+.fall-cta__title:focus-visible{outline:3px solid #171923;outline-offset:10px;border-radius:2px}
+.fall-cta__continue{position:absolute;z-index:3;left:var(--pad);bottom:7%;margin:0;font:400 10px/1.2 "Fall Welcome Aeonik","Helvetica Neue",Arial,sans-serif;letter-spacing:.13em;white-space:nowrap}
+.fall-cta__orbit{position:absolute;z-index:4;inset:0;overflow:hidden;pointer-events:none}
+.fall-cta__sticker{position:absolute;display:block;max-width:none;opacity:0;filter:drop-shadow(0 7px 10px #1719232d);transform-origin:center;will-change:transform,opacity}
+
+.signal-passage[data-solo-ready='true']{background:#fff}
+/* [104] 2026-09-12 — 여기에도 같은 '접기' 규칙
+   '#drop.signal-passage-ready[data-signal-reduced=true]{height:100svh}' 이 있었다.
+   data-signal-reduced 를 붙이는 코드가 한 군데도 없어 실제로는 동작하지 않는 죽은 규칙이었지만,
+   누군가 그 표시를 다시 붙이는 순간 시대 배경 16장이 또 통째로 사라진다.
+   접는 대신 3행의 기본 길이를 그대로 쓰도록 규칙을 지웠다. (scene.css 의 같은 항목과 짝) */
+.reduced-motion .fall-glass-plane,.reduced-motion .fall-shards{display:none}
+.reduced-motion .fall-cta{transition:none}
+
+@media(max-width:760px),(max-aspect-ratio:92/100){
+  #drop.signal-passage-ready{height:680svh}
+  .fall-actor-mount{width:180px;height:230px}
+  .fall-cta__prompt{top:8%;left:50%;width:82%;transform:translateX(-50%);font-size:12px;line-height:17px;text-align:center}
+  .fall-cta__title{top:15%;left:50%;width:max-content;max-width:92%;transform:translateX(-50%);align-items:center;font-size:clamp(56px,18vw,88px);line-height:.94;letter-spacing:-.04em;text-align:center}
+  .fall-cta__continue{left:50%;bottom:2.5%;transform:translateX(-50%)}
+  .fall-cta__sticker{filter:drop-shadow(0 4px 7px #17192326)}
+}

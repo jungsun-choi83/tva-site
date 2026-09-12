@@ -1,0 +1,123 @@
+/* [75][97] 아래쪽 UI 기준선 한 곳: 푸터가 화면 크기·안전영역에 따라 자라면 단추도 그만큼 위로 올라간다 */
+#ending.ending { position:relative; height:1350svh; min-height:0; padding:0; background:#050606; color:#181c18; overflow:visible; border:0;
+  --end-foot-b: max(clamp(10px,1.4vh,24px), env(safe-area-inset-bottom));
+  /* [24] 푸터가 실제로 차지하는 높이. 넓은 화면에서는 한 줄(안에 든 링크의 손가락 과녁 44px 이 가장 높다),
+     760px 이하에서는 styles.css 의 '@media(max-width:760px)' 규칙 때문에 세 줄(글자 두 줄 + 링크 44px)로 접힌다. */
+  --end-foot-h: max(44px, calc(.6875rem * 1.7));
+  --end-ui-b: max(30px, calc(var(--end-foot-b) + clamp(.5625rem,.52vw,.8125rem) * 1.6 + 8px));
+  /* [24] 끝 화면의 두 단추(↓ · Replay)는 푸터 글자 위로 10px 띄운다.
+     예전에는 푸터를 한 줄로만 잡아 1440x900 에서 22px, 720x450 에서 56px 씩 푸터를 덮었다. */
+  --end-act-b: max(var(--end-ui-b), calc(var(--end-foot-b) + var(--end-foot-h) + 10px)); }
+.ending-stage { position:sticky; top:0; height:100svh; overflow:hidden; isolation:isolate; background:#050606; }
+.ending-room { position:absolute; inset:0; background:#f6f0e4; transform-origin:center; will-change:transform,opacity; }
+.ending-pair { position:absolute; z-index:3; width:auto; height:50%; left:23.6%; top:24.2%; max-width:none; pointer-events:none; transform-origin:50% 62%; filter:drop-shadow(0 10px 12px rgba(40,28,18,.28)); animation:ending-app-use 3.4s ease-in-out infinite; }
+.ending-pair img { display:block; height:100%; width:auto; max-width:none; }
+.ending-pair:after { content:""; position:absolute; left:58%; top:38%; width:8%; height:10%; border-radius:4px; background:rgba(255,214,120,.4); box-shadow:0 0 10px rgba(255,210,120,.5); animation:ending-phone-glow 3.4s ease-in-out infinite; pointer-events:none; }
+.ending-holo { position:absolute; z-index:3; overflow:hidden; pointer-events:none; border-radius:4% / 6%; background:transparent; box-shadow:none; }
+.ending-holo img { position:absolute; left:50%; top:54%; width:92%; height:90%; max-width:none; object-fit:contain; display:block; transform:translate(-50%,-50%); filter:drop-shadow(0 0 5px rgba(232,210,160,.4)) saturate(1.04) brightness(1.03); animation:ending-holo-play 3.2s ease-in-out infinite; }
+.ending-room > picture img { position:absolute; display:block; width:100%; height:100%; object-fit:contain; max-width:none; filter:brightness(1.04) saturate(1.06); background:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1672' height='941'><rect width='100%' height='100%' fill='%23f0e8d8'/></svg>") center/contain no-repeat; }
+@keyframes ending-app-use {
+  0%, 18% { transform:rotate(-.3deg) translate(0,0); }
+  28% { transform:rotate(-.7deg) translate(0,1px); }
+  38% { transform:rotate(-.3deg) translate(0,0); }
+  58% { transform:rotate(.4deg) translate(1px,0); }
+  72%, 100% { transform:rotate(-.3deg) translate(0,0); }
+}
+@keyframes ending-owner-watch {
+  0%, 22% { transform:rotate(1.2deg) translate(0,0); }
+  48% { transform:rotate(2.2deg) translate(-4px,1px); }
+  70%, 100% { transform:rotate(1.2deg) translate(0,0); }
+}
+@keyframes ending-phone-glow {
+  0%, 12% { opacity:.25; }
+  16%, 22% { opacity:.95; }
+  30%, 36% { opacity:.4; }
+  52%, 70% { opacity:.7; }
+  82%, 100% { opacity:.25; }
+}
+@keyframes ending-holo-play {
+  0%, 18% { opacity:.9; transform:translate(-50%,-50%) scale(.99); }
+  42% { opacity:1; transform:translate(-50%,-50%) scale(1.015); }
+  70%, 100% { opacity:.9; transform:translate(-50%,-50%) scale(.99); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .ending-pair, .ending-holo img, .ending-pair:after { animation:none; }
+  .ending-holo img { transform:translate(-50%,-50%); }
+}
+@media (max-aspect-ratio:4/5) {
+  /* 세로 화면은 같은 16:9 방을 contain 으로 둔다 — 고야·홀로그램 좌표가 어긋나지 않게 */
+  .ending-room > picture img { background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='1672' height='941'><rect width='100%' height='100%' fill='%23f0e8d8'/></svg>"); }
+}
+.ending-chrome { position:absolute; inset:0; z-index:5; pointer-events:none; transition:opacity .16s; }
+.ending-chrome button,.ending-chrome a { pointer-events:auto; }
+.ending-wordmark { position:absolute; top:26px; left:3.3vw; color:inherit; text-decoration:none; font:italic 26px Georgia,serif; letter-spacing:.05em; }
+/* [97] 아이폰 홈 인디케이터·푸터와 겹치지 않게 띄운다 (보통 화면은 그대로 30px) */
+.ending-actions { position:absolute; inset:auto 3.3vw var(--end-act-b); display:flex; align-items:flex-end; justify-content:space-between; }
+/* [97] 손가락 과녁 확보: 세로 10px→16px 패딩 + 최소 높이 44px */
+.ending-actions button,.ending-skip { display:inline-flex; align-items:center; justify-content:center; min-height:44px; border:0; border-radius:0; padding:16px 8px; background:transparent; color:inherit; cursor:pointer; font:500 .75rem 'IBM Plex Mono',monospace; letter-spacing:.08em; text-transform:uppercase; }
+.ending-scroll { flex-direction:column; }
+.ending-scroll span { display:block; text-align:center; font-size:27px; line-height:1.7; }
+.ending-scroll { text-decoration:underline; text-underline-offset:6px; }
+.ending-actions button:focus-visible,.ending-skip:focus-visible,.ending-wordmark:focus-visible { outline:2px solid #79ac38; outline-offset:6px; }
+/* [26] 두 단추에 손을 올리거나 누를 때 반응이 전혀 없었다 — 밑줄 굵기와 투명도로 응답한다 */
+@media (hover:hover) {
+  .ending-actions button:hover,.ending-skip:hover { text-decoration:underline; text-underline-offset:6px; text-decoration-thickness:2px; opacity:.72; }
+}
+.ending-actions button:active,.ending-skip:active { transform:translateY(1px); opacity:.55; }
+.ending-crt-line { position:absolute; left:50%; top:50%; width:84%; height:2px; background:#e0eeeb; box-shadow:0 0 8px #c8dada,0 0 28px #b7ddd3; transform:translate(-50%,-50%); opacity:0; z-index:2; pointer-events:none; }
+.ending-game { position:absolute; inset:0; width:100%; height:100%; opacity:0; image-rendering:auto; pointer-events:none; }
+/* [97] 게임 UI 도 같은 기준선을 쓴다 */
+.ending-game-ui { position:absolute; bottom:var(--end-ui-b); left:3.3vw; right:3.3vw; display:flex; justify-content:space-between; align-items:flex-end; gap:16px; color:#263322; font:.625rem 'IBM Plex Mono',monospace; letter-spacing:.09em; z-index:4; opacity:0; pointer-events:none; }
+/* [97] 8화면 내내 유일한 조작 수단이므로 10px→12px 로 키우고, 좁은 화면에서도 글자가 접히지 않게 한다 */
+.ending-game-ui .ending-skip { pointer-events:auto; font-size:.75rem; flex:0 0 auto; white-space:nowrap; }
+.ending-needs { display:flex; gap:10px; align-items:center; flex:1 1 auto; min-width:0; transition:opacity .2s; }
+/* [80] 맨 끝 화면에서는 'Back to home ↗' 만 남기고 게임 진행 막대는 감춘다 */
+#ending[data-phase="home"] .ending-needs { opacity:0; }
+/* [80] 마지막 화면은 어두운 키비주얼 위다 — 게임 화면용 짙은 녹색 그대로면 읽히지 않아 밝은 글자로 바꾼다 */
+#ending[data-phase="home"] .ending-skip { color:#eef3ea; text-shadow:0 1px 4px rgba(0,0,0,.72); }
+.ending-needs i { width:6px; height:29px; border:1px solid #7b985e; background:linear-gradient(to top,#77a548 72%,transparent 72%); }
+.ending-needs i:nth-child(2) { background:linear-gradient(to top,#77a548 88%,transparent 88%); }
+.ending-needs i:nth-child(3) { background:linear-gradient(to top,#77a548 61%,transparent 61%); }
+.ending-home-match { position:absolute; inset:0; opacity:0; overflow:hidden; pointer-events:none; background:#050606; z-index:3; }
+.ending-home-match img { position:absolute; left:50%; top:50%; width:max(100vw,177.7778svh); max-width:none; height:auto; transform:translate(-50%,-50%); }
+.ending-description,.ending-legacy { position:absolute!important; width:1px!important; height:1px!important; overflow:hidden!important; clip-path:inset(50%)!important; pointer-events:none!important; }
+html.ending-in-game .site-nav { opacity:0!important; pointer-events:none!important; }
+/* [42][75] 8px·불투명도 .45 고정이라 큰 화면에서 사실상 안 보였다 — 화면 크기에 따라 자라게 하고 안전영역을 지킨다 */
+#ending .site-footer { position:absolute; bottom:var(--end-foot-b); left:clamp(24px,3.3vw,72px); right:clamp(24px,3.3vw,72px); z-index:6; padding:0; border:0; margin:0; font-size:clamp(.5625rem,.52vw,.8125rem); letter-spacing:.06em; opacity:.62; pointer-events:none; }
+#ending:not([data-phase="room"]) .site-footer { visibility:hidden; }
+.ending-fallback { display:none; position:absolute; top:42%; width:100%; text-align:center; color:#d6e0d0; font:.875rem 'IBM Plex Mono',monospace; z-index:4; }
+#ending[data-renderer="unavailable"] .ending-fallback { display:block; }
+#ending[data-waiting="true"] .ending-fallback { display:block; top:50%; transform:translateY(-50%); color:#d6e0d0; }
+#ending[data-renderer="unavailable"] { height:100svh; }
+#ending[data-renderer="unavailable"] .ending-fallback { top:auto; bottom:105px; color:#222; }
+.reduced-motion #ending.ending { height:100svh; }
+.reduced-motion .ending-scroll, #ending[data-renderer="unavailable"] .ending-scroll { display:none; }
+/* [24] styles.css 의 760px 분기에서 푸터가 세 줄로 접힌다 — 단추 기준선도 같이 올린다 */
+@media (max-width:760px) {
+  /* 푸터 글자 두 줄(10px x 줄간격 1.7 = 17px) + 링크 손가락 과녁 44px = 실측 78px */
+  #ending.ending { --end-foot-h: calc(.625rem * 1.7 * 2 + 44px); }
+}
+@media (max-width:700px) {
+  /* [24] 휴대폰에서는 푸터 자신이 max(17px, 안전영역) 에 붙는다 — 기준선 변수를 그 값으로 맞춘다 */
+  #ending.ending { --end-foot-b: max(17px, env(safe-area-inset-bottom)); }
+  .ending-wordmark { top:22px; left:22px; }
+  /* [97] 모바일도 안전영역(홈 인디케이터) 위로 올린다 */
+  .ending-actions { inset:auto 22px var(--end-act-b); }
+  .ending-game-ui { left:22px; right:22px; bottom:max(36px, calc(env(safe-area-inset-bottom) + 16px)); }
+  /* [42] 모바일 7px 는 너무 작다 */
+  #ending .site-footer { left:22px; right:22px; font-size:.5625rem; }
+  .ending-actions button { font-size:.625rem; }
+  .ending-needs { gap:7px; }
+}
+@media (max-width:980px) and (max-aspect-ratio:5/4) {
+  .ending-home-match img { left:12.8vw; width:190.7vw; }
+}
+
+.ending-screen,
+.ending-screen[style] { visibility:hidden!important; opacity:0!important; pointer-events:none; position:absolute; left:0; top:0; width:400px; height:320px; transform-origin:0 0; }
+.ending-programme { position:absolute; inset:0; display:flex; align-items:center; justify-content:center; background:radial-gradient(ellipse at 50% 42%,#1c1a16 0,#0c0b0a 70%,#070706); transform-origin:center; will-change:transform,opacity; }
+.ending-screen-title { display:grid; justify-items:center; gap:10px; width:86%; color:#efe6d4; font:400 42px/.9 var(--serif,'Libre Caslon Text',Georgia,serif); letter-spacing:.16em; text-align:center; text-transform:uppercase; transform:translateY(-1px); text-shadow:0 0 10px rgba(200,161,94,.28); }
+.ending-screen-title em { display:block; font:inherit; font-size:46px; font-style:normal; letter-spacing:.18em; }
+.ending-screen-title:after { content:none; }
+.ending-glass { position:absolute; inset:0; border-radius:inherit; box-shadow:inset 0 0 18px #00000055; background:repeating-linear-gradient(0deg,#ffffff06 0 1px,transparent 1px 4px),radial-gradient(ellipse at center,transparent 62%,#00000018 100%); pointer-events:none; }
+.ending-screen .ending-crt-line { width:88%; min-width:2px; height:2px; z-index:2; }

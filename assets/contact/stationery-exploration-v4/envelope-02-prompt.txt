@@ -1,0 +1,9 @@
+Use case: stylized-concept
+Asset type: stationery exploration, envelope concept 02
+Primary request: Generate exactly one complete closed paper envelope, shown from the back on a clean pure white background, frontal with a subtle natural skew. The envelope body is a long landscape rectangle approximately 2.6:1. Make the paper butter yellow. Build irregular hand-inked black stripes of varied width and imperfect spacing across the offset triangular back flap, with one vivid leaf-green accent block peeking along a side fold. Show believable flap overlap, side seams, fold geometry, slight paper edge thickness, selective corner hatching, and a large quiet butter-yellow plane.
+Input images: Image 1 and Image 2 are direct style references. Use their expressive thin-to-thick black ink, imperfect hand-drawn geometry, selective hatching, vivid flat spot color, breathing paper, and bold hand-printed pattern scale. Use Image 3 only as a rejected anti-reference: avoid its generic airmail language, sticker decoration, uniform hard outline, and bland sparse template feeling.
+Style/medium: lively editorial illustration of a physical stationery object, variable black pen lines and flat butter-yellow, black, and leaf-green color; handmade print character without simulated grain.
+Composition/framing: one fully visible closed envelope centered with clean white margin; back view only; no other objects.
+Materials/textures: crisp paper planes, expressive ink seams, a few controlled hatch marks; no photorealism.
+Constraints: exactly one envelope; closed back flap; no people, animals, characters, flowers, postage stamp, words, letters, numerals, logos, watermarks, barcodes, address lines, or postal marks.
+Avoid: 3D render, gloss, shadows, grain, beige wash, mockup props, stacked envelopes, generic chevrons, generic airmail stripes, rigid vector geometry, evenly repeated hard outline.

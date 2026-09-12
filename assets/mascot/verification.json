@@ -1,0 +1,483 @@
+{
+  "checkedAt": "2026-09-08T03:21:04.950676+09:00",
+  "status": "incomplete-with-explicit-check-failures",
+  "checked": "Actual dimensions, true alpha, normalized anchors, alpha16 bounds, animation references passed. 22/23 distinct images pass exact-zero corners; archive02 has one corner alpha1. All23images directly viewed separately. No web playback or rig verification.",
+  "failedChecks": [
+    {
+      "slot": "archive-02",
+      "check": "exact-zero-corners",
+      "actual": [
+        0,
+        0,
+        1,
+        0
+      ]
+    }
+  ],
+  "knownLimitations": [
+    "All files are independent raster poses; no body parts were separated and no rigging was performed.",
+    "The dedicated opposite panic pose failed twice with baked checkerboard RGB; fall-panic-right currently adapts the distinct transparent mid-flail pose.",
+    "Run frames 04-06 have distinct leg phases but repeat the same arm-side phase as frames 01-03. Corrected-arm drafts exist only as RGB checkerboard failures and are excluded.",
+    "Archive-04 presents a generic blue-circle sample sheet, not an actual selected gallery project; use it only as a presentation gesture.",
+    "Airborne foot anchors are virtual alignment points. Body anchors are manual physical CRT-case-center estimates. Bounds are measured alpha bboxes.",
+    "Canvas dimensions vary for archive poses and are recorded per file."
+  ],
+  "slots": [
+    {
+      "slot": "fall-surprise",
+      "file": "fall-surprise.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0003413078149919757
+    },
+    {
+      "slot": "fall-panic-left",
+      "file": "fall-flail.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0004673046251993593
+    },
+    {
+      "slot": "fall-panic-right",
+      "file": "fall-flail-mid.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00031897926634771867
+    },
+    {
+      "slot": "fall-brace",
+      "file": "pre-impact-tuck.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.000350877192982435
+    },
+    {
+      "slot": "fall-relief-wave",
+      "file": "greeting-wave.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00032695374800639776
+    },
+    {
+      "slot": "run-01",
+      "file": "run-01.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0005295055821371575
+    },
+    {
+      "slot": "run-02",
+      "file": "run-02.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0004720893141945681
+    },
+    {
+      "slot": "run-03",
+      "file": "run-03.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00048325358851675215
+    },
+    {
+      "slot": "run-04",
+      "file": "run-04.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00045773524720893466
+    },
+    {
+      "slot": "run-05",
+      "file": "run-05.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0004960127591706609
+    },
+    {
+      "slot": "run-06",
+      "file": "run-06.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00048325358851675215
+    },
+    {
+      "slot": "brake-01",
+      "file": "brake-01.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00012918660287075667
+    },
+    {
+      "slot": "brake-02",
+      "file": "brake-02.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0003524720893142014
+    },
+    {
+      "slot": "service-01",
+      "file": "service-01.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0005582137161085354
+    },
+    {
+      "slot": "service-02",
+      "file": "service-02.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0002663476874003208
+    },
+    {
+      "slot": "service-03",
+      "file": "service-03.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0005709728867624442
+    },
+    {
+      "slot": "service-04",
+      "file": "service-04.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00048165869218508295
+    },
+    {
+      "slot": "archive-01",
+      "file": "archive-01.webp",
+      "dimensions": [
+        1402,
+        1122
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0004385026737967479
+    },
+    {
+      "slot": "archive-02",
+      "file": "archive-02.png",
+      "dimensions": [
+        1239,
+        1269
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        1,
+        0
+      ],
+      "maxBoundsDelta": 0.0004317998385794386
+    },
+    {
+      "slot": "archive-03",
+      "file": "archive-03.webp",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00042358078602622307
+    },
+    {
+      "slot": "archive-04",
+      "file": "archive-04.webp",
+      "dimensions": [
+        1374,
+        1145
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00036244541484720116
+    },
+    {
+      "slot": "fall-relief",
+      "file": "relief.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00026953748006378064
+    },
+    {
+      "slot": "fall-panic-mid",
+      "file": "fall-flail-mid.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.00031897926634771867
+    },
+    {
+      "slot": "fall-relief-wave-02",
+      "file": "greeting-wave-02.webp",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "alphaExtrema": [
+        0,
+        255
+      ],
+      "cornerAlpha": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "maxBoundsDelta": 0.0003524720893142014
+    }
+  ]
+}

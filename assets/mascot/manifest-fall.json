@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "kind": "independent-pose-sequence",
+  "status": "partial-fall-sequence",
+  "poses": {
+    "fall-surprise": {"file":"fall-surprise.webp","width":1254,"height":1254,"footAnchor":{"x":0.530,"y":0.920},"bodyAnchor":{"x":0.530,"y":0.395},"bounds":{"left":0.050,"top":0.063,"right":0.982,"bottom":0.921}},
+    "fall-panic-left": {"file":"fall-flail.webp","width":1254,"height":1254,"footAnchor":{"x":0.480,"y":0.930},"bodyAnchor":{"x":0.480,"y":0.400},"bounds":{"left":0.041,"top":0.027,"right":0.951,"bottom":0.934}},
+    "fall-panic-mid": {"file":"fall-flail-mid.webp","width":1254,"height":1254,"footAnchor":{"x":0.520,"y":0.900},"bodyAnchor":{"x":0.520,"y":0.360},"bounds":{"left":0.082,"top":0.095,"right":0.973,"bottom":0.900}},
+    "fall-brace": {"file":"pre-impact-tuck.webp","width":1254,"height":1254,"footAnchor":{"x":0.500,"y":0.896},"bodyAnchor":{"x":0.514,"y":0.430},"bounds":{"left":0.135,"top":0.140,"right":0.873,"bottom":0.896}},
+    "fall-relief": {"file":"relief.webp","width":1254,"height":1254,"footAnchor":{"x":0.553,"y":0.936},"bodyAnchor":{"x":0.475,"y":0.353},"bounds":{"left":0.147,"top":0.058,"right":0.949,"bottom":0.936}},
+    "fall-relief-wave": {"file":"greeting-wave.webp","width":1254,"height":1254,"footAnchor":{"x":0.550,"y":0.946},"bodyAnchor":{"x":0.542,"y":0.349},"bounds":{"left":0.058,"top":0.044,"right":0.915,"bottom":0.946}},
+    "fall-relief-wave-02": {"file":"greeting-wave-02.webp","width":1254,"height":1254,"footAnchor":{"x":0.520,"y":0.918},"bodyAnchor":{"x":0.530,"y":0.370},"bounds":{"left":0.083,"top":0.077,"right":0.899,"bottom":0.918}}
+  },
+  "animations": {
+    "flail": ["fall-panic-left","fall-panic-mid","fall-panic-left","fall-panic-mid"],
+    "wave": ["fall-relief-wave","fall-relief-wave-02"]
+  },
+  "limitations": [
+    "A distinct right-side panic pose was generated twice but both outputs baked a checkerboard into RGB pixels and are excluded.",
+    "Airborne footAnchor values are virtual alignment anchors, not contact points.",
+    "These are independent raster poses, not a separated or rigged character.",
+    "Body anchors were manually estimated at the physical CRT case center; bounds were measured from alpha using ffmpeg bbox."
+  ]
+}

@@ -1,0 +1,51 @@
+/* 상단 선반 바 — 위층은 메뉴 글자, 아래층은 마스코트가 걷는 선반 */
+:root{--nav-height:76px;--shelf-body:60px;--nav-link-pad:11px}
+.site-nav{height:var(--nav-height);align-items:flex-end;gap:0;border-bottom:0;overflow:hidden}
+.site-nav:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ink)}
+.site-nav .nav-logo{position:relative;z-index:2;display:flex;align-items:center;height:var(--shelf-body);padding:0;transform:translateY(calc(var(--shelf-body) * -.2))}
+.site-nav .nav-logo .eb-mark{display:inline-block;line-height:0;filter:none}
+.site-nav .nav-logo .eb-mark img{display:block;width:148px;height:auto}
+.site-nav .nav-logo .eb-wordmark{display:inline-flex;filter:none}
+.site-nav nav{position:relative;z-index:2;flex:1;height:var(--shelf-body);display:flex;align-items:center;justify-content:space-around;gap:0;padding:0 0 0 6%;transform:translateY(calc(var(--shelf-body) * -.2))}
+/* 감사 #25·#29·#36·#85: 흐림을 opacity 로 주면 포커스 테두리까지 같이 지워진다. 그래서 흐림은 글자색으로만 준다.
+   #6f7077 = 흰 바 위에서 대비 4.93:1 (WCAG AA 기준 4.5:1 통과).
+   감사 #95·[22]: 누르는 영역을 21px → 35px 로 넓혔지만, min-height:0 이 styles.css 의 44px 기준을 지우고 있었다.
+   이제 44px 를 그대로 살린다. 글자는 flex 로 가운데 정렬해 보이는 위치가 전과 같다(상자만 커진다). */
+.site-nav nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:var(--nav-link-pad) 6px;font:500 13px/1 Cinzel,Georgia,serif;letter-spacing:.14em;color:#6f7077;transition:color .3s}
+.site-nav nav a:after{display:none}
+.site-nav nav a:hover{color:var(--ink)}
+/* 지금 보고 있는 구역은 글자를 비우고 캐릭터가 그 자리에 선다 (요소 자체는 그대로라 포커스 테두리는 그려진다) */
+.site-nav nav a.is-here{color:transparent}
+/* 캐릭터 그림이 끊겨 자리를 비우면, 비워 뒀던 현재 구역 글자를 되살린다 (현재 위치 표시가 통째로 사라지지 않게) */
+.site-nav.has-broken-mascot nav a.is-here{color:#6f7077}
+/* 감사 #78·#54: 키보드 초점이 오거나 마우스를 올리면 글자를 되살리고 캐릭터를 살짝 비켜 준다 */
+.site-nav nav a.is-here:focus-visible,.site-nav nav a.is-here:hover{color:var(--ink)}
+.site-nav:has(nav a.is-here:focus-visible) .nav-mascot,.site-nav:has(nav a.is-here:hover) .nav-mascot{opacity:.45}
+/* 마지막 화면에서는 바를 접어 둔다 */
+.site-nav.is-away,.site-nav.is-visible.is-away{transform:translateY(-101%);visibility:hidden;pointer-events:none}
+/* 선반 위를 걷는 마스코트 */
+.nav-mascot{position:absolute;left:0;bottom:0;z-index:1;pointer-events:none;transform-origin:50% 100%;will-change:transform,left;transition:opacity .2s}
+/* 감사 #7·#102: 자리에 서면 JS 루프를 재운다. 숨쉬기만 CSS 로 이어받아 메인 스레드 비용 없이 살아 있게 한다 */
+.nav-mascot.is-parked{animation:nav-mascot-breathe 3.6s ease-in-out infinite}
+@keyframes nav-mascot-breathe{0%,100%{transform:scaleX(var(--nav-dir,1)) translateY(0)}50%{transform:scaleX(var(--nav-dir,1)) translateY(-1.4px)}}
+.nav-puff{position:absolute;bottom:2px;z-index:1;width:5px;height:5px;border-radius:50%;background:rgb(23 25 35/.2);opacity:0;pointer-events:none}
+
+@media(max-width:760px){
+  :root{--nav-height:64px;--shelf-body:48px;--nav-link-pad:13px}
+  .site-nav{padding:0 16px}
+  .site-nav .nav-logo{height:var(--shelf-body)}
+  .site-nav .nav-logo .eb-mark img{width:120px;height:auto}
+  .site-nav nav{height:var(--shelf-body);padding:0 0 0 4%}
+  /* 감사 #95·[22]: 누르는 영역은 위 규칙의 min-height:44px 가 맡는다(전에는 18.5px→36.5px 였다).
+     좌우 여백은 320px 화면에서 메뉴가 넘치지 않게 1px 로 둔다.
+     글자는 화면이 넓어지는 만큼만 커진다(320px 에서는 지금과 같은 10.5px). */
+  .site-nav nav a{font-size:clamp(10.5px,3.05vw,12px);letter-spacing:.06em;padding:var(--nav-link-pad) 1px}
+}
+/* 움직임을 줄이는 설정이면 캐릭터를 세워두고 밑줄로 표시한다 */
+.reduced-motion .nav-mascot{display:none}
+.reduced-motion .site-nav nav a.is-here{color:var(--ink);border-bottom:2px solid var(--cobalt);padding-bottom:calc(var(--nav-link-pad) - 2px)}
+@media(prefers-reduced-motion:reduce){
+  .nav-mascot{display:none}
+  .nav-mascot.is-parked{animation:none}
+  .site-nav nav a.is-here{color:var(--ink);border-bottom:2px solid var(--cobalt);padding-bottom:calc(var(--nav-link-pad) - 2px)}
+}

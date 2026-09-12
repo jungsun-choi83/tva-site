@@ -1,0 +1,26 @@
+.only-tva{--only-accent:#ef4438;--only-divider:#dedbd4;max-width:1600px;margin-inline:auto;padding-top:clamp(90px,13vh,180px);min-height:calc(100svh - var(--nav-height));display:flex;flex-direction:column;justify-content:flex-end}
+.only-tva__copy{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:clamp(24px,4vw,64px);padding:0 var(--pad);margin-bottom:36px;color:var(--ink)}
+.only-tva__copy h2{font:bold clamp(22px,3vw,48px)/1.1 Georgia,serif;letter-spacing:-.06em;white-space:nowrap;margin-bottom:28px}
+.only-tva__copy h2 span{font-weight:400;letter-spacing:-.07em}
+.only-tva__copy h3{font:700 clamp(15px,1.55vw,24px)/1.45 var(--sans);letter-spacing:-.055em;word-break:keep-all;margin-bottom:4px}
+.only-tva__copy p{font:400 clamp(14px,1.35vw,21px)/1.55 var(--sans);letter-spacing:-.04em;word-break:keep-all;margin-bottom:0}
+.only-tva__art{position:relative;width:100%;margin:0;aspect-ratio:2129/739}
+.only-tva__art img{display:block;width:100%;height:auto}
+.only-tva__underline{position:absolute;inset:0;width:100%;height:100%;color:var(--only-accent);pointer-events:none}
+.only-tva__underline g{transform-box:fill-box;transform-origin:left center;transform:scaleX(0);transition:transform 850ms cubic-bezier(.22,.68,.2,1)}
+.only-tva.is-drawn .only-tva__underline g{transform:scaleX(1)}
+@media(max-width:700px){.only-tva{padding-top:64px;min-height:auto}.only-tva__copy{grid-template-columns:1fr;gap:30px;margin-bottom:32px}.only-tva__copy h2{font-size:32px;margin-bottom:12px}.only-tva__copy h3{font-size:18px}.only-tva__copy p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.only-tva__underline g{transform:scaleX(1);transition:none}}
+.reduced-motion .only-tva__underline g{transform:scaleX(1);transition:none}
+
+.only-tva__mobile-art{display:none}
+@media(max-width:700px){
+  .only-tva{padding-top:48px}
+  .only-tva__copy{gap:40px;margin-bottom:0}
+  .only-tva__copy article{padding-bottom:28px;border-bottom:1px solid var(--only-divider)}
+  .only-tva__copy article:last-child{border:0}
+  .only-tva__copy h2{font-size:clamp(27px,7.6vw,38px)}
+  .only-tva__mobile-art{display:block;position:relative;width:100%;max-width:290px;margin:24px auto 0;overflow:hidden}
+  .only-tva__mobile-art img{position:absolute;top:0;max-width:none;height:auto}
+  .only-tva__art{display:none}
+}

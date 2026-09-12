@@ -1,0 +1,70 @@
+{
+  "status": "production-ready-with-render-normalization",
+  "asset": "contact-letterpaper-v3.png",
+  "dimensions": {
+    "width": 1136,
+    "height": 1385
+  },
+  "mode": "RGB",
+  "background": {
+    "alpha": false,
+    "description": "clean near-white generated backdrop",
+    "cornerSamplesRgb": {
+      "topLeft": [253, 253, 253],
+      "topRight": [255, 255, 255],
+      "bottomLeft": [254, 254, 254],
+      "bottomRight": [253, 252, 253]
+    }
+  },
+  "paperBoundsPx": {
+    "x": 85,
+    "y": 121,
+    "width": 968,
+    "height": 1127
+  },
+  "safeInputRectPx": {
+    "x": 182,
+    "y": 234,
+    "width": 774,
+    "height": 901
+  },
+  "foldBoundsPx": [
+    {"yMin": 498, "yCenter": 500, "yMax": 502},
+    {"yMin": 867, "yCenter": 869, "yMax": 871}
+  ],
+  "foldYWithinPaperNormalized": [0.336291, 0.663709],
+  "actualUnfoldedPaperRatio": 0.858917,
+  "actualFoldedPanelRatio": 2.576752,
+  "requestedLegacyFoldedRatio": 2.46,
+  "currentEnvelopeBodyRatio": 2.762144,
+  "ratioDisclosure": "The source PNG sheet ratio is 0.859 rather than the requested 0.82. Its undistorted one-third panel is 2.577:1 while the final envelope body is 2.762:1. No post-generation pixel editing or geometric distortion was applied. The render contract below gives an exact, production-usable containment mapping.",
+  "rendererThirdsPx": [
+    {"panel": "top", "x": 85, "y": 121.0, "width": 968, "height": 375.666667},
+    {"panel": "middle", "x": 85, "y": 496.666667, "width": 968, "height": 375.666667},
+    {"panel": "bottom", "x": 85, "y": 872.333333, "width": 968, "height": 375.666667}
+  ],
+  "renderContract": {
+    "canonicalEnvelopeBodyPx": {"width": 1649, "height": 597},
+    "canonicalEnvelopeBodyAspect": 2.762144,
+    "sourceFoldedPanelAspect": 2.576752,
+    "exactAspectNormalizationIfFilling": {"scaleXRelativeToY": 1.071948, "scaleYRelativeToX": 0.932881},
+    "recommendedUndistortedContain": {
+      "envelopeHeightFraction": 0.85,
+      "envelopeWidthFraction": 0.792949,
+      "renderedPanelPx": {"width": 1307.573, "height": 507.45},
+      "centeredInsetPx": {"left": 170.7135, "top": 44.775},
+      "uniformScaleFromSourcePanel": 1.350799,
+      "instruction": "Crop one rendererThirdsPx panel, scale it uniformly by 1.350799, and center it inside the canonical 1649x597 envelope body. This preserves the artwork without distortion, uses 79.295% of body width and 85% of body height, and satisfies the <=90% width and <=85% height insertion limits."
+    }
+  },
+  "motifCoordination": {
+    "envelopeFront": "../envelopes/envelope-front.png",
+    "envelopeManifest": "../envelopes/manifest.json",
+    "sharedPalette": {
+      "cobalt": "#2454B8",
+      "vermilion": "#E95036",
+      "butteryYellow": "#EEC75D"
+    },
+    "sharedMotif": "five-petal vermilion flower with buttery center, cobalt leaf, asymmetric broken cobalt/vermilion edge marks"
+  }
+}

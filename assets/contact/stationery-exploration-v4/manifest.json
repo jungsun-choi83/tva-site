@@ -1,0 +1,67 @@
+{
+  "generator": "built-in image_gen",
+  "status": "ten-visual-explorations",
+  "userApproved": false,
+  "assets": [
+    {
+      "file": "paper-01.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "d4eed6756e1ae1136cd0bc8604ec8752b842d9d640ef022d4e174ea1991c20d7"
+    },
+    {
+      "file": "paper-02.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "254fd7f9f994f4e40b83b648c000abb01048b94005b711f846dbf9082c89836c"
+    },
+    {
+      "file": "paper-03.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "aa22ddd81ce817b94193024d53d04a7f4717bd7f20e2d895a3d2e6141aec42a0"
+    },
+    {
+      "file": "paper-04.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "cc8eb45ae9dafe6c786bd1a6be62a0486ddaf17068faf4c8b0cf967e406e2baf"
+    },
+    {
+      "file": "paper-05.png",
+      "width": 1024,
+      "height": 1536,
+      "sha256": "81ae52bf887e68962f1870359139fe3bf865a3007b179a1e1686bc2a5f717a0e"
+    },
+    {
+      "file": "envelope-01.png",
+      "width": 2021,
+      "height": 778,
+      "sha256": "cbb12466167b2c2cdd067e63d100d65c5fe52ce8b0dd3644485576dbdbecd946"
+    },
+    {
+      "file": "envelope-02.png",
+      "width": 2022,
+      "height": 778,
+      "sha256": "05bac34349c1bd46d1b74ef826eb228d369480e1df6c8e2b00098157aac783d7"
+    },
+    {
+      "file": "envelope-03.png",
+      "width": 2022,
+      "height": 778,
+      "sha256": "9ec86d4a4797cfac1c0cc6b7d65642679c9fcb8a5402138ffbb601755467dae7"
+    },
+    {
+      "file": "envelope-04.png",
+      "width": 2020,
+      "height": 778,
+      "sha256": "22c13ff986f2ad45a3472c10229c85fafe596eb34c8be80efdbf8e9174bd3f04"
+    },
+    {
+      "file": "envelope-05.png",
+      "width": 2021,
+      "height": 778,
+      "sha256": "bfb5056a606b6fddb9d338eb168ccfcdcb0b92b25634bb584be7e10840a6578c"
+    }
+  ]
+}

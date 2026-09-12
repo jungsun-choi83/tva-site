@@ -1,0 +1,38 @@
+{
+  "generator": "built-in image_gen",
+  "operation": "precise-object-edit",
+  "background": "white RGB",
+  "alpha": false,
+  "envelope_reference": {
+    "path": "../envelopes/envelope-front.png",
+    "sha256": "2db64597890be2d8673c8499f1a9df96b1f1e5db528a5af7ee025367bc4431a0"
+  },
+  "assets": {
+    "carry-02": {
+      "source": "../../v2/carry-02.png",
+      "source_sha256": "7d35797e42bbfcba8d8a475b8e396cf47fa4eaf9941403b4a4d290f8fd554361",
+      "output": "carry-02.png",
+      "output_sha256": "27964a1a38e4f6e8d8f618fb72594bc2c8adf00e3fb90212165c72348badd6b1",
+      "source_canvas": [1254, 1254],
+      "output_canvas": [1254, 1254],
+      "source_subject_bbox_threshold22": [186, 105, 1074, 1141],
+      "output_subject_bbox_threshold22": [186, 105, 1075, 1142],
+      "mapping": {"scale_x": 1, "scale_y": 1, "offset_x": 0, "offset_y": 0},
+      "anchor_note": "Use the existing 1:1 canvas mapping; visual foot anchor is preserved. Thresholded subject bounds differ by at most 1 px at right/bottom."
+    },
+    "insertion": {
+      "source": "../../v2/insertion.png",
+      "source_sha256": "ff270b1400037452b3583a19ad5f14248781889f7e8c983aeb3e085878d61c35",
+      "output": "insertion.png",
+      "output_sha256": "275d465e8c70e3f5378d1303ab050c19539f0b956e8328bf9a9a9f436dcce390",
+      "source_canvas": [1254, 1254],
+      "output_canvas": [1254, 1254],
+      "source_subject_bbox_threshold22": [43, 182, 1220, 1095],
+      "output_subject_bbox_threshold22": [43, 182, 1220, 1096],
+      "mapping": {"scale_x": 1, "scale_y": 1, "offset_x": 0, "offset_y": 0},
+      "anchor_note": "Use the existing 1:1 canvas mapping; visual foot anchor is preserved. Thresholded subject bounds differ by 1 px at bottom."
+    }
+  },
+  "bbox_method": "RGB distance from white converted to grayscale; threshold >22; bbox uses left, top, exclusive-right, exclusive-bottom coordinates.",
+  "visual_check": "Envelope-only decoration change confirmed. Mascot identity, face, limb geometry, hand occlusion, carry-02 lifted-shoe gait, insertion tip gesture, clean white background and canvas framing inspected."
+}

@@ -1,0 +1,84 @@
+{
+  "version": "contact-v3",
+  "userApproved": false,
+  "generation": "built-in image_gen",
+  "scope": "5 contact graphics plus 4 embedded-envelope pose updates; main site integration owned by separate task",
+  "assets": [
+    {
+      "file": "letterpaper/contact-letterpaper-v3.png",
+      "width": 1136,
+      "height": 1385,
+      "pngColorType": 2,
+      "sha256": "d3fa73d6f70401bba652b3994670d4ffd0b01845a710093ff39d2ab031140b8a"
+    },
+    {
+      "file": "envelopes/envelope-front.png",
+      "width": 1966,
+      "height": 800,
+      "pngColorType": 2,
+      "sha256": "2db64597890be2d8673c8499f1a9df96b1f1e5db528a5af7ee025367bc4431a0"
+    },
+    {
+      "file": "envelopes/envelope-back.png",
+      "width": 1966,
+      "height": 800,
+      "pngColorType": 2,
+      "sha256": "608c9740f7d9f7a6aff00be2a5a721ea13345ceaa6f51af34864c64288c7d9c7"
+    },
+    {
+      "file": "envelopes/envelope-open.png",
+      "width": 1606,
+      "height": 979,
+      "pngColorType": 2,
+      "sha256": "51acb485aeb117aac4fc7eafa9f949fbf7002e13ae8dd6f6e741a4ffe5fed873"
+    },
+    {
+      "file": "mailbox/mailbox-v3.png",
+      "width": 1230,
+      "height": 1278,
+      "pngColorType": 6,
+      "sha256": "d7e0e177cbd04e903e279b73047f222f4cc9a3556e603ef352b049d113eab75a"
+    },
+    {
+      "file": "poses/pickup.png",
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 2,
+      "sha256": "abd457cd624e87fe4150270c39f103f2ef44f66d7ceed5b8983799f171370abc"
+    },
+    {
+      "file": "poses/carry-01.png",
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 2,
+      "sha256": "1f81e5420d39559e91bf0d89d9c6e57e4d7ede4002739e8be6727aa09e0cb319"
+    },
+    {
+      "file": "poses/carry-02.png",
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 2,
+      "sha256": "27964a1a38e4f6e8d8f618fb72594bc2c8adf00e3fb90212165c72348badd6b1"
+    },
+    {
+      "file": "poses/insertion.png",
+      "width": 1254,
+      "height": 1254,
+      "pngColorType": 2,
+      "sha256": "275d465e8c70e3f5378d1303ab050c19539f0b956e8328bf9a9a9f436dcce390"
+    }
+  ],
+  "geometryManifests": [
+    "envelopes/manifest.json",
+    "letterpaper/paper-manifest.json",
+    "poses/pickup.metadata.json",
+    "poses/carry-01.metadata.json",
+    "poses/metadata.json"
+  ],
+  "notes": [
+    "Mailbox has alpha. Other assets use near-white RGB backgrounds, not transparent sprites.",
+    "Envelope body coordinates are manual visual bounds, mapped to 1649x597 canonical rectangle.",
+    "Paper uses undistorted uniform containment inside envelope.",
+    "Pose canvas mapping remains 1:1; generated pixels are not identical outside edited envelope."
+  ]
+}

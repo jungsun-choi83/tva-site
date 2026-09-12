@@ -1,0 +1,222 @@
+{
+  "schemaVersion": 1,
+  "auditScope": "TVA fall-welcome asset readiness and isolated expressive character feasibility",
+  "auditedAt": "2026-09-07",
+  "statusDefinitions": {
+    "ready": "The referenced local asset exists, its source is documented, and its stated production role has passed the required visual/technical review.",
+    "candidate": "The referenced local asset exists but still needs a stated production, visual, uniqueness, or rights check.",
+    "missing": "A required production dependency was not found. A missing item must not reference a substitute path."
+  },
+  "constraints": {
+    "preserveOriginalMascotIdentity": true,
+    "generatedOrReplacementMascotAllowed": false,
+    "productionCharacterRequiresJointedArmsAndLegs": true,
+    "pngClippingIsProductionRig": false,
+    "requiredDistinctCreativeToolCount": 20,
+    "recoloredDuplicatesCountAsDistinct": false
+  },
+  "character": {
+    "overallStatus": "candidate",
+    "feasibility": "front-bounded-restored-rig",
+    "preexistingRigFound": false,
+    "currentRigPath": "fall-welcome/actor.js",
+    "reason": "The user's completion request authorized restoring the original character's missing joints. The current front-biased articulated puppet reuses original body, hands, shoes and facial artwork, with independently authored limb joints and a finite greeting. This is a bounded 2D/2.5D rig, not a full 3D turnaround, and does not claim unseen back surfaces or a physical 3D character collision mesh.",
+    "authoringTools": [
+      {
+        "id": "blender",
+        "status": "ready",
+        "path": "/Applications/Blender.app",
+        "source": "Installed local application",
+        "role": "Can author and test a skeleton; does not supply missing original character surfaces."
+      }
+    ],
+    "identityReferences": [
+      {
+        "id": "mascot-idle-reference",
+        "status": "ready",
+        "path": "assets/tva-mascot-idle.webp",
+        "source": "Existing TVA project asset; ownership/publication rights not independently established by this audit.",
+        "role": "Original mascot identity and idle-pose comparison only"
+      },
+      {
+        "id": "mascot-sit-reference",
+        "status": "ready",
+        "path": "assets/tva-mascot-sit.webp",
+        "source": "Existing TVA project asset; ownership/publication rights not independently established by this audit.",
+        "role": "Original mascot identity and seated-pose comparison only"
+      },
+      {
+        "id": "character-run-reference",
+        "status": "candidate",
+        "path": "assets/character-run.webp",
+        "source": "Existing TVA project asset; provenance and publication rights not documented in the inspected asset source files.",
+        "role": "Flattened motion-pose reference only; not a production rig"
+      },
+      {
+        "id": "character-inspect-reference",
+        "status": "candidate",
+        "path": "assets/character-inspect.webp",
+        "source": "Existing TVA project asset; provenance and publication rights not documented in the inspected asset source files.",
+        "role": "Flattened expression/pose reference only; not a production rig"
+      }
+    ],
+    "missingDependencies": [
+      {
+        "id": "original-jointed-character",
+        "status": "candidate",
+        "path": "fall-welcome/actor.js",
+        "source": "Locally restored from the user's existing original art under their completion authorization; restricted to front and slight three-quarter views.",
+        "required": [
+          "original mascot identity",
+          "independent shoulders, elbows, and wrists",
+          "independent hips, knees, and ankles",
+          "usable palms and shoe soles",
+          "panic, brace, recover, and wave pose range"
+        ]
+      },
+      {
+        "id": "character-source-rights-record",
+        "status": "missing",
+        "path": null,
+        "source": "No character provenance/licence record was found beside the inspected original-character PNGs. This limits publication assessment, but does not block the user's authorized local editing and rig-development work.",
+        "required": ["creator/source identity", "editing permission", "publication permission"]
+      }
+    ],
+    "exactSourceNeed": "Preferred: the original layered source with separate torso, upper/lower arms, hands/palms, upper/lower legs, feet/soles, face parts, and side/back or turnaround views, plus editing/publication rights. Bounded fallback: explicit authority for a human artist to manually reconstruct only the missing surfaces while matching the supplied mascot references.",
+    "safeExistingAlternative": "For an isolated front-biased animatic only, segment the existing mascot PNGs into temporary planes and restrict the camera so no absent surfaces are exposed. This can test timing, framing, occlusion, and broad limb arcs, but it is not the production rig and cannot truthfully pass extreme-pose, palm, sole, or turntable gates."
+  },
+  "tv": {
+    "overallStatus": "candidate",
+    "assets": [
+      {
+        "id": "original-tv-reference",
+        "status": "candidate",
+        "path": "assets/tva-midcentury-tv.webp",
+        "source": "Existing TVA project asset; provenance and publication rights not documented in the inspected asset source files.",
+        "role": "Silhouette, material, and aperture reference; not a verified 3D TV asset"
+      }
+    ],
+    "missingDependencies": [
+      {
+        "id": "matching-3d-tv-or-production-layered-source",
+        "status": "missing",
+        "path": null,
+        "source": "Not found in the narrowly inspected TVA project asset directories."
+      }
+    ]
+  },
+  "creativeTools": {
+    "sourceEvidencePath": "assets/studio-props/SOURCES.md",
+    "downloadedSourceEvidencePath": "assets/fall-welcome/props/SOURCES.md",
+    "license": "CC0-1.0",
+    "licenseUrl": "https://polyhaven.com/license",
+    "availableDistinctCount": 20,
+    "readyCount": 20,
+    "candidateCount": 0,
+    "missingCount": 0,
+    "countingNote": "Pens and pencils with multiple colors, wear states, or meshes remain one semantic tool category each. The pencil cup and eraser are separate silhouettes/functions. The cardboard box is available as a scene prop but is not counted as a creative tool.",
+    "renderReview": {
+      "resultStatus": "ready",
+      "reviewedAt": "2026-09-07",
+      "scope": "Asset-level contact sheet only; production-scene visibility is not verified.",
+      "previewPath": "qa/fall-welcome-props-preview.html",
+      "screenshotPath": "output/playwright/fall-welcome/props-contact-sheet.png",
+      "evidencePath": "output/playwright/fall-welcome/props-load-evidence.json",
+      "result": "All 20 categories were fully framed as textured geometry in Chrome; per-item mesh and texture counts passed with zero texture or console errors."
+    },
+    "items": [
+      {
+        "slot": 1,
+        "id": "binder-notebook",
+        "label": "Binder notebook",
+        "status": "ready",
+        "path": "assets/studio-props/binder_notebook/binder_notebook_1k.gltf",
+        "nodes": ["binder_notebook", "binder_notebook_closed"],
+        "source": "https://polyhaven.com/a/binder_notebook"
+      },
+      {
+        "slot": 2,
+        "id": "measuring-tape",
+        "label": "Measuring tape",
+        "status": "ready",
+        "path": "assets/studio-props/measuring_tape_01/measuring_tape_01_1k.gltf",
+        "nodes": ["measuring_tape_01"],
+        "source": "https://polyhaven.com/a/measuring_tape_01"
+      },
+      {
+        "slot": 3,
+        "id": "vintage-video-camera",
+        "label": "Vintage video camera",
+        "status": "ready",
+        "path": "assets/studio-props/vintage_video_camera/vintage_video_camera_1k.gltf",
+        "nodes": ["vintage_video_camera"],
+        "source": "https://polyhaven.com/a/vintage_video_camera"
+      },
+      {
+        "slot": 4,
+        "id": "pen",
+        "label": "Pen",
+        "status": "ready",
+        "path": "assets/studio-props/stationery_supplies/stationery_supplies_1k.gltf",
+        "nodes": ["stationery_supplies_pen_red", "stationery_supplies_pen_fancy", "stationery_supplies_pen_blue"],
+        "source": "https://polyhaven.com/a/stationery_supplies"
+      },
+      {
+        "slot": 5,
+        "id": "pencil",
+        "label": "Pencil",
+        "status": "ready",
+        "path": "assets/studio-props/stationery_supplies/stationery_supplies_1k.gltf",
+        "nodes": ["stationery_supplies_pencil_new_a", "stationery_supplies_pencil_new_b", "stationery_supplies_pencil_used", "stationery_supplies_pencil_old"],
+        "source": "https://polyhaven.com/a/stationery_supplies"
+      },
+      {
+        "slot": 6,
+        "id": "pencil-cup",
+        "label": "Pencil cup",
+        "status": "ready",
+        "path": "assets/studio-props/stationery_supplies/stationery_supplies_1k.gltf",
+        "nodes": ["stationery_supplies_pencilcup"],
+        "source": "https://polyhaven.com/a/stationery_supplies"
+      },
+      {
+        "slot": 7,
+        "id": "eraser",
+        "label": "Eraser",
+        "status": "ready",
+        "path": "assets/studio-props/stationery_supplies/stationery_supplies_1k.gltf",
+        "nodes": ["stationery_supplies_eraser"],
+        "source": "https://polyhaven.com/a/stationery_supplies"
+      },
+      { "slot": 8, "id": "cross-pein-hammer", "label": "Cross pein hammer", "status": "ready", "path": "assets/fall-welcome/props/cross_pein_hammer/cross_pein_hammer_1k.gltf", "nodes": ["cross_pein_hammer"], "source": "https://polyhaven.com/a/cross_pein_hammer", "author": "Tics", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 9, "id": "pliers", "label": "Pliers", "status": "ready", "path": "assets/fall-welcome/props/pliers/pliers_1k.gltf", "nodes": ["pliers_a", "pliers_b", "pliers_pin"], "source": "https://polyhaven.com/a/pliers", "author": "PierreB3D", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 10, "id": "flathead-screwdriver", "label": "Flathead screwdriver", "status": "ready", "path": "assets/fall-welcome/props/flathead_screwdriver/flathead_screwdriver_1k.gltf", "nodes": ["flathead_screwdriver"], "source": "https://polyhaven.com/a/flathead_screwdriver", "author": "Dylan Detwiller", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 11, "id": "adjustable-wrench", "label": "Adjustable wrench", "status": "ready", "path": "assets/fall-welcome/props/adjustable_wrench/adjustable_wrench_1k.gltf", "nodes": ["adjustable_wrench", "adjustable_wrench_jaw", "adjustable_wrench_nut"], "source": "https://polyhaven.com/a/adjustable_wrench", "author": "Mateusz Sadek", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 12, "id": "bolt-cutters", "label": "Bolt cutters", "status": "ready", "path": "assets/fall-welcome/props/bolt_cutters_01/bolt_cutters_01_1k.gltf", "nodes": ["bolt_cutters_01"], "source": "https://polyhaven.com/a/bolt_cutters_01", "author": "Antanas Kep (modeling and texturing); Yann Kervran (rigging)", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 13, "id": "handsaw", "label": "Wood handsaw", "status": "ready", "path": "assets/fall-welcome/props/handsaw_wood/handsaw_wood_1k.gltf", "nodes": ["handsaw_wood"], "source": "https://polyhaven.com/a/handsaw_wood", "author": "Konrad Szałankiewicz", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 14, "id": "hand-plane", "label": "Hand plane", "status": "ready", "path": "assets/fall-welcome/props/hand_plane_no4/hand_plane_no4_1k.gltf", "nodes": ["hand_plane_no4"], "source": "https://polyhaven.com/a/hand_plane_no4", "author": "Satyaki Mandal", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 15, "id": "power-drill", "label": "Power drill", "status": "ready", "path": "assets/fall-welcome/props/Drill_01/Drill_01_1k.gltf", "nodes": ["Drill_01"], "source": "https://polyhaven.com/a/Drill_01", "author": "Fernando Quinn", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 16, "id": "vintage-stapler", "label": "Vintage stapler", "status": "ready", "path": "assets/fall-welcome/props/vintage_stapler/vintage_stapler_1k.gltf", "nodes": ["vintage_stapler_top", "vintage_stapler_staple_single", "vintage_stapler_staples", "vintage_stapler_base"], "source": "https://polyhaven.com/a/vintage_stapler", "author": "Mateusz Sadek", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 17, "id": "spray-paint", "label": "Spray paint", "status": "ready", "path": "assets/fall-welcome/props/spray_paint_bottles/spray_paint_bottles_1k.gltf", "nodes": ["spray_paint_bottles", "spray_paint_bottles_dirty"], "source": "https://polyhaven.com/a/spray_paint_bottles", "author": "James Ray Cock", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 18, "id": "magnifying-glass", "label": "Magnifying glass", "status": "ready", "path": "assets/fall-welcome/props/magnifying_glass_01/magnifying_glass_01_1k.gltf", "nodes": ["magnifying_glass_01"], "source": "https://polyhaven.com/a/magnifying_glass_01", "author": "Nazar Borodavka", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 19, "id": "bench-vice", "label": "Bench vice", "status": "ready", "path": "assets/fall-welcome/props/bench_vice_01/bench_vice_01_1k.gltf", "nodes": ["bench_vice_frame", "bench_vice_clamp", "bench_vice_dial", "bench_vice_bar"], "source": "https://polyhaven.com/a/bench_vice_01", "author": "Antanas Kep (modeling and texturing); Yann Kervran (rigging)", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" },
+      { "slot": 20, "id": "trowel", "label": "Hand trowel", "status": "ready", "path": "assets/fall-welcome/props/trowel_01/trowel_01_1k.gltf", "nodes": ["trowel_01"], "source": "https://polyhaven.com/a/trowel_01", "author": "Satyaki Mandal", "license": "CC0-1.0", "licenseUrl": "https://polyhaven.com/license" }
+    ],
+    "nonCountingExistingProps": [
+      {
+        "id": "cardboard-box",
+        "status": "candidate",
+        "path": "assets/studio-props/cardboard_box_01/cardboard_box_01_1k.gltf",
+        "nodes": ["cardboard_box_01"],
+        "source": "https://polyhaven.com/a/cardboard_box_01",
+        "reason": "Useful environmental/packing prop, but not counted toward the 20 creative tools."
+      }
+    ]
+  },
+  "excludedAssets": [
+    {
+      "path": "assets/reference-hadaka/SOURCES.md",
+      "reason": "Reference-site assets are not original TVA character sources, and publication permission is explicitly unverified. They are not counted as safe fall-welcome production dependencies."
+    }
+  ]
+}

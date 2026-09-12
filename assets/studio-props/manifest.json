@@ -1,0 +1,159 @@
+{
+  "source": "Poly Haven official files API",
+  "retrieved": "2026-09-06",
+  "license": "CC0-1.0",
+  "licenseUrl": "https://polyhaven.com/license",
+  "resolution": "1k",
+  "files": [
+    {
+      "path": "binder_notebook/binder_notebook_1k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/binder_notebook/binder_notebook_1k.gltf",
+      "md5": "8d05e6a6436c12169debc073692b7f5e",
+      "sha256": "714596552fad383ae3ca76d42038b03a20b6864d6ef5bc6d12620ac21fef1b1e"
+    },
+    {
+      "path": "binder_notebook/textures/binder_notebook_nor_gl_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/binder_notebook/binder_notebook_nor_gl_1k.jpg",
+      "md5": "51af6519e740f1e53d33b8eb09def5dd",
+      "sha256": "24b18d9792c3816337d7d09b30aed400a887747ea6beb04b23612b6e1210a29e"
+    },
+    {
+      "path": "binder_notebook/textures/binder_notebook_diff_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/binder_notebook/binder_notebook_diff_1k.jpg",
+      "md5": "0c6bbb11b58934e7ed6b6a0729e20e8b",
+      "sha256": "8591cce815138bd737c252dc12a4d9bf41bceb499ace7dbfef0725e64dadda2d"
+    },
+    {
+      "path": "binder_notebook/textures/binder_notebook_arm_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/binder_notebook/binder_notebook_arm_1k.jpg",
+      "md5": "825aa742d0d2083656d8ebe636cde087",
+      "sha256": "c0bc38cd13e5ada9552c3a9b60f88c36acf9e672011d97d066a6c0148f01898a"
+    },
+    {
+      "path": "binder_notebook/binder_notebook.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/binder_notebook/binder_notebook.bin",
+      "md5": "bade6e7ed1349d598b27018c61cf674d",
+      "sha256": "68e28e6fac708a6e172230c42debd990e48819566fa07f222415467b1034b9c0"
+    },
+    {
+      "path": "stationery_supplies/stationery_supplies_1k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/stationery_supplies/stationery_supplies_1k.gltf",
+      "md5": "f52db97749d2a35edc088e5885d0d8b9",
+      "sha256": "9f5ef7799af1193e5d794cc02eb6add2d2eb7e80bc1974930fae76b3cd7ce9a9"
+    },
+    {
+      "path": "stationery_supplies/textures/stationery_supplies_nor_gl_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/stationery_supplies/stationery_supplies_nor_gl_1k.jpg",
+      "md5": "b4041a9882047b1b138417ffd8984cd3",
+      "sha256": "23c332f95ca9cafc24f51a1ad54ca81548d3ab60559401e793fdec00cbe7952c"
+    },
+    {
+      "path": "stationery_supplies/textures/stationery_supplies_diff_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/stationery_supplies/stationery_supplies_diff_1k.jpg",
+      "md5": "6137e4177fe5b002254d57eb5c7003eb",
+      "sha256": "a70e92052b2da3457a6059aec0fa83bc01bf0d376be814661cee0b49e4abb9ad"
+    },
+    {
+      "path": "stationery_supplies/textures/stationery_supplies_arm_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/stationery_supplies/stationery_supplies_arm_1k.jpg",
+      "md5": "7d4c4c9f4f7e880b09b37e2b13a044cf",
+      "sha256": "b7b00e07f043d9928aa4b6dc6a3feede9c870e6e810ae75b54692171cfba6052"
+    },
+    {
+      "path": "stationery_supplies/stationery_supplies.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/stationery_supplies/stationery_supplies.bin",
+      "md5": "79c27c50437311205051da6de178053c",
+      "sha256": "475d839c3569551710607cfc71416aa50a3715cd02d56da8c86271982feacb6e"
+    },
+    {
+      "path": "measuring_tape_01/measuring_tape_01_1k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/measuring_tape_01/measuring_tape_01_1k.gltf",
+      "md5": "5b7914e5a48cdd9bbf7f16a4d0e8477a",
+      "sha256": "f4d36918fcbe3de138fbf7a0c5cc1ab2c7c049db6a5e7ee24673d78d3d9ed74d"
+    },
+    {
+      "path": "measuring_tape_01/textures/measuring_tape_01_arm_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/measuring_tape_01/measuring_tape_01_arm_1k.jpg",
+      "md5": "6bf2fc9cd5ebe5dad19c654e79c5988d",
+      "sha256": "721fa78a93d9727250123b16a8389ed815801f923bc07e6eb2e5568c5aa5f9d0"
+    },
+    {
+      "path": "measuring_tape_01/textures/measuring_tape_01_diff_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/measuring_tape_01/measuring_tape_01_diff_1k.jpg",
+      "md5": "51485fa43d7c92abd6c7e2d1ee8361f5",
+      "sha256": "7b66c2a9a5e794336d1456dd9de684ea94bf80a0f8b821c36a0fc2cdf0804052"
+    },
+    {
+      "path": "measuring_tape_01/measuring_tape_01.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/measuring_tape_01/measuring_tape_01.bin",
+      "md5": "b1e09002fb178a078489b2964c853c4e",
+      "sha256": "9255ba5bde1df6dcbfd7103577809c4af44525fed7d2b41d17ff83ead712dfc6"
+    },
+    {
+      "path": "measuring_tape_01/textures/measuring_tape_01_nor_gl_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/measuring_tape_01/measuring_tape_01_nor_gl_1k.jpg",
+      "md5": "38492745403a54c41475ed128e791da3",
+      "sha256": "956bf080bb51987c2d3929e9b68fdea4e36f47c9fbf0b7dfe08260d5410f6c27"
+    },
+    {
+      "path": "cardboard_box_01/cardboard_box_01_1k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/cardboard_box_01/cardboard_box_01_1k.gltf",
+      "md5": "84572b118cc3640acdd9e978869bb3ee",
+      "sha256": "6038bcc5bba5a08a5f6643a265977e37e3d14553e62981e144c33a89f10b78e1"
+    },
+    {
+      "path": "cardboard_box_01/textures/cardboard_box_01_arm_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/cardboard_box_01/cardboard_box_01_arm_1k.jpg",
+      "md5": "39ea452f95d71ec1362e47dff453c706",
+      "sha256": "5db63828d0f904c6a8d9c83afc912260b2a27261c15a28d06360519384574d2b"
+    },
+    {
+      "path": "cardboard_box_01/cardboard_box_01.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/4k/cardboard_box_01/cardboard_box_01.bin",
+      "md5": "64bea3a77434981017b8a06da4ccb0df",
+      "sha256": "7212d43b4cb56459e46d31ab34dc7c310fcfbe170f4a588416dea07ae5628a4b"
+    },
+    {
+      "path": "cardboard_box_01/textures/cardboard_box_01_diff_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/cardboard_box_01/cardboard_box_01_diff_1k.jpg",
+      "md5": "a306e586325d1759ba3225d2b6ad5121",
+      "sha256": "122c7ba8c5935e289804a730b480677a4bffdf74a45c91970cba682df92e171c"
+    },
+    {
+      "path": "cardboard_box_01/textures/cardboard_box_01_nor_gl_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/cardboard_box_01/cardboard_box_01_nor_gl_1k.jpg",
+      "md5": "24768abd73f71cfdd7f5be92b18634a7",
+      "sha256": "d2d1f529a851966b65411b5094510dd9eba03cd5c0a89921f79325c377a8e8eb"
+    },
+    {
+      "path": "vintage_video_camera/vintage_video_camera_1k.gltf",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/1k/vintage_video_camera/vintage_video_camera_1k.gltf",
+      "md5": "381a5783fa79768785b995f90da2175d",
+      "sha256": "29a21d5ba7aefce8222f8a9b9157ea428505b3ddd6a68acfffd290281d4cd291"
+    },
+    {
+      "path": "vintage_video_camera/textures/vintage_video_camera_nor_gl_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/vintage_video_camera/vintage_video_camera_nor_gl_1k.jpg",
+      "md5": "8a5e55fe37faff950c82eb304bc928bf",
+      "sha256": "3714f504a61e271ec74d7a43ed070f6d3b9f69b346e397d0ea06879d6ca7c5d5"
+    },
+    {
+      "path": "vintage_video_camera/textures/vintage_video_camera_diff_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/vintage_video_camera/vintage_video_camera_diff_1k.jpg",
+      "md5": "a41109e8cd6a59ce866c2904f6bd3938",
+      "sha256": "b9c1317fc1609ae9508d554a898caa95eb01238a7acddc9b28ec03b8753f16aa"
+    },
+    {
+      "path": "vintage_video_camera/textures/vintage_video_camera_arm_1k.jpg",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/jpg/1k/vintage_video_camera/vintage_video_camera_arm_1k.jpg",
+      "md5": "bb1fffa8f28b771f1880499c11e5268e",
+      "sha256": "ac45098b92ca7ea7d28936bdb093f4e26a68254ade960523b02867ea2f7a850a"
+    },
+    {
+      "path": "vintage_video_camera/vintage_video_camera.bin",
+      "url": "https://dl.polyhaven.org/file/ph-assets/Models/gltf/8k/vintage_video_camera/vintage_video_camera.bin",
+      "md5": "30a9520c76eae50889bf257c67ac76cc",
+      "sha256": "1c92781aba4557dda38c66b1eb328fdb2cc0869e5af40413d69de13a9e28d9f4"
+    }
+  ]
+}

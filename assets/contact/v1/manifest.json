@@ -1,0 +1,171 @@
+{
+  "schemaVersion": 1,
+  "status": "partial-production",
+  "approved": false,
+  "identityReferences": [
+    "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio/assets/mascot/greeting-wave.png",
+    "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio/assets/mascot/greeting-wave-02.png"
+  ],
+  "production": {
+    "mailbox": {
+      "file": "production/mailbox.png",
+      "sourceDraft": "drafts-generated/mailbox-checker-rgb.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaExtrema": [0, 255],
+      "alphaBBox": {"left": 263, "top": 74, "right": 983, "bottom": 1183},
+      "cornerAlpha": [0, 0, 0, 0],
+      "rgbBytesUnchanged": true,
+      "floorAnchor": {"x": 0.5, "y": 0.943},
+      "slotBounds": {"left": 0.245, "top": 0.252, "right": 0.552, "bottom": 0.301},
+      "sha256": "d6c60b61dcac47ba9bd61631b9c2c74153264662bafec6aee37ca92d28c9b239"
+    },
+    "farewell-wave": {
+      "file": "production/farewell-wave-reuse.png",
+      "reuseSource": "/Volumes/교육자료/AI_Hub/Projects/TVA/tva-studio/assets/mascot/greeting-wave-02.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGBA",
+      "alphaExtrema": [0, 255],
+      "footAnchor": {"x": 0.52, "y": 0.918},
+      "sha256": "5e761f620e5c50c9dbf7b45ce6b64f3aeb9deec28881fdfbbdf548dc5208a75a"
+    }
+  },
+  "drafts": {
+    "mailbox": {
+      "file": "drafts-generated/mailbox-checker-rgb.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "alphaValid": false,
+      "floorAnchor": {"x": 0.5, "y": 0.931},
+      "slotBounds": {"left": 0.245, "top": 0.252, "right": 0.552, "bottom": 0.301},
+      "sha256": "91e55677d09c15e6904031f5f15da34e565d5bf28a705a6e17366bce2ae00e25"
+    },
+    "envelope-front": {
+      "file": "drafts-generated/envelope-front-white.png",
+      "width": 1560,
+      "height": 1008,
+      "mode": "RGB",
+      "alphaValid": false,
+      "envelopeBounds": {"left": 0.132, "top": 0.19, "right": 0.868, "bottom": 0.806},
+      "sha256": "f4567f1fe6deeeb9606edeeac2decc5d16ae747aa24ce2ca2b9af387db418ac0"
+    },
+    "envelope-back": {
+      "file": "drafts-generated/envelope-back-white.png",
+      "width": 1560,
+      "height": 1008,
+      "mode": "RGB",
+      "alphaValid": false,
+      "envelopeBounds": {"left": 0.135, "top": 0.193, "right": 0.865, "bottom": 0.803},
+      "sha256": "648171295efa12577ba7070fcc24ec49f2f3a4dda027bb33b9a7edf6e85a5884"
+    },
+    "envelope-open": {
+      "file": "drafts-generated/envelope-open-white.png",
+      "width": 1560,
+      "height": 1008,
+      "mode": "RGB",
+      "alphaValid": false,
+      "envelopeBounds": {"left": 0.158, "top": 0.026, "right": 0.843, "bottom": 0.909},
+      "sha256": "aa68a9972b11d5521abffa5fed46812357b8679b5b0a4f9d60ab59bdd1f3e13a"
+    },
+    "pickup": {
+      "file": "drafts-generated/pickup-white.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "alphaValid": false,
+      "embeddedEnvelope": true,
+      "envelopeBounds": {"left": 0.587, "top": 0.739, "right": 0.891, "bottom": 0.918},
+      "handsBounds": {"left": 0.485, "top": 0.724, "right": 0.886, "bottom": 0.917},
+      "handContacts": {
+        "left": {"x": 0.625, "y": 0.838},
+        "right": {"x": 0.832, "y": 0.792},
+        "basis": "manual estimate on the actual RGB draft; left/right are screen-left/screen-right"
+      },
+      "footAnchor": {"x": 0.43, "y": 0.895},
+      "sha256": "51bfa1f35b395377cb9e84c52656bf0c8636393784c53a60f13396726d89ace2"
+    },
+    "carry-01": {
+      "file": "drafts-generated/carry-01-white.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "alphaValid": false,
+      "embeddedEnvelope": true,
+      "envelopeBounds": {"left": 0.451, "top": 0.477, "right": 0.786, "bottom": 0.652},
+      "handsBounds": {"left": 0.333, "top": 0.526, "right": 0.848, "bottom": 0.661},
+      "handContacts": {
+        "left": {"x": 0.463, "y": 0.579},
+        "right": {"x": 0.778, "y": 0.574},
+        "basis": "manual estimate on the actual RGB draft; left/right are screen-left/screen-right"
+      },
+      "footAnchor": {"x": 0.58, "y": 0.918},
+      "sha256": "eff7c9f4ef972f25eda9cac2055f3c06c05a55177b508f66641451b0364f0106"
+    },
+    "carry-02": {
+      "file": "drafts-generated/carry-02-opposite-gait-white.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "alphaValid": false,
+      "embeddedEnvelope": true,
+      "envelopeBounds": {"left": 0.451, "top": 0.477, "right": 0.786, "bottom": 0.652},
+      "handsBounds": {"left": 0.333, "top": 0.526, "right": 0.848, "bottom": 0.661},
+      "handContacts": {
+        "left": {"x": 0.463, "y": 0.579},
+        "right": {"x": 0.778, "y": 0.574},
+        "basis": "manual estimate on the actual RGB draft; left/right are screen-left/screen-right"
+      },
+      "footAnchor": {"x": 0.58, "y": 0.916},
+      "gait": "screen-left leg planted back; screen-right shoe lifted forward with sole visible",
+      "sha256": "9e88b56ba5a5d663d41c22c3cd664c072844e6a91651795a721999bbdb98d15a"
+    },
+    "insertion": {
+      "file": "drafts-generated/insertion-white.png",
+      "width": 1254,
+      "height": 1254,
+      "mode": "RGB",
+      "alphaValid": false,
+      "embeddedEnvelope": true,
+      "envelopeBounds": {"left": 0.661, "top": 0.386, "right": 0.973, "bottom": 0.512},
+      "handsBounds": {"left": 0.583, "top": 0.356, "right": 0.743, "bottom": 0.55},
+      "handContacts": {
+        "left": {"x": 0.669, "y": 0.472},
+        "right": {"x": 0.712, "y": 0.411},
+        "basis": "manual estimate on the actual RGB draft; left/right are screen-left/screen-right"
+      },
+      "footAnchor": {"x": 0.31, "y": 0.889},
+      "slotTarget": {"x": 0.79, "y": 0.449},
+      "sha256": "80a439c32e0c8e93f538afb757cc8fdc2c9aebadac084f3545eaae6c1cf5aaaa"
+    }
+  },
+  "drawOrder": {
+    "carry": ["character-with-embedded-envelope"],
+    "insertion": ["character-with-embedded-envelope", "mailbox-body", "mailbox-slot-front-lip"],
+    "note": "Hide every separate envelope sprite during pickup, carry, and insertion. The mailbox and its front lip must render above the insertion pose so the envelope tip disappears into the slot."
+  },
+  "recommendedInsertionPlacement": {
+    "coordinateSpace": "normalized insertion pose canvas; both source canvases are 1254x1254",
+    "mailboxScale": 0.66,
+    "mailboxTranslate": {"x": 0.811, "y": 0.267},
+    "alignmentCalculation": {
+      "scale": "(insertion footAnchor.y 0.889 - insertion slotTarget.y 0.449) / (mailbox floorAnchor.y 0.943 - mailbox slotBounds centerY 0.2765) = 0.660",
+      "translateX": "envelope tip x 0.973 - mailbox slotBounds.left 0.245 * 0.660 = 0.811",
+      "translateY": "insertion footAnchor.y 0.889 - mailbox floorAnchor.y 0.943 * 0.660 = 0.267",
+      "result": "mailbox slot left edge aligns near envelope tip while both assets share the same ground line"
+    },
+    "verification": "calculated recommendation only; no actual composite QA performed"
+  },
+  "missing": {
+    "mailbox-slot-front-lip": "Not produced: a safe true-alpha extraction was unavailable after the built-in transparency edit returned RGB checker pixels."
+  },
+  "limitations": [
+    "mailbox.png and farewell-wave-reuse.png are verified production alpha assets.",
+    "All newly generated envelope, pickup, carry, and insertion files remain RGB drafts and must not be used as transparent production sprites.",
+    "A built-in background-removal edit returned hasAlpha:false; after explicit user approval, only the mailbox background received programmatic alpha removal while source RGB bytes were preserved.",
+    "Coordinates for RGB drafts are normalized visual placement measurements on their actual canvases and should be re-measured after any approved alpha conversion/crop.",
+    "No rigging or separated hands were created."
+  ]
+}

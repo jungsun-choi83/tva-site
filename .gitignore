@@ -1,0 +1,11 @@
+node_modules/
+tools/node_modules/
+tools/.preview/
+.env
+.env.*
+*.pem
+.DS_Store
+Thumbs.db
+# GitHub 100MB 제한을 넘는 낙하 루프 영상
+sofa-journey/assets/bg/hx-vortex-loop.mp4
+sofa-journey/assets/bg/hx-vortex-loop.webm

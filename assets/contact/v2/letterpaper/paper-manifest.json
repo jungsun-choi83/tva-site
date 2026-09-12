@@ -1,0 +1,36 @@
+{
+  "asset": "contact-letterpaper-portrait.png",
+  "dimensions": {
+    "width": 1136,
+    "height": 1385
+  },
+  "mode": "RGB",
+  "background": {
+    "alpha": false,
+    "description": "near-white generated background",
+    "cornerSamplesRgb": {
+      "topLeft": [254, 253, 254],
+      "topRight": [255, 255, 255],
+      "bottomLeft": [255, 254, 254],
+      "bottomRight": [254, 254, 254]
+    }
+  },
+  "paperBoundsPx": {
+    "x": 59,
+    "y": 72,
+    "width": 1019,
+    "height": 1241
+  },
+  "safeInputRectPx": {
+    "x": 105,
+    "y": 125,
+    "width": 927,
+    "height": 1125
+  },
+  "foldYpx": [499, 895],
+  "foldYWithinPaperNormalized": [0.344077, 0.663175],
+  "unfoldedPaperRatio": 0.821112,
+  "foldedPanelRatio": 2.463336,
+  "envelopeTargetRatio": 2.46,
+  "notes": "Coordinates use the full 1136x1385 raster. The safe input rectangle stays inside the bright-ivory paper and clear of its naturally variable warm-gray edge. The visible paper measures 1019x1241 px; dividing its height into thirds yields a 2.463:1 folded panel, matching the approximately 2.46:1 envelope target. Fold Y values are the measured centers of the two quiet gray-lavender creases."
+}

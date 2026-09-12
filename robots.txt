@@ -1,0 +1,9 @@
+# TVA — Tomorrow's Value Atelier
+# 2026-09-12 감사 [57]: index.html 의 noindex 메타를 지우면서 함께 만든 파일이다.
+
+User-agent: *
+Allow: /
+
+# 배포 도메인이 확정되면 아래 한 줄의 주소만 실제 도메인으로 바꾼다.
+# (sitemap.xml 의 <loc> 도 같은 문자열이라 한 번에 찾아 바꾸면 된다)
+Sitemap: https://your-domain.example/sitemap.xml

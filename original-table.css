@@ -1,0 +1,337 @@
+.original-table{--original-signature:#bd1454;--original-paper:#f7f4ed;--scene-h:871;--scene-crop:70;padding:0;min-height:calc(100svh - var(--nav-height));display:flex;flex-direction:column;justify-content:center;background:#fff}
+.original-table__scene{position:relative;width:100%;max-width:1671px;margin-inline:auto;aspect-ratio:1671/var(--scene-h);overflow:hidden}
+.original-table__image{position:absolute;left:0;top:calc(-1 * var(--scene-crop) / var(--scene-h) * 100%);width:100%;max-width:none;height:auto;display:block}
+.original-table__works{position:absolute;inset:0}
+.original-table__work{position:absolute;left:calc(9% + var(--work-index)*17%);top:calc(30% - var(--work-index)*5%);width:16%;height:43%;min-width:44px;min-height:44px;transform:rotate(-10deg);border:0;background:transparent;border-radius:2px}
+.original-table__work:focus-visible{outline:3px solid var(--cobalt);outline-offset:4px;background:#ffffff18}
+.original-table__footer{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:20px var(--pad);width:100%;max-width:1671px;margin-inline:auto}
+.original-table__footer p{margin:0;font:11px/1.5 var(--mono);letter-spacing:.04em}
+.original-table__accessible{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap;border:0}
+@media(max-width:600px){.original-table{min-height:auto;padding-top:24px}.original-table__footer{gap:16px;padding-top:12px;padding-bottom:24px}.original-table__footer p{max-width:135px;font-size:10px}.original-table__footer .link-button{gap:16px}}
+
+.original-table__work{min-width:0;min-height:0;transform:none;padding:0;border-radius:0;background:transparent;overflow:hidden}
+.original-table__work svg{position:relative;z-index:1;display:block;width:100%;height:100%;pointer-events:none}
+.original-table__work:focus-visible{outline:none}
+.original-table__focus-ring{opacity:0}
+.original-table__work:focus-visible .original-table__focus-ring{opacity:1}
+.original-detail-image{display:block;width:min(100%,420px);max-height:55vh;object-fit:contain;margin:20px auto}
+.original-detail-image[hidden]{display:none}
+
+.original-table__foreground{position:absolute;inset:0;width:100%;height:100%;z-index:6;pointer-events:none}
+.original-table__mobile-plate,.original-table__mobile-title,.original-table__mobile-titlemark,.original-table__mobile-art-frame{display:none}
+
+.original-table__viewport{width:100%}
+.original-table__mobile-heading,.original-table__pages{display:none}
+@media(max-width:700px){
+  .original-table{min-height:auto;padding-top:32px}
+  .original-table__mobile-heading{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;padding:0 20px 12px}
+  .original-table__mobile-titlemark{display:block;width:128px;height:auto;overflow:hidden;flex:none}
+  /* (2026-09-12) 옆으로 끄는 조작 안내를 폰에서도 보이게 한다 — 예전에는 display:none 이라
+     조작 방법을 화면 안에서 알 수 없었다. 제목 마크(95px)와 세로로 겹치지 않도록 제목은
+     위에 붙인 채 두고, 안내만 오른쪽 위에 나란히 놓는다. 9px 는 판독 하한 아래라 11px. */
+  .original-table__mobile-heading p{display:block;margin:10px 0 0;flex:none;max-width:52%;font:11px/1.3 var(--mono);letter-spacing:.08em;text-align:right}
+  .original-table__viewport{position:relative;height:min(530px,165vw);max-height:530px;overflow:hidden;overscroll-behavior-x:contain;touch-action:pan-y;cursor:grab}
+  .original-table__viewport:active{cursor:grabbing}
+  .original-table__scene{position:absolute;left:50%;top:0;width:1100px;max-width:none;margin:0;transform:translateX(-72%)}
+  .original-table__image,.original-table__foreground{display:none}
+  .original-table__mobile-plate{display:block;position:absolute;left:0;top:-8.0367%;width:100%;max-width:none;height:auto;pointer-events:none}
+  .original-table__works{z-index:3}
+  /* (2026-09-10) the flat phone card that used to live here — fixed left/top,
+     420:594 box, drawn-on clip, projection disabled — is gone; phones now use
+     the painted sheets exactly as the desktop does. See the phone block below. */
+  .original-table__work{pointer-events:none}
+  .original-table__work.is-active{pointer-events:auto}
+  .original-table__mobile-art-frame{display:block;position:absolute;left:0;top:0;width:420px;height:594px;overflow:hidden;transform:scale(var(--mobile-art-scale,.5));transform-origin:0 0;pointer-events:none}
+  .original-table__mobile-art-frame img{position:absolute;left:0;top:0;width:1671px;max-width:none;height:941px;transform-origin:0 0}
+  .original-table__work:focus-visible{outline:3px solid var(--cobalt);outline-offset:5px}
+  .original-table__work:focus-visible .original-table__focus-ring{opacity:0}
+  .original-table__pages{display:flex;align-items:center;justify-content:center;gap:0;padding:8px 20px 0}
+  .original-table__pages button{position:relative;width:44px;height:44px;padding:0;border:0;background:transparent;color:inherit}
+  .original-table__pages button::before{content:"";position:absolute;left:50%;top:50%;width:8px;height:8px;border:1px solid var(--ink);border-radius:50%;background:var(--white);transform:translate(-50%,-50%);transition:transform 160ms ease,background-color 160ms ease}
+  .original-table__pages button[aria-current]::before{border-color:var(--cobalt);background:var(--cobalt);transform:translate(-50%,-50%) scale(1.25)}
+  .original-table__pages button:focus-visible{outline:2px solid var(--cobalt);outline-offset:-6px}
+  .original-table__footer{padding:20px;gap:20px}
+  .original-dialog{max-height:calc(100dvh - 24px);padding:56px 24px 28px;overscroll-behavior:contain}
+  .original-dialog .dialog-close{min-height:44px;top:8px;right:16px}
+}
+@media(max-width:700px) and (prefers-reduced-motion:reduce){.original-table__work,.original-table__pages button::before{transition:none}}
+.reduced-motion .original-table__work,.reduced-motion .original-table__pages button::before,.original-table__works.is-reduced-motion .original-table__work{transition:none}
+@media(max-width:380px){.original-table__mobile-heading>span{font-size:21px}.original-table__mobile-heading p{font-size:11px;letter-spacing:.04em}}
+
+/* Desktop ORIGINAL fills the screen with no leftover white — 2026-09-09.
+   The earlier rule fitted the 1671:871 scene INSIDE the available box and centred
+   it, which left white bands (43px top and bottom at 1440x900, 41px each side at
+   1280x720).
+   Scaling the scene up to COVER the box was tried and measured, then rejected: it needs a
+   horizontal crop (82px per side at 1440x900, 125px at 1512x982) that pushes the
+   leftmost of the four artwork slots off-screen, and cropping the other way would
+   cut the "TVA ORIGINAL" mark baked into the top-right of the art.
+   What ships instead: the scene always spans the full width — so all four slots
+   and the mark stay intact at every size — and is anchored to the BOTTOM of the
+   box. The artwork's own top edge is white (#fcfcfc, ~9/255 variation across its
+   width), so leftover height above it is invisible against the white section,
+   while the floor always meets the bottom of the screen. A scene taller than the
+   box simply overflows into that same white top area and is clipped there.
+   Ratio stays exactly 1671:871; nothing is stretched. */
+/* 2026-09-10 사장님 지적("모서리 책상 잘린다"): 위 70px 를 잘라 쓰던 것을 그만두고 그림(1671:941)을 통째로 화면(100svh−상단바) 안에 넣는다 — ONLY TVA·ABOUT 과 같은 '우리 비율' 무대. 남는 자리는 흰 여백. */
+@media(min-width:701px){
+  /* 그림은 화면 너비를 꽉 채운다(양옆 흰 여백·그림 가장자리 노출 없음). 화면이 낮아 다 못 들어가면 먼저 위를 자르고, 그래도 모자라면 바닥에서 자른다.
+     2026-09-12 실측(qa/fall-strip/zz-orig-toprows.mjs): 그림 윗부분 0~63행은 완전한 흰 여백(행마다 lum<250 픽셀 0개, 최소 밝기 250~254)이고
+     탁자 위 모서리의 첫 잉크는 64행이다. 그래서 위 한도를 2.17vw(=36원본px)에서 3.6vw(=60원본px)로 올린다 — 흰 여백만 더 자르므로 그림은 하나도 안 줄어든다.
+     그 대신 바닥 잘림이 줄어 1366×768 에서 보이는 아래 끝이 y883 → y907, 1280×720 은 y877 → y901 이 된다(캐릭터 발끝 잉크 끝은 y883).
+     위쪽 한도 3.6vw 는 첫 잉크(64행)보다 4원본px 위에서 멈춘다. 화면이 높으면 예전처럼 바닥을 아래에 붙인다. */
+  .original-table{--original-footer-space:0px;--scene-h:941;--scene-crop:0;padding:0;justify-content:flex-start}
+  .original-table__viewport{height:calc(100svh - var(--nav-height));overflow:hidden;display:block}
+  /* (2026-09-12 감사 #68) 폭을 무조건 화면에 맞추던 탓에, 화면이 낮으면 위 흰 여백(최대 60원본px)을
+     다 잘라도 남는 만큼이 그대로 바닥 밖으로 밀려 작업대 아랫단이 잘렸다.
+     고치기 전 실측(그림 밑단이 화면 밖으로): 1280x650 +100.7px · 1366x768 +28.1px · 1920x1020 +68.1px · 1920x1080 +8.1px.
+     (캐릭터 발끝 기준으로는 각각 +58.6 / -16.7 / +4.9 / -55.1 — 1366x768 은 발끝은 살고 탁자 밑단만 잘렸다.)
+     아래 자르기는 쓸 수 없다: 실측(zz-orig-toprows.mjs) 결과 윗줄 0~63행은 완전한 흰 여백이지만
+     860~940행은 행마다 1600~1671픽셀이 잉크라 1px 도 버릴 것이 없다.
+     그래서 '위 흰 여백 60px 까지만 자르고도 다 들어가는 폭'을 폭의 상한으로 둔다.
+       들어가는 높이 = 폭 x (941-60)/1671 = 폭 x 881/1671  →  폭 상한 = (화면높이-상단바) x 1671/881
+     화면이 충분히 높으면 min() 이 100% 를 골라 지금과 똑같이 화면 폭을 꽉 채운다(1440x900·2560x1440 은 값이 그대로다).
+     낮은 화면에서만 폭이 줄고 좌우에 흰 여백이 생기는 대신, 작업대 밑단이 늘 화면 안에 남는다.
+     margin-top 은 두 값 중 큰 쪽: 그림을 바닥에 붙였을 때의 값(= 상자높이 - 그림높이)과,
+     위 흰 여백을 60원본px 까지만 자르는 한도(= -(상자높이) x 60/881). 그림 비율 1671:941 은 그대로다. */
+  .original-table__scene{
+    width:min(100%, calc((100svh - var(--nav-height)) * 1671 / 881));
+    max-width:none;margin-inline:auto;
+    margin-top:max(calc((100svh - var(--nav-height)) * -60 / 881), calc(100svh - var(--nav-height) - 100% * 941 / 1671));
+  }
+  .original-table__footer{width:min(100%,1671px)}
+}
+
+/* Mobile pan: never leave a white strip on the right — 2026-09-09.
+   The phone view crops the same 1100px-wide worktable by panning it left
+   (left:50% + translateX(-72%)). That offset puts the scene's right edge at
+   50vw + 308px, which stops short of the viewport once the window is wider than
+   about 616px — at 700x900 it left a 42px white band on the right.
+   Same table size, same crop intent; the offset is just clamped so the scene can
+   never sit further left than "right edge flush with the viewport", and never
+   further right than 0. Below ~616px nothing changes at all. */
+
+
+/* Hover sway on the four worktable sheets — 2026-09-09.
+   Each sheet is painted hanging from a bulldog clip at the middle of its top
+   edge; original-slots.js sets transform-origin to that clip, so pointing at a
+   sheet makes it swing from the clip like paper catching a draught, not spin
+   about its centre. Desktop pointers only — the phone view has its own paper
+   stack whose transform is already in use, and coarse pointers have no hover.
+   Pointing at a sheet also lifts it: it grows ~3% and brightens, so it reads as
+   coming up toward the viewer.
+   The lift is scale-only on purpose. Each sheet is a cut-out of the very same
+   artwork that is still painted underneath it, so any motion that moves the
+   cut-out OFF its own footprint uncovers the painted original and shows a
+   doubled edge. Growing about the clip point never does: every point moves away
+   from that origin, so the enlarged sheet always contains where it just was. A
+   0.9 degree sway shifts a far corner about 6px sideways while 3% growth pushes
+   it ~12px outward, so the sway stays covered too. An upward translate was tried
+   and removed — it uncovered the bottom edge.
+   Lift and sway use the independent `scale` / `rotate` properties rather than
+   the `transform` shorthand, so the lift eases on its own timing while the sway
+   loops, and neither fights the `transform` the phone layout already uses.
+   No cast shadow: clipping is applied after filters, so a drop-shadow is cut
+   away with the overflow. Measured — drop-shadow(3px 9px 9px) changed 1 pixel
+   out of 189,033 — so it was removed rather than left as a no-op that still
+   costs a filter pass. */
+@media(min-width:701px) and (hover:hover) and (pointer:fine){
+  .original-table__work{
+    scale:1;
+    transition:scale 300ms cubic-bezier(.16,1,.3,1),filter 300ms ease;
+    will-change:scale,rotate,filter;
+  }
+  .original-table__work:hover,.original-table__work:focus-visible{
+    scale:1.032;
+    filter:brightness(1.05);
+    animation:original-sheet-sway 2.6s ease-in-out infinite;
+  }
+}
+@keyframes original-sheet-sway{
+  0%,100%{rotate:0deg}
+  20%{rotate:-.9deg}
+  55%{rotate:.7deg}
+  80%{rotate:-.3deg}
+}
+@media(prefers-reduced-motion:reduce){
+  .original-table__work:hover,.original-table__work:focus-visible{animation:none}
+}
+.reduced-motion .original-table__work:hover,.reduced-motion .original-table__work:focus-visible{animation:none}
+
+/* Landing target for the PORTFOLIO → ORIGINAL character bridge — 2026-09-09.
+   journey.js has always looked for `.original-host` as this section's character
+   (nativeCharacters[4]), but that element was deleted when ORIGINAL became the
+   painted worktable, so the bridge found no destination and the character simply
+   vanished with the portfolio screen instead of carrying over.
+   This puts the target back as an invisible box laid exactly over the character
+   painted into the art — measured from table-1671.webp at x1150–1610, y400–880,
+   expressed against the 1671x871 scene (which crops 70px off the top) so it
+   tracks the artwork at every size. The bridge runs the character here and hands
+   off to the painted one; nothing new is drawn, so there is still only ever one
+   character on screen. character-direction.js skips this mount via
+   data-character-landing-only.
+   The box is laid over where the character used to be painted, measured from
+   the original table-1671.webp at x1150-1610, y400-880.
+   character-direction.css sizes this mount for the OLD layout (128x140, pinned
+   to the section's bottom), so the attribute selector is repeated here to win. */
+.original-table__scene .original-host,
+.original-table__scene .original-host[data-character-direction]{
+  position:absolute;right:auto;bottom:auto;
+  left:66.607%;top:calc((402 - var(--scene-crop)) / var(--scene-h) * 100%);width:29.862%;height:calc(484 / var(--scene-h) * 100%);
+  z-index:5;pointer-events:none;
+}
+/* The sprite was cut straight out of this artwork (x1113-1612, y402-886 of the
+   1671x941 source), so filling this box puts it back exactly where it was
+   painted: same camera angle, same scale, feet on the same spot of floor. */
+.original-table__scene .original-host > img,
+.original-table__scene .original-host[data-character-direction] > img{
+  position:absolute;inset:0;width:100%;height:100%;max-width:none;
+  object-fit:fill;opacity:1;visibility:visible;
+}
+/* The cut dropped the character's painted cast shadow along with the rest of the
+   floor, so the contact is put back here as a soft ellipse under the shoes.
+   Sized off the shadow that was removed: measured on the artwork it centres at
+   (1380,858) of the 1671x941 source with radii about 190x62, and its core takes
+   the floor down by 90 levels. In this box's own units that is a 78%-wide ellipse
+   centred a little past the feet, at roughly 40% black in the middle. */
+.original-table__scene .original-host::before{
+  content:"";position:absolute;z-index:-1;
+  left:14%;top:80%;width:78%;height:27%;
+  background:radial-gradient(ellipse at 50% 50%,#322c2466 0%,#322c243a 42%,#322c2400 74%);
+  transform:rotate(-6deg);
+}
+
+/* Hold the character back until it has arrived — 2026-09-10.
+   Scrolling down, the ORIGINAL section slides into view a beat before journey.js
+   starts the PORTFOLIO→ORIGINAL run (measured: visible from frame 6, the run
+   begins at frame 8), so the resting character stood at the table before the
+   running one had set off. originals.js marks the section arrived once it has
+   settled — the same moment the running copy finishes — and only then does the
+   one at the table fade in. */
+.original-table__scene .original-host{opacity:0}
+.original-table__scene .original-host[data-arrived="true"]{opacity:1}
+/* The fall is on the sprite, not on the mount, so the contact shadow can stay on
+   the floor instead of flying up the table with him. A single eased transition
+   front-loaded almost all the motion — measured, it was done in 130ms and read as
+   a pop, not a fall. Keyframes instead: he hangs for a moment, accelerates down
+   like something dropping, dips just past the floor and settles back, while the
+   shadow tightens and darkens under him. */
+.original-table__scene .original-host > img{translate:0 -52%}
+.original-table__scene .original-host[data-arrived="true"] > img{
+  translate:0 0;
+  animation:original-character-drop 760ms cubic-bezier(.33,0,.2,1) both;
+}
+.original-table__scene .original-host::before{opacity:0}
+.original-table__scene .original-host[data-arrived="true"]::before{
+  opacity:1;
+  animation:original-character-contact 760ms cubic-bezier(.33,0,.2,1) both;
+}
+@keyframes original-character-drop{
+  0%{opacity:0;translate:0 -52%}
+  14%{opacity:1;translate:0 -44%}
+  62%{translate:0 2.4%}
+  78%{translate:0 -1.4%}
+  90%{translate:0 .5%}
+  100%{translate:0 0}
+}
+@keyframes original-character-contact{
+  0%{opacity:0;transform:rotate(-6deg) scale(1.22)}
+  14%{opacity:.28;transform:rotate(-6deg) scale(1.18)}
+  62%{opacity:1;transform:rotate(-6deg) scale(.94)}
+  100%{opacity:1;transform:rotate(-6deg) scale(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  .original-table__scene .original-host,
+  .original-table__scene .original-host[data-arrived="true"]{opacity:1}
+  .original-table__scene .original-host > img,
+  .original-table__scene .original-host[data-arrived="true"] > img{translate:0 0;animation:none}
+  .original-table__scene .original-host::before,
+  .original-table__scene .original-host[data-arrived="true"]::before{opacity:1;transform:rotate(-6deg);animation:none}
+}
+.reduced-motion .original-table__scene .original-host,
+.reduced-motion .original-table__scene .original-host[data-arrived="true"]{opacity:1}
+.reduced-motion .original-table__scene .original-host > img,
+.reduced-motion .original-table__scene .original-host[data-arrived="true"] > img{translate:0 0;animation:none}
+.reduced-motion .original-table__scene .original-host::before,
+.reduced-motion .original-table__scene .original-host[data-arrived="true"]::before{opacity:1;transform:rotate(-6deg);animation:none}
+
+/* Phone layout: the painted table, panned to one sheet at a time — 2026-09-10.
+   Two phone designs were tried and rejected: a deck of flat cards swapped by
+   swipe (pictures lying on each other), then a flat upright card changed by
+   scroll (a rectangle pasted onto a table drawn in perspective, its print cut at
+   the edges, a drawn-on clip). Neither looked like paper on a table because
+   neither was — the desktop's sheets ARE, they are painted lying on the table
+   in the artwork itself. So the phone now shows that same painted table and
+   simply slides it sideways so the chosen sheet sits in the middle of the
+   screen, one screen of scrolling per sheet, the way you would walk along it.
+   The sheets keep their painted clips, margins and shadows; a real image goes
+   on with the same perspective projection as on the desktop. The character is
+   parked in the viewport so he stays in view while the table moves. */
+@media(max-width:700px){
+  /* (2026-09-12 감사 #96) 착지하면 붙박이 세 덩이(제목판·그림상자·점)가 전부 화면 위쪽에 몰려
+     그 아래가 통째로 빈 흰 여백이었다. 고치기 전 실측(점 아래 흰 여백):
+     390x844 = 414px(화면의 49.1%) · 430x932 = 480px(51.5%) · 320x690 = 298px(43.2%).
+     세 덩이를 한 덩어리로 보고 화면 가운데에 둔다 — 남는 자리가 위아래로 갈리면서 아래쪽만 비는 일이 없어진다.
+     덩어리 높이 = 제목판 92 + 그림상자 --box-h + 점 64(위여백8 + 단추44 + 아래여백12).
+     --box-h 는 originals.js 가 넣으며, 같은 고침에서 장이 바뀌어도 값이 같아졌으므로 이 여백도 굴릴 때 움직이지 않는다. */
+  .original-table{min-height:calc(100svh * 3.2);padding-top:0;justify-content:flex-start;
+    --orig-head-h:92px;--orig-dots-h:64px;
+    --orig-stack-pad:max(0px, calc((100svh - var(--nav-height,64px) - var(--orig-head-h) - var(--box-h,min(400px,107vw)) - var(--orig-dots-h)) / 2))}
+  .original-table__mobile-heading{position:sticky;top:calc(var(--nav-height,64px) + var(--orig-stack-pad));z-index:2;background:var(--white,#fff);padding-top:24px;height:92px;box-sizing:border-box}
+  .original-table__viewport{position:sticky;top:calc(var(--nav-height,64px) + var(--orig-stack-pad) + var(--orig-head-h));height:var(--box-h,min(400px,107vw));max-height:400px}
+  .original-table__pages{position:sticky;top:calc(var(--nav-height,64px) + var(--orig-stack-pad) + var(--orig-head-h) + var(--box-h,min(400px,107vw)));bottom:auto;padding:8px 20px 12px;background:var(--white,#fff);}
+  .original-table__image{display:block}
+  .original-table__mobile-plate{display:none}
+  /* the scene is scaled and slid as one picture: --zoom/--pan-* come from
+     originals.js (whole table first, then each sheet); before JS runs the
+     default shows the table fitted to the width */
+  .original-table__scene{left:0;transform-origin:0 0;transform:translate(var(--pan-x,0px),var(--pan-y,0px)) scale(var(--zoom,calc(100vw / 1100)));will-change:transform}
+  .original-table__works{z-index:3}
+  /* the sheets are the painted ones: positioned by original-slots.js in scene
+     percentages, clipped to their paper, nothing drawn on top of them */
+
+}
+@media(max-width:700px) and (prefers-reduced-motion:reduce){.original-table__scene{transition:none}}
+
+/* The blue paperweight is its own layer — 2026-09-10.
+   It sits on the fourth sheet's corner with the character's hand on it. Painted
+   into the plate, it vanished as soon as a real image was projected into that
+   slot (the slot's image is the top layer there). So it is cut out of the plate
+   with its own alpha and laid over the slots at the very spot it was painted,
+   below the character (who comes later in the DOM at the same z-index) so the
+   hand stays on top. The plate underneath no longer carries it, so the sheet's
+   hover lift does not drag a second copy along. Position is the cut-out's box
+   in the 1671x871 scene (x1081-1166, y505-591 of the 941-tall art). */
+.original-table__scene .original-table__weight{position:absolute;left:64.692%;top:calc((505 - var(--scene-crop)) / var(--scene-h) * 100%);width:5.087%;height:calc(86 / var(--scene-h) * 100%);max-width:none;z-index:5;pointer-events:none;display:block}
+
+/* 가로로 든 휴대폰처럼 낮은 화면(높이 560px 이하)에서는 폭 기준으로만 키우면
+   작업대 아랫단과 캐릭터 발, 작품을 여는 단추가 화면 밖으로 나간다. 높이에도 맞춘다. */
+@media (min-width:701px) and (max-height:560px){
+  /* 장면 높이는 늘 폭의 0.563배(1671:941)다. 남은 세로 공간에 맞는 폭으로 줄여
+     작업대 아랫단·캐릭터 발·작품 단추가 전부 화면 안에 들어오게 한다. */
+  .original-table__scene{width:min(100%, calc((100svh - var(--nav-height,76px)) / 0.5631));margin:0 auto}
+}
+
+/* (2026-09-12 감사 #13) 세로 태블릿(768x1024·820x1180)에서 ORIGINAL 구역 위쪽이 통째로 빈 흰 칸이었다.
+   원인: 위 @media(min-width:701px) 규칙이 무대를 언제나 '상자 바닥'에 붙인다
+   (margin-top = 상자높이 - 무대높이). 가로 화면은 남는 높이가 13px 뿐이라 티가 안 나지만,
+   세로 태블릿은 상자가 훨씬 높아 남는 높이가 전부 위로 몰린다.
+   고치기 전 실측(qa/fall-strip/v2-original.mjs, 상단바 아래 흰 칸):
+     768x1024 = 515px · 820x1180 = 642px  (가로 1440x900 은 13px 로 정상)
+   1671:941 무대를 0.75:1 화면에 넣으면 높이의 절반가량이 남는 것은 비율상 피할 수 없다
+   (폭 768px 이면 무대 높이 432px, 상자 높이 948px → 남는 높이 516px). 무대를 키워 채우려면
+   좌우를 457px 씩 잘라야 하는데 그러면 작품 네 장과 'TVA ORIGINAL' 마크가 화면 밖으로 나간다.
+   그래서 '없애기'가 아니라 '가운데 두기'로 고친다 — 남는 자리를 위아래로 반씩 나눠,
+   정본이 적어 둔 '남는 자리는 흰 여백'(2026-09-10) 모양 그대로 무대를 흰 여백이 감싸게 한다.
+   무대 비율 1671:941 · 폭 100% · 캐릭터 발끝은 그대로다.
+   세로 화면(가로세로비 1 이하)에서만 걸리므로 가로·데스크톱(1440x900)과 폰(max-width:700px)의
+   값은 하나도 바뀌지 않는다. 아래 max() 의 첫 항은 위쪽 흰 여백을 60원본px 넘게 자르지 않는
+   기존 한도로, 위 규칙과 똑같이 남겨 둔다. */
+@media (min-width:701px) and (max-aspect-ratio:1/1){
+  .original-table__scene{
+    margin-top:max(
+      calc((100svh - var(--nav-height)) * -60 / 881),
+      calc((100svh - var(--nav-height) - 100% * 941 / 1671) / 2)
+    );
+  }
+}
