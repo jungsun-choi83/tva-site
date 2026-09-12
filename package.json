@@ -1,0 +1,26 @@
+{
+  "name": "tva-site",
+  "version": "1.0.0",
+  "description": "반려동물과 함께한 기억을 Soul Trace 앱에 기록하고, 전용 홀로그램 기기(Eternal Beam) 안에 콘텐츠 아카이브로 남기는 브랜드의 한 장짜리 소개 사이트입니다.",
+  "scripts": {
+    "check": "node qa-check.mjs",
+    "capture": "node audit/capture.mjs capture",
+    "serve": "python3 -m http.server 8000"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jungsun-choi83/tva-site.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jungsun-choi83/tva-site/issues"
+  },
+  "homepage": "https://github.com/jungsun-choi83/tva-site#readme",
+  "devDependencies": {
+    "pixelmatch": "^7.2.0",
+    "pngjs": "^7.0.0"
+  },
+  "private": true
+}

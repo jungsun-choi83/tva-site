@@ -1,49 +1,69 @@
-# TVA studio
+# Eternal Beam — 홈페이지
 
-Six-page local implementation: MAIN → DROP → ABOUT → PORTFOLIO → ORIGINAL → CONTACT → ENDING. DROP is a transition, not an extra menu page.
+반려동물과 함께한 기억을 Soul Trace 앱에 기록하고, 전용 홀로그램 기기(Eternal Beam) 안에
+콘텐츠 아카이브로 남기는 브랜드의 한 장짜리 소개 사이트입니다.
 
-## Preview
+빌드 도구·패키지·번들러·프레임워크가 없습니다. 정적 파일 그대로 올리면 됩니다.
 
-Open http://127.0.0.1:18768/ on this computer. Start the server if needed:
+## 보는 방법
 
-```sh
-python3 -m http.server 18768 --bind 127.0.0.1 --directory /Users/mac/Documents/Codex/2026-09-04/x20/outputs/tva-studio
-```
-
-No build, package installation, bundler or framework is needed. Use an HTTP server; file:// cannot load the ES modules. The former `tva-on-air-mvp` and source gallery/QA tasks were not changed.
-
-After source edits, use a hard refresh or fresh browser context to discard cached ES modules. The verification run starts from a fresh context.
-
-## Included
-
-- Existing blue main graphic and television, live WebGL signal modes and typography particles.
-- Scroll-driven fall into a four-screen-wide, six-stop studio introduction. Four working paper/plan/material interactions, original CRT character poses, keyboard movement and reduced-motion linear layout.
-- Existing concave gallery geometry and source images, bounded wheel rendering, searchable/filterable/sortable grid and list, details and contextual inquiries.
-- Four separately addressable imported-work folios. Their roles are import, not self-created IP.
-- QA-derived envelope, seven-field letter, required-field checks, contextual inquiry, current-tab draft preservation, local download/copy, explicitly simulated courier delivery.
-- White portfolio-and-later surfaces, English navigation from ABOUT onward, no NOTICE page, state-preserving ending replay. The mobile motion preference control is in the footer; system reduced-motion preference is honored immediately.
-
-## Content and service boundaries
-
-The eight photographs are explicitly labelled local visual studies, not verified TVA client projects. Replace records in `portfolio-data.js` with the actual project inventory and approved assets in `gallery-assets/`. Categories derive from the records. Do not remove the demo disclosure before real company data is loaded.
-
-The four imported works await their official title, creator, artwork and import details. The four folios and deep links work now; `originals.js` is the content entry point. No invented title or creator is represented as real.
-
-The letter does not send email, post to an API or persist personal data to storage. It lives in the current document only, survives navigation/replay, and is lost on reload. Download/copy are explicit actions. A real receiving address, delivery backend, consent/privacy copy and error monitoring must be supplied before public launch. Google Fonts is the only external visual dependency.
-
-## Verification
-
-`qa/report.json` records browser workflow observations bound to source hashes, with desktop/tablet/mobile screenshots. `qa/capacity.json` records the isolated 100-record fixture check; it does not add sample records to the product.
-
-`qa/edge-cases.json` records inertia, whitespace validation, simulated clipboard denial, cross-filter shared inquiry, browser-back draft preservation and cancellation while the envelope is opening. The contact module exposes `closeForNavigation()` for the coordinator to dismiss an open or opening letter without clearing its fields.
-
-Current verified source passed58 surface observations, eight edge observations,30 captures, the isolated100-record fixture and a fresh live smoke path. `qa/independent-reviews.md` preserves the two independent source-bound PASS verdicts. This is a local implementation handoff, not a production publication or real-mail completion claim.
+폴더 안에서 작은 서버를 띄우고 브라우저로 엽니다.
 
 ```sh
-node qa/check.mjs
-node qa/verify-evidence.mjs
+python3 -m http.server 8000
+# http://127.0.0.1:8000/
 ```
 
-The second command uses the installed Playwright CLI skill wrapper and performs a new live smoke path. Override `TVA_PLAYWRIGHT_CLI` if that wrapper is in a different location. `qa/surface.js` and `qa/capacity.js` are rerunnable browser-verification drivers, not production code.
+`index.html` 을 두 번 눌러 여는 방식(`file://`)은 안 됩니다. 화면을 만드는 파일들이
+ES 모듈로 서로를 불러오기 때문에 반드시 HTTP 로 띄워야 합니다.
 
-Device screenshots are Chrome viewport emulation. Physical iPhone/Safari, a production mail workflow and Lighthouse scores are not claimed. TypeScript/Biome language servers are absent and were not installed; native syntax and live browser checks are used.
+소스를 고친 뒤에는 강력 새로고침(또는 새 시크릿 창)으로 캐시된 모듈을 버리십시오.
+
+## 화면 순서
+
+`MAIN → DROP → ABOUT → RECORDS → ORIGINAL → CONTACT → ENDING` 일곱 구역이
+한 문서 안에 이어져 있습니다. DROP 은 메뉴에 없는 전환 구간입니다.
+
+| 구역 | id | 내용 |
+| --- | --- | --- |
+| MAIN | `#home` | 기기 키비주얼, 채널 4개(INTRO / WHO WE ARE / ARCHIVE / CONTACT) |
+| DROP | `#drop` | 소파로 떨어지는 전환 연출 (상단 메뉴 없음) |
+| ABOUT | `#about` | 가로로 이어지는 7칸 — 01 회사소개 · 02 LETTER · 03 IDENTITY · 04 HOLOGRAM DISPLAY · 05 MOTION · 06 ARCHIVE · 07 모든 과정 |
+| RECORDS | `#portfolio` | iframe 안의 오목한 수레바퀴 갤러리 (`gallery-original/`) |
+| ORIGINAL | `#original` | 책상 위 네 칸 — LETTER · IDENTITY · HOLOGRAM · ARCHIVE |
+| CONTACT | `#contact` | 편지지 문의 양식 |
+| ENDING | `#ending` | 거실 장면, 처음으로 돌아가기 |
+
+상단 메뉴는 ABOUT · RECORDS · ORIGINAL · CONTACT 네 개입니다. MAIN 과 ENDING 에서는
+메뉴가 접히고, DROP 은 메뉴에 없는 구간입니다.
+
+## 배포 전에 확인할 것
+
+- **도메인**: `https://device.eternalbeam.com` 기준으로 `index.html` 의 canonical·OG·
+  JSON-LD, `sitemap.xml`, `robots.txt` 가 모두 절대 주소로 적혀 있습니다. 주소가 바뀌면
+  이 네 파일을 함께 고치십시오.
+- **문의**: 보내기는 방문자의 메일 앱에 편지를 담아 주는 `mailto:` 동작입니다. 서버로
+  보내지도, 저장하지도 않습니다. 받는 주소는 `contact-letterbox.js` 의 `MAIL` 한 곳입니다.
+  실제 접수 백엔드를 붙이면 `privacy.html` 의 '처리 위탁' 줄도 같이 고쳐야 합니다.
+- **RECORDS 자료**: 지금 걸린 사진과 분류는 **예시**입니다. 실제 자료는
+  `gallery-original/shared/galleries.mjs` 의 `categories` 한 곳에서 채웁니다.
+  화면에도 예시임을 알리는 띠가 떠 있습니다 — 실제 자료를 넣기 전에는 지우지 마십시오.
+- **ORIGINAL 자료**: `original-works.js` 의 네 줄만 채우면 상세창이 저절로 채워집니다.
+- **회사 표기**: 대표자·사업자등록번호·주소·연락처는 확정된 값이 없어 비어 있습니다.
+  `index.html` 의 `.site-footer` 와 JSON-LD 에 채우십시오.
+- **외부 의존**: Google Fonts 와 jsDelivr(Pretendard) 두 곳입니다. 둘 다 없어도 본문은
+  OS 글꼴로 읽힙니다.
+
+## 배포에 올리지 않는 것
+
+정적 호스팅에 올릴 때는 아래를 빼십시오. 사이트가 부르지 않는 파일입니다.
+
+- `tools/` — 그림을 굽는 작업용 스크립트와 중간 프레임 (약 79MB)
+- `정본_안내.md`, `읽어주세요.md` — 내부 작업 기록
+- `at-tva-before.png` — 작업 중 찍어 둔 화면 캡처
+
+## 점검
+
+```sh
+node qa-check.mjs      # 끊긴 링크·없는 파일·자리표시자 남은 곳 확인
+```

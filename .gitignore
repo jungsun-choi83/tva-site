@@ -9,3 +9,8 @@ Thumbs.db
 # GitHub 100MB 제한을 넘는 낙하 루프 영상
 sofa-journey/assets/bg/hx-vortex-loop.mp4
 sofa-journey/assets/bg/hx-vortex-loop.webm
+
+# 감사용 캡처(용량이 크다)
+audit/screenshots/
+node_modules/
+package-lock.json
