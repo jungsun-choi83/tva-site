@@ -972,10 +972,21 @@
 ### #N07 캐싱·압축 설정 파일이 저장소에 없다
 - 기기: 공통 | 유형: 결함 | 체크: N9 | 위치: 저장소 루트
 - 증거: `_headers`·`netlify.toml`·`vercel.json`·`.htaccess` 등 어떤 호스팅 설정도 없다. 로컬 측정에서 같은 URL 의 그림이 2~4회 재요청된 것도 `Cache-Control` 부재 때문 | 신뢰도: 실측+코드
-- 개선안: 호스팅에 맞는 캐시 헤더 파일 추가 — `assets/**` 는 `max-age=31536000, immutable`(모든 파일에 `?v=` 가 붙어 있어 안전), HTML 은 `no-cache`
-- 부작용·주의: 어떤 호스팅을 쓰는지 몰라 파일 형식을 정할 수 없다 → `QUESTIONS.md` Q-10
-- 보류 사유: 호스팅을 모르면 캐시 헤더 파일 형식(`_headers`·`netlify.toml`·`nginx.conf`…)을 정할 수 없다 → Q-10.
-- 우선순위: P1 | 난이도: S | 상태: 보류
+- 개선안: 호스팅에 맞는 캐시 헤더 파일 추가 — 그림·영상은 `max-age=31536000, immutable`, HTML 은 매번 확인.
+- **2026-09-13: 사장님이 Vercel 로 정하셔서(Q-10 답) `vercel.json` 에 넣었다.**
+  - `/assets/**` `/gallery-assets/**` `/gallery-original/assets/**` `/sofa-journey/assets/**`
+    `/room-entry/**` `/vendor/**` → `public, max-age=31536000, immutable` (1년)
+  - 뿌리의 `.css`·`.js`·`.mjs` → `public, max-age=600, must-revalidate` (10분).
+    **일부러 1년으로 하지 않았다** — 이 파일들도 `?v=` 로 부르지만 판 번호 올리는 것을 잊으면
+    1년 동안 옛 코드가 나간다. 실제로 이번 감사에서 그 일이 있었다(#N09). 10분이면 잊어도 저절로 낫는다.
+    전송량의 대부분은 그림이라 1년 캐시의 이득은 그대로 가져간다.
+  - `.html` 과 `/` → `max-age=0, must-revalidate` · `sitemap.xml`·`robots.txt` → 1시간
+- 확인 기준: `vercel.json` 이 올바른 JSON 이고 그림 경로에 1년 캐시 규칙이 들어 있을 것
+- 부작용·주의: 그림을 **같은 이름으로 덮어쓰면** 1년 동안 옛 그림이 나간다.
+  그림을 바꿀 때는 파일 이름이나 `?v=` 를 함께 바꿔야 한다.
+- 우선순위: P1 | 난이도: S
+- 상태: 수정됨 | 재측정: `vercel.json` JSON 문법 확인 · 규칙 10개(자산 6 + 코드 1 + HTML 2 + 색인 1).
+  `.vercelignore` 에 내부 기록(`audit`·`정본_안내.md`·`읽어주세요.md`·`qa-check.mjs`·`package.json`)을 더해 배포에서 뺐다
 
 ### #P01 지원 브라우저 범위가 정의돼 있지 않고 `@supports` 분기가 없다
 - 기기: 공통 | 유형: 결함 | 체크: P1, P2 | 위치: 저장소 전역

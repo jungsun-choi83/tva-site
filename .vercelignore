@@ -4,3 +4,10 @@ node_modules
 .cursor
 sofa-journey/assets/bg/hx-vortex-loop.mp4
 sofa-journey/assets/bg/hx-vortex-loop.webm
+
+# 2026-09-13: 사이트가 부르지 않는 내부 기록은 올리지 않는다 (README.md '배포에 올리지 않는 것' 과 같은 목록)
+audit
+정본_안내.md
+읽어주세요.md
+qa-check.mjs
+package.json
