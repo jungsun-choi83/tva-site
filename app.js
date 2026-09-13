@@ -1,11 +1,11 @@
-import { initEnding } from './ending.js?v=eb-20260913b';
-import {initNavShelf} from './nav-shelf.js?v=eb-20260913';
+import { initEnding } from './ending.js?v=eb-20260914';
+import {initNavShelf} from './nav-shelf.js?v=eb-20260914';
 import { initPortfolio } from './portfolio.js?v=eb-20260914';
 import { initContact } from './contact-letterbox.js?v=eb-20260913';
-import { initJourney } from './journey.js?v=eb-20260913';
+import { initJourney } from './journey.js?v=eb-20260914';
 import { initOriginals } from './originals.js?v=eb-20260913';
 import { initHeroOriginal } from './hero-original.js?v=eternal-beam-r25';
-import { initCharacterDirection } from './character-direction.js?v=eb-20260913';
+import { initCharacterDirection } from './character-direction.js?v=eb-20260914';
 
 // 새로고침 위치를 브라우저와 사이트가 서로 다르게 되돌려 어디에 설지 브라우저마다 달랐다.
 // 되돌리는 주체를 사이트 하나로 모은다. (index.html 머리에도 같은 줄을 넣어 달라고 요청해 둠)

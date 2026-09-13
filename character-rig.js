@@ -5,8 +5,8 @@ let sequence = 0;
 // 소매 길이가 달랐다. 반소매 판(walk-a)으로 맞춘다 — 이제 walk1·walk2 는 어디서도 쓰지 않는다.
 // 주의: 아래 clip-path 좌표는 walk1 그림을 보고 손으로 그린 것이다. 이 인형은 현재 화면에
 //       나오지 않지만(붙는 .ending-mascot 이 0x0), 다시 살릴 때는 좌표를 다시 맞춰야 한다.
-const runUrl = new URL('./assets/goya/walk-a.png?v=eternal-beam-r51', import.meta.url);
-const idleUrl = new URL('./assets/goya/idle.png?v=eternal-beam-r51', import.meta.url);
+const runUrl = new URL('./assets/goya/walk-a.png?v=eb-20260914', import.meta.url);
+const idleUrl = new URL('./assets/goya/idle.png?v=eb-20260914', import.meta.url);
 const runSource = runUrl.href;
 const idleSource = idleUrl.href;
 

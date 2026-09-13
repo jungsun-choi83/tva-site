@@ -1,5 +1,5 @@
-import { createCharacterRig } from './character-rig.js?v=eb-20260913';
-import { createArtActor } from './fall-welcome/actor.js?v=eb-20260913';
+import { createCharacterRig } from './character-rig.js?v=eb-20260914';
+import { createArtActor } from './fall-welcome/actor.js?v=eb-20260914';
 
 const ACTS = {
   plan: { role: 1, label: 'planning', direction: 1 },

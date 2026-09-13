@@ -40,7 +40,7 @@ export function initEnding({ onComplete, canComplete, onNav }) {
     if (loading || reduced || unavailable) return loading;
     section.dataset.renderer = 'loading';
     rendererStatus.textContent = '마지막 장면을 준비하고 있습니다…';
-    loading = import('./ending-scene-r15.js?v=eb-20260913b').then(module => module.createEndingScene(canvas)).then(value => {
+    loading = import('./ending-scene-r15.js?v=eb-20260914').then(module => module.createEndingScene(canvas)).then(value => {
       scene = value;
       scene.resize(width, height);
       section.dataset.renderer = 'ready';

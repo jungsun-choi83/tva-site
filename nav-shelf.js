@@ -11,14 +11,14 @@ const BASE = 'assets/goya/';
 //   top·bot 은 '몸 높이 = --shelf-body' 가 되도록: 화면에 그려지는 잉크 높이를 idle 과 같게 맞춘 값
 //   fy 는 발이 닿는 선을 idle 과 같게 맞춘 값 (전에는 걸을 때 발이 2.6px 더 내려가 있었다)
 const POSES = {
-  run1: { f: 'walk-a.png?v=eternal-beam-r51', fx: .50, fy: .918, top: .068, bot: .932 },
-  run2: { f: 'walk-b.png?v=eternal-beam-r51', fx: .50, fy: .918, top: .068, bot: .932 },
-  run3: { f: 'walk-c.png?v=eternal-beam-r51', fx: .50, fy: .918, top: .068, bot: .932 },
-  run4: { f: 'walk-d.png?v=eternal-beam-r51', fx: .50, fy: .918, top: .068, bot: .932 },
-  brake1: { f: 'idle.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
-  brake2: { f: 'sit.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
-  idle: { f: 'idle.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
-  wave: { f: 'idle.png?v=eternal-beam-r51', fx: .50, fy: .94, top: .05, bot: .96 },
+  run1: { f: 'walk-a.png?v=eb-20260914', fx: .50, fy: .918, top: .068, bot: .932 },
+  run2: { f: 'walk-b.png?v=eb-20260914', fx: .50, fy: .918, top: .068, bot: .932 },
+  run3: { f: 'walk-c.png?v=eb-20260914', fx: .50, fy: .918, top: .068, bot: .932 },
+  run4: { f: 'walk-d.png?v=eb-20260914', fx: .50, fy: .918, top: .068, bot: .932 },
+  brake1: { f: 'idle.png?v=eb-20260914', fx: .50, fy: .94, top: .05, bot: .96 },
+  brake2: { f: 'sit.png?v=eb-20260914', fx: .50, fy: .94, top: .05, bot: .96 },
+  idle: { f: 'idle.png?v=eb-20260914', fx: .50, fy: .94, top: .05, bot: .96 },
+  wave: { f: 'idle.png?v=eb-20260914', fx: .50, fy: .94, top: .05, bot: .96 },
 };
 const RUN = ['run1', 'run2', 'run3', 'run4'];
 // 감사 #7·#102: 멈춘 뒤 브레이크·인사 동작을 보여 주는 시간(ms). 이 시간이 지나면 루프를 재운다.

@@ -591,9 +591,9 @@ export async function createEndingScene(canvas){
   if(!(canvas instanceof HTMLCanvasElement))throw new TypeError('createEndingScene(canvas) requires a canvas element.');
   const [roomTexture,sourceMascot,homeTexture,spriteIdle,spriteWave1,spriteWave2,spriteRun1,spriteRun2,spriteRun3,spriteRun4,spriteRun5,spriteRun6,spriteReach]=await Promise.all([
     loadTexture('./assets/ending/r10-image-first/room-lab-v1.webp?v=eternal-beam-r74'),loadTexture('./assets/ending/r10-image-first/character-original-v3/01-front.webp'),loadTexture('./assets/hero/beam-device-1920x1080.png?v=eternal-beam-r31'),
-    loadTexture('./assets/goya/idle.png?v=eternal-beam-r51'),loadTexture('./assets/goya/idle.png?v=eternal-beam-r51'),loadTexture('./assets/goya/sit.png?v=eternal-beam-r51'),
-    loadTexture('./assets/goya/walk-a.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-b.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-a.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-b.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-a.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-b.png?v=eternal-beam-r51'),
-    loadTexture('./assets/goya/present.png?v=eternal-beam-r102'),
+    loadTexture('./assets/goya/idle.png?v=eb-20260914'),loadTexture('./assets/goya/idle.png?v=eb-20260914'),loadTexture('./assets/goya/sit.png?v=eb-20260914'),
+    loadTexture('./assets/goya/walk-a.png?v=eb-20260914'),loadTexture('./assets/goya/walk-b.png?v=eb-20260914'),loadTexture('./assets/goya/walk-a.png?v=eb-20260914'),loadTexture('./assets/goya/walk-b.png?v=eb-20260914'),loadTexture('./assets/goya/walk-a.png?v=eb-20260914'),loadTexture('./assets/goya/walk-b.png?v=eb-20260914'),
+    loadTexture('./assets/goya/present.png?v=eb-20260914'),
   ]);
   const face=cropFace(sourceMascot);
   // r18: USE_SPRITE_MASCOT=false — the drawn-sprite walk cycle below is fully retired. The 3D hero (createMascot)

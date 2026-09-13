@@ -1,0 +1,59 @@
+{
+ "label": "goya-final",
+ "base": "http://127.0.0.1:18768",
+ "ranAt": "2026-09-13T02:13:56.103Z",
+ "폭": {
+  "320x568": {
+   "콘솔에러": [
+    "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED",
+    "Failed to load resource: net::ERR_CONNECTION_RESET"
+   ],
+   "페이지에러": [],
+   "내부실패요청": [],
+   "가로넘침px": 0,
+   "문서높이": 17381,
+   "맨아래도달": false,
+   "상단바캐릭터": "none",
+   "메뉴잘림": []
+  },
+  "390x844": {
+   "콘솔에러": [
+    "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED",
+    "Failed to load resource: net::ERR_CONNECTION_RESET"
+   ],
+   "페이지에러": [],
+   "내부실패요청": [],
+   "가로넘침px": 0,
+   "문서높이": 25148,
+   "맨아래도달": false,
+   "상단바캐릭터": "none",
+   "메뉴잘림": []
+  },
+  "768x1024": {
+   "콘솔에러": [
+    "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED",
+    "Failed to load resource: net::ERR_CONNECTION_RESET"
+   ],
+   "페이지에러": [],
+   "내부실패요청": [],
+   "가로넘침px": 0,
+   "문서높이": 29878,
+   "맨아래도달": false,
+   "상단바캐릭터": "block",
+   "메뉴잘림": []
+  },
+  "1440x900": {
+   "콘솔에러": [
+    "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED",
+    "Failed to load resource: net::ERR_CONNECTION_RESET"
+   ],
+   "페이지에러": [],
+   "내부실패요청": [],
+   "가로넘침px": 0,
+   "문서높이": 30822,
+   "맨아래도달": false,
+   "상단바캐릭터": "block",
+   "메뉴잘림": []
+  }
+ }
+}

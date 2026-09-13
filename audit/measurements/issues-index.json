@@ -994,5 +994,29 @@
   "st": "수정됨",
   "loc": "`gallery-original/shared/base.css` `--g02-icon-folder-*`, `galleries.css` `.g02-category__label`",
   "fix": "서랍이라는 비유는 그대로 두고 색만 브랜드 쪽으로 옮긴다. 테두리·그림자도 함께"
+ },
+ {
+  "id": "G01",
+  "title": "캐릭터 그림 둘레에 배경색이 그대로 남아 분홍 후광이 생긴다",
+  "cat": "G",
+  "dev": "공통",
+  "typ": "결함",
+  "pri": "P2",
+  "dif": "M",
+  "st": "수정됨",
+  "loc": "`assets/goya/*.png` 9장, 만든 곳은 `tools/r20-apply.mjs` `keyMagenta`",
+  "fix": "털의 황갈색과 배경의 코랄을 **초록·파랑 차이**로 가른다"
+ },
+ {
+  "id": "G02",
+  "title": "낙하 네 컷이 바이트까지 같은 그림 하나다 (같은 파일을 네 번 내려받는다)",
+  "cat": "G",
+  "dev": "공통",
+  "typ": "결함",
+  "pri": "P1",
+  "dif": "S",
+  "st": "수정됨",
+  "loc": "`sofa-journey/actor.js` `GOYA`, `assets/goya/goya-fall-*.png`",
+  "fix": "네 자리를 같은 파일 하나로 가리킨다. **이름(자세) 구분은 그대로 두어**, 진짜 네 컷이"
  }
 ]

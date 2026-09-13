@@ -491,7 +491,7 @@ function init02() {
   const puller = stage.querySelector('.g02-puller');
   const previousButton = stage.querySelector('.g02-nav--prev');
   const nextButton = stage.querySelector('.g02-nav--next');
-  const GOYA_V = 'eternal-beam-r51';
+  const GOYA_V = 'eb-20260914';
   const goyaSrc = file => new URL(`../../assets/goya/${file}?v=${GOYA_V}`, import.meta.url).href;
   const GOYA_BY_POSE = Object.freeze({
     read: 'idle.png',

@@ -1,0 +1,52 @@
+{
+ "label": "goya-decon2",
+ "base": "http://127.0.0.1:18768",
+ "ranAt": "2026-09-13T02:13:48.992Z",
+ "머무는초": 9,
+ "transfer합MB": 28.67,
+ "contentLength합MB": 28.67,
+ "요청수": 117,
+ "큰것": [
+  {
+   "파일": "goya-fall-surprise.png",
+   "KB": 1383
+  },
+  {
+   "파일": "three.module.js",
+   "KB": 1192
+  },
+  {
+   "파일": "sit.png",
+   "KB": 1143
+  },
+  {
+   "파일": "photocard-insert-a.png",
+   "KB": 973
+  },
+  {
+   "파일": "letter-sheet.png",
+   "KB": 958
+  },
+  {
+   "파일": "goya-girl-buddy-sit.png",
+   "KB": 904
+  },
+  {
+   "파일": "lookup.png",
+   "KB": 895
+  },
+  {
+   "파일": "point.png",
+   "KB": 891
+  },
+  {
+   "파일": "usher.png",
+   "KB": 880
+  },
+  {
+   "파일": "idle.png",
+   "KB": 847
+  }
+ ],
+ "낙하영상": []
+}

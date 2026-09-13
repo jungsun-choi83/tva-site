@@ -1,4 +1,4 @@
-import {createFallingActor} from './actor.js?v=eb-20260913';
+import {createFallingActor} from './actor.js?v=eb-20260914';
 import {createHallucinationVortex} from './vortex.js?v=eternal-beam-r49';
 import {installSignalVeil} from './veil.js?v=fall-lab-54.hc254e7b1';
 import {TYPE_CHUNKS, TYPE_STARS} from './type-layout.js?v=fall-lab-54.h87786693';
