@@ -198,7 +198,8 @@ function init() {
   let arrivedAt = 0, lastArrivedStation = -1, wasWalking = false;
   let lastTime = 0;
   const SPEED = STRIP.PANEL * 0.55;   // 초당 이동(띠 px): 화면의 약 절반을 1초쯤에 걸어 간다
-  const WALK_FRAME_MS = 110;
+  // 2026-09-13: 컷 간격 110ms → 80ms. 한 걸음(2컷)이 160ms 라 초당 여섯 걸음쯤 — '총총총' 하는 잔걸음이 된다.
+  const WALK_FRAME_MS = 80;
   function stationDistance(index) {
     const el = track.children[clamp(index, 0, STOPS.length - 1)];
     return clamp(el ? el.offsetLeft : 0, 0, L.travel);
@@ -414,8 +415,14 @@ function init() {
     const lift = arrived && target.lift ? target.lift * STRIP.H * L.s : 0;   // 받침대 위에 선 칸
     const top = (arrived && target.seat ? L.top + target.ground * STRIP.H * L.s - hpx * SEATF : floorTop) - lift;
     let cx = L.offset + charX * L.s - L.k * distance;
-    const bob = walking ? Math.abs(Math.sin(now / WALK_FRAME_MS * Math.PI)) * hpx * .05 : 0;
-    const lean = walking ? (facing > 0 ? -8 : 8) : 0;
+    // 2026-09-13 사장님 요청("총총총 걸어가는 모습"): 걷기 그림 4컷(walk-a~d)은 실측해 보면
+    // 다리 자세가 서로 거의 같다 — 컷만 돌리면 걸음이 아니라 미끄러지는 것처럼 보인다.
+    // 그래서 걸음은 그림이 아니라 '움직임'으로 만든다.
+    //   한 걸음 = 2컷(=WALK_FRAME_MS×2). 걸음마다 작게 통통 튀고(bob), 몸이 살짝 기울었다 돌아온다(lean).
+    //   예전에는 컷마다(110ms) 튀고 기울기는 8도로 고정이라, 몸이 기운 채 미끄러지는 모습이었다.
+    const stepPhase = now / (WALK_FRAME_MS * 2) * Math.PI;      // 한 걸음의 위상
+    const bob = walking ? Math.abs(Math.sin(stepPhase)) * hpx * .038 : 0;
+    const lean = walking ? (facing > 0 ? -1 : 1) * (3.2 + Math.sin(stepPhase * 2) * 1.6) : 0;
     if (poseName !== lastPoseName) { host.style.transition = 'none'; requestAnimationFrame(() => { host.style.transition = ''; }); lastPoseName = poseName; }
     host.style.left = `${(cx - (PM.bodyL + PM.bodyR) / 2 * sPx).toFixed(2)}px`;
     host.style.top = `${top.toFixed(2)}px`;

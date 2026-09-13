@@ -276,6 +276,18 @@
   "fix": "`styles.css` 한 곳에서만 정의한다. `--nav-height` 는 `styles.css` 로 통일,"
  },
  {
+  "id": "F02",
+  "title": "ABOUT 옆 칸으로 넘어갈 때 캐릭터가 걷지 않고 미끄러진다",
+  "cat": "F",
+  "dev": "데스크톱(≥761px)",
+  "typ": "결함",
+  "pri": "P3",
+  "dif": "S",
+  "st": "수정됨",
+  "loc": "`about-walk.js` `WALK_FRAME_MS` · `frame()` 의 `bob`·`lean`",
+  "fix": "그림을 다시 그리지 않고 **움직임으로 걸음을 만든다**."
+ },
+ {
   "id": "A08",
   "title": "마지막 거실 장면에서 아이와 시바가 소파 '등받이 위'에 걸터앉아 있다",
   "cat": "A",
