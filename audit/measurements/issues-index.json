@@ -1018,5 +1018,17 @@
   "st": "수정됨",
   "loc": "`sofa-journey/actor.js` `GOYA`, `assets/goya/goya-fall-*.png`",
   "fix": "네 자리를 같은 파일 하나로 가리킨다. **이름(자세) 구분은 그대로 두어**, 진짜 네 컷이"
+ },
+ {
+  "id": "G03",
+  "title": "자세마다 재기로 한 값이 실제로는 하나로 고정되어 있다",
+  "cat": "G",
+  "dev": "공통",
+  "typ": "결함",
+  "pri": "P2",
+  "dif": "M",
+  "st": "보류(도구·측정값은 준비됨) → `QUESTIONS.md` Q-13",
+  "loc": "`about-walk.js:28-29`",
+  "fix": "`tools/intake-character.mjs` 가 만든 `assets/goya/manifest.json` 의 자세별 값을 쓴다."
  }
 ]

@@ -1,0 +1,347 @@
+{
+ "schemaVersion": 1,
+ "kind": "independent-pose-sequence",
+ "measuredAt": "2026-09-13T03:39:11.726Z",
+ "measuredBy": "tools/intake-character.mjs",
+ "note": "footAnchor 는 바닥에 닿는 점(y=실루엣 맨 아래, x=맨 아래 2% 띠의 가로 무게중심), bodyAnchor 는 위쪽 55% 구간의 무게중심. metrics 는 about-walk.js 가 자세끼리 크기를 맞출 때 쓰는 캔버스 픽셀 값이다.",
+ "poses": {
+  "archive": {
+   "file": "archive.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.6666,
+    "y": 0.9872
+   },
+   "bodyAnchor": {
+    "x": 0.4629,
+    "y": 0.342
+   },
+   "bounds": {
+    "left": 0.2041,
+    "top": 0.0128,
+    "right": 0.7967,
+    "bottom": 0.9872
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 449,
+    "bodyR": 748,
+    "bodyT": 16,
+    "shoeB": 1238
+   }
+  },
+  "idle": {
+   "file": "idle.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.6259,
+    "y": 0.9872
+   },
+   "bodyAnchor": {
+    "x": 0.4314,
+    "y": 0.3289
+   },
+   "bounds": {
+    "left": 0.2416,
+    "top": 0.0128,
+    "right": 0.7584,
+    "bottom": 0.9872
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 387,
+    "bodyR": 672,
+    "bodyT": 16,
+    "shoeB": 1238
+   }
+  },
+  "letter": {
+   "file": "letter.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.3179,
+    "y": 0.9872
+   },
+   "bodyAnchor": {
+    "x": 0.5101,
+    "y": 0.3336
+   },
+   "bounds": {
+    "left": 0.1994,
+    "top": 0.0128,
+    "right": 0.8022,
+    "bottom": 0.9872
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 405,
+    "bodyR": 990,
+    "bodyT": 16,
+    "shoeB": 1238
+   }
+  },
+  "lookup": {
+   "file": "lookup.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.6297,
+    "y": 0.9872
+   },
+   "bodyAnchor": {
+    "x": 0.4439,
+    "y": 0.321
+   },
+   "bounds": {
+    "left": 0.2424,
+    "top": 0.0136,
+    "right": 0.7568,
+    "bottom": 0.9872
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 385,
+    "bodyR": 829,
+    "bodyT": 17,
+    "shoeB": 1238
+   }
+  },
+  "point": {
+   "file": "point.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.5857,
+    "y": 0.9872
+   },
+   "bodyAnchor": {
+    "x": 0.4281,
+    "y": 0.3243
+   },
+   "bounds": {
+    "left": 0.2153,
+    "top": 0.0128,
+    "right": 0.7855,
+    "bottom": 0.9872
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 354,
+    "bodyR": 947,
+    "bodyT": 16,
+    "shoeB": 1238
+   }
+  },
+  "present": {
+   "file": "present.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.2839,
+    "y": 0.9872
+   },
+   "bodyAnchor": {
+    "x": 0.4525,
+    "y": 0.3226
+   },
+   "bounds": {
+    "left": 0.1906,
+    "top": 0.0136,
+    "right": 0.8126,
+    "bottom": 0.9872
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 388,
+    "bodyR": 976,
+    "bodyT": 17,
+    "shoeB": 1238
+   }
+  },
+  "sit": {
+   "file": "sit.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.4161,
+    "y": 0.9872
+   },
+   "bodyAnchor": {
+    "x": 0.3789,
+    "y": 0.3235
+   },
+   "bounds": {
+    "left": 0.1818,
+    "top": 0.0152,
+    "right": 0.8182,
+    "bottom": 0.9872
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 280,
+    "bodyR": 646,
+    "bodyT": 19,
+    "shoeB": 1238
+   }
+  },
+  "tablet": {
+   "file": "tablet.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.329,
+    "y": 0.9872
+   },
+   "bodyAnchor": {
+    "x": 0.505,
+    "y": 0.3283
+   },
+   "bounds": {
+    "left": 0.2161,
+    "top": 0.0128,
+    "right": 0.7863,
+    "bottom": 0.9872
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 427,
+    "bodyR": 982,
+    "bodyT": 16,
+    "shoeB": 1238
+   }
+  },
+  "usher": {
+   "file": "usher.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.6048,
+    "y": 0.9872
+   },
+   "bodyAnchor": {
+    "x": 0.4363,
+    "y": 0.3365
+   },
+   "bounds": {
+    "left": 0.2281,
+    "top": 0.0144,
+    "right": 0.7735,
+    "bottom": 0.9872
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 365,
+    "bodyR": 657,
+    "bodyT": 18,
+    "shoeB": 1238
+   }
+  },
+  "walk-a": {
+   "file": "walk-a.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.6363,
+    "y": 0.9617
+   },
+   "bodyAnchor": {
+    "x": 0.5107,
+    "y": 0.3444
+   },
+   "bounds": {
+    "left": 0.2193,
+    "top": 0.0391,
+    "right": 0.7807,
+    "bottom": 0.9617
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 477,
+    "bodyR": 776,
+    "bodyT": 49,
+    "shoeB": 1206
+   }
+  },
+  "walk-b": {
+   "file": "walk-b.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.6309,
+    "y": 0.9617
+   },
+   "bodyAnchor": {
+    "x": 0.5175,
+    "y": 0.3413
+   },
+   "bounds": {
+    "left": 0.2352,
+    "top": 0.0383,
+    "right": 0.7656,
+    "bottom": 0.9617
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 491,
+    "bodyR": 778,
+    "bodyT": 48,
+    "shoeB": 1206
+   }
+  },
+  "walk-c": {
+   "file": "walk-c.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.6509,
+    "y": 0.9617
+   },
+   "bodyAnchor": {
+    "x": 0.5135,
+    "y": 0.3429
+   },
+   "bounds": {
+    "left": 0.2145,
+    "top": 0.0383,
+    "right": 0.7863,
+    "bottom": 0.9617
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 477,
+    "bodyR": 771,
+    "bodyT": 48,
+    "shoeB": 1206
+   }
+  },
+  "walk-d": {
+   "file": "walk-d.png",
+   "width": 1254,
+   "height": 1254,
+   "footAnchor": {
+    "x": 0.6233,
+    "y": 0.9617
+   },
+   "bodyAnchor": {
+    "x": 0.5155,
+    "y": 0.3435
+   },
+   "bounds": {
+    "left": 0.2209,
+    "top": 0.0383,
+    "right": 0.7799,
+    "bottom": 0.9617
+   },
+   "metrics": {
+    "w": 1254,
+    "bodyL": 478,
+    "bodyR": 775,
+    "bodyT": 48,
+    "shoeB": 1206
+   }
+  }
+ }
+}
