@@ -1,0 +1,1417 @@
+{
+ "label": "typeafter",
+ "base": "http://127.0.0.1:18768",
+ "ranAt": "2026-09-13T01:30:08.595Z",
+ "engine": "chromium",
+ "viewports": {
+  "1440x900": {
+   "T3": {
+    "글꼴조합": [
+     {
+      "값": "Cinzel 19.52px/26.9376px w400 자간 1.952px",
+      "개수": 32
+     },
+     {
+      "값": "Pretendard Variable 16px/24px w400 자간 normal",
+      "개수": 18
+     },
+     {
+      "값": "Pretendard Variable 12px/normal w400 자간 normal",
+      "개수": 13
+     },
+     {
+      "값": "IBM Plex Mono 11px/19.8px w400 자간 0.165px",
+      "개수": 7
+     },
+     {
+      "값": "Pretendard Variable 15px/22.5px w400 자간 normal",
+      "개수": 7
+     },
+     {
+      "값": "Cinzel 18px/21.6px w500 자간 2.88px",
+      "개수": 6
+     },
+     {
+      "값": "Pretendard Variable 60.48px/67.7376px w400 자간 -2.4192px",
+      "개수": 6
+     },
+     {
+      "값": "Cinzel 13px/13px w500 자간 2.86px",
+      "개수": 6
+     },
+     {
+      "값": "Pretendard Variable 13px/13px w500 자간 1.56px",
+      "개수": 6
+     },
+     {
+      "값": "Pretendard Variable 27.36px/35.0208px w500 자간 -0.5472px",
+      "개수": 6
+     },
+     {
+      "값": "Cinzel 15.12px/21.924px w500 자간 1.8144px",
+      "개수": 5
+     },
+     {
+      "값": "Cinzel 11px/normal w500 자간 1.54px",
+      "개수": 5
+     },
+     {
+      "값": "Cinzel 11px/normal w500 자간 0.66px",
+      "개수": 5
+     },
+     {
+      "값": "Cinzel 13px/13px w500 자간 1.82px",
+      "개수": 4
+     },
+     {
+      "값": "IBM Plex Mono 9px/9px w600 자간 0.9px",
+      "개수": 4
+     },
+     {
+      "값": "Pretendard Variable 12px/12px w600 자간 0.24px",
+      "개수": 4
+     },
+     {
+      "값": "IBM Plex Mono 11px/17.6px w400 자간 0.55px",
+      "개수": 4
+     },
+     {
+      "값": "IBM Plex Mono 10px/10px w600 자간 1.1px",
+      "개수": 3
+     },
+     {
+      "값": "IBM Plex Mono 12px/normal w500 자간 0.96px",
+      "개수": 3
+     },
+     {
+      "값": "IBM Plex Mono 10px/14px w700 자간 1.5px",
+      "개수": 2
+     },
+     {
+      "값": "Archivo Black 302.4px/211.68px w400 자간 -30.24px",
+      "개수": 2
+     },
+     {
+      "값": "Pretendard Variable 24px/36px w700 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Pretendard Variable 16px/23.36px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "IBM Plex Mono 11px/16.5px w400 자간 0.495px",
+      "개수": 2
+     },
+     {
+      "값": "Pretendard Variable 22px/33px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "IBM Plex Mono 11px/11px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "Cinzel 11px/normal w500 자간 1.1px",
+      "개수": 2
+     },
+     {
+      "값": "Pretendard Variable 18px/27px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "IBM Plex Mono 10px/17px w400 자간 normal",
+      "개수": 2
+     },
+     {
+      "값": "IBM Plex Mono 9px/9.9px w700 자간 1.08px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/12px w700 자간 0.8px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 9px/10.8px w700 자간 1.08px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/10px w700 자간 1.4px",
+      "개수": 1
+     },
+     {
+      "값": "Archivo Black 57.6px/44.352px w400 자간 -4.032px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 15.12px/20.8656px w700 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 9px/9px w600 자간 1.08px",
+      "개수": 1
+     },
+     {
+      "값": "Archivo Black 77.76px/63.7632px w400 자간 -4.6656px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 32px/48px w700 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/15.5px w400 자간 1.4px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 15.84px/15.84px w500 자간 2.8512px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 46.08px/54.3744px w600 자간 6.4512px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 11px/13.2px w500 자간 0.66px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 15px/20.7px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 63.36px/62.0928px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 13px/19.5px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 11px/16.5px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/14px w400 자간 0.8px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 56px/50.4px w500 자간 17.92px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 13.151px/normal w500 자간 2.89323px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 11.1784px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 12px/normal w500 자간 1.68px",
+      "개수": 1
+     },
+     {
+      "값": "Cinzel 22px/33px w500 자간 2.64px",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 15px/24.75px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 15px/24px w400 자간 0.6px",
+      "개수": 1
+     },
+     {
+      "값": "Archivo Black 201.6px/177.408px w400 자간 -15.12px",
+      "개수": 1
+     },
+     {
+      "값": "Libre Caslon Text 42px/37.8px w400 자간 6.72px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 27px/45.9px w500 자간 0.96px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/normal w400 자간 0.9px",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 12px/normal w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 13px/22.1px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 12px/16.8px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "Pretendard Variable 24px/24px w400 자간 normal",
+      "개수": 1
+     },
+     {
+      "값": "IBM Plex Mono 10px/10px w500 자간 2.4px",
+      "개수": 1
+     }
+    ],
+    "글자크기": [
+     {
+      "값": "19.52px",
+      "개수": 32
+     },
+     {
+      "값": "11px",
+      "개수": 29
+     },
+     {
+      "값": "12px",
+      "개수": 23
+     },
+     {
+      "값": "16px",
+      "개수": 20
+     },
+     {
+      "값": "13px",
+      "개수": 18
+     },
+     {
+      "값": "10px",
+      "개수": 14
+     },
+     {
+      "값": "15px",
+      "개수": 10
+     },
+     {
+      "값": "18px",
+      "개수": 8
+     },
+     {
+      "값": "9px",
+      "개수": 7
+     },
+     {
+      "값": "15.12px",
+      "개수": 6
+     },
+     {
+      "값": "60.48px",
+      "개수": 6
+     },
+     {
+      "값": "27.36px",
+      "개수": 6
+     },
+     {
+      "값": "24px",
+      "개수": 3
+     },
+     {
+      "값": "22px",
+      "개수": 3
+     },
+     {
+      "값": "302.4px",
+      "개수": 2
+     },
+     {
+      "값": "57.6px",
+      "개수": 1
+     },
+     {
+      "값": "77.76px",
+      "개수": 1
+     },
+     {
+      "값": "32px",
+      "개수": 1
+     },
+     {
+      "값": "15.84px",
+      "개수": 1
+     },
+     {
+      "값": "46.08px",
+      "개수": 1
+     },
+     {
+      "값": "63.36px",
+      "개수": 1
+     },
+     {
+      "값": "56px",
+      "개수": 1
+     },
+     {
+      "값": "13.151px",
+      "개수": 1
+     },
+     {
+      "값": "11.1784px",
+      "개수": 1
+     },
+     {
+      "값": "201.6px",
+      "개수": 1
+     },
+     {
+      "값": "42px",
+      "개수": 1
+     },
+     {
+      "값": "27px",
+      "개수": 1
+     }
+    ],
+    "글자색": [
+     {
+      "값": "rgb(23, 25, 35)",
+      "개수": 49
+     },
+     {
+      "값": "rgb(221, 214, 200)",
+      "개수": 32
+     },
+     {
+      "값": "rgb(13, 13, 15)",
+      "개수": 27
+     },
+     {
+      "값": "rgb(85, 86, 91)",
+      "개수": 12
+     },
+     {
+      "값": "rgb(180, 170, 137)",
+      "개수": 11
+     },
+     {
+      "값": "rgb(106, 98, 88)",
+      "개수": 10
+     },
+     {
+      "값": "rgb(58, 50, 40)",
+      "개수": 10
+     },
+     {
+      "값": "rgb(24, 28, 24)",
+      "개수": 9
+     },
+     {
+      "값": "rgb(240, 237, 230)",
+      "개수": 5
+     },
+     {
+      "값": "rgb(0, 0, 0)",
+      "개수": 5
+     },
+     {
+      "값": "rgb(92, 83, 72)",
+      "개수": 4
+     },
+     {
+      "값": "rgb(111, 112, 119)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(243, 234, 214)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(143, 112, 52)",
+      "개수": 3
+     },
+     {
+      "값": "rgba(239, 224, 184, 0.082)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(200, 161, 94)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(240, 232, 212)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(38, 51, 34)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(255, 195, 75)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(244, 239, 228)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(184, 176, 164)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(232, 213, 160)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(165, 166, 170)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(230, 220, 198)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(239, 230, 212)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(255, 255, 255)",
+      "개수": 1
+     }
+    ],
+    "배경색": [
+     {
+      "값": "rgb(255, 255, 255)",
+      "개수": 22
+     },
+     {
+      "값": "rgb(200, 161, 94)",
+      "개수": 5
+     },
+     {
+      "값": "rgb(239, 239, 239)",
+      "개수": 4
+     },
+     {
+      "값": "rgba(23, 25, 35, 0.2)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(0, 0, 0)",
+      "개수": 3
+     },
+     {
+      "값": "rgb(17, 18, 13)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(17, 17, 13)",
+      "개수": 2
+     },
+     {
+      "값": "rgb(5, 6, 6)",
+      "개수": 2
+     },
+     {
+      "값": "rgba(239, 224, 184, 0.16)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(240, 232, 212)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(5, 5, 8)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(27, 21, 17, 0.22)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(32, 35, 43)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(214, 215, 219)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(23, 25, 35)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(255, 255, 255, 0.86)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(216, 196, 166)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(26, 20, 14)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(255, 248, 232, 0.42)",
+      "개수": 1
+     },
+     {
+      "값": "rgba(255, 250, 240, 0.35)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(246, 240, 228)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(224, 238, 235)",
+      "개수": 1
+     },
+     {
+      "값": "rgb(239, 224, 184)",
+      "개수": 1
+     }
+    ],
+    "간격": [
+     {
+      "값": "6px",
+      "개수": 49
+     },
+     {
+      "값": "8px",
+      "개수": 38
+     },
+     {
+      "값": "10px",
+      "개수": 35
+     },
+     {
+      "값": "16px",
+      "개수": 33
+     },
+     {
+      "값": "11px",
+      "개수": 22
+     },
+     {
+      "값": "-1px",
+      "개수": 17
+     },
+     {
+      "값": "1px",
+      "개수": 17
+     },
+     {
+      "값": "9px",
+      "개수": 13
+     },
+     {
+      "값": "4px",
+      "개수": 13
+     },
+     {
+      "값": "37.44px",
+      "개수": 12
+     },
+     {
+      "값": "14px",
+      "개수": 11
+     },
+     {
+      "값": "2px",
+      "개수": 9
+     },
+     {
+      "값": "24px",
+      "개수": 6
+     },
+     {
+      "값": "12px",
+      "개수": 5
+     },
+     {
+      "값": "32px",
+      "개수": 4
+     },
+     {
+      "값": "18px",
+      "개수": 4
+     },
+     {
+      "값": "40px",
+      "개수": 3
+     },
+     {
+      "값": "5px",
+      "개수": 3
+     },
+     {
+      "값": "57.6px",
+      "개수": 2
+     },
+     {
+      "값": "3px",
+      "개수": 2
+     },
+     {
+      "값": "86.4px",
+      "개수": 2
+     },
+     {
+      "값": "20px",
+      "개수": 2
+     },
+     {
+      "값": "4.95px",
+      "개수": 2
+     },
+     {
+      "값": "26.3021px",
+      "개수": 2
+     },
+     {
+      "값": "7.23307px",
+      "개수": 2
+     },
+     {
+      "값": "15.4px",
+      "개수": 2
+     },
+     {
+      "값": "28px",
+      "개수": 2
+     },
+     {
+      "값": "79.4844px",
+      "개수": 1
+     },
+     {
+      "값": "8.28125px",
+      "개수": 1
+     },
+     {
+      "값": "8.45312px",
+      "개수": 1
+     },
+     {
+      "값": "5.625px",
+      "개수": 1
+     },
+     {
+      "값": "7.04688px",
+      "개수": 1
+     },
+     {
+      "값": "19.92px",
+      "개수": 1
+     },
+     {
+      "값": "210px",
+      "개수": 1
+     },
+     {
+      "값": "160px",
+      "개수": 1
+     },
+     {
+      "값": "13.0781px",
+      "개수": 1
+     },
+     {
+      "값": "10.5px",
+      "개수": 1
+     },
+     {
+      "값": "7.5px",
+      "개수": 1
+     },
+     {
+      "값": "80px",
+      "개수": 1
+     }
+    ],
+    "radius": [
+     {
+      "값": "50%",
+      "개수": 19
+     },
+     {
+      "값": "2px",
+      "개수": 8
+     },
+     {
+      "값": "49% 51% 48% 52% / 46% 45% 55% 54%",
+      "개수": 2
+     },
+     {
+      "값": "1px",
+      "개수": 1
+     },
+     {
+      "값": "15% 13% 11% 12%",
+      "개수": 1
+     },
+     {
+      "값": "999px",
+      "개수": 1
+     },
+     {
+      "값": "4% / 6%",
+      "개수": 1
+     }
+    ],
+    "그림자": [
+     {
+      "값": "rgba(255, 233, 176, 0.95) 0px 0px 4px 0px, rgba(200, 161, 94, 0.55) 0px 0px 9px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgba(187, 255, 204, 0.1) 2px 3px 8px 0px inset",
+      "개수": 1
+     },
+     {
+      "값": "rgb(200, 161, 94) 0px 0px 10px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgb(240, 237, 230) 0px -3px 0px 0px inset",
+      "개수": 1
+     },
+     {
+      "값": "rgba(0, 0, 0, 0.25) 0px 0px 0px 1px inset",
+      "개수": 1
+     },
+     {
+      "값": "rgba(240, 232, 212, 0.6) 0px 0px 6px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgb(142, 143, 149) 0px 5px 0px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgb(200, 218, 218) 0px 0px 8px 0px, rgb(183, 221, 211) 0px 0px 28px 0px",
+      "개수": 1
+     },
+     {
+      "값": "rgba(0, 0, 0, 0.333) 0px 0px 18px 0px inset",
+      "개수": 1
+     }
+    ],
+    "zIndex": [
+     {
+      "값": "5",
+      "개수": 18
+     },
+     {
+      "값": "1",
+      "개수": 14
+     },
+     {
+      "값": "2",
+      "개수": 11
+     },
+     {
+      "값": "3",
+      "개수": 10
+     },
+     {
+      "값": "10",
+      "개수": 9
+     },
+     {
+      "값": "4",
+      "개수": 5
+     },
+     {
+      "값": "0",
+      "개수": 4
+     },
+     {
+      "값": "7",
+      "개수": 4
+     },
+     {
+      "값": "8",
+      "개수": 4
+     },
+     {
+      "값": "6",
+      "개수": 3
+     },
+     {
+      "값": "9",
+      "개수": 3
+     },
+     {
+      "값": "12",
+      "개수": 2
+     },
+     {
+      "값": "15",
+      "개수": 2
+     },
+     {
+      "값": "30",
+      "개수": 2
+     },
+     {
+      "값": "1000",
+      "개수": 2
+     },
+     {
+      "값": "11",
+      "개수": 1
+     },
+     {
+      "값": "13",
+      "개수": 1
+     },
+     {
+      "값": "14",
+      "개수": 1
+     },
+     {
+      "값": "17",
+      "개수": 1
+     },
+     {
+      "값": "22",
+      "개수": 1
+     },
+     {
+      "값": "40",
+      "개수": 1
+     },
+     {
+      "값": "60",
+      "개수": 1
+     },
+     {
+      "값": "90",
+      "개수": 1
+     },
+     {
+      "값": "-1",
+      "개수": 1
+     }
+    ],
+    "CSS전환": [
+     {
+      "값": "opacity 0.18s",
+      "개수": 16
+     },
+     {
+      "값": "color 0.3s",
+      "개수": 4
+     },
+     {
+      "값": "color, background 0.16s, 0.16s",
+      "개수": 4
+     },
+     {
+      "값": "scale, filter 0.3s, 0.3s",
+      "개수": 4
+     },
+     {
+      "값": "opacity 0.2s",
+      "개수": 2
+     },
+     {
+      "값": "transform 0.35s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.7s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.34s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.25s",
+      "개수": 1
+     },
+     {
+      "값": "opacity 0.16s",
+      "개수": 1
+     },
+     {
+      "값": "transform 0.5s",
+      "개수": 1
+     },
+     {
+      "값": "transform 0.16s",
+      "개수": 1
+     },
+     {
+      "값": "opacity, transform 0.45s, 0.45s",
+      "개수": 1
+     }
+    ],
+    "CSS_easing": [
+     {
+      "값": "cubic-bezier(0.16, 1, 0.3, 1)",
+      "개수": 17
+     },
+     {
+      "값": "ease",
+      "개수": 11
+     },
+     {
+      "값": "ease, ease",
+      "개수": 5
+     },
+     {
+      "값": "cubic-bezier(0.16, 1, 0.3, 1), ease",
+      "개수": 4
+     },
+     {
+      "값": "linear",
+      "개수": 1
+     }
+    ],
+    "실행중애니메이션": [
+     {
+      "대상": "i",
+      "종류": "CSSAnimation",
+      "이름": "eb-a-pass",
+      "duration": 2800,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-original__stage",
+      "종류": "CSSAnimation",
+      "이름": "hero-frame-optics",
+      "duration": 6400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-original__stage",
+      "종류": "CSSAnimation",
+      "이름": "hero-grain-shift",
+      "duration": 1000,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-vintage__field",
+      "종류": "CSSAnimation",
+      "이름": "hero-optical-haze",
+      "duration": 9600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-original__tv",
+      "종류": "CSSAnimation",
+      "이름": "hero-computer-optics",
+      "duration": 6400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.hero-vintage__copy",
+      "종류": "CSSAnimation",
+      "이름": "hero-copy-breathe",
+      "duration": 6400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-vintage__logo",
+      "종류": "CSSAnimation",
+      "이름": "hero-vintage-reveal",
+      "duration": 780,
+      "easing": "linear",
+      "반복": 1
+     },
+     {
+      "대상": "p.hero-vintage__statement",
+      "종류": "CSSAnimation",
+      "이름": "hero-vintage-reveal",
+      "duration": 780,
+      "easing": "linear",
+      "반복": 1
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span.hero-ch",
+      "종류": "CSSAnimation",
+      "이름": "hero-ch-beam",
+      "duration": 2600,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "span",
+      "종류": "CSSAnimation",
+      "이름": "scroll-cue-nudge",
+      "duration": 2100,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i",
+      "종류": "CSSAnimation",
+      "이름": "hero-scroll-drop",
+      "duration": 2200,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i.sofa-journey__grain",
+      "종류": "CSSAnimation",
+      "이름": "sofa-journey-grain",
+      "duration": 180,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "path",
+      "종류": "CSSAnimation",
+      "이름": "ctl-beamglow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "path",
+      "종류": "CSSAnimation",
+      "이름": "ctl-beamglow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "path",
+      "종류": "CSSAnimation",
+      "이름": "ctl-beamglow",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "div.ending-pair",
+      "종류": "CSSAnimation",
+      "이름": "ending-app-use",
+      "duration": 3400,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "img",
+      "종류": "CSSAnimation",
+      "이름": "ending-holo-play",
+      "duration": 3200,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i.signal-veil__grain",
+      "종류": "CSSAnimation",
+      "이름": "signal-veil-grain",
+      "duration": 200,
+      "easing": "linear",
+      "반복": null
+     },
+     {
+      "대상": "i.scroll-cue__arrow",
+      "종류": "CSSAnimation",
+      "이름": "scroll-cue-drop",
+      "duration": 1900,
+      "easing": "linear",
+      "반복": null
+     }
+    ]
+   },
+   "가로넘침_문서": 0,
+   "문서높이": 30822,
+   "콘솔에러": [
+    "Failed to load resource: net::ERR_TUNNEL_CONNECTION_FAILED",
+    "Failed to load resource: net::ERR_CONNECTION_RESET"
+   ],
+   "페이지에러": [],
+   "실패요청": [
+    "net::ERR_TUNNEL_CONNECTION_FAILED https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css",
+    "net::ERR_CONNECTION_RESET https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cinzel:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&family=Libre+Caslon+Text:ital@0;1&display=swap"
+   ]
+  }
+ }
+}

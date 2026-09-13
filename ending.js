@@ -81,6 +81,10 @@ export function initEnding({ onComplete, canComplete, onNav }) {
     //   키(pairH)는 .50 → .57 로. 소파 등받이 높이가 130px 인데 앉은키가 220px 뿐이라 작아 보였다
     //   (어린이가 앉으면 머리가 등받이보다 등받이 한 칸쯤 올라오는 것이 자연스럽다 → 앉은키 약 250px).
     //   left 는 키가 커진 만큼 가로 중심이 그대로이도록 .236 → .2233.
+    // 2026-09-13: 새 앉은 그림(goya-girl-buddy-sit.png)에 맞춰 값을 다시 잡았다 —
+    //   pairH .57 → .43, hip .58 → .50, seatY .703 → .705, left .2233 → .215.
+    //   그림이 바뀌면 '그림 안에서 엉덩이가 닿는 지점(hip)'도 같이 바뀌므로 세 값은 늘 함께 움직인다.
+    //   아래 숫자가 지금 쓰는 값이고, 위 문단은 어떻게 여기까지 왔는지의 기록이다.
     const pair = room.querySelector('.ending-pair');
     const pairH = h * .43;
     const hip = .50;

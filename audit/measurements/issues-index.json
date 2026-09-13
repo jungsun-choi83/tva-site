@@ -958,5 +958,41 @@
   "st": "보류",
   "loc": "CSS 전역",
   "fix": "개인정보 처리방침만이라도 인쇄 가능하게(`privacy.html` 에 `@media print`)"
+ },
+ {
+  "id": "T01",
+  "title": "글꼴 변수 다섯 개가 전부 Cinzel 로 시작해 서체 역할이 하나로 뭉개졌다",
+  "cat": "T",
+  "dev": "공통",
+  "typ": "디자인 개선(승인 후 수정)",
+  "pri": "P2",
+  "dif": "M",
+  "st": "수정됨",
+  "loc": "`styles.css:1` `:root`",
+  "fix": "자간 부호를 기준으로 각 역할을 제 얼굴로 되돌린다. 양수 자간(+.06 ~ +.32em)인"
+ },
+ {
+  "id": "T02",
+  "title": "화면에서 한 글자도 그리지 않는 글꼴을 두 종 받아 오고 있었다",
+  "cat": "T",
+  "dev": "공통",
+  "typ": "결함",
+  "pri": "P2",
+  "dif": "S",
+  "st": "수정됨",
+  "loc": "`index.html:42` 글꼴 링크",
+  "fix": "안 쓰는 2종과 Cinzel 700 을 빼고, 합성되던 Plex Mono 600·700 을 실제로 받는다."
+ },
+ {
+  "id": "T03",
+  "title": "RECORDS 서랍이 맥 파인더 파란 폴더 그대로였다",
+  "cat": "T",
+  "dev": "공통",
+  "typ": "디자인 개선(승인 후 수정)",
+  "pri": "P3",
+  "dif": "S",
+  "st": "수정됨",
+  "loc": "`gallery-original/shared/base.css` `--g02-icon-folder-*`, `galleries.css` `.g02-category__label`",
+  "fix": "서랍이라는 비유는 그대로 두고 색만 브랜드 쪽으로 옮긴다. 테두리·그림자도 함께"
  }
 ]
