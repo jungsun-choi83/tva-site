@@ -31,29 +31,36 @@
   <script>if('scrollRestoration' in history)history.scrollRestoration='manual';document.documentElement.dataset.powerState=matchMedia('(prefers-reduced-motion: reduce)').matches||!['','#home'].includes(location.hash)?'locked':'off';window.__tvaPowerFailOpen=setTimeout(()=>{const hero=document.querySelector('#home');if(hero){hero.dataset.powerState='locked';hero.classList.remove('is-powering')}document.documentElement.dataset.powerState='locked';window.__tvaPowerRevealed=1/* 느린 회선에서 이미 글자를 보여줬다는 표시. 늦게 온 연출이 다시 숨기지 않게 한다 */},1200);</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- 2026-09-12 감사 [114]: 글꼴 스타일시트가 첫 화면과 app.js 실행을 막지 않도록 비차단으로 받는다 / [34] .nf-live 가 쓰는 Space Grotesk 700 추가 -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Archivo+Black&family=Big+Shoulders+Display:wght@900&family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Text:ital@0;1&family=Space+Grotesk:wght@700&display=swap" media="print" onload="this.media='all'">
-  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Archivo+Black&family=Big+Shoulders+Display:wght@900&family=IBM+Plex+Mono:wght@400;500&family=Libre+Caslon+Text:ital@0;1&family=Space+Grotesk:wght@700&display=swap"></noscript>
+  <!-- 2026-09-12 감사 [114]: 글꼴 스타일시트가 첫 화면과 app.js 실행을 막지 않도록 비차단으로 받는다
+       2026-09-13 서체 정리: 화면에서 실제로 글자를 그리는 것만 남겼다. 재어 보니
+         Space Grotesk 0자 · Big Shoulders Display 0자 — 둘 다 유일한 사용처가
+         only-tva-walk.css 인데 그 파일은 어느 페이지에서도 부르지 않는다.
+         ([34] 로 Space Grotesk 를 넣었던 것도 그 죽은 파일을 보고 판단한 것이라 되돌린다)
+         Cinzel 700 도 부르는 곳이 없어 뺐고, 반대로 IBM Plex Mono 600·700 은
+         11곳이 달라 하는데 받지 않아 브라우저가 굵기를 합성하고 있었다 — 실제 굵기로 받는다.
+       글꼴 파일 11개 → 10개, 그리고 열 개 모두 실제로 쓰인다. -->
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cinzel:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&family=Libre+Caslon+Text:ital@0;1&display=swap" media="print" onload="this.media='all'">
+  <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cinzel:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&family=Libre+Caslon+Text:ital@0;1&display=swap"></noscript>
   <!-- 2026-09-12 감사 [32]: 한글 웹폰트. 지금까지 한국어는 방문자 OS 글꼴로 렌더됐다. 라틴은 그대로 Arial 을 쓰고 한글만 Pretendard 로 받는다 -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"></noscript>
   <link rel="preload" as="image" href="assets/hero/beam-device-1920x1080.png?v=eternal-beam-r31" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=eb-20260913">
-  <link rel="stylesheet" href="hero.css?v=eternal-beam-r31">
+  <link rel="stylesheet" href="styles.css?v=eb-20260914">
+  <link rel="stylesheet" href="hero.css?v=eb-20260914">
   <link rel="stylesheet" href="brand-mark.css?v=eternal-beam-r29">
   <link rel="stylesheet" href="hero-material.css?v=entry-optics-sync-r3.hdee4aa4f">
   <link rel="stylesheet" href="about.css?v=exit-copy-r3.h82d1f28b">
-  <link rel="stylesheet" href="about-walk.css?v=eb-20260913">
+  <link rel="stylesheet" href="about-walk.css?v=eb-20260914">
   <link rel="stylesheet" href="signal-passage.css?v=fall-welcome-production-r3.h98421667">
   <link rel="stylesheet" href="fall-welcome/actor.css?v=fall-welcome-production-r3.h492e636f" data-fall-actor-style>
   <link rel="stylesheet" href="portfolio.css?v=eb-20260913">
-  <link rel="stylesheet" href="original-table.css?v=eb-20260913">
-  <link rel="stylesheet" href="contact-letterbox.css?v=eb-20260913">
+  <link rel="stylesheet" href="original-table.css?v=eb-20260914">
+  <link rel="stylesheet" href="contact-letterbox.css?v=eb-20260914">
   <link rel="stylesheet" href="ending.css?v=eb-20260913b">
   <link rel="stylesheet" href="scroll-cue.css?v=scroll-cue-r3.h52f59f0f">
   <link rel="stylesheet" href="nav-shelf.css?v=eb-20260913">
-  <link rel="stylesheet" href="archive-pillars.css?v=eternal-beam-r3">
+  <link rel="stylesheet" href="archive-pillars.css?v=eb-20260914">
   <!-- 2026-09-12 감사 [7]: 느린 회선에서 PORTFOLIO·ORIGINAL 에 도착하면 4초 동안 화면이 통째로 흰 종이였다.
        대표 그림(작업대)이 오기 전까지 그 그림의 평균색을 자리에 깔아 둔다. 그림은 불투명하고 상자를 꽉 채우므로
        다 온 뒤에는 이 색이 1px 도 보이지 않는다. 새 UI 가 아니라 바탕색만 까는 것이다. -->
@@ -277,7 +284,7 @@ STILL GROWING.</span><span class="hero-vintage__stmt-sub">FOR THE MOMENTS THAT D
   <!-- 2026-09-12 감사 [119]: 장식용 그림(alt="")이 안 오면 흰 깨진-그림 상자 대신 자리를 비운다 -->
   <script>addEventListener('error',e=>{const t=e.target;if(t&&t.tagName==='IMG'&&t.getAttribute('alt')==='')t.style.visibility='hidden'},true);for(const i of document.querySelectorAll('img[alt=""]'))if(i.complete&&i.naturalWidth===0)i.style.visibility='hidden';</script>
   <button class="motion-toggle" type="button" aria-pressed="false">움직임 줄이기</button>
-  <script src="app.js?v=eb-20260913b" type="module"></script>
+  <script src="app.js?v=eb-20260914" type="module"></script>
   <script type="module" src="scroll-cue.js?v=scroll-cue-r6.h255f18f1"></script>
   <script type="module" src="about-walk.js?v=eb-20260913"></script>
 </body>

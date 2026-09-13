@@ -212,7 +212,7 @@
 [data-gallery="02"] .g02-category-list { top: 96px; bottom: 96px; width: var(--g02-rail-width); }
 [data-gallery="02"] .g02-category { color: #151515; }
 [data-gallery="02"] .g02-category__icon svg { filter: drop-shadow(0 1px 0 rgb(255 255 255 / .95)) drop-shadow(0 2px 2px rgb(0 0 0 / .16)); }
-[data-gallery="02"] .g02-category__label { font: 600 12px/1 Arial, sans-serif; letter-spacing: -.02em; }
+[data-gallery="02"] .g02-category__label { font: 500 11px/1 var(--mono, "IBM Plex Mono", monospace); letter-spacing: 0; } /* 2026-09-13: Arial 12px 는 파인더 흉내였다. 서랍 이름표는 이 사이트의 라벨 얼굴(고정폭)로 — 11px 로 내려 "Influencer" 10글자가 이름표 폭 안에 들어간다 */
 [data-gallery="02"] .g02-wheel { z-index: 5; inset: 0 0 0 var(--g02-rail-width); overflow: visible; }
 [data-gallery="02"] .g02-wheel::before,
 [data-gallery="02"] .g02-wheel::after {
@@ -359,7 +359,7 @@
 [data-gallery="02"] .g02-category-list { top: 96px; bottom: 96px; width: var(--g02-rail-width); }
 [data-gallery="02"] .g02-category { color: #151515; }
 [data-gallery="02"] .g02-category__icon svg { filter: drop-shadow(0 1px 0 rgb(255 255 255 / .95)) drop-shadow(0 2px 2px rgb(0 0 0 / .16)); }
-[data-gallery="02"] .g02-category__label { font: 600 12px/1 Arial, sans-serif; letter-spacing: -.02em; }
+[data-gallery="02"] .g02-category__label { font: 500 11px/1 var(--mono, "IBM Plex Mono", monospace); letter-spacing: 0; } /* 2026-09-13: Arial 12px 는 파인더 흉내였다. 서랍 이름표는 이 사이트의 라벨 얼굴(고정폭)로 — 11px 로 내려 "Influencer" 10글자가 이름표 폭 안에 들어간다 */
 [data-gallery="02"] .g02-wheel { z-index: 5; inset: 0 0 0 var(--g02-rail-width); overflow: visible; }
 [data-gallery="02"] .g02-wheel::before,
 [data-gallery="02"] .g02-wheel::after {

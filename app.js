@@ -1,6 +1,6 @@
 import { initEnding } from './ending.js?v=eb-20260913b';
 import {initNavShelf} from './nav-shelf.js?v=eb-20260913';
-import { initPortfolio } from './portfolio.js?v=eternal-beam-r51';
+import { initPortfolio } from './portfolio.js?v=eb-20260914';
 import { initContact } from './contact-letterbox.js?v=eb-20260913';
 import { initJourney } from './journey.js?v=eb-20260913';
 import { initOriginals } from './originals.js?v=eb-20260913';

@@ -7,8 +7,12 @@
   --cobalt:#c8a15e;
   --red:#e5372a;
   --err:#c62828;
-  --display:"Cinzel",Georgia,serif;
-  --sans:"Cinzel","Pretendard Variable",Pretendard,sans-serif;
+  /* 2026-09-13 서체 정리: 이 화면에서 var(--display) 로 잡아 둔 자리는 전부
+     자간을 넓게 벌린 10~13px 라벨과 .32em 짜리 제목이다. 작은 대문자 자리이므로
+     Cinzel 을 그대로 두되 이름만 --caps 로 바로잡는다 (보이는 모습은 그대로).
+     --sans 지역 재정의는 지웠다. 한글 본문이 Cinzel 을 먼저 집어서
+     "Eternal Beam" 같은 로마자가 문장 한가운데서 혼자 다른 얼굴로 튀었다. */
+  --display:var(--caps,"Cinzel",Georgia,serif);
   --pad:clamp(20px,4vw,64px);
   --sheetW:min(calc(var(--ctlH)*.42), 32vw);
   --sheetH:calc(var(--sheetW) * 985 / 650);

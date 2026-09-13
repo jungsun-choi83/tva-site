@@ -47,7 +47,7 @@ html.is-about-walking{scroll-behavior:auto!important}
 }
 #about.about-walk .station-goldpage .station-copy p{max-width:none}
 #about.about-walk .station-goldpage .eyebrow{
-  font:500 clamp(15px,1.25vw,20px)/1.2 var(--display,"Cinzel",Georgia,serif);
+  font:500 clamp(15px,1.25vw,20px)/1.2 var(--caps,"Cinzel",Georgia,serif);
   letter-spacing:.16em;
   text-transform:uppercase;
 }
@@ -57,7 +57,7 @@ html.is-about-walking{scroll-behavior:auto!important}
 #about.about-walk .station-goldpage .service-en{
   margin:0;
   color:var(--about-ink);
-  font:500 clamp(13px,1.05vw,16px)/1.45 var(--display,"Cinzel",Georgia,serif);
+  font:500 clamp(13px,1.05vw,16px)/1.45 var(--caps,"Cinzel",Georgia,serif);
   letter-spacing:.12em;
 }
 #about.about-walk .station-goldpage .service-scope{margin-top:6px}
@@ -95,7 +95,7 @@ html.is-about-walking{scroll-behavior:auto!important}
   display:block;
   margin:0;
   color:#0d0d0f;
-  font:500 13px/1 var(--display,"Cinzel",Georgia,serif);
+  font:500 13px/1 var(--caps,"Cinzel",Georgia,serif);
   letter-spacing:.22em;
 }
 #about.about-walk .beam-gold__kicker-ko{

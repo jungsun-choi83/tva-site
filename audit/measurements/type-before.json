@@ -1,0 +1,239 @@
+{
+ "label": "before",
+ "base": "http://127.0.0.1:18768",
+ "ranAt": "2026-09-13T01:04:42.594Z",
+ "글꼴": {
+  "390": {
+   "Cinzel": {
+    "횟수": 132,
+    "보기": [
+     "본문 바로가기 Skip to conten",
+     "문의 바로가기 Skip to contac",
+     "ETERNAL BEAM / CONTENT",
+     "STATION 01 / INTRO"
+    ]
+   },
+   "Archivo Black": {
+    "횟수": 1,
+    "보기": [
+     "ETERNALBEAM"
+    ]
+   },
+   "Pretendard Variable": {
+    "횟수": 24,
+    "보기": [
+     "필로소피",
+     "Eternal Beam은 기기를 만드는 ",
+     "Soul Trace에 사진과 편지로 기록",
+     "기술은 기억을 위한 수단입니다.우리는 함"
+    ]
+   },
+   "IBM Plex Mono": {
+    "횟수": 6,
+    "보기": [
+     "One more scroll",
+     "↓",
+     "Replay ↻",
+     "HOME IS A LITTLE CLOSE"
+    ]
+   }
+  },
+  "1440": {
+   "Cinzel": {
+    "횟수": 149,
+    "보기": [
+     "본문 바로가기 Skip to conten",
+     "문의 바로가기 Skip to contac",
+     "ETERNAL BEAM / CONTENT",
+     "STATION 01 / INTRO"
+    ]
+   },
+   "Archivo Black": {
+    "횟수": 1,
+    "보기": [
+     "ETERNALBEAM"
+    ]
+   },
+   "Pretendard Variable": {
+    "횟수": 36,
+    "보기": [
+     "필로소피",
+     "Eternal Beam은 기기를 만드는 ",
+     "Soul Trace에 사진과 편지로 기록",
+     "기술은 기억을 위한 수단입니다.우리는 함"
+    ]
+   },
+   "IBM Plex Mono": {
+    "횟수": 6,
+    "보기": [
+     "One more scroll",
+     "↓",
+     "Replay ↻",
+     "HOME IS A LITTLE CLOSE"
+    ]
+   }
+  }
+ },
+ "넘침": {
+  "390": [
+   {
+    "곳": "hero-original__stage",
+    "가로": 555,
+    "세로": 131,
+    "글": "ETERNAL BEAM / CONTENTS "
+   },
+   {
+    "곳": "visually-hidden",
+    "가로": 1062,
+    "세로": 47,
+    "글": "Eternal Beam — Soul Trac"
+   },
+   {
+    "곳": "signal-passage sofa-journey sofa-journey",
+    "가로": 70,
+    "세로": 181,
+    "글": "Keep OurMemory Moment"
+   },
+   {
+    "곳": "about-sr-summary",
+    "가로": 1423,
+    "세로": 239,
+    "글": "Eternal Beam 아카이브 전체\n   "
+   },
+   {
+    "곳": "about-camera",
+    "가로": 3864,
+    "세로": 0,
+    "글": "ETERNAL BEAM / CONTENTS "
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 189,
+    "세로": 35,
+    "글": "BEAM ARCHIVE"
+   },
+   {
+    "곳": "original-table__viewport",
+    "가로": 14,
+    "세로": 0,
+    "글": "LETTER 자세히 보기IDENTITY 자세"
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 147,
+    "세로": 23,
+    "글": "LETTER 자세히 보기"
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 161,
+    "세로": 23,
+    "글": "IDENTITY 자세히 보기"
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 179,
+    "세로": 23,
+    "글": "HOLOGRAM 자세히 보기"
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 158,
+    "세로": 23,
+    "글": "ARCHIVE 자세히 보기"
+   },
+   {
+    "곳": "ending-description",
+    "가로": 64,
+    "세로": 605,
+    "글": "기억을 간직하는 자리"
+   },
+   {
+    "곳": "ending-description",
+    "가로": 19,
+    "세로": 1271,
+    "글": "아래로 내리면 기기의 빛이 천천히 꺼집니다."
+   }
+  ],
+  "1440": [
+   {
+    "곳": "hero-original__stage",
+    "가로": 133,
+    "세로": 94,
+    "글": "ETERNAL BEAM / CONTENTS "
+   },
+   {
+    "곳": "visually-hidden",
+    "가로": 1062,
+    "세로": 47,
+    "글": "Eternal Beam — Soul Trac"
+   },
+   {
+    "곳": "signal-passage sofa-journey sofa-journey",
+    "가로": 258,
+    "세로": 193,
+    "글": "Keep OurMemory Moment"
+   },
+   {
+    "곳": "about-sr-summary",
+    "가로": 1423,
+    "세로": 239,
+    "글": "Eternal Beam 아카이브 전체\n   "
+   },
+   {
+    "곳": "about-camera",
+    "가로": 8640,
+    "세로": 0,
+    "글": "ETERNAL BEAM / CONTENTS "
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 189,
+    "세로": 35,
+    "글": "BEAM ARCHIVE"
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 147,
+    "세로": 23,
+    "글": "LETTER 자세히 보기"
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 161,
+    "세로": 23,
+    "글": "IDENTITY 자세히 보기"
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 179,
+    "세로": 23,
+    "글": "HOLOGRAM 자세히 보기"
+   },
+   {
+    "곳": "original-table__accessible",
+    "가로": 158,
+    "세로": 23,
+    "글": "ARCHIVE 자세히 보기"
+   },
+   {
+    "곳": "paper",
+    "가로": 4,
+    "세로": 36,
+    "글": "Name 이름\n            Emai"
+   },
+   {
+    "곳": "ending-description",
+    "가로": 186,
+    "세로": 1618,
+    "글": "기억을 간직하는 자리"
+   },
+   {
+    "곳": "ending-description",
+    "가로": 19,
+    "세로": 1271,
+    "글": "아래로 내리면 기기의 빛이 천천히 꺼집니다."
+   }
+  ]
+ }
+}

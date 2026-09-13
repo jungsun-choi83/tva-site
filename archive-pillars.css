@@ -155,7 +155,7 @@
 .beam-sheet b{
   display:block;
   margin-bottom:8px;
-  font:700 clamp(18px,2.1vw,28px)/.9 "Archivo Black",Impact,sans-serif;
+  font:400 clamp(18px,2.1vw,28px)/.9 "Archivo Black",Impact,sans-serif;
   letter-spacing:-.04em;
 }
 .beam-sheet span{
