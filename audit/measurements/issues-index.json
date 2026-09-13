@@ -276,6 +276,30 @@
   "fix": "`styles.css` 한 곳에서만 정의한다. `--nav-height` 는 `styles.css` 로 통일,"
  },
  {
+  "id": "A08",
+  "title": "마지막 거실 장면에서 아이와 시바가 소파 '등받이 위'에 걸터앉아 있다",
+  "cat": "A",
+  "dev": "공통",
+  "typ": "결함",
+  "pri": "P2",
+  "dif": "S",
+  "st": "수정됨",
+  "loc": "`ending.js` `layout()` 의 `seatY`·`hip`·`pairH` 상수 · `ending.css:17` `.ending-pair`",
+  "fix": "상수를 그림에서 잰 값으로 바꾼다 — `seatY` `.548 → .703`, `hip` `.62 → .58`,"
+ },
+ {
+  "id": "A09",
+  "title": "시바가 보는 폰의 화면 불빛이 폰이 아닌 가슴팍에 찍혀 있다",
+  "cat": "A",
+  "dev": "공통",
+  "typ": "결함",
+  "pri": "P3",
+  "dif": "S",
+  "st": "수정됨",
+  "loc": "`ending.css` `.ending-pair:after`",
+  "fix": "폰 화면 자리로 옮긴다 — `left: 58% → 73%`, `width: 8% → 15%`(폰 화면 폭에 맞춤)."
+ },
+ {
   "id": "K05",
   "title": "걷는 그림만 다른 판(긴소매)이라 걷다 멈출 때 캐릭터가 두 종류로 보인다",
   "cat": "K",

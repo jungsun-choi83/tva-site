@@ -73,11 +73,19 @@ export function initEnding({ onComplete, canComplete, onNav }) {
     const x = (width - w) / 2;
     const y = topInset + (height - topInset - bottomInset - h) / 2;
     Object.assign(art.style, { width: `${w}px`, height: `${h}px`, left: `${x}px`, top: `${y}px` });
+    // 아이와 시바를 소파 '좌석면'에 앉힌다. 세 상수가 그림(1672×941) 기준으로 뜻하는 것:
+    //   seatY  = 좌석면의 세로 위치   hip = 그림 안에서 엉덩이가 닿는 지점   pairH = 두 사람의 키
+    // 2026-09-12: seatY 가 .548 이었는데, 그 자리는 좌석면이 아니라 **등받이 윗선**이었다.
+    //   1440×900 에서 재 보면 등받이 윗선 y≈485(=.548), 실제 좌석면 y≈615(=.703).
+    //   그래서 둘이 등받이 위에 걸터앉아 있었다. hip 도 .62 였는데 그림에서 실제로 닿는 지점은 .58 이다.
+    //   키(pairH)는 .50 → .57 로. 소파 등받이 높이가 130px 인데 앉은키가 220px 뿐이라 작아 보였다
+    //   (어린이가 앉으면 머리가 등받이보다 등받이 한 칸쯤 올라오는 것이 자연스럽다 → 앉은키 약 250px).
+    //   left 는 키가 커진 만큼 가로 중심이 그대로이도록 .236 → .2233.
     const pair = room.querySelector('.ending-pair');
-    const pairH = h * .50;
-    const hip = .62;
-    const seatY = y + h * .548;
-    if (pair) Object.assign(pair.style, { height: `${pairH}px`, width: 'auto', left: `${x + w * .236}px`, top: `${seatY - pairH * hip}px` });
+    const pairH = h * .57;
+    const hip = .58;
+    const seatY = y + h * .703;
+    if (pair) Object.assign(pair.style, { height: `${pairH}px`, width: 'auto', left: `${x + w * .2233}px`, top: `${seatY - pairH * hip}px` });
     const holo = room.querySelector('.ending-holo');
     if (holo) Object.assign(holo.style, { left: `${x + w * .868}px`, top: `${y + h * .456}px`, width: `${w * .058}px`, height: `${h * .086}px` });
     // Cube front glass on the striped plate (1672×941). Dark body ~1437–1600 × 418–525.
