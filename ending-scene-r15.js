@@ -15,7 +15,7 @@ const smooth=v=>{const t=clamp01(v);return t*t*(3-2*t)};
 const smoother=v=>{const t=clamp01(v);return t*t*t*(t*(t*6-15)+10)};
 const segment=(v,a,b)=>smooth((v-a)/(b-a));
 const ISO_TILT=Math.PI/6; // 30° elevation → 2:1 dimetric, the same projection as the Sims-style room plate
-const USE_SPRITE_MASCOT=false; // r18: the drawn-sprite mascot path is retired — the 3D hero (createMascot) stays visible and walks the whole time
+const USE_SPRITE_MASCOT=true; // Goya sprite replaces the 3D TVA CRT mascot; walk ends in a reach toward the finished product on the shelf
 // world distance one stance covers = footZ sweep (±.34 rig units) * hero.group scale (.65) / stance fraction (.62) — but the
 // hero walks facing the walk-quaternion's yaw (.95 rad), not straight down world +X, so the local stepping (local Z) only
 // projects a fraction of its length onto world X. STRIDE_PROJECTION is that fraction; it is measured at runtime (below,
@@ -281,6 +281,111 @@ function createBeamProduct(faceMap){
   root.add(screen);
   return {root,screen,screenMat:glass};
 }
+function makeNamePlate(text){
+  const canvas=document.createElement('canvas');canvas.width=1024;canvas.height=256;
+  const c=canvas.getContext('2d');
+  c.clearRect(0,0,1024,256);
+  c.fillStyle='#1a1713';
+  c.font='800 176px Cinzel, "Times New Roman", serif';
+  c.textAlign='center';c.textBaseline='middle';
+  c.fillText(String(text||'').toUpperCase(),512,128);
+  const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;texture.minFilter=THREE.LinearFilter;
+  const mesh=new THREE.Mesh(new THREE.PlaneGeometry(1.72,.43),new THREE.MeshBasicMaterial({map:texture,transparent:true,depthWrite:false}));
+  const group=new THREE.Group();group.add(mesh);group.userData.texture=texture;return group;
+}
+function makeServerCabinet(){
+  const root=new THREE.Group();
+  const chassis=new THREE.MeshPhongMaterial({color:0x2a3038,shininess:55,specular:0x7a8490});
+  const dark=new THREE.MeshPhongMaterial({color:0x121417,shininess:20});
+  const rail=new THREE.MeshPhongMaterial({color:0x3b424c,shininess:40});
+  const ledG=new THREE.MeshPhongMaterial({color:0x3ee08a,emissive:0x146b38});
+  const ledA=new THREE.MeshPhongMaterial({color:0xe8b23d,emissive:0x6a4a10});
+  const shell=new THREE.Mesh(new THREE.BoxGeometry(.92,1.95,.78),chassis);shell.position.y=.98;root.add(shell);
+  for(let i=0;i<10;i++){
+    const u=new THREE.Mesh(new THREE.BoxGeometry(.66,.11,.52),rail);u.position.set(0,.28+i*.15,.08);root.add(u);
+    const face=new THREE.Mesh(new THREE.BoxGeometry(.62,.09,.03),dark);face.position.set(0,.28+i*.15,.4);root.add(face);
+    const light=new THREE.Mesh(new THREE.BoxGeometry(.03,.025,.02),i%4?ledG:ledA);light.position.set(.26,.28+i*.15,.42);root.add(light);
+  }
+  const footL=new THREE.Mesh(new THREE.BoxGeometry(.9,.06,.74),dark);footL.position.y=.03;root.add(footL);
+  root.rotation.x=ISO_TILT;return root;
+}
+function makeWorkshopDesk(){
+  const root=new THREE.Group();
+  const wood=new THREE.MeshPhongMaterial({color:0x8a5a32,shininess:18});
+  const steel=new THREE.MeshPhongMaterial({color:0x3a414a,shininess:40,specular:0x889099});
+  const top=new THREE.Mesh(new THREE.BoxGeometry(1.85,.08,.78),wood);top.position.y=.78;root.add(top);
+  for(const [x,z] of [[-.78,.28],[-.78,-.28],[.78,.28],[.78,-.28]]){
+    const leg=new THREE.Mesh(new THREE.BoxGeometry(.08,.78,.08),steel);leg.position.set(x,.39,z);root.add(leg);
+  }
+  const apron=new THREE.Mesh(new THREE.BoxGeometry(1.7,.07,.62),steel);apron.position.y=.72;root.add(apron);
+  root.rotation.x=ISO_TILT;return root;
+}
+function makeLabComputerDesk(){
+  const root=new THREE.Group();
+  const black=new THREE.MeshPhongMaterial({color:0x1b1e24,shininess:35});
+  const silver=new THREE.MeshPhongMaterial({color:0x8b939c,shininess:70,specular:0xc5ced6});
+  const glass=new THREE.MeshBasicMaterial({color:0x163044});
+  const makeMonitor=(x,yaw)=>{
+    const g=new THREE.Group();g.position.set(x,.36,0);g.rotation.y=yaw;
+    const neck=new THREE.Mesh(new THREE.CylinderGeometry(.03,.045,.2,10),silver);neck.position.y=-.16;g.add(neck);
+    const base=new THREE.Mesh(new THREE.CylinderGeometry(.11,.12,.03,10),silver);base.position.y=-.27;g.add(base);
+    const bezel=new THREE.Mesh(new THREE.BoxGeometry(.52,.32,.04),black);bezel.position.y=.06;g.add(bezel);
+    const panel=new THREE.Mesh(new THREE.PlaneGeometry(.46,.26),glass);panel.position.set(0,.06,.025);g.add(panel);
+    root.add(g);return g;
+  };
+  makeMonitor(-.24,.1);makeMonitor(.24,-.08);
+  const kbd=new THREE.Mesh(new THREE.BoxGeometry(.38,.02,.13),black);kbd.position.set(0,.02,.22);root.add(kbd);
+  root.rotation.x=ISO_TILT;return root;
+}
+function makeOfficeChair(){
+  const root=new THREE.Group();
+  const black=new THREE.MeshPhongMaterial({color:0x2a2e34,shininess:25});
+  const steel=new THREE.MeshPhongMaterial({color:0x6a727c,shininess:50,specular:0x9aa3ab});
+  const seat=new THREE.Mesh(new THREE.BoxGeometry(.46,.07,.44),black);seat.position.y=.54;root.add(seat);
+  const back=new THREE.Mesh(new THREE.BoxGeometry(.42,.52,.07),black);back.position.set(0,.82,-.2);root.add(back);
+  const pole=new THREE.Mesh(new THREE.CylinderGeometry(.045,.055,.52,8),steel);pole.position.y=.26;root.add(pole);
+  const base=new THREE.Mesh(new THREE.CylinderGeometry(.24,.24,.045,8),steel);base.position.y=.03;root.add(base);
+  root.rotation.x=ISO_TILT;return root;
+}
+function makeReport(){
+  const root=new THREE.Group();
+  const board=new THREE.Mesh(new THREE.BoxGeometry(.22,.3,.012),mat(0xb08958));
+  const paper=new THREE.Mesh(new THREE.BoxGeometry(.19,.26,.005),mat(0xf6f0e4));paper.position.z=.01;
+  const clip=new THREE.Mesh(new THREE.BoxGeometry(.2,.034,.018),mat(0x4a5560));clip.position.set(0,.135,.014);
+  root.add(board,paper,clip);
+  for(let i=0;i<5;i++){
+    const line=new THREE.Mesh(new THREE.BoxGeometry(.145,.007,.002),mat(0x8e9aa6));
+    line.position.set(0,.08-i*.042,.014);root.add(line);
+  }
+  return root;
+}
+function tintHuman(human,look){
+  human.model.traverse(object=>{
+    if(!object.isMesh)return;
+    const mats=Array.isArray(object.material)?object.material:[object.material];
+    for(const material of mats){
+      const name=String(material.name||object.name||'').toLowerCase();
+      if(look.skin&&name.includes('skin'))material.color.setHex(look.skin);
+      if(look.hair&&(name.includes('hair')||name.includes('eyebrow')))material.color.setHex(look.hair);
+    }
+  });
+}
+function inspectReportPose(human,t,side=1){
+  if(!human._inspectBase){
+    human._inspectBase={head:human.head.quaternion.clone()};
+  }
+  const scan=Math.sin(t*1.4)*.025;
+  human.body.quaternion.copy(human.neutralBodyQuaternion);
+  human.body.rotateX(.05);
+  human.body.rotateY(-.08*side);
+  human.head.quaternion.copy(human._inspectBase.head);
+  human.head.rotateX(.2+scan);
+  human.head.rotateY(-.1*side);
+  aimBoneLocal(human,human.leftArm.upper,new THREE.Vector3(.12*side,-.52,.58));
+  aimBoneLocal(human,human.rightArm.upper,new THREE.Vector3(-.1*side,-.48+scan,.6));
+  aimBoneLocal(human,human.leftArm.fore,new THREE.Vector3(.05,-.16,.78));
+  aimBoneLocal(human,human.rightArm.fore,new THREE.Vector3(-.04,-.22+scan,.76));
+}
 function cropFace(source){const canvas=document.createElement('canvas');canvas.width=640;canvas.height=510;canvas.getContext('2d').drawImage(source.image,420,245,410,320,0,0,640,510);const texture=new THREE.CanvasTexture(canvas);texture.colorSpace=THREE.SRGBColorSpace;texture.minFilter=THREE.LinearFilter;return texture}
 // thoughtTexture() (atlas-keyed cup/computer thought clouds) retired in r18 — replaced by the unified 3D-icon bubble system (build3DIcon).
 
@@ -484,10 +589,11 @@ function poseReaderSeated(human,p){
 
 export async function createEndingScene(canvas){
   if(!(canvas instanceof HTMLCanvasElement))throw new TypeError('createEndingScene(canvas) requires a canvas element.');
-  const [roomTexture,sourceMascot,homeTexture,spriteIdle,spriteWave1,spriteWave2,spriteRun1,spriteRun2,spriteRun3,spriteRun4,spriteRun5,spriteRun6]=await Promise.all([
+  const [roomTexture,sourceMascot,homeTexture,spriteIdle,spriteWave1,spriteWave2,spriteRun1,spriteRun2,spriteRun3,spriteRun4,spriteRun5,spriteRun6,spriteReach]=await Promise.all([
     loadTexture('./assets/ending/r10-image-first/room-lab-v1.webp?v=eternal-beam-r74'),loadTexture('./assets/ending/r10-image-first/character-original-v3/01-front.webp'),loadTexture('./assets/hero/beam-device-1920x1080.png?v=eternal-beam-r31'),
     loadTexture('./assets/goya/idle.png?v=eternal-beam-r51'),loadTexture('./assets/goya/idle.png?v=eternal-beam-r51'),loadTexture('./assets/goya/sit.png?v=eternal-beam-r51'),
     loadTexture('./assets/goya/walk-a.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-b.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-a.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-b.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-a.png?v=eternal-beam-r51'),loadTexture('./assets/goya/walk-b.png?v=eternal-beam-r51'),
+    loadTexture('./assets/goya/present.png?v=eternal-beam-r102'),
   ]);
   const face=cropFace(sourceMascot);
   // r18: USE_SPRITE_MASCOT=false — the drawn-sprite walk cycle below is fully retired. The 3D hero (createMascot)
@@ -503,23 +609,26 @@ export async function createEndingScene(canvas){
     run4:{texture:spriteRun4,aspect:696/700,feetBottom:.9957,centerX:.5},
     run5:{texture:spriteRun5,aspect:650/700,feetBottom:1,centerX:.5},
     run6:{texture:spriteRun6,aspect:700/699,feetBottom:1,centerX:.5136},
+    reach:{texture:spriteReach,aspect:1,feetBottom:.985,centerX:.48},
   };
-  const SPRITE_HEIGHT=1.93; // world units — measured to match the 3D hero's own height (heroTop.y - floorLine at travel .3-.55, see measure-hero-foot.mjs)
-  const SPRITE_FLOOR_OFFSET=.385; // measured: hero's planted-shoe world Y sits this far below hero.group's own Y at every travel point
-  const spriteAnchor=travel=>({x:lerp(-1.75,3.75,travel),floorY:lerp(-3.1,-2.72,travel)-SPRITE_FLOOR_OFFSET});
+  // Humans are normalized to 2.5 units ≈ 170cm adult. The photo Eternal Beam cube is 25cm,
+  // so standing height should be 170/25 = 6.8 cubes. Workbench face height in this plate is
+  // ~2.05 world units ≈ 90cm, which sets 1 unit ≈ 44cm → adult scale 170/44/2.5 ≈ 1.55.
+  const HUMAN_SCALE=1.55;
+  const SPRITE_HEIGHT=2.15;
+  const SPRITE_FLOOR_OFFSET=.46;
+  const GOYA_WALK_END={x:3.58,y:-1.48};
+  const spriteAnchor=travel=>({x:lerp(-1.75,GOYA_WALK_END.x,travel),floorY:lerp(-3.1,GOYA_WALK_END.y,travel)-SPRITE_FLOOR_OFFSET});
   const renderer=new THREE.WebGLRenderer({canvas,antialias:true,alpha:false,powerPreference:'high-performance'});renderer.setPixelRatio(Math.min(devicePixelRatio||1,2.5));renderer.outputColorSpace=THREE.SRGBColorSpace;
   const scene=new THREE.Scene();scene.background=new THREE.Color(0x3a3832);const camera=new THREE.OrthographicCamera(-7.5,7.5,5,-5,.1,40);camera.position.set(0,0,10);
   roomTexture.anisotropy=Math.min(8,renderer.capabilities.getMaxAnisotropy?.()||1);
   const backdrop=add(scene,new THREE.PlaneGeometry(15,10),new THREE.MeshBasicMaterial({map:roomTexture}),[0,0,-4]);scene.add(new THREE.HemisphereLight(0xfff6ea,0x4a4538,.95));const key=new THREE.DirectionalLight(0xfff1d8,.95);key.position.set(-1.6,3.2,12);scene.add(key);renderer.shadowMap.enabled=false;const castAll=root=>root.traverse(o=>{if(o.isMesh)o.castShadow=false});
   const workDesk=createDesk(THREE,homeTexture,{woodTexture,plasticTexture,box,add,mat});
-  workDesk.macCaseMesh.visible=false;
-  const finishedBeam=createBeamProduct(workDesk.homeScreenTexture);
-  finishedBeam.root.position.set(0,1.88,.18);
-  finishedBeam.root.scale.setScalar(1.12);
-  workDesk.root.add(finishedBeam.root);
-  workDesk.screen=finishedBeam.screen;
-  workDesk.screenMat=finishedBeam.screenMat;
-  workDesk.makeScreenQuad=()=>new THREE.PlaneGeometry(1,1);
+  workDesk.macCaseMesh.visible=true;
+  const diveFace=new THREE.Mesh(new THREE.PlaneGeometry(.9,.9),new THREE.MeshBasicMaterial({visible:false}));
+  diveFace.position.set(4.72,.04,.32);
+  diveFace.rotation.set(ISO_TILT,-.5,0,'XYZ');
+  scene.add(diveFace);
   // r38 QA fix (superseded by r46, see below): ending-desk-computer-r35.js's
   // KBD_FRONT_Z grew (.86->1.05) so the keyboard deck read as a real, solid
   // keyboard from the ending camera instead of a sliver pulled back under the
@@ -567,28 +676,17 @@ export async function createEndingScene(canvas){
   workDesk.chair.position.z+=CHAIR_BACK_DELTA;
   // the portal plane shows the same cover-cropped HOME image the desk screen shows, on its own cloned
   // texture, so there's no visible re-crop pop when the dive hands off from the in-scene screen to the portal plane
-  const homePortalTexture=workDesk.homeScreenTexture.clone();homePortalTexture.repeat.set(workDesk.homeCropRepeatX,workDesk.homeCropRepeatY);homePortalTexture.offset.set(workDesk.homeCropOffsetX,workDesk.homeCropOffsetY);homePortalTexture.needsUpdate=true;
+  const homePortalTexture=homeTexture.clone();homePortalTexture.needsUpdate=true;
   const portalMaterial=new THREE.MeshBasicMaterial({map:homePortalTexture,transparent:true,opacity:0,depthTest:false,depthWrite:false});
-  // r54: the portal is no longer a bare rectangle — it is built with the desk computer's OWN screen-window
-  // outline (rounded corners and all, see makeScreenQuad in ending-desk-computer-r35.js) so that while
-  // flatten===0 (p .86-.90) it lands pixel-exactly on top of the monitor's window instead of overhanging
-  // its rounded corners onto the bezel. setPortalRound() below straightens those corners out as the
-  // flatten runs, so by p=.955 it is the plain full-bleed rectangle the real HOME page shows.
-  const homePortal=add(scene,workDesk.makeScreenQuad(1),portalMaterial,[0,0,8]);homePortal.renderOrder=100;
-  let portalRoundStep=-1;
-  const PORTAL_ROUND_STEPS=20;
-  const setPortalRound=(t)=>{
-    const step=Math.max(0,Math.min(PORTAL_ROUND_STEPS,Math.round(t*PORTAL_ROUND_STEPS)));
-    if(step===portalRoundStep)return;
-    portalRoundStep=step;
-    const next=workDesk.makeScreenQuad(1-step/PORTAL_ROUND_STEPS);
-    homePortal.geometry.dispose();homePortal.geometry=next;
-  };
-  setPortalRound(0);
+  const homePortal=add(scene,new THREE.PlaneGeometry(1,1),portalMaterial,[0,0,8]);homePortal.renderOrder=100;homePortal.visible=false;
+  const setPortalRound=()=>{};
   const portalBackingMaterial=new THREE.MeshBasicMaterial({color:0x050606,transparent:true,opacity:0,depthTest:false,depthWrite:false});
   const portalBacking=add(scene,new THREE.PlaneGeometry(1,1),portalBackingMaterial,[0,0,7]);portalBacking.renderOrder=99;
-  workDesk.root.position.set(4.85,-3.18,0);workDesk.root.scale.setScalar(.82);workDesk.root.rotation.set(ISO_TILT,-Math.PI/4,0,'XYZ');scene.add(workDesk.root);castAll(workDesk.root);
-  const hero=createMascot(THREE,face,{sourceMascot,box,add,mat});hero.group.scale.setScalar(.65);hero.group.rotation.x=ISO_TILT;scene.add(hero.group);castAll(hero.group);
+  workDesk.root.position.set(-4.05,-1.72,0);workDesk.root.scale.setScalar(.42);workDesk.root.rotation.set(ISO_TILT,.35,0,'XYZ');workDesk.root.visible=false;scene.add(workDesk.root);castAll(workDesk.root);
+  if(workDesk.chair)workDesk.chair.visible=false;
+  const labDesk=makeLabComputerDesk();labDesk.position.set(-2.72,-1.62,.35);labDesk.scale.setScalar(1.35);scene.add(labDesk);
+  const labChair=makeOfficeChair();labChair.position.set(-3.35,-2.85,.22);labChair.scale.setScalar(1.35);labChair.rotation.y=-.25;scene.add(labChair);
+  const hero=createMascot(THREE,face,{sourceMascot,box,add,mat});hero.group.scale.setScalar(.65);hero.group.rotation.x=ISO_TILT;hero.group.visible=false;scene.add(hero.group);castAll(hero.group);
   const spriteMaterial=new THREE.MeshBasicMaterial({map:spriteIdle,transparent:true,depthWrite:true});
   const mascotSprite=USE_SPRITE_MASCOT?add(scene,new THREE.PlaneGeometry(1,1),spriteMaterial,[-1.75,-3.485,.45]):null;
   if(mascotSprite)mascotSprite.renderOrder=5;
@@ -600,12 +698,19 @@ export async function createEndingScene(canvas){
     mascotSprite.scale.set(width,SPRITE_HEIGHT,1);
     mascotSprite.position.set(anchorX-(cel.centerX-.5)*width,floorY+SPRITE_HEIGHT/2-(1-cel.feetBottom)*SPRITE_HEIGHT,z);
   };
-  const [walker,chatA,chatB]=await Promise.all([createHuman('manCasual'),createHuman('womanCasual'),createHuman('womanFormal')]);
-  for(const h of [walker,chatA,chatB]){h.root.scale.setScalar(.88);h.root.rotation.x=ISO_TILT;scene.add(h.root)}
-  chatA.root.position.set(-.45,-.55,.2);chatA.root.rotation.y=1.1;
-  chatB.root.position.set(1.05,-.62,.15);chatB.root.rotation.y=-1.1;
-  const chatAShadow=shadow(scene,-.45,-1.72,.72),chatBShadow=shadow(scene,1.05,-1.79,.72);
-  const walkerShadow=shadow(scene,2.8,-3.22,.72),heroShadow=shadow(scene,-1.75,-3.23,.78);
+  const [walker,chatA,chatB]=await Promise.all([createHuman('manCasual'),createHuman('manHoodie'),createHuman('womanCasual')]);
+  tintHuman(walker,{skin:0xe0b48a,hair:0x1a120c});
+  tintHuman(chatA,{skin:0x4a2a18,hair:0x140e0a});
+  tintHuman(chatB,{skin:0x53301c,hair:0x140e0a});
+  for(const h of [walker,chatA,chatB]){h.root.scale.setScalar(HUMAN_SCALE);h.root.rotation.x=ISO_TILT;scene.add(h.root)}
+  // ANTHONEY + ROSARIA inspect reports together; MAN sits coding at the left photo bench
+  chatA.root.position.set(.08,-2.55,.2);chatA.root.rotation.y=.45;
+  chatB.root.position.set(1.28,-2.62,.18);chatB.root.rotation.y=-.45;
+  walker.root.position.set(-3.28,-2.92,.22);walker.root.rotation.y=-.2;
+  const reportA=makeReport();chatA.leftArm.hand.add(reportA);reportA.position.set(.06,-.08,.18);reportA.rotation.set(-1.05,.35,.12);
+  const reportB=makeReport();chatB.leftArm.hand.add(reportB);reportB.position.set(.06,-.08,.18);reportB.rotation.set(-1.05,.35,.12);
+  const chatAShadow=shadow(scene,.08,-2.85,.78),chatBShadow=shadow(scene,1.28,-2.92,.78);
+  const walkerShadow=shadow(scene,-3.28,-3.12,.78),heroShadow=shadow(scene,-1.75,-3.23,.7);
 
   // r23: every owner's head is measured for real (see measureHead above and the hero case-box measurement below)
   // instead of a single hand-tuned constant — HEAD_WIDTH feeds the 1.5x balloon-width rule, HEAD_TOP_DELTA feeds the
@@ -639,17 +744,18 @@ export async function createEndingScene(canvas){
   // TAIL's tip, not the body's own origin.
   const BALLOON_SIDE_LEAN=.25;
   const bubbles=[
-    ['walker','plate',.19,.33,.02],['chatB','heart',.30,.44,.15],
-    ['chatA','cup',.19,.24,-.2],['hero','computer',.255,.30,.25],
-    ['chatA','note',.52,.66,-.15],['chatB','talk',.60,.72,.15],['chatA','heart',.74,.86,-.15],
-  ].map(([owner,icon,start,end,ox])=>{
-    const balloonWidth=1.5*(HEAD_WIDTH[owner]||.5);
-    const balloon=buildBalloon(balloonWidth,icon==='talk'?'talk':'thought');
+    ['chatA','name',.18,.80,-.2,'ANTHONEY'],
+    ['chatB','name',.20,.80,.15,'ROSARIA'],
+    ['walker','name',.22,.80,-.35,'MAN'],
+  ].map(([owner,icon,start,end,ox,label])=>{
+    const balloonWidth=icon==='name'?1.22:1.5*(HEAD_WIDTH[owner]||.5);
+    const balloon=buildBalloon(balloonWidth,'talk');
     scene.add(balloon.group);balloon.group.position.set(0,0,BALLOON_Z);
     // icon fits inside ~55% of the balloon's own HEIGHT (r23: was balloonWidth*.55 — the balloon is noticeably
     // shorter than it is wide, so sizing off width alone over-filled the body), centered toward the camera-facing side.
-    const iconMesh=build3DIcon(icon);const iconScale=fitIconScale(iconMesh,balloon.height*.55);scene.add(iconMesh);
-    const flatIcon=icon==='note'||icon==='zzz'||icon==='book'||icon==='heart'; // r23: heart moved here too — a full 360° spin necessarily passes edge-on, which is exactly when it punched through the balloon's front face (see iconZOffset below)
+    const iconMesh=icon==='name'?makeNamePlate(label):build3DIcon(icon);
+    const iconScale=icon==='name'?Math.min(balloon.width*.88/1.72,balloon.height*.5/.43):fitIconScale(iconMesh,balloon.height*.55);scene.add(iconMesh);
+    const flatIcon=icon==='name'||icon==='note'||icon==='zzz'||icon==='book'||icon==='heart'; // r23: heart moved here too — a full 360° spin necessarily passes edge-on, which is exactly when it punched through the balloon's front face (see iconZOffset below)
     // r23: the icon's own local half-extents (pre iconScale), used to guarantee the icon clears the balloon's front
     // face at its *worst-case* rotation, not just at rest. A flat, wide mesh tilted by the wobble sweeps further along
     // its own local Z than its resting thickness alone (width*sin25° + depth*cos25°); a fully-spinning icon passes
@@ -677,9 +783,9 @@ export async function createEndingScene(canvas){
   });
   bubbles.forEach(b=>{b.balloon.group.traverse(o=>{if(o.isMesh)o.renderOrder=20});b.balloon.group.visible=false;b.iconMesh.visible=false});
 
-  const plumbob=makePlumbob();scene.add(plumbob);
+  const plumbob=makePlumbob();plumbob.visible=false;scene.add(plumbob);
   const typed=typedScreenTexture();
-  const cat=makeCat();cat.root.scale.setScalar(1.05);cat.root.rotation.x=ISO_TILT;scene.add(cat.root);const catShadow=shadow(scene,0,0,.5);
+  const cat=makeCat();cat.root.scale.setScalar(.92);cat.root.rotation.x=ISO_TILT;scene.add(cat.root);const catShadow=shadow(scene,0,0,.38);
   // r56 defect fix: "cat pops into existence" — the module (ending-cat-walker-r28.js, read-only here) only
   // drives/shows the cat for p in (.32,.62) (its own walk-across-the-rug window). Instead the cat must be in
   // the room from the very first room-phase frame (p≈.16, see `establish=segment(p,.16,.3)` above), sitting at
@@ -692,7 +798,7 @@ export async function createEndingScene(canvas){
   const catSitHeading=catBaseHeading+.9; // matches the module's own pause "look toward camera" turn amount
   const CAT_WAKE_START=.32,CAT_WAKE_END=.34; // matches the module's own CAT_PATH_START, so the handoff lands exactly where the module starts moving the cat
   const CAT_SETTLE_START=.60,CAT_SETTLE_END=.64; // matches the module's own CAT_PATH_END..just past its visibility cutoff (.62)
-  workDesk.root.updateMatrixWorld(true);workDesk.screen.updateMatrixWorld(true);
+  workDesk.root.updateMatrixWorld(true);diveFace.updateMatrixWorld(true);
   const idleQuaternion=new THREE.Quaternion().setFromEuler(new THREE.Euler(ISO_TILT,0,0,'XYZ'));
   const walkQuaternion=new THREE.Quaternion().setFromEuler(new THREE.Euler(ISO_TILT,.95,0,'XYZ'));
   // r18: STRIDE_WORLD accounts for the walk yaw — the hero's local forward (local Z) only projects part of its length onto
@@ -753,7 +859,16 @@ export async function createEndingScene(canvas){
   // a Y relationship, caseBottom vs chairSeatTop — is untouched.
   const SEAT_FORWARD=-.025;
   const seatTarget=workDesk.root.localToWorld(new THREE.Vector3(seatCushionLocal.x,seatCushionLocal.y+SEAT_Y_OFFSET,seatCushionLocal.z+SEAT_FORWARD));
-  const monitorTarget=workDesk.screen.getWorldPosition(new THREE.Vector3());
+  const monitorTarget=new THREE.Vector3();
+  const monitorScale=new THREE.Vector3();
+  const monitorQuaternion=new THREE.Quaternion();
+  const refreshMonitor=()=>{
+    diveFace.updateMatrixWorld(true);
+    diveFace.getWorldPosition(monitorTarget);
+    diveFace.getWorldScale(monitorScale);
+    diveFace.getWorldQuaternion(monitorQuaternion);
+  };
+  refreshMonitor();
   // r24: item-1 — the desk keyboard is gone, so the mascot's gloves rest directly on the desk surface in front
   // of the Mac instead of on keycaps, close together rather than spread across a keyboard's width. Root-local
   // x=.25/-.15 (spread .4, straddling the Mac's own x=.14) at z=1.0 (well inside the desk-top's own z-range,
@@ -893,11 +1008,8 @@ export async function createEndingScene(canvas){
     workDesk.root.localToWorld(new THREE.Vector3(.70,1.44,.68)),
     workDesk.root.localToWorld(new THREE.Vector3(-.42,1.44,.68))
   ];
-  const monitorScale=workDesk.screen.getWorldScale(new THREE.Vector3());
-  const monitorQuaternion=workDesk.screen.getWorldQuaternion(new THREE.Quaternion());
-  // r19: the screen is now a real 4:3 opening (was a hardcoded 16:9 .78x.439 plane) - read its actual size off the
-  // geometry instead of hardcoding it twice below, so the dive/portal math keeps working for any screen aspect.
-  const screenW=workDesk.screen.geometry.parameters.width,screenH=workDesk.screen.geometry.parameters.height;
+  refreshMonitor();
+  const screenW=diveFace.geometry.parameters.width,screenH=diveFace.geometry.parameters.height;
   let baseWidth=15,baseHeight=10,portrait=false,homeNarrow=false;
   // ---------------------------------------------------------------------------------------------------
   // r57 — BEZEL-COVERAGE GATE for the final dive.
@@ -1017,143 +1129,52 @@ export async function createEndingScene(canvas){
     const waveWeight=segment(p,.33,.36)*(1-segment(p,.40,.43)); // r32: smooth in/out — was a hard weight snap to 1/0 at .33/.43
     const interactPhase=t/INTERACT_CYCLE,listenPhase=t/LISTEN_CYCLE;
 
-    driveHumanAction(chatA,'Interact',interactPhase,aSpeak*convGate+(1-convGate));
-    driveHumanAction(chatA,'Idle_Neutral',listenPhase,(1-aSpeak)*convGate);
-    silenceHumanActions(chatA,['Interact','Idle_Neutral']);
+    driveHumanAction(chatA,'Idle_Neutral',listenPhase,1);
+    silenceHumanActions(chatA,['Idle_Neutral']);
     chatA.mixer.update(0);
-    chatA.body.quaternion.copy(chatA.neutralBodyQuaternion);chatA.body.updateMatrixWorld(true);
-    chatA.head.rotateX(Math.sin(t*2.8)*CONV_NOD_AMPLITUDE*(1-aSpeak)*convGate);
+    inspectReportPose(chatA,t,1);
 
-    driveHumanAction(chatB,'Interact',interactPhase,(bSpeak*convGate+(1-convGate))*(1-waveWeight));
-    driveHumanAction(chatB,'Idle_Neutral',listenPhase,(1-bSpeak)*convGate*(1-waveWeight));
-    driveHumanAction(chatB,'Wave',segment(p,.33,.43),waveWeight);
-    silenceHumanActions(chatB,['Interact','Idle_Neutral','Wave']);
+    driveHumanAction(chatB,'Idle_Neutral',listenPhase+.17,1);
+    silenceHumanActions(chatB,['Idle_Neutral']);
     chatB.mixer.update(0);
-    chatB.body.quaternion.copy(chatB.neutralBodyQuaternion);chatB.body.updateMatrixWorld(true);
-    chatB.head.rotateX(Math.sin(t*2.8+1.3)*CONV_NOD_AMPLITUDE*(1-bSpeak)*convGate*(1-waveWeight));
+    inspectReportPose(chatB,t,-1);
 
-    const walkerState=updateWalker(THREE,walker,p,{lerp,segment,smooth});
-    // ---- r51 defect 2: the hero walked straight THROUGH the standing passer-by (owner screenshot at p≈.5).
-    // Measured, not eyeballed: the walker's own straight stroll (ending-cat-walker-r28.js, which this file
-    // must not edit) runs (2.8,-3.2) -> (1.25,-2.68) while the hero's walk runs (-1.75,-3.1) -> (3.75,-2.72),
-    // and the two lines CROSS — the walker's arrival spot sits only .21 world units off the hero's path, and
-    // the minimum SIMULTANEOUS separation between the two roots is .159 at p=.459 (see the sweep in this
-    // round's notes). Anything under ~.6 reads as one body inside the other at this camera.
-    // Fix: a CONSTANT world offset applied to walker.root after updateWalker(). Constant (not ramped) on
-    // purpose — updateWalker drives the Walk clip's phase from distance travelled along its own path, so any
-    // offset that changes over p would change the walker's effective speed/heading and make his planted feet
-    // slide or crab. A pure translation leaves speed, path length and heading exactly as that file computed
-    // them, and simply moves the whole stroll .62 further back into the room (+Y) and .05 left.
-    // Result (same sweep): minimum simultaneous separation .780 at p=.457, and the final standing spot
-    // (1.20,-2.06) now sits .83 world units clear of the hero's walk path. He also ends up nearer the coffee
-    // table and closer to the talkers he turns toward, so the existing head-turn still reads correctly (the
-    // talkers' midpoint (.3,-.585) is still on his -X/+Y side, the same side updateWalker's built-in glance
-    // and the extra headTurnHold below already turn toward).
-    //
-    // ---- r58 owner defect: "얘는 왜 테이블에 껴있니" (he's stuck IN the coffee table) — the r51 fix above
-    // solved the hero-collision but pushed the walker's stop spot (1.20,-2.06) into the glass coffee table
-    // (round glass top on 4 chrome legs, centred on the rug). The table isn't a 3D mesh with its own AABB —
-    // the room is one flat backdrop image plane — so its footprint was measured by sampling the actual
-    // rendered frame: the scene camera is an orthographic camera reset to identity quaternion every frame
-    // (see render()), so canvas pixel -> world is a plain linear map (world = frustum.min + px/canvasPx *
-    // frustumSize), independent of depth/tilt. Placed debug world-space markers on top of a clean (p=.30,
-    // pre-arrival) render and nudged them onto the visible rim to calibrate: table world footprint x in
-    // [-0.5,3.4], y in [-1.95,-0.65] (back/near-sofa edge -0.65, front/near-camera edge -1.95) — expanded
-    // by the walker's own body radius (~.3) that's a no-go box of y > -2.25 across the table's x-span. The
-    // old WALKER_CLEAR_Y of .62 put the stop spot at y=-2.06, .19 inside that box.
-    //
-    // The trap: the r51-safe zone for the hero (needs WALKER_CLEAR_Y roughly >=.42 for a >=.6 hero
-    // separation at this X) and the table's no-go box (needs y=-2.68+WALKER_CLEAR_Y <=-2.25, i.e.
-    // WALKER_CLEAR_Y <=.43) barely overlap at the walker's raw X (1.25) — there is no Y-only offset that
-    // clears both with real margin there, and pushing X right at this Y band only walks him further INTO
-    // the mascot's own rightward path (worse, not better — verified by sweeping X, see
-    // QA_Evidence/tva-claude-20260909/check-walker-r58.mjs's search notes). The fix instead is a small
-    // NEGATIVE X shift, toward the talkers (still on their far/-X... i.e. now nearer their +X — side, so the
-    // headTurn below still reads: recheck (d) at the bottom) combined with a Y shift back near .46: at
-    // X=1.25-.70=.55 the hero's own path is far enough along -X that the same Y clears the hero with margin
-    // AND the table's box (which is essentially X-invariant across the walker's whole plausible range, so
-    // moving X doesn't reopen the table — only reaching the table's actual left rim near x<=0 would, and
-    // .55 doesn't go that far).
-    // WALKER_CLEAR_X=-.70, WALKER_CLEAR_Y=.46. Re-swept every .01 of p in [.18,.62] (see the QA script):
-    //   - min simultaneous separation from the hero's root: .628 at p=.459 (was .780 after r51, .159 before
-    //     r51 — still clears the .6 "two .3-radius bodies just touch" line)
-    //   - distance from the final stopped spot to the hero's walk-path line: .719 (hero is still moving
-    //     through p=.59 after the walker plants at p=.52)
-    //   - distance to chatA/chatB: 1.95 / 1.68 (both well past the .5 minimum)
-    //   - clearance from the table's expanded (+.3) no-go box: -0.03 at the tightest sampled p — inside the
-    //     measurement's own margin of error (the box is a rectangle; the table is actually an ellipse, so
-    //     the true corner clearance right at this X is a hair better than the box model says) and a large
-    //     improvement over the pre-fix -0.19
-    // Final standing spot: (.55,-2.22) — still on the rug, still far enough east of the talkers' midpoint
-    // (.3,-.585) that the existing -X headTurn reads the same as before, just shifted off the table.
-    const WALKER_CLEAR_X=-.70,WALKER_CLEAR_Y=.40;
-    walker.root.position.x+=WALKER_CLEAR_X;walker.root.position.y+=WALKER_CLEAR_Y;
-    walkerShadow.position.set(walkerState.x+WALKER_CLEAR_X,walkerState.y+WALKER_CLEAR_Y-.06,-.05);
-    // ---- r32: keep the walker alive after arrival (defect 2 fix). updateWalker()'s own poseHumanWalk(walker,
-    // walkPhase,stopWeight) call re-feeds mixer.setTime() the SAME frozen walkPhase once the walk segment saturates
-    // (distanceTravelled stops growing at p>=WALKER_PATH_END), so the whole body froze in place after arriving (QA
-    // r29 evidence). Re-drive Idle_Neutral's own `.time` from real elapsed scene time `t` (computed just below, for
-    // the conversation loop too) once idle weight takes over — additive on top of updateWalker's own root x/y and
-    // heading, never touching them, so the planted feet don't slide.
-    const walkerIdleWeight=1-walkerState.stopWeight; // 0 while walking, ->1 once fully arrived/settled
-    const walkerT=p*27.5;
-    if(walkerIdleWeight>1e-3){
-      const idleAction=walker.actions.Idle_Neutral||walker.actions.Idle;
-      if(idleAction){
-        const duration=idleAction.getClip().duration||1;
-        idleAction.enabled=true;idleAction.paused=false;
-        idleAction.time=((walkerT/3.6%1)+1)%1*duration;
-        idleAction.weight=walkerIdleWeight;
-        walker.mixer.update(0);
-      }
-      // slow standing weight-shift: a tiny vertical bob + a couple-degree roll, purely a function of `p`/`walkerT`
-      // stacked on top of the root x/y/heading updateWalker already set this frame (never touching them). rotation.z
-      // MUST be a plain assignment, not +=: updateWalker never sets rotation.z itself (only position.x/y and
-      // rotation.y), so unlike position.y (which updateWalker's position.set() resets fresh every call), an earlier
-      // r32 draft that used += here read back its own already-mutated value on the next render() call and kept
-      // accumulating it every frame forever — the walker visibly spiralled over onto the floor within a few frames.
-      walker.root.position.y+=Math.sin(walkerT*1.1)*.01*walkerIdleWeight;
-      walker.root.rotation.z=Math.sin(walkerT*1.1+.6)*(2*Math.PI/180)*walkerIdleWeight;
-      // turn the head further toward the talkers over .55-.62, holding afterward with a tiny idle sway so the turn
-      // reads clearly instead of relaxing back to centre. updateWalker() already applies its own smaller built-in
-      // glance (a fixed +.32rad rotateY over its own .49-.56 window, verified toward the talkers by that file's own
-      // comment/convention — talkersMidpoint sits at -X from the walker's arrival spot, matching that note). This
-      // extends the SAME direction/axis further rather than deriving a competing target angle from scratch, which
-      // would risk fighting (partially cancelling) that already-correct built-in turn instead of adding to it.
-      const headTurnHold=segment(p,.55,.62);
-      if(headTurnHold>0&&walker.head){
-        walker.head.rotateY(headTurnHold*.3);
-        walker.head.rotateX(Math.sin(walkerT*1.7)*(2*Math.PI/180)*headTurnHold);
-      }
-    }
+    // MAN sits at the left desk and types
+    walker.root.position.set(-3.28,-2.92,.22);
+    walker.root.rotation.x=ISO_TILT;
+    walker.root.rotation.y=-.2;
+    walker.root.rotation.z=0;
+    poseReaderSeated(walker,p);
+    const typePulse=Math.sin(t*9.5)*.045;
+    aimBoneLocal(walker,walker.leftArm.upper,new THREE.Vector3(.16+typePulse,-.62,.58));
+    aimBoneLocal(walker,walker.rightArm.upper,new THREE.Vector3(-.18-typePulse,-.6,.6));
+    aimBoneLocal(walker,walker.leftArm.fore,new THREE.Vector3(.14,-.2,.9));
+    aimBoneLocal(walker,walker.rightArm.fore,new THREE.Vector3(-.12,-.16,.92));
+    if(walker.head){walker.head.rotateX(.38+Math.sin(t*3.1)*.04);walker.head.rotateY(.18)}
+    walkerShadow.position.set(-3.28,-3.12,-.05);
 
-    const walkingX=lerp(-1.75,3.75,travel),walkingY=lerp(-3.1,-2.72,travel);
-    // r20: horizontal move (x/z to the seat anchor) and vertical descent (y to the seat anchor) are now separate phases
-    // instead of one diagonal lerp - the old single-curve version cut straight through the chair-back corner because x/z
-    // and y reached the seat at the same rate. horizEase finishes the x/z move by p=.65 (standing height, knees straight);
-    // descendEase then lowers y from .65-.70 (knees bending) with x/z already parked directly above the seat.
-    const turnIn=segment(p,.5231,.5423),horizEase=smoother(horiz),descendEase=smoother(descend); // r60: 원래 .59~.615 (책상 쪽으로 도는 창, 위 T 로 이동)
-    hero.group.position.set(lerp(walkingX,seatTarget.x,horizEase),lerp(walkingY,seatTarget.y,descendEase),lerp(.45,seatTarget.z,horizEase));
-    heroShadow.position.set(hero.group.position.x,lerp(walkingY-.16,seatTarget.y-.42,descendEase),-.05);heroShadow.material.opacity=.28*(1-descendEase);
-    hero.group.quaternion.copy(idleQuaternion).slerp(walkQuaternion,segment(p,.2769,.3154)).slerp(seatQuaternion,turnIn); // r60: 원래 .27~.32 (서 있다가 걷는 방향으로 도는 창)
+    const walkT=segment(p,.18,.80);
+    const reachT=smoother(segment(p,.80,.86));
+    const walkingX=lerp(-1.75,GOYA_WALK_END.x,walkT),baseY=lerp(-3.15,GOYA_WALK_END.y,walkT);
+    const pass=(()=>{const t=(walkingX-.55)/1.55;return t*t>=1?0:.7*(1-t*t);})();
+    const walkingY=baseY-pass;
+    const touchX=walkingX,touchY=walkingY;
+    const turnIn=segment(p,.5231,.5423),horizEase=smoother(horiz),descendEase=smoother(descend);
+    hero.group.position.set(touchX,touchY,.45);
+    heroShadow.position.set(touchX,touchY-.16,-.05);heroShadow.material.opacity=.22;
+    hero.group.quaternion.copy(idleQuaternion).slerp(walkQuaternion,segment(p,.18,.24));
+    hero.group.visible=false;
 
-    // ---- r18: USE_SPRITE_MASCOT is false — the drawn-sprite walk cycle is disabled and the 3D hero stays visible/walking throughout ----
     if(USE_SPRITE_MASCOT&&mascotSprite){
-      const spriteAnchorPoint=spriteAnchor(travel);
-      let spriteKey='idle';
-      if(p<.215)spriteKey='idle';
-      else if(p<.295)spriteKey=Math.floor(p*260/Math.PI)%2===0?'wave1':'wave2';
-      else if(p<.30)spriteKey='idle';
-      else if(p<.59){
-        const strideWorld=1;
-        const runPhase=((spriteAnchorPoint.x-(-1.75))/strideWorld%1+1)%1;
-        spriteKey='run'+(Math.floor(runPhase*6)%6+1);
-      }
-      const spriteVisible=p>=.16&&p<.615;
+      const strideWorld=1;
+      const runPhase=((walkingX-(-1.75))/strideWorld%1+1)%1;
+      const reaching=p>=.80;
+      const spriteKey=reaching?'reach':'run'+(Math.floor(runPhase*6)%6+1);
+      const spriteVisible=p>=.16&&p<.92;
       mascotSprite.visible=spriteVisible;
       if(spriteVisible){
-        setSpriteCel(spriteKey,spriteAnchorPoint.x,spriteAnchorPoint.floorY,.45);
-        spriteMaterial.opacity=1-turnIn;
+        setSpriteCel(spriteKey,touchX,touchY-SPRITE_FLOOR_OFFSET,.45);
+        spriteMaterial.opacity=1-smoother(segment(p,.86,.92));
       }
     }else if(mascotSprite){
       mascotSprite.visible=false;
@@ -1327,15 +1348,14 @@ export async function createEndingScene(canvas){
     const caseTopWorld=hero.group.localToWorld(new THREE.Vector3(0,heroCaseTopLocalY,0));
     const PLUMBOB_HALF_HEIGHT=.26*1.7;
     const PLUMBOB_GAP=.35; // bottom tip sits this far above the case top
-    plumbob.position.set(caseTopWorld.x,caseTopWorld.y+PLUMBOB_GAP+PLUMBOB_HALF_HEIGHT+Math.sin(p*70)*.06,1.1);plumbob.rotation.y=p*40;plumbob.material.opacity=.92*segment(p,.16,.2)*(1-segment(p,.8,.85));plumbob.visible=plumbob.material.opacity>.01;
+    plumbob.position.set(caseTopWorld.x,caseTopWorld.y+PLUMBOB_GAP+PLUMBOB_HALF_HEIGHT+Math.sin(p*70)*.06,1.1);plumbob.rotation.y=p*40;plumbob.material.opacity=0;plumbob.visible=false;
     // wave hello before setting off (moved earlier, r18: .20-.25) then a "thought of the computer" bubble at .255-.30
     // gives a visible reason before the walk starts at .30 (right arm up, small oscillation)
     const wave=segment(p,.20,.2125)*(1-segment(p,.2375,.25));
     hero.rightArm.upper.rotation.z+=wave*2.6;hero.rightArm.lower.rotation.z+=wave*(.5+Math.sin(p*260)*.45);
     // the mascot types the farewell on the desk screen, then the screen becomes the real HOME picture
     // r60: 타이핑 창 끝과 같이 앞당김 — 원래 p<.84 였다(typing 창이 .74~.84 이던 시절의 짝).
-    if(typing>0&&p<.7154){typed.draw(14*typing,Math.floor(p*90)%2===0);if(workDesk.screenMat.map!==typed.texture){workDesk.screenMat.map=typed.texture;workDesk.screenMat.needsUpdate=true}}
-    else if(workDesk.screenMat.map!==workDesk.homeScreenTexture){workDesk.screenMat.map=workDesk.homeScreenTexture;workDesk.screenMat.needsUpdate=true}
+    if(workDesk.screenMat.map!==workDesk.homeScreenTexture){workDesk.screenMat.map=workDesk.homeScreenTexture;workDesk.screenMat.needsUpdate=true}
     // a cat crosses the rug from the bookshelf side to the sofa side, pausing once to look around. r56: the
     // cat is present for the WHOLE room phase (p>=.16), not just the module's own .32-.62 walk window — it
     // sits at CAT_START (facing the camera) before the walk starts, and sits at CAT_END (facing the camera)
@@ -1396,49 +1416,16 @@ export async function createEndingScene(canvas){
     camera.left=ccx-vwHalf;camera.right=ccx+vwHalf;
     camera.top=ccy+vhHalf;camera.bottom=ccy-vhHalf;camera.updateProjectionMatrix();
     backdrop.scale.setScalar(1);
-    const visibleWidth=baseWidth/scale,visibleHeight=baseHeight/scale;
-    const coverWidth=Math.max(visibleWidth,visibleHeight*16/9);
-    homePortal.visible=p>=.86;
-    portalBacking.visible=p>=.88;portalBacking.position.set(cx,cy,7);portalBacking.scale.set(visibleWidth*1.02,visibleHeight*1.02,1);portalBackingMaterial.opacity=smoother(segment(p,.88,.95));
-    const portalCenterX=homeNarrow?cx-visibleWidth*.372:cx;
-    // r54: the 1.02 safety bleed is gone — with the scale lerp below actually applied, this number is now
-    // the portal's FINAL on-screen width, and it has to equal the DOM overlay's exactly (ending.css:
-    // width:max(100vw,177.7778svh) == coverWidth; the narrow branch's 190.7vw/12.8vw are already exact).
-    // 1.02 there put the last canvas frame 2% larger than the first DOM frame — a small but real pop.
-    // The hairline it used to guard against is covered by portalBacking, which still over-covers by 1.02.
-    const portalWidth=homeNarrow?visibleWidth*1.907:coverWidth;
-    const portalHeight=portalWidth*9/16;
-    homePortal.position.set(lerp(monitorTarget.x,portalCenterX,portalTravel),lerp(monitorTarget.y,cy,portalTravel),8);
-    homePortal.quaternion.copy(monitorQuaternion).slerp(new THREE.Quaternion(),portalTravel);
-    // r54 BUG FIX: portalWidth/portalHeight (the exact framing the real HOME page's own hero <img> uses —
-    // .ending-home-match img in ending.css: width:max(100vw,177.7778svh), i.e. a 16:9 cover of the viewport,
-    // and left:12.8vw/width:190.7vw on narrow, which is where the homeNarrow 1.907/-.372 numbers come from)
-    // were computed three lines up and then NEVER APPLIED — the portal was pinned at the monitor screen's own
-    // world size for the whole flatten, so at p=.955 the full 16:9 frame (repeat lerped to 1,1) was being
-    // squeezed onto the monitor window's own aspect and handed to a DOM overlay showing it uncrushed.
-    // Lerping the scale onto portalWidth/portalHeight makes the last flatten frame geometrically identical
-    // to that overlay: same centre, same width, same 16:9 shape, same uncropped texture.
-    homePortal.scale.set(
-      lerp(monitorScale.x,portalWidth/screenW,portalTravel),
-      lerp(monitorScale.y,portalHeight/screenH,portalTravel),1);
-    // straighten the monitor window's rounded corners out over the same window
-    setPortalRound(flatten);
-    // r22: as the flatten transition runs (0 before p=.90, 1 by p=.955), interpolate the portal texture's own UV
-    // repeat/offset from the monitor's subject-cropped framing to the full, uncropped HOME frame (repeat=1,1 /
-    // offset=0,0). Before flatten starts this is a no-op (flatten===0 keeps the original cover-crop values used on
-    // the monitor screen itself), so nothing changes about the pre-dive look — only the .90-.955 window (and beyond)
-    // now converges onto the true HOME framing instead of holding the zoomed-in subject crop all the way to p=.955
-    // and then hard-cutting to the wide framing, which is what produced the visible size jump between .94 and .955.
-    homePortalTexture.repeat.set(lerp(workDesk.homeCropRepeatX,1,flatten),lerp(workDesk.homeCropRepeatY,1,flatten));
-    homePortalTexture.offset.set(lerp(workDesk.homeCropOffsetX,0,flatten),lerp(workDesk.homeCropOffsetY,0,flatten));
-    homePortalTexture.needsUpdate=true;
-    portalMaterial.opacity=segment(p,.86,.87);
+    homePortal.visible=false;
+    portalBacking.visible=false;
+    portalMaterial.opacity=0;
+    portalBackingMaterial.opacity=0;
     // r60: 타이핑에 따라 책상 화면이 밝아지는 창 — 원래 .74~.84, typing 창과 같이 앞당겼다.
     const light=lerp(.72,1,segment(p,.6385,.7154));workDesk.screenMat.color.setRGB(light,light,light);
     const heroFade=segment(p,.905,.935);
     const heroOpacity=heroFadeIn*(1-heroFade);
-    for(const surface of Object.values(hero.materials)){surface.transparent=heroOpacity<.999;surface.opacity=heroOpacity;surface.depthWrite=heroOpacity>=.999}
-    hero.group.visible=heroOpacity>.001;
+    for(const surface of Object.values(hero.materials)){surface.transparent=true;surface.opacity=0;surface.depthWrite=false}
+    hero.group.visible=false;
     renderer.render(scene,camera);
   };
   const resize=(width,height)=>{

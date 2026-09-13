@@ -40,7 +40,7 @@ export function initEnding({ onComplete, canComplete, onNav }) {
     if (loading || reduced || unavailable) return loading;
     section.dataset.renderer = 'loading';
     rendererStatus.textContent = '마지막 장면을 준비하고 있습니다…';
-    loading = import('./ending-scene-r15.js?v=eb-20260913').then(module => module.createEndingScene(canvas)).then(value => {
+    loading = import('./ending-scene-r15.js?v=eb-20260913b').then(module => module.createEndingScene(canvas)).then(value => {
       scene = value;
       scene.resize(width, height);
       section.dataset.renderer = 'ready';
@@ -82,10 +82,10 @@ export function initEnding({ onComplete, canComplete, onNav }) {
     //   (어린이가 앉으면 머리가 등받이보다 등받이 한 칸쯤 올라오는 것이 자연스럽다 → 앉은키 약 250px).
     //   left 는 키가 커진 만큼 가로 중심이 그대로이도록 .236 → .2233.
     const pair = room.querySelector('.ending-pair');
-    const pairH = h * .57;
-    const hip = .58;
-    const seatY = y + h * .703;
-    if (pair) Object.assign(pair.style, { height: `${pairH}px`, width: 'auto', left: `${x + w * .2233}px`, top: `${seatY - pairH * hip}px` });
+    const pairH = h * .43;
+    const hip = .50;
+    const seatY = y + h * .705;
+    if (pair) Object.assign(pair.style, { height: `${pairH}px`, width: 'auto', left: `${x + w * .215}px`, top: `${seatY - pairH * hip}px` });
     const holo = room.querySelector('.ending-holo');
     if (holo) Object.assign(holo.style, { left: `${x + w * .868}px`, top: `${y + h * .456}px`, width: `${w * .058}px`, height: `${h * .086}px` });
     // Cube front glass on the striped plate (1672×941). Dark body ~1437–1600 × 418–525.
@@ -131,7 +131,7 @@ export function initEnding({ onComplete, canComplete, onNav }) {
     const p = progress;
     section.querySelector('.replay-button').textContent = reduced || unavailable ? 'Back to home ↗' : 'Replay ↻';
     section.dataset.progress = p.toFixed(4);
-    const phase = p < .04 ? 'room' : p < .16 ? 'power-off' : p < .30 ? 'social' : p < .59 ? 'walk' : p < .72 ? 'sit' : p < .82 ? 'type' : p < .95 ? 'approach' : 'home';
+    const phase = p < .04 ? 'room' : p < .16 ? 'power-off' : p < .30 ? 'social' : p < .80 ? 'walk' : p < .86 ? 'touch' : p < .95 ? 'approach' : 'home';
     section.dataset.phase = phase;
     const dark = visible && p > .04;
     document.documentElement.classList.toggle('ending-in-game', dark);
@@ -158,16 +158,13 @@ export function initEnding({ onComplete, canComplete, onNav }) {
     const waitingForScene = p >= gameRevealStart && !scene && !unavailable;
     section.dataset.waiting = String(waitingForScene);
     stage.style.backgroundColor = p < gameRevealStart ? '#fff' : '#050606';
-    // 방을 먼저 지우고(.950~.962) 그 다음에 컴퓨터를 띄운다(.962~.976) — 예전에는 두 구간이 같아서
-    // 바뀌는 동안 컴퓨터 그림이 캐릭터 위로 겹쳐 보였다(사장님 지적).
-    canvas.style.opacity = String((scene ? smooth(segment(p, gameRevealStart, gameRevealStart + .012)) : 0) * (1 - smooth(segment(p, .950, .962))));
-    // [80] 맨 끝에서 누를 수 있는 버튼이 하나도 없었다. 진행률 98.5% 부터 'Back to home ↗' 를 다시 띄우고,
-    // inert 를 '보이는 정도'에 맞춰 풀어 준다 — 안 보이는데 키보드 포커스만 잡히는 상태도 같이 없앤다.
-    const uiOpacity = Math.max(segment(p, .18, .22) * (1 - segment(p, .88, .93)), segment(p, .985, .997));
+    // 고야가 사진 속 완성품을 터치한 뒤 그 큐브로 다가가며 첫 화면으로 교차한다. 홈 이미지 오버레이 큐브는 쓰지 않는다.
+    canvas.style.opacity = String((scene ? smooth(segment(p, gameRevealStart, gameRevealStart + .012)) : 0) * (1 - smooth(segment(p, .88, .96))));
+    const uiOpacity = Math.max(segment(p, .18, .22) * (1 - segment(p, .80, .86)), segment(p, .985, .997));
     gameUI.style.opacity = String(uiOpacity);
     gameUI.inert = uiOpacity < .5;
     gameUI.setAttribute('aria-hidden', String(gameUI.inert));
-    home.style.opacity = String(smooth(segment(p, .962, .976)));   // 방이 다 지워진 뒤에 컴퓨터를 띄운다(겹침 없음)
+    home.style.opacity = String(smooth(segment(p, .90, .97)));
     if (scene && visible && p >= .14 && p < 1) scene.render(p);
     if (p >= .999 && visible && armed && !completing && (scene || unavailable || reduced)) complete();
   }
