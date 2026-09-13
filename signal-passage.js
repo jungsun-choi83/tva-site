@@ -1,4 +1,4 @@
-import { createSofaJourneyScene } from './sofa-journey/scene.js?v=eb-20260912';
+import { createSofaJourneyScene } from './sofa-journey/scene.js?v=eb-20260913';
 
 export function initSignalPassage(mount) {
   if (!mount) throw new Error('initSignalPassage requires a drop-stage mount.');

@@ -1,6 +1,6 @@
-import { initSignalPassage } from './signal-passage.js?v=eb-20260912';
-import { createCharacterRig } from './character-rig.js?v=eb-20260912';
-import { ACTOR_ASSET_KIND, getActorPose } from './fall-welcome/actor.js?v=eb-20260912';
+import { initSignalPassage } from './signal-passage.js?v=eb-20260913';
+import { createCharacterRig } from './character-rig.js?v=eb-20260913';
+import { ACTOR_ASSET_KIND, getActorPose } from './fall-welcome/actor.js?v=eb-20260913';
 import { measureAperture } from './fall-welcome/home-bridge.mjs';
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 const smoothstep = (start, end, value) => {

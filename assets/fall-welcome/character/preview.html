@@ -12,7 +12,7 @@
   <h1>Original CRT articulated fall sequence — all authored checkpoints</h1>
   <main class="grid"></main>
   <script type="module">
-    import { createFallActor } from '../../../fall-welcome/actor.js?v=eb-20260912';
+    import { createFallActor } from '../../../fall-welcome/actor.js?v=eb-20260913';
     const frames=[['stumble',.03],['panic A',.12],['panic B',.29],['approach',.46],['brace',.57],['impact',.61],['emerge',.70],['recover',.84],['greet',.92,.1],['wave 1',.94,.35],['wave 2',.94,.68],['settled',.94,1]];
     const grid=document.querySelector('.grid');
     frames.forEach(([name,progress,waveProgress])=>{const card=document.createElement('section');card.className='card';card.innerHTML=`<div class="label"><span>${name}</span><span>p=${progress}</span></div><div class="stage"></div>`;grid.append(card);createFallActor(card.querySelector('.stage')).draw({progress,nowMs:1000,waveProgress});});
