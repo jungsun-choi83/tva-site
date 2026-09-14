@@ -26,13 +26,13 @@
 .fall-actor-mount--front{z-index:8}
 .signal-passage .fall-actor-mount{position:absolute}
 
-.fall-cta{position:absolute;z-index:9;inset:0;color:#171923;opacity:calc(1 - var(--handoff));pointer-events:none;font-family:"Fall Welcome Aeonik","Helvetica Neue",Arial,sans-serif;transition:opacity .32s ease}
+.fall-cta{position:absolute;z-index:9;inset:0;color:#171923;opacity:calc(1 - var(--handoff));pointer-events:none;font-family:var(--sans);transition:opacity .32s ease}
 .fall-cta:not([hidden]){display:block}
-.fall-cta__prompt{position:absolute;z-index:3;top:18%;left:var(--pad);width:43%;margin:0;font:400 14px/19.6px "Fall Welcome Aeonik","Helvetica Neue",Arial,sans-serif;text-align:left;letter-spacing:normal}
-.fall-cta__title{position:absolute;z-index:10;top:31%;left:var(--pad);display:flex;width:46%;transform:none;flex-direction:column;align-items:flex-start;color:inherit;text-decoration:none;font:400 clamp(64px,7.6vw,112px)/.94 "Fall Welcome Aeonik","Helvetica Neue",Arial,sans-serif;letter-spacing:-.035em;text-align:left;pointer-events:auto}
+.fall-cta__prompt{position:absolute;z-index:3;top:18%;left:var(--pad);width:43%;margin:0;font:400 14px/1.4 var(--sans);text-align:left;letter-spacing:normal}
+.fall-cta__title{position:absolute;z-index:10;top:31%;left:var(--pad);display:flex;width:46%;transform:none;flex-direction:column;align-items:flex-start;color:inherit;text-decoration:none;font:400 clamp(64px,7.6vw,112px)/.94 var(--display);letter-spacing:-.035em;text-align:left;pointer-events:auto}
 .fall-cta__title span{display:block;white-space:nowrap}
 .fall-cta__title:focus-visible{outline:3px solid #171923;outline-offset:10px;border-radius:2px}
-.fall-cta__continue{position:absolute;z-index:3;left:var(--pad);bottom:7%;margin:0;font:400 10px/1.2 "Fall Welcome Aeonik","Helvetica Neue",Arial,sans-serif;letter-spacing:.13em;white-space:nowrap}
+.fall-cta__continue{position:absolute;z-index:3;left:var(--pad);bottom:7%;margin:0;font:500 10px/1.2 var(--mono);letter-spacing:.13em;white-space:nowrap}
 .fall-cta__orbit{position:absolute;z-index:4;inset:0;overflow:hidden;pointer-events:none}
 .fall-cta__sticker{position:absolute;display:block;max-width:none;opacity:0;filter:drop-shadow(0 7px 10px #1719232d);transform-origin:center;will-change:transform,opacity}
 

@@ -1,4 +1,4 @@
-const originalGalleryPath = './gallery-original/galleries/02-concave-wheel.html?v=eb-20260914';
+const originalGalleryPath = './gallery-original/galleries/02-concave-wheel.html?v=eb-20260914l';
 const focusableSelector = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),iframe,[tabindex]:not([tabindex="-1"])';
 
 export function initPortfolio(root, { onStoryWheel } = {}) {

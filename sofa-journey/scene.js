@@ -1,4 +1,4 @@
-import {createFallingActor} from './actor.js?v=eb-20260914';
+import {createFallingActor} from './actor.js?v=eb-20260914ar';
 import {createHallucinationVortex} from './vortex.js?v=eternal-beam-r49';
 import {installSignalVeil} from './veil.js?v=fall-lab-54.hc254e7b1';
 import {TYPE_CHUNKS, TYPE_STARS} from './type-layout.js?v=fall-lab-54.h87786693';
@@ -16,8 +16,8 @@ const validCorners = corners => Array.isArray(corners) && corners.length === 4 &
 const sv = (el, prop, value) => { const c = el.__sv || (el.__sv = {}); if (c[prop] === value) return; c[prop] = value; el.style[prop] = value; };
 const svar = (el, name, value) => { const c = el.__sv || (el.__sv = {}); if (c[name] === value) return; c[name] = value; el.style.setProperty(name, value); };
 const sd = (el, key, value) => { const c = el.__sd || (el.__sd = {}); if (c[key] === value) return; c[key] = value; el.dataset[key] = value; };
-const asset = path => { const u = new URL(`./assets/${path}`, import.meta.url); u.searchParams.set('v', 'eternal-beam-r96'); return u.href; };
-const rootAsset = path => { const u = new URL(`../assets/${path}`, import.meta.url); u.searchParams.set('v', 'eternal-beam-r96'); return u.href; };
+const asset = path => { const u = new URL(`./assets/${path}`, import.meta.url); u.searchParams.set('v', 'eb-20260914af'); return u.href; };
+const rootAsset = path => { const u = new URL(`../assets/${path}`, import.meta.url); u.searchParams.set('v', 'eb-20260914af'); return u.href; };
 const N = 16, D = 1500, HOLD = 340;
 const ERA_END = .68, IMPACT = .95, SETTLED = .97, FAR = .10, ROOM_IN = .80, ROOM_FADE = .045;
 // ── [104] 동작 줄이기(reduced-motion) 정거장 — 2026-09-12
@@ -90,7 +90,7 @@ function projectedSourceRect(aperture, bridge, reduced, width, height){
 export function createSofaJourneyScene(mount, wake=()=>{}){
   installStyle(mount.ownerDocument); mount.classList.add('sofa-journey'); mount.closest('#drop')?.classList.add('sofa-journey-ready');
   const hxWebm=asset('bg/photo-shaft-fall.webm'),hxMp4=asset('bg/photo-shaft-fall.mp4'),hxStill=asset('bg/photo-shaft.jpg');
-  mount.innerHTML=`<div class="sofa-journey__hx"><div class="sofa-journey__hx-spin"><img class="sofa-journey__hx-still" src="${hxStill}" alt=""><video class="sofa-journey__hx-video" muted playsinline preload="none" disablepictureinpicture poster="${hxStill}"><source src="${hxWebm}" type="video/webm"><source src="${hxMp4}" type="video/mp4"></video></div></div><div class="sofa-journey__camera"></div><i class="sofa-journey__white"></i><div class="sofa-journey__landing"><img class="sofa-journey__bg" src="${asset('bg/landing-sofa-empty-v2.webp')}" alt=""><p class="sofa-journey__moment">Keep Our<br>Memory Moment</p><div class="sofa-journey__type" aria-hidden="true"></div></div><div class="sofa-journey__cushion"><img src="${asset('bg/landing-sofa-empty-v2.webp')}" alt=""></div><i class="sofa-journey__contact-shadow"></i><i class="sofa-journey__burst"></i><div class="sofa-journey__streak-layer"><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i></div><div class="sofa-journey__dust-layer"><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i></div><div class="sofa-journey__mascot sofa-journey__actor"></div><i class="sofa-journey__grain"></i><i class="sofa-journey__mask"></i>`;
+  mount.innerHTML=`<div class="sofa-journey__hx"><div class="sofa-journey__hx-spin"><img class="sofa-journey__hx-still" src="${hxStill}" alt=""><video class="sofa-journey__hx-video" muted playsinline preload="none" disablepictureinpicture poster="${hxStill}"><source src="${hxWebm}" type="video/webm"><source src="${hxMp4}" type="video/mp4"></video></div></div><div class="sofa-journey__camera"></div><i class="sofa-journey__white"></i><div class="sofa-journey__landing"><img class="sofa-journey__bg" src="${asset('bg/landing-sofa-empty-v2.webp')}" alt=""><svg class="sofa-journey__logo-glow" viewBox="0 0 104 14" preserveAspectRatio="xMidYMid meet" aria-hidden="true"><defs><filter id="sofa-logo-glow" x="-20%" y="-70%" width="140%" height="240%"><feGaussianBlur in="SourceGraphic" stdDeviation=".35" result="bloom"/><feMerge><feMergeNode in="bloom"/><feMergeNode in="SourceGraphic"/></feMerge></filter></defs><text x="52" y="11" text-anchor="middle" textLength="100" lengthAdjust="spacingAndGlyphs" font-family="Arial, Helvetica, sans-serif" font-size="10.5" font-weight="600" fill="#f6edd8" filter="url(#sofa-logo-glow)">ETERNAL BEAM</text></svg><i class="sofa-journey__housing-light" aria-hidden="true"></i><p class="sofa-journey__moment">Keep Our<br>Memory Moment</p><div class="sofa-journey__type" aria-hidden="true"></div></div><div class="sofa-journey__cushion"><img src="${asset('bg/landing-sofa-empty-v2.webp')}" alt=""></div><i class="sofa-journey__contact-shadow"></i><i class="sofa-journey__burst"></i><div class="sofa-journey__streak-layer"><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i><i class="sofa-journey__speed"></i></div><div class="sofa-journey__dust-layer"><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i><i class="sofa-journey__dust"></i></div><div class="sofa-journey__mascot sofa-journey__actor"></div><i class="sofa-journey__grain"></i><i class="sofa-journey__mask"></i>`;
   const camera=mount.querySelector('.sofa-journey__camera'),hx=mount.querySelector('.sofa-journey__hx'),hxSpin=mount.querySelector('.sofa-journey__hx-spin'),hxVid=mount.querySelector('.sofa-journey__hx-video'),underlay=mount.querySelector('.sofa-journey__white'),landing=mount.querySelector('.sofa-journey__landing'),cushion=mount.querySelector('.sofa-journey__cushion'),actor=mount.querySelector('.sofa-journey__actor'),shadow=mount.querySelector('.sofa-journey__contact-shadow'),burstGlow=mount.querySelector('.sofa-journey__burst'),dust=[...mount.querySelectorAll('.sofa-journey__dust')],speed=[...mount.querySelectorAll('.sofa-journey__speed')],grain=mount.querySelector('.sofa-journey__grain'),mask=mount.querySelector('.sofa-journey__mask'),streakLayer=mount.querySelector('.sofa-journey__streak-layer'),dustLayer=mount.querySelector('.sofa-journey__dust-layer');
   const rig=createFallingActor(actor),seated=rig.goya,card=rig.cards[0];
   mount.classList.add('sofa-journey--shaft');
@@ -162,8 +162,10 @@ export function createSofaJourneyScene(mount, wake=()=>{}){
     const topCalc=`calc(50% + ${correction}px)`;sv(landing,'top',topCalc);sv(cushion,'top',topCalc);
     const wide=innerWidth/innerHeight>=1.25,roomWidth=Math.max(innerWidth,innerHeight*1672/941),roomHeight=roomWidth*941/1672,roomDX=0,roomDY=0,roomLeft=(innerWidth-roomWidth)*.5+roomDX,roomTop=(innerHeight-roomHeight)*.5+correction+roomDY,sitWidth=roomWidth*.198,sitHeight=sitWidth;
     const cubeCX=roomLeft+roomWidth*.622, cubeCY=roomTop+roomHeight*.352;
-    const STAND_ASPECT=698/1086, standH=roomHeight*.50, standW=standH*STAND_ASPECT;
-    const feetX=roomLeft+roomWidth*.508, feetY=roomTop+roomHeight*.708;
+    // 짜잔 포즈: 오토만과 선반 사이 카펫. 커피테이블 위가 아니다.
+    const STAND_ASPECT=1, standH=roomHeight*.34, standW=standH*STAND_ASPECT;
+    const SIT_OX=.46, SIT_OY=.94;
+    const feetX=roomLeft+roomWidth*.480, feetY=roomTop+roomHeight*.662;
     const standLeft=feetX-standW*.50, standTop=feetY-standH;
     const targetX=feetX, targetY=feetY, sitFinalCaseX=feetX, sitFinalCaseY=feetY;
     svar(mount,'--sofa-room-width',`${roomWidth}px`);
@@ -246,7 +248,7 @@ export function createSofaJourneyScene(mount, wake=()=>{}){
     const aZ=seatedNow?11:8;
     sv(camera,'transform',`translateX(${(-sway*innerWidth*.04).toFixed(2)}px) translateY(${(-camY).toFixed(2)}px) scale(${(1+Ucam*.16).toFixed(3)})`);
     rig.draw(p,reduced,pose);
-    const ox=p<ROOM_IN?.5:.50, oy=p<ROOM_IN?.5:(seatedNow?.97:.5);
+    const ox=p<ROOM_IN?.5:(seatedNow?SIT_OX:.5), oy=p<ROOM_IN?.5:(seatedNow?SIT_OY:.5);
     sv(seated,'width',`${drawWidth}px`);sv(seated,'height',`${drawHeight}px`);    sv(seated,'transformOrigin',`${ox*100}% ${oy*100}%`);
     sv(seated,'transform',`translate3d(${(goyaX-drawWidth*ox).toFixed(2)}px,${(caseY-drawHeight*oy+settle).toFixed(2)}px,${zDepth.toFixed(1)}px) rotateX(${pitch.toFixed(2)}deg) rotateY(${yaw.toFixed(2)}deg) rotateZ(${roll.toFixed(2)}deg) scale(${(1+squash*.6-stretch*.5).toFixed(4)},${(1-squash+stretch).toFixed(4)})`);
     sv(seated,'opacity','1');sv(seated,'zIndex',String(goyaZ));

@@ -42,7 +42,7 @@
 .eb-mark--day{width:100%}
 .eb-mark--day img{filter:brightness(1.35) saturate(.35)}
 
-.hero-ch{display:inline-block;position:relative;animation:hero-ch-beam 2.6s ease-in-out infinite;animation-delay:calc(var(--i,0) * 110ms)}
+.hero-ch{display:inline;position:static;animation:none}
 .hero-ch--space{width:.32em}
 @keyframes hero-ch-beam{
   0%,22%,100%{text-shadow:none;-webkit-text-stroke:0 transparent}

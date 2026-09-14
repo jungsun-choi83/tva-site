@@ -1,7 +1,7 @@
 const programs = {
-  intro: { kicker: 'SOUL TRACE / 01', title: 'YOUR PET.<br>THEIR STORY.<br>STILL GROWING.', body: 'For the moments that deserve to last forever.', index: 'LETTER / IDENTITY / HOLOGRAM', station: 'STATION 01 / INTRO', number: '01' },
+  intro: { kicker: 'SOUL TRACE / 01', title: 'YOUR PET.<br>THEIR STORY.<br>KEPT CLOSE.', body: 'For the moments that deserve to last forever.', index: 'LETTER / IDENTITY / HOLOGRAM', station: 'STATION 01 / INTRO', number: '01' },
   about: { kicker: 'ARCHIVE FIRST / 02', title: 'THE STORY<br>IS ALREADY<br>INSIDE.', body: 'The archive begins before the Beam arrives. Hardware holds the letter, identity and breath.', index: 'SOUL TRACE / DEVICE / ARCHIVE', station: 'STATION 02 / WHO WE ARE', number: '02' },
-  work: { kicker: 'LIVING ARCHIVE / 03', title: 'FOUR<br>WAYS<br>TO KEEP.', body: 'Letter, stamp, NFC card and the Beam itself — a story that keeps growing in the room.', index: 'LETTER / STAMP / CARD / DEVICE', station: 'STATION 03 / ARCHIVE', number: '03' },
+  work: { kicker: 'ONE STORY / 03', title: 'ONE STORY.<br>THREE WAYS<br>TO KEEP IT.', body: 'Record. Keep. Experience — from Soul Trace to the card to the Beam.', index: 'SOUL TRACE / CARD / DEVICE', station: 'STATION 03 / JOURNEY', number: '03' },
   contact: { kicker: 'OPEN CHANNEL / 04', title: 'START A<br>NEW<br>ARCHIVE.', body: 'Write to us. When your Beam arrives, their story is already there.', index: 'SOUL TRACE / SEOUL / KOREA', station: 'STATION 04 / CONTACT', number: '04' }
 };
 

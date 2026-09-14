@@ -5,12 +5,20 @@ html.is-about-walking{scroll-behavior:auto!important}
 #about.about-walk .exit-arrow{display:none}
 #about.about-walk .about-topline{visibility:hidden}
 #about.about-walk .studio-station:before{display:none}   /* 글 위의 짧은 올리브색 줄도 숨김 */   /* 위쪽 'TVA / DESIGN STUDIO'·'Ideas, spaces…' 글과 가로줄 숨김(사장님 지시 09-10) */
+#about.about-walk .about-walk__strip{position:absolute;z-index:1;left:0;top:0;display:block;max-width:none;pointer-events:none;will-change:transform;user-select:none}
 #about.about-walk .about-walk__note{position:absolute;z-index:7;left:0;top:0;display:block;max-width:none;pointer-events:none}
 #about.about-walk .studio-host.is-hopping{animation:aw-hop 1.5s cubic-bezier(.3,.8,.4,1) infinite}
 @keyframes aw-hop{0%,58%,100%{transform:translateY(0) scaleY(1)}62%{transform:translateY(0) scaleY(.94)}74%{transform:translateY(-8%) scaleY(1.04)}86%{transform:translateY(0) scaleY(.96)}92%{transform:translateY(0) scaleY(1.01)}}
 @media(prefers-reduced-motion:reduce){#about.about-walk .studio-host.is-hopping{animation:none}}
 #about.about-walk .about-walk__fg{position:absolute;z-index:9;left:0;top:0;display:block;max-width:none;pointer-events:none;will-change:transform}
-#about.about-walk .about-walk__strip{position:absolute;z-index:1;left:0;top:0;display:block;max-width:none;pointer-events:none;will-change:transform;user-select:none}
+#about.about-walk .about-walk__paws{position:absolute;z-index:8;left:0;top:0;pointer-events:none;will-change:transform}
+#about.about-walk .about-walk__paw{position:absolute;display:block;height:auto;max-width:none;opacity:0;filter:drop-shadow(0 2px 3px #17192355);transform-origin:50% 60%;animation:aw-paw-stamp .28s cubic-bezier(.2,1.35,.36,1) forwards}
+@keyframes aw-paw-stamp{
+  0%{opacity:0;transform:rotate(var(--paw-rot,72deg)) scaleX(var(--paw-flip,1)) scale(.42)}
+  28%{opacity:1;transform:rotate(var(--paw-rot,72deg)) scaleX(var(--paw-flip,1)) scale(1.14)}
+  100%{opacity:.9;transform:rotate(var(--paw-rot,72deg)) scaleX(var(--paw-flip,1)) scale(1)}
+}
+@media(prefers-reduced-motion:reduce){#about.about-walk .about-walk__paws{display:none}}
 #about.about-walk .station-goldpage{
   display:block;
   padding:0;
@@ -37,9 +45,9 @@ html.is-about-walking{scroll-behavior:auto!important}
   position:absolute;
   z-index:5;
   left:6vw;
-  top:52%;
+  top:50%;
   max-width:min(24vw,300px);
-  padding:0;
+  padding:clamp(12px,1.4vw,20px) 0 0;
   display:flex;
   flex-direction:column;
   justify-content:flex-start;
@@ -57,10 +65,29 @@ html.is-about-walking{scroll-behavior:auto!important}
 #about.about-walk .station-goldpage .service-en{
   margin:0;
   color:var(--about-ink);
-  font:500 clamp(13px,1.05vw,16px)/1.45 var(--caps,"Cinzel",Georgia,serif);
+  font:500 clamp(15px,1.35vw,20px)/1.35 var(--caps,"Cinzel",Georgia,serif);
   letter-spacing:.12em;
 }
+#about.about-walk .station-goldpage .service-name{
+  margin:0;
+  color:var(--about-ink);
+  font:500 clamp(18px,1.7vw,28px)/1.1 var(--caps,"Cinzel",Georgia,serif);
+  letter-spacing:.18em;
+}
+#about.about-walk .station-goldpage .service-name-ko{
+  margin:4px 0 0;
+  color:var(--about-ink);
+  font:500 13px/1.3 var(--sans);
+  letter-spacing:.08em;
+  opacity:.72;
+}
 #about.about-walk .station-goldpage .service-scope{margin-top:6px}
+#about.about-walk .beam-gold__sub{
+  margin:0 0 14px;
+  color:#0d0d0f;
+  font:500 clamp(15px,1.35vw,20px)/1.35 var(--caps,"Cinzel",Georgia,serif);
+  letter-spacing:.12em;
+}
 #about.about-walk .station-goldpage .station-screen{display:none}
 
 /* 골드 화면은 아래 베이지 칸 안에만. 위 흰색으로 올리지 않음 */
@@ -77,10 +104,10 @@ html.is-about-walking{scroll-behavior:auto!important}
   height:auto;
   display:flex;
   flex-direction:column;
-  justify-content:center;
+  justify-content:flex-start;
   min-height:0;
   overflow:hidden;
-  padding:clamp(22px,2.4vw,36px) clamp(24px,2.6vw,40px);
+  padding:clamp(12px,1.4vw,20px) clamp(24px,2.6vw,40px) clamp(22px,2.4vw,36px);
   border-radius:0;
   background:linear-gradient(165deg,#e8d39a 0%,#c8a15e 46%,#b8903c 100%);
   color:#0d0d0f;
@@ -95,28 +122,28 @@ html.is-about-walking{scroll-behavior:auto!important}
   display:block;
   margin:0;
   color:#0d0d0f;
-  font:500 13px/1 var(--caps,"Cinzel",Georgia,serif);
-  letter-spacing:.22em;
+  font:500 clamp(18px,1.7vw,28px)/1.1 var(--caps,"Cinzel",Georgia,serif);
+  letter-spacing:.18em;
 }
 #about.about-walk .beam-gold__kicker-ko{
   display:block;
-  margin:6px 0 18px;
+  margin:4px 0 16px;
   color:#0d0d0f;
-  font:500 13px/1 "Pretendard Variable",Pretendard,Arial,sans-serif;
-  letter-spacing:.12em;
-  opacity:.82;
+  font:500 13px/1.3 var(--sans);
+  letter-spacing:.08em;
+  opacity:.72;
 }
 #about.about-walk .beam-gold__lead{
   margin:0 0 18px;
   max-width:none;
-  font:500 clamp(20px,1.9vw,28px)/1.35 "Pretendard Variable",Pretendard,Arial,sans-serif;
+  font:500 clamp(20px,1.9vw,28px)/1.35 var(--sans);
   letter-spacing:-.02em;
 }
 #about.about-walk .beam-gold__body{display:grid;gap:12px}
 #about.about-walk .beam-gold__body p{
   margin:0;
   max-width:none;
-  font:15px/1.65 "Pretendard Variable",Pretendard,Arial,sans-serif;
+  font:15px/1.65 var(--sans);
 }
 /* 2026-09-12 #C02: 골드 칸은 높이가 `top:50% ~ bottom:16%`(카메라의 34%)로 고정인데 내용은 그보다 크다.
    overflow:hidden + justify-content:center 라 위아래가 조용히 잘렸다 — 실측 넘침
@@ -145,7 +172,8 @@ html.is-about-walking{scroll-behavior:auto!important}
   #about.about-walk .beam-gold__body{gap:6px}
   #about.about-walk .beam-gold__body p{font-size:13px;line-height:1.42}
 }
-#about.about-walk .studio-host{left:0;top:0;bottom:auto;width:0;height:0;transform-origin:50% 100%;transform:none;transition:none}
+#about.about-walk .studio-host{display:none}
+#about.about-walk.is-linear .awp-figure{display:none}
 #about.about-walk .studio-host.is-walking{transition:none;z-index:9}
 #about.about-walk .studio-host>img{position:absolute;bottom:0;left:50%;width:auto;height:100%;max-width:none;transform:translateX(-50%);filter:drop-shadow(3px 6px 2px #17192322);transform-origin:50% 100%}
 #about.about-walk .studio-host>img.studio-host__swap{opacity:0;pointer-events:none;z-index:1;transition:opacity .34s ease}
@@ -171,7 +199,7 @@ html.is-about-walking{scroll-behavior:auto!important}
 #about.about-walk.is-linear .about-walk__panel .awp-fg{z-index:4}
 @media(max-width:760px){
   #about.about-walk .station-goldpage .station-copy--head{left:24px;top:120px;max-width:290px}
-  #about.about-walk .station-goldpage .station-copy--foot{left:24px;top:52%;max-width:270px}
+  #about.about-walk .station-goldpage .station-copy--foot{left:24px;top:50%;max-width:270px}
   #about.about-walk .station-copy{max-width:290px}
   #about.about-walk .station-copy p{max-width:270px}
   #about.about-walk .station-goldpage .station-copy--head h3{font-size:32px}

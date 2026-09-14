@@ -1,0 +1,321 @@
+const KEY = 'eb-lang';
+const COPY = {
+  ko: {
+    'meta.title': 'Eternal Beam — 홀로그램 콘텐츠 아카이브 | Soul Trace에서 기기로',
+    'skip.content': '본문 바로가기 Skip to content',
+    'skip.contact': '문의 바로가기 Skip to contact',
+    'nav.home': 'Eternal Beam 첫 화면으로',
+    'nav.main': '주 메뉴',
+    'lang.label': '언어',
+    'hero.sr': 'Eternal Beam — Soul Trace에서 홀로그램 기기로 이어지는 콘텐츠 아카이브',
+    'hero.stmt': '당신의 반려동물.\n그 아이의 이야기.\n곁에 남겨 둡니다.',
+    'hero.sub': '영원히 남을 순간을 위하여',
+    'hero.explain': '사진과 편지로 기록하고,\n손에 쥐는 카드와 일상 속 디스플레이로 이어갑니다.',
+    'hero.soultrace': '소울트레이스 연결',
+    'hero.launch': '출시 소식 받기',
+    'hero.scroll': 'SCROLL TO ENTER',
+    'hero.device': 'Eternal Beam 홀로그램 디스플레이',
+    'hero.deviceImg': 'Eternal Beam 홀로그램 기기',
+    'drop.label': 'Eternal Beam 아카이브 안으로',
+    'about.srTitle': 'Eternal Beam 아카이브 전체',
+    'about.sr1': '01 회사소개 — COMPANY. 함께하는 시간을, 계속 이어지는 이야기로. Eternal Beam은 반려동물과 함께한 기억을 디지털 기록과 실물 오브제로 연결하는 브랜드입니다. 사진 · 편지 · 오브제 · 아카이브',
+    'about.sr2': '02 LETTER — 그 아이의 하루를, 한 통의 편지로 남깁니다. A MEMORY BECOMES A LETTER. 편지 · 감정 기록 · 일상 아카이브',
+    'about.sr3': '03 IDENTITY — 원본의 특징을 지키고, 그 아이답게 움직입니다. ORIGINAL FIRST. IDENTITY LOCKED. 원본 유지 · 특징 분석 · 브리딩 · 블링크',
+    'about.sr4': '04 HOLOGRAM DISPLAY — 기억 속 아이가 공간 안에 다시 나타납니다. THE ARCHIVE APPEARS IN SPACE. 듀얼 디스플레이 · NFC · QR · OTA',
+    'about.sr5': '05 MOTION — 사진 한 장에서 시작해, 움직임으로 연결됩니다. FROM IMAGE TO MOTION. 업로드 · 생성 · 테마 · 동기화',
+    'about.sr6': '06 ARCHIVE — 흩어진 기억을 모아, 하나의 아카이브로 남깁니다. EVERY MEMORY RETURNS TO ONE PLACE. 사진 · 편지 · 영상 · 스탬프 · NFC 카드',
+    'about.sr7': '07 모든 과정 — ALL PROCESSES. 편지에서 빛까지 한 줄로 이어집니다. Soul Trace · App · Device · Archive',
+    'about.topline': 'A letter, an identity, a hologram.<br>Hardware that keeps the contents.',
+    's1.eye': '01. 회사소개',
+    's1.h': '함께하는 시간을,<br>계속 이어지는 이야기로.',
+    's1.p': 'Eternal Beam은 반려동물과 함께한 기억을<br>디지털 기록과 실물 오브제로 연결하는 브랜드입니다.',
+    's1.scope': '사진 · 편지 · 오브제 · 아카이브',
+    's1.kickerKo': '필로소피',
+    's1.lead': 'Eternal Beam은 기기를 만드는 데서 멈추지 않습니다.<br>반려동물과 함께한 평범한 하루에도 오래 간직할 이야기가 있다고 믿습니다.',
+    's1.body1': 'Soul Trace에 사진과 편지로 기록하고, 카드와 오브제로 간직하며, Eternal Beam을 통해 일상에서 다시 만납니다.',
+    's1.body2': '기술은 기억을 위한 수단입니다.<br>우리는 함께한 시간을 간직하고 이어가는 방식을 만듭니다.',
+    's2.h': '그 아이의 하루를,<br>한 통의 편지로 남깁니다.',
+    's2.scope': '편지 · 감정 기록 · 일상 아카이브',
+    's2.kickerKo': '편지',
+    's2.lead': 'Soul Trace는 반려동물과 함께한 하루의 감정과 순간을<br>질문과 기록을 통해 하나의 편지로 정리합니다.',
+    's2.body': '하루를 질문과 글로 정리해, 기억으로 남기는 첫 단계입니다.',
+    's3.h': '원본의 특징을 지키고,<br>그 아이답게 움직입니다.',
+    's3.scope': '원본 유지 · 특징 분석 · 브리딩 · 블링크',
+    's3.kickerKo': '아이덴티티',
+    's3.lead': '우리는 새로운 모습을 만들어내기보다 먼저<br>그 아이의 얼굴, 털무늬, 표정과 분위기를 살핍니다.',
+    's3.body': 'Identity Lock은 생성보다 앞서, “누구인가”를 지키는 과정입니다.',
+    's4.h': '기억 속 아이가<br>공간 안에 다시 나타납니다.',
+    's4.scope': '듀얼 디스플레이 · NFC · QR · OTA',
+    's4.kickerKo': '홀로그램',
+    's4.lead': 'Eternal Beam은 반려동물의 모습과 배경 장면을<br>하나의 광학 구조 안에서 겹쳐 보여줍니다.',
+    's4.body': '단순한 화면 재생이 아니라, 이야기가 공간 속에 머무는 방식입니다.',
+    's5.h': '사진 한 장에서 시작해,<br>움직임으로 연결됩니다.',
+    's5.scope': '업로드 · 생성 · 테마 · 동기화',
+    's5.kickerKo': '모션',
+    's5.lead': '업로드된 사진과 레퍼런스를 바탕으로<br>아이의 특징을 유지한 모션과 장면을 만듭니다.',
+    's5.body': '생성된 결과는 검토를 거쳐 Beam으로 연결되는 콘텐츠가 됩니다.',
+    's6.h': '흩어진 기억을 모아,<br>하나의 아카이브로 남깁니다.',
+    's6.scope': '사진 · 편지 · 영상 · 스탬프 · NFC 카드',
+    's6.kickerKo': '아카이브',
+    's6.lead': 'Soul Trace에 쌓이는 사진, 편지, 영상, 메모리 스탬프는<br>각각 흩어진 데이터가 아니라 하나의 흐름으로 연결됩니다.',
+    's6.body': '디지털 기록은 결국 손에 쥘 수 있는 기억과 기기 경험으로 이어집니다.',
+    's7.eye': '07. 모든 과정',
+    's7.p': '편지에서 빛까지<br>한 줄로 이어집니다.',
+    'about.prev': '이전 칸',
+    'about.next': '다음 칸',
+    'portfolio.label': '함께한 기록 RECORDS',
+    'portfolio.note': '예시 화면입니다. 사진과 이름은 아직 실제 작업물이 아닙니다.',
+    'sk.sub': '하나의 이야기가 기록에서 오브제로,<br>그리고 일상의 경험으로 이어집니다.',
+    'sk.note': '오늘 해가 길었어요.<br>같이 걷던 골목.',
+    'sk.l1': '오늘 해가 길었어요.',
+    'sk.l2': '같이 걷던 골목.',
+    'sk.l3': '그 아이의 하루.',
+    'sk.a1.title': '이야기를 기록하는 곳',
+    'sk.a1.lead': '사진과 편지로 함께한 순간을 기록합니다.',
+    'sk.a2.title': '기억을 손에 쥐는 방법',
+    'sk.a2.lead': '기록된 이야기를 손에 쥘 수 있는 오브제로 남깁니다.',
+    'sk.a3.title': '그 이야기를 일상 속에서\n다시 만나는 방식',
+    'sk.a3.lead': '쌓여온 기억을 일상의 공간에서 다시 만납니다.',
+    'original.drag': '← 옆으로 끌어 보기',
+    'original.viewport': 'Beam 아카이브 네 갈래',
+    'original.alt': '위에서 내려다본 아카이브 탁자. 편지, 정체성, 홀로그램, 아카이브 네 장이 놓여 있습니다.',
+    'original.pages': '작품 선택',
+    'original.slides': '작품 슬라이드 선택',
+    'original.one': 'Eternal Beam 아카이브를 이루는 네 갈래 가운데 하나입니다.',
+    'original.two': '기기는 그릇이고, 이 자리에 남는 것은 그 안의 콘텐츠입니다.',
+    'original.view': '자세히 보기',
+    'original.slide': '보기',
+    'contact.label': '문의 CONTACT',
+    'contact.fallback': '문의는 메일로 받고 있습니다. 아래 주소를 누르면 쓰시던 메일 앱이 열립니다.',
+    'contact.write': '편지 쓰기',
+    'contact.pvTitle': '개인정보 수집·이용 안내',
+    'contact.pvItemsDt': '수집 항목',
+    'contact.pvItemsDd': '이름, 이메일, 연락처, 문의 내용',
+    'contact.pvPurposeDt': '이용 목적',
+    'contact.pvPurposeDd': '문의 확인과 회신',
+    'contact.pvKeepDt': '보유 기간',
+    'contact.pvKeepDd': '회신 완료 후 1년, 이후 파기',
+    'contact.pvHowDt': '처리 방법',
+    'contact.pvHowDd': '보내기를 누르면 쓰시던 메일 앱에 편지가 담깁니다. 메일 앱에서 직접 보내 주셔야 jadechoi@eternalbeamapp.com 로 전달됩니다.',
+    'contact.pvTrustDt': '처리 위탁',
+    'contact.pvTrustDd': '없음. 홈페이지는 문의 내용을 저장하지 않습니다.',
+    'contact.pvMore': '개인정보 처리방침 전문 보기',
+    'contact.pvClose': 'Close 닫기',
+    'contact.pvBtn': '개인정보 처리방침 내용 보기',
+    'contact.postedB': '메일 앱에 편지를 담았습니다',
+    'contact.postedS': '메일 앱에서 보내기를 한 번 더 눌러 주셔야 전달됩니다.<br>창이 열리지 않았다면 이 주소로 보내 주셔도 됩니다.',
+    'contact.again': '새 편지 쓰기',
+    'contact.needName': '이름',
+    'contact.needEmail': '이메일',
+    'contact.needMsg': '문의 내용',
+    'contact.fill': '{list}을(를) 채워 주세요',
+    'contact.emailBad': '이메일 주소를 다시 확인해 주세요',
+    'contact.needConsent': '개인정보 수집·이용에 동의해 주세요',
+    'contact.mailName': '이름',
+    'contact.mailEmail': '이메일',
+    'contact.mailPhone': '연락처',
+    'contact.mailSubject': 'Eternal Beam 홈페이지 문의 — ',
+    'ending.title': '기억을 간직하는 자리',
+    'ending.body': '아래로 내리면 책상 위 기기가 가까워지고, 처음 화면으로 돌아갑니다.',
+    'footer.company': '상호 Eternal Beam (이터널빔) · 서울 Seoul',
+    'footer.privacy': '개인정보 처리방침 Privacy',
+    'motion.off': '움직임 줄이기',
+    'motion.on': '움직임 켜기'
+  },
+  en: {
+    'meta.title': 'Eternal Beam — Hologram contents archive | From Soul Trace to the device',
+    'skip.content': 'Skip to content',
+    'skip.contact': 'Skip to contact',
+    'nav.home': 'Eternal Beam home',
+    'nav.main': 'Main menu',
+    'lang.label': 'Language',
+    'hero.sr': 'Eternal Beam — a contents archive from Soul Trace to the hologram device',
+    'hero.stmt': 'YOUR PET.\nTHEIR STORY.\nKEPT CLOSE.',
+    'hero.sub': 'FOR THE MOMENTS THAT DESERVE TO LAST FOREVER',
+    'hero.explain': 'Record it in photos and letters,\nthen keep it as a card you can hold and a display in daily life.',
+    'hero.soultrace': 'Connect Soul Trace',
+    'hero.launch': 'Get launch news',
+    'hero.scroll': 'SCROLL TO ENTER',
+    'hero.device': 'Eternal Beam hologram display',
+    'hero.deviceImg': 'Eternal Beam hologram device',
+    'drop.label': 'Into the Eternal Beam archive',
+    'about.srTitle': 'The Eternal Beam archive',
+    'about.sr1': '01 COMPANY. Time together, kept as a story that continues. Eternal Beam connects memories with a pet to digital records and objects you can hold. Photo · Letter · Object · Archive',
+    'about.sr2': '02 LETTER — A day with them becomes one letter. A MEMORY BECOMES A LETTER. Letter · feeling record · daily archive',
+    'about.sr3': '03 IDENTITY — We keep the original traits, and move as that child would. ORIGINAL FIRST. IDENTITY LOCKED. Original kept · trait study · breathing · blink',
+    'about.sr4': '04 HOLOGRAM DISPLAY — The child in memory appears in the room again. THE ARCHIVE APPEARS IN SPACE. Dual display · NFC · QR · OTA',
+    'about.sr5': '05 MOTION — It starts from one photo, and continues as movement. FROM IMAGE TO MOTION. Upload · generate · theme · sync',
+    'about.sr6': '06 ARCHIVE — Scattered memories return as one archive. EVERY MEMORY RETURNS TO ONE PLACE. Photo · letter · film · stamp · NFC card',
+    'about.sr7': '07 ALL PROCESSES. From letter to light, in one line. Soul Trace · App · Device · Archive',
+    'about.topline': 'A letter, an identity, a hologram.<br>Hardware that keeps the contents.',
+    's1.eye': '01. COMPANY',
+    's1.h': 'Time together,<br>kept as a story that continues.',
+    's1.p': 'Eternal Beam connects memories with a pet<br>to digital records and objects you can hold.',
+    's1.scope': 'Photo · Letter · Object · Archive',
+    's1.kickerKo': 'Philosophy',
+    's1.lead': 'Eternal Beam does not stop at making a device.<br>We believe an ordinary day with a pet still holds a story worth keeping.',
+    's1.body1': 'Record it in Soul Trace with photos and letters, keep it as a card and object, and meet it again in daily life through Eternal Beam.',
+    's1.body2': 'Technology is a means for memory.<br>We make ways to keep time together, and to continue it.',
+    's2.h': 'A day with them<br>becomes one letter.',
+    's2.scope': 'Letter · feeling record · daily archive',
+    's2.kickerKo': 'Letter',
+    's2.lead': 'Soul Trace gathers a day’s feelings and moments with a pet<br>through questions and records, and shapes them into one letter.',
+    's2.body': 'The first step of keeping a day in words.',
+    's3.h': 'We keep the original traits,<br>and move as that child would.',
+    's3.scope': 'Original kept · trait study · breathing · blink',
+    's3.kickerKo': 'Identity',
+    's3.lead': 'Before inventing a new look,<br>we study their face, coat, expression, and presence.',
+    's3.body': 'Identity Lock comes before generation. It is how we protect who they are.',
+    's4.h': 'The child in memory<br>appears in the room again.',
+    's4.scope': 'Dual display · NFC · QR · OTA',
+    's4.kickerKo': 'Hologram',
+    's4.lead': 'Eternal Beam layers the pet and the scene<br>inside one optical structure.',
+    's4.body': 'Not just playback on a screen — a way for the story to stay in space.',
+    's5.h': 'It starts from one photo,<br>and continues as movement.',
+    's5.scope': 'Upload · generate · theme · sync',
+    's5.kickerKo': 'Motion',
+    's5.lead': 'From uploaded photos and references,<br>we make motion and scenes that keep the child’s traits.',
+    's5.body': 'After review, the result becomes content that connects to Beam.',
+    's6.h': 'Scattered memories gather,<br>and remain as one archive.',
+    's6.scope': 'Photo · letter · film · stamp · NFC card',
+    's6.kickerKo': 'Archive',
+    's6.lead': 'Photos, letters, film, and memory stamps in Soul Trace<br>are not scattered data. They become one flow.',
+    's6.body': 'Digital records lead to something you can hold, and to the device in daily life.',
+    's7.eye': '07. ALL PROCESSES',
+    's7.p': 'From letter to light,<br>in one line.',
+    'about.prev': 'Previous panel',
+    'about.next': 'Next panel',
+    'portfolio.label': 'Records with us',
+    'portfolio.note': 'Sample screen. Photos and names are not published work yet.',
+    'sk.sub': 'One story, from a record to an object,<br>and then into daily life.',
+    'sk.note': 'The sun stayed long today.<br>The alley we walked.',
+    'sk.l1': 'The sun stayed long today.',
+    'sk.l2': 'The alley we walked.',
+    'sk.l3': 'A day with them.',
+    'sk.a1.title': 'Where the story is written',
+    'sk.a1.lead': 'Photos and letters keep a day together.',
+    'sk.a2.title': 'A way to hold the memory',
+    'sk.a2.lead': 'The recorded story becomes an object you can hold.',
+    'sk.a3.title': 'Meeting that story again in daily life',
+    'sk.a3.lead': 'Stored memories return in the room.',
+    'original.drag': '← Drag sideways',
+    'original.viewport': 'Four paths of the Beam archive',
+    'original.alt': 'Archive table from above, with letter, identity, hologram, and archive plates.',
+    'original.pages': 'Choose a work',
+    'original.slides': 'Choose a slide',
+    'original.one': 'One of the four paths that make the Eternal Beam archive.',
+    'original.two': 'The device is a vessel. What remains here is the contents inside it.',
+    'original.view': 'View details',
+    'original.slide': 'View',
+    'contact.label': 'CONTACT',
+    'contact.fallback': 'We take inquiries by email. Tap the address below to open your mail app.',
+    'contact.write': 'Write a letter',
+    'contact.pvTitle': 'Personal information notice',
+    'contact.pvItemsDt': 'What we collect',
+    'contact.pvItemsDd': 'Name, email, phone, message',
+    'contact.pvPurposeDt': 'Why',
+    'contact.pvPurposeDd': 'To read the inquiry and reply',
+    'contact.pvKeepDt': 'How long',
+    'contact.pvKeepDd': 'One year after the reply, then deleted',
+    'contact.pvHowDt': 'How it is handled',
+    'contact.pvHowDd': 'Send opens a draft in your mail app. You still need to send it from that app for it to reach jadechoi@eternalbeamapp.com.',
+    'contact.pvTrustDt': 'Processors',
+    'contact.pvTrustDd': 'None. This site does not store the inquiry.',
+    'contact.pvMore': 'Read the full privacy policy',
+    'contact.pvClose': 'Close',
+    'contact.pvBtn': 'Show privacy details',
+    'contact.postedB': 'A draft is ready in your mail app',
+    'contact.postedS': 'Press send once more in the mail app to deliver it.<br>If a window did not open, you can write to this address instead.',
+    'contact.again': 'Write another letter',
+    'contact.needName': 'Name',
+    'contact.needEmail': 'Email',
+    'contact.needMsg': 'Message',
+    'contact.fill': 'Please fill in {list}',
+    'contact.emailBad': 'Please check the email address',
+    'contact.needConsent': 'Please agree to the use of personal information',
+    'contact.mailName': 'Name',
+    'contact.mailEmail': 'Email',
+    'contact.mailPhone': 'Phone',
+    'contact.mailSubject': 'Eternal Beam website inquiry — ',
+    'ending.title': 'A place that keeps the memory',
+    'ending.body': 'Scroll down and the device on the table comes closer, then you return to the first screen.',
+    'footer.company': 'Eternal Beam · Seoul',
+    'footer.privacy': 'Privacy policy',
+    'motion.off': 'Reduce motion',
+    'motion.on': 'Enable motion'
+  }
+};
+
+let lang = 'ko';
+
+function readStored() {
+  try {
+    const saved = localStorage.getItem(KEY);
+    if (saved === 'en' || saved === 'ko') return saved;
+  } catch {}
+  const navLang = String(navigator.language || '').toLowerCase();
+  return navLang.startsWith('en') ? 'en' : 'ko';
+}
+
+export function getLang() {
+  return lang;
+}
+
+export function t(key) {
+  return COPY[lang]?.[key] ?? COPY.ko[key] ?? key;
+}
+
+export function applyI18n(root = document) {
+  root.querySelectorAll('[data-i18n]').forEach((el) => {
+    const value = t(el.dataset.i18n);
+    if (value != null) el.textContent = value;
+  });
+  root.querySelectorAll('[data-i18n-html]').forEach((el) => {
+    const value = t(el.dataset.i18nHtml);
+    if (value != null) el.innerHTML = value;
+  });
+  root.querySelectorAll('[data-i18n-aria]').forEach((el) => {
+    const value = t(el.dataset.i18nAria);
+    if (value != null) el.setAttribute('aria-label', value);
+  });
+  root.querySelectorAll('[data-i18n-alt]').forEach((el) => {
+    const value = t(el.dataset.i18nAlt);
+    if (value != null) el.setAttribute('alt', value);
+  });
+  const title = t('meta.title');
+  if (root === document || root === document.documentElement) document.title = title;
+  syncToggles();
+}
+
+function syncToggles() {
+  document.querySelectorAll('[data-lang-set]').forEach((btn) => {
+    btn.setAttribute('aria-pressed', String(btn.dataset.langSet === lang));
+  });
+  document.querySelectorAll('.lang-switch').forEach((el) => {
+    el.setAttribute('aria-label', t('lang.label'));
+  });
+}
+
+export function setLang(next) {
+  const value = next === 'en' ? 'en' : 'ko';
+  if (value === lang && document.documentElement.lang === value) {
+    applyI18n();
+    return;
+  }
+  lang = value;
+  document.documentElement.lang = value;
+  try { localStorage.setItem(KEY, value); } catch {}
+  applyI18n();
+  window.dispatchEvent(new CustomEvent('eb:lang', { detail: { lang: value } }));
+}
+
+export function initLang() {
+  lang = readStored();
+  document.documentElement.lang = lang;
+  applyI18n();
+  document.addEventListener('click', (event) => {
+    const btn = event.target.closest('[data-lang-set]');
+    if (!btn) return;
+    setLang(btn.dataset.langSet);
+  });
+}

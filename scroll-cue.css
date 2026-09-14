@@ -1,7 +1,7 @@
 /* 아래로 스크롤하라는 작은 안내. 화면 아래 가운데, 멈춰 있을 때만 조용히 뜬다. */
 .scroll-cue{position:fixed;z-index:60;left:50%;bottom:max(14px,env(safe-area-inset-bottom));display:flex;flex-direction:column;align-items:center;gap:6px;padding:6px 10px;color:#fff;mix-blend-mode:difference;pointer-events:none;opacity:0;transform:translate(-50%,10px);transition:opacity .45s ease,transform .45s ease}
 .scroll-cue.is-on{opacity:.85;transform:translate(-50%,0)}
-.scroll-cue__label{font:500 10px/1 "IBM Plex Mono",ui-monospace,monospace;letter-spacing:.24em;text-indent:.24em}
+.scroll-cue__label{font:500 10px/1 var(--mono);letter-spacing:.24em;text-indent:.24em}
 .scroll-cue__arrow{position:relative;display:block;width:1px;height:22px;background:linear-gradient(180deg,transparent,currentColor);animation:scroll-cue-drop 1.9s cubic-bezier(.6,0,.35,1) infinite}
 .scroll-cue__arrow::after{content:"";position:absolute;left:50%;bottom:0;width:6px;height:6px;border-right:1px solid currentColor;border-bottom:1px solid currentColor;transform:translate(-50%,1px) rotate(45deg)}
 @keyframes scroll-cue-drop{0%{transform:translateY(-5px);opacity:.15}35%{opacity:1}100%{transform:translateY(6px);opacity:0}}

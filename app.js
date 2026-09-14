@@ -1,11 +1,14 @@
-import { initEnding } from './ending.js?v=eb-20260914';
-import {initNavShelf} from './nav-shelf.js?v=eb-20260914';
-import { initPortfolio } from './portfolio.js?v=eb-20260914';
-import { initContact } from './contact-letterbox.js?v=eb-20260913';
-import { initJourney } from './journey.js?v=eb-20260914';
-import { initOriginals } from './originals.js?v=eb-20260913';
-import { initHeroOriginal } from './hero-original.js?v=eternal-beam-r25';
-import { initCharacterDirection } from './character-direction.js?v=eb-20260914';
+import { initLang } from './i18n.js?v=eb-20260914w';
+import { initEnding } from './ending.js?v=eb-20260913n';
+import {initNavShelf} from './nav-shelf.js?v=eb-20260914bc';
+import { initPortfolio } from './portfolio.js?v=eb-20260914l';
+import { initContact } from './contact-letterbox.js?v=eb-20260914az';
+import { initJourney } from './journey.js?v=eb-20260914bp';
+import { initStoryKeep } from './story-keep.js?v=eb-20260914z';
+import { initHeroOriginal } from './hero-original.js?v=eb-20260914h';
+import { initCharacterDirection } from './character-direction.js?v=eb-20260913';
+
+initLang();
 
 // 새로고침 위치를 브라우저와 사이트가 서로 다르게 되돌려 어디에 설지 브라우저마다 달랐다.
 // 되돌리는 주체를 사이트 하나로 모은다. (index.html 머리에도 같은 줄을 넣어 달라고 요청해 둠)
@@ -78,7 +81,7 @@ const portfolio = initPortfolio(document.querySelector('#portfolio-mount'), {
   onInquiry: inquiry,
   onStoryWheel: event => handleSectionWheel(event, document.querySelector('#portfolio-mount')),
 });
-initOriginals(inquiry);
+initStoryKeep();
 // ── 상단바를 켜고 끄는 주인은 이 아래 두 함수뿐이다 ──────────────────────────
 // 감사 [56]: 예전에는 같은 바를 app.js·ending.js·nav-shelf.js 세 곳이 따로 켜고 꺼서
 // '보이라고 표시해 두었는데 화면에는 없는' 바가 생겼다(눈에는 안 보이는데 Tab·화면낭독기만 닿는 유령 바).
@@ -545,7 +548,7 @@ function handleAboutStationWheel(event, source) {
   sectionWheelLock = {
     direction,
     lastInput: now,
-    until: now + (reduced ? 0 : 2200),
+    until: now + (reduced ? 0 : 1100),
     aboutTarget: next,
   };
   if (next >= 0 && next < stationCount) {

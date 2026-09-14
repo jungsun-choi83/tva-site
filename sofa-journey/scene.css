@@ -20,9 +20,89 @@
 .sofa-journey__white,.sofa-journey__underlay{position:absolute;z-index:2;inset:0;pointer-events:none;background:#fff;opacity:0}
 .sofa-journey__landing{position:absolute;z-index:3;left:50%;top:50%;transform:translate(-50%,-50%);width:var(--sofa-room-width,min(100vw,177.6833vh));aspect-ratio:1672/941;opacity:0}
 .sofa-journey__landing img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain}
-.sofa-journey__moment{position:absolute;z-index:5;left:53.4%;top:5.6%;transform:none;margin:0;width:32%;max-width:36%;color:#e8d5a0;font:600 clamp(20px,3.2vw,48px)/1.18 "Cinzel",Georgia,serif;letter-spacing:.14em;text-transform:uppercase;text-align:left;text-shadow:0 2px 16px rgba(13,13,15,.58);pointer-events:none;white-space:normal}
-@media(max-width:760px){.sofa-journey__moment{left:52%;width:40%;letter-spacing:.1em;font-size:clamp(16px,4.2vw,28px)}}
+.sofa-journey__moment{
+  position:absolute;
+  z-index:8;
+  left:53.4%;
+  /* 방은 cover 크롭이라 위쪽이 잘린다. 보이는 영역 + 상단바 아래로 내린다. */
+  top:max(5.6%, calc((100% - 100svh) / 2 + var(--nav-height, 64px) + 12px));
+  transform:none;
+  margin:0;
+  width:32%;
+  max-width:36%;
+  color:#e8d5a0;
+  font:600 clamp(18px,3vw,44px)/1.18 var(--caps),Georgia,serif;
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  text-align:left;
+  text-shadow:0 2px 16px rgba(13,13,15,.58);
+  pointer-events:none;
+  white-space:normal;
+}
+@media(max-width:760px){
+  .sofa-journey__moment{
+    left:50%;
+    width:min(46%, 13em);
+    max-width:none;
+    letter-spacing:.08em;
+    font-size:clamp(15px,4.6vw,26px);
+    top:max(6%, calc((100% - 100svh) / 2 + var(--nav-height, 64px) + 10px));
+  }
+}
+@media(max-height:700px){
+  .sofa-journey__moment{
+    font-size:clamp(14px,4.6vh,28px);
+    letter-spacing:.08em;
+    width:min(42%, 14em);
+    max-width:none;
+  }
+}
 .sofa-journey__device-mark{display:none}
+.sofa-journey__logo-glow{
+  position:absolute;
+  left:62.4%;
+  top:39.85%;
+  z-index:2;
+  width:4.6%;
+  height:1.12%;
+  margin:0;
+  padding:0;
+  overflow:visible;
+  pointer-events:none;
+  mix-blend-mode:lighten;
+  filter:drop-shadow(0 0 .4px #fff4d8) drop-shadow(0 0 1.6px #e6c98a99);
+  opacity:.92;
+  animation:sofa-logo-glow 6.4s ease-in-out infinite;
+}
+.sofa-journey__logo-glow text{fill:#f6edd8}
+.sofa-journey__housing-light{
+  position:absolute;
+  left:70.4%;
+  top:24.2%;
+  z-index:2;
+  width:3.4%;
+  height:24%;
+  pointer-events:none;
+  mix-blend-mode:screen;
+  background:linear-gradient(90deg,transparent 0,rgba(255,220,160,.28) 42%,rgba(255,236,200,.12) 100%);
+  filter:blur(2.4px);
+  opacity:.55;
+  animation:sofa-housing-glow 6.4s ease-in-out infinite;
+}
+@keyframes sofa-logo-glow{
+  0%,100%{opacity:.72}
+  50%{opacity:.98}
+}
+@keyframes sofa-housing-glow{
+  0%,100%{opacity:.38}
+  50%{opacity:.62}
+}
+.reduced-motion .sofa-journey__logo-glow{animation:none;opacity:.86}
+.reduced-motion .sofa-journey__housing-light{animation:none;opacity:.5}
+@media(prefers-reduced-motion:reduce){
+  .sofa-journey__logo-glow{animation:none;opacity:.86}
+  .sofa-journey__housing-light{animation:none;opacity:.5}
+}
 .sofa-journey__landing:before{content:"";position:absolute;inset:0;z-index:1;pointer-events:none;background:linear-gradient(90deg,rgba(255,246,228,.22),rgba(255,236,200,.08) 22%,transparent 46%),radial-gradient(ellipse 42% 62% at 7% 26%,rgba(255,250,240,.28),transparent 72%);mix-blend-mode:screen}
 .sofa-journey__settled{will-change:transform,opacity}
 /* [107] 합성 레이어 예약(will-change)은 낙하 구간이 화면 가까이 있을 때만 켠다.

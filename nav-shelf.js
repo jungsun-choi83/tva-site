@@ -1,28 +1,10 @@
-// 상단 선반 바: 마스코트가 지금 보고 있는 구역의 메뉴 아래에 서 있고, 스크롤하면 걸어서 따라간다.
-// 포즈와 발 위치 값은 assets/mascot/manifest.json 원본을 그대로 옮긴 것이다.
+// 상단 선반 바: 우주복 고야가 유영하며, 스크롤하면 옆으로 미끄러진다.
 const BASE = 'assets/goya/';
-// 2026-09-12: 걷는 그림이 walk1·walk2 였는데 이 두 장만 **긴소매** 판이다.
-// 서 있는 그림(idle·sit)과 ABOUT 의 포즈 13장은 전부 **반소매**라, 걷다가 멈출 때마다
-// 소매 길이와 몸 비율이 바뀌어 '캐릭터가 두 종류'로 보였다.
-// 반소매 걷기 4컷(walk-a~d, ABOUT 이 쓰던 것과 같은 판)으로 바꾼다.
-//
-// fx·fy·top·bot 은 눈대중이 아니라 그림의 실제 잉크 범위를 재서 맞춘 값이다.
-//   walk-a~d 잉크: 위 .038 ~ 아래 .962 (idle 은 .013 ~ .987), 좌우 중심 .500
-//   top·bot 은 '몸 높이 = --shelf-body' 가 되도록: 화면에 그려지는 잉크 높이를 idle 과 같게 맞춘 값
-//   fy 는 발이 닿는 선을 idle 과 같게 맞춘 값 (전에는 걸을 때 발이 2.6px 더 내려가 있었다)
-const POSES = {
-  run1: { f: 'walk-a.png?v=eb-20260914', fx: .50, fy: .918, top: .068, bot: .932 },
-  run2: { f: 'walk-b.png?v=eb-20260914', fx: .50, fy: .918, top: .068, bot: .932 },
-  run3: { f: 'walk-c.png?v=eb-20260914', fx: .50, fy: .918, top: .068, bot: .932 },
-  run4: { f: 'walk-d.png?v=eb-20260914', fx: .50, fy: .918, top: .068, bot: .932 },
-  brake1: { f: 'idle.png?v=eb-20260914', fx: .50, fy: .94, top: .05, bot: .96 },
-  brake2: { f: 'sit.png?v=eb-20260914', fx: .50, fy: .94, top: .05, bot: .96 },
-  idle: { f: 'idle.png?v=eb-20260914', fx: .50, fy: .94, top: .05, bot: .96 },
-  wave: { f: 'idle.png?v=eb-20260914', fx: .50, fy: .94, top: .05, bot: .96 },
+const FACE = {
+  f: 'eb-astro-goya.png?v=eb-20260914bb',
+  fx: .50, fy: .98, top: 0, bot: 1,
 };
-const RUN = ['run1', 'run2', 'run3', 'run4'];
-// 감사 #7·#102: 멈춘 뒤 브레이크·인사 동작을 보여 주는 시간(ms). 이 시간이 지나면 루프를 재운다.
-const IDLE_HOLD = 2600;
+const IDLE_HOLD = 400;
 
 export function initNavShelf(nav) {
   if (!nav) return;
@@ -37,46 +19,27 @@ export function initNavShelf(nav) {
   const iRightRest = links.findIndex(a => (a.getAttribute('href') || '') === '#contact') >= 0
     ? links.findIndex(a => (a.getAttribute('href') || '') === '#contact') : links.length - 1;
 
-  // 2026-09-10 사장님 지시: 파란 진행선은 뺀다 (캐릭터 위치만으로 충분)
-  const puffs = [0, 1].map(() => {
-    const p = document.createElement('span');
-    p.className = 'nav-puff';
-    p.setAttribute('aria-hidden', 'true');
-    nav.appendChild(p);
-    return p;
-  });
   const mascot = new Image();
   mascot.className = 'nav-mascot';
   mascot.alt = '';
   mascot.setAttribute('aria-hidden', 'true');
-  // 감사 #119: 그림이 끊기면 깨진-이미지 흰 상자 대신 자리를 비운다 (장식용이라 없어도 뜻이 사라지지 않는다)
-  // 예전에는 .has-broken-mascot 클래스로 '지워 뒀던 현재 메뉴 글자'를 되살렸지만, 이제 글자를 지우지 않으므로
-  // 그 클래스는 아무 데서도 쓰이지 않는다. 그림만 감춘다.
+  mascot.decoding = 'async';
+  mascot.src = BASE + FACE.f;
   mascot.addEventListener('error', () => { mascot.style.visibility = 'hidden'; });
-  mascot.addEventListener('load', () => { mascot.style.visibility = ''; });
+  mascot.addEventListener('load', () => { mascot.style.visibility = ''; centers = null; poke(400); });
   nav.append(mascot);
-  // 2026-09-12 #N05: 포즈 그림 4종(idle·sit·walk1·walk2)은 합쳐서 약 4.5MB 다.
-  // 상단바는 첫 화면에서 접혀 있으므로 브라우저가 한가할 때 받아 둔다.
-  // 2026-09-12 #N08: 휴대폰에서는 선반에 설 자리가 없어 캐릭터가 한 번도 그려지지 않는다.
-  // 그래서 '한 번이라도 선 뒤'에만 나머지 포즈를 받는다(전에는 무조건 4장 약 4.5MB 를 받았다).
-  let warmed = false;
-  const warmPoses = () => {
-    if (warmed) return;
-    warmed = true;
-    const go = () => { for (const p of Object.values(POSES)) { const i = new Image(); i.decoding = 'async'; i.src = BASE + p.f; } };
-    if (typeof requestIdleCallback === 'function') requestIdleCallback(go, { timeout: 3000 });
-    else setTimeout(go, 1500);
-  };
 
   // ── 한 번 깨어날 때 한 번만 재는 값들 (예전에는 매 프레임 getComputedStyle·getBoundingClientRect 를 읽었다)
-  let bodyH = 0, navLeft = 0, navW = 0, centers = null, edges = null, listLeft = 0;
+  let bodyH = 0, navLeft = 0, navW = 0, centers = null, edges = null, listLeft = 0, langLeft = 0;
   const list = nav.querySelector('nav');
+  const lang = nav.querySelector('.lang-switch');
   function measure() {
-    bodyH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--shelf-body')) || (innerWidth <= 760 ? 38 : 48);
+    bodyH = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--shelf-face')) || (innerWidth <= 760 ? 40 : 58);
     const nr = nav.getBoundingClientRect();
     navLeft = nr.left; navW = nr.width;
     // 메뉴 목록이 시작하는 자리. 첫 메뉴 왼쪽의 '빈칸'은 여기까지다 — 그 앞은 로고 자리다.
     listLeft = (list ? list.getBoundingClientRect().left : nr.left) - navLeft;
+    langLeft = lang ? Math.max(0, lang.getBoundingClientRect().left - navLeft - 10) : navW;
     // 감사 [17]: 상자 끝(l·r)뿐 아니라 글자 끝(tl·tr = 좌우 여백을 뺀 자리)도 같이 잰다. 쉬는 자리를 정할 때 쓴다.
     edges = links.map(a => {
       const r = a.getBoundingClientRect(), cs = getComputedStyle(a);
@@ -88,8 +51,11 @@ export function initNavShelf(nav) {
     });
     centers = edges.map(e => (e.l + e.r) / 2);
   }
-  // 서 있는 포즈일 때 캐릭터가 가로로 차지하는 폭
-  const restWidth = () => (bodyH || (innerWidth <= 760 ? 48 : 60)) / (POSES.idle.bot - POSES.idle.top);
+  const restWidth = () => {
+    const h = bodyH || (innerWidth <= 760 ? 40 : 58);
+    const aspect = mascot.naturalWidth && mascot.naturalHeight ? mascot.naturalWidth / mascot.naturalHeight : .78;
+    return h * aspect / (FACE.bot - FACE.top);
+  };
   // 빈칸이 캐릭터보다 좁으면 그 칸에 맞게 줄여서 세운다. 이 배율보다 더 줄여야 하면 서지 않는다.
   const MIN_FIT = .58;
   let fit = 1;
@@ -97,23 +63,21 @@ export function initNavShelf(nav) {
   // '보이지 않는 채로' 계속 그려졌다 — 그림(1MB)을 받고 프레임도 돌면서 화면에는 없었다.
   let noRoom = false;
   const slotFit = (gap, w) => (gap >= w ? 1 : (gap / w >= MIN_FIT ? gap / w : 0));
-  function place(pose, x, dir, lift, squash) {
-    const p = POSES[pose] || POSES.idle;
+  function place(x, lift = 0, now = performance.now(), heading = 0) {
     if (!Number.isFinite(x)) return;
     if (!bodyH) measure();
-    const size = bodyH * fit / (p.bot - p.top);
-    if (mascot.dataset.pose !== pose) { mascot.src = BASE + p.f; mascot.dataset.pose = pose; warmPoses(); }
-    mascot.style.width = mascot.style.height = size + 'px';
-    mascot.style.left = (x - p.fx * size) + 'px';
-    mascot.style.bottom = (2 - (1 - p.fy) * size - lift) + 'px';
-    mascot.style.transformOrigin = `${p.fx * 100}% ${p.fy * 100}%`;
-    mascot.style.setProperty('--nav-dir', dir);   // 서 있을 때 CSS 숨쉬기가 좌우 반전을 이어받는다
-    mascot.style.transform = `scaleX(${dir}) scale(${1 + squash * .5},${1 - squash})`;
-  }
-  function puff(px) {
-    const el = puffs[(Math.random() * 2) | 0];
-    el.style.left = px + 'px';
-    el.animate([{ opacity: .45, transform: 'scale(.6) translateY(0)' }, { opacity: 0, transform: 'scale(1.9) translateY(-7px)' }], { duration: 420, easing: 'ease-out' });
+    const h = bodyH * fit / (FACE.bot - FACE.top);
+    const aspect = mascot.naturalWidth && mascot.naturalHeight ? mascot.naturalWidth / mascot.naturalHeight : .78;
+    const w = h * aspect;
+    const drift = Math.sin(now / 430) * 2;
+    const roll = (heading === 0 ? 0 : heading > 0 ? 10 : -10) + Math.sin(now / 620) * 8;
+    const flip = heading < 0 ? ' scaleX(-1)' : '';
+    mascot.style.height = h + 'px';
+    mascot.style.width = w + 'px';
+    mascot.style.left = (x - FACE.fx * w) + 'px';
+    mascot.style.bottom = (2 + lift) + 'px';
+    mascot.style.transformOrigin = `${FACE.fx * 100}% ${FACE.fy * 100}%`;
+    mascot.style.transform = `translateY(${(-5 - drift).toFixed(1)}px) rotate(${roll.toFixed(1)}deg)${flip}`;
   }
   function currentIndex() {
     // 사이트가 알려주는 현재 구역(aria-current)이 있으면 그것을 따른다.
@@ -141,13 +105,14 @@ export function initNavShelf(nav) {
     if (!here) { fit = 1; return Number.isFinite(centers[i]) ? centers[i] : 0; }
     const w = restWidth();
     const next = edges[i + 1], prev = edges[i - 1];
-    const slots = [
-      [here.tr, next ? next.tl : navW],
-      [prev ? prev.tr : listLeft, here.tl],
-    ];
+    const rightEdge = next ? next.tl : langLeft;
+    // CONTACT 오른쪽은 한영 버튼이다. 그 칸에 세우지 않고, 메뉴 사이(왼쪽)를 먼저 쓴다.
+    const slots = i === links.length - 1
+      ? [[prev ? prev.tr : listLeft, here.tl], [here.tr, rightEdge]]
+      : [[here.tr, rightEdge], [prev ? prev.tr : listLeft, here.tl]];
     for (const [l, r] of slots) {
       const f = slotFit(r - l, w);
-      if (f) { fit = f; noRoom = false; return (l + r) / 2 + (POSES.idle.fx - .5) * w * f; }
+      if (f) { fit = f; noRoom = false; return (l + r) / 2 + (FACE.fx - .5) * w * f; }
     }
     fit = 1;
     noRoom = true;
@@ -163,7 +128,7 @@ export function initNavShelf(nav) {
     if (!a || !b) return (targetX(iLeftRest) + targetX(iRightRest)) / 2;
     const w = restWidth();
     const l = Math.min(a.tr, b.tl), r = Math.max(a.tr, b.tl);
-    if (r - l >= w) { noRoom = false; return (l + r) / 2 + (POSES.idle.fx - .5) * w; }   // 빈칸 한가운데에 캐릭터 상자를 맞춘다
+    if (r - l >= w) { noRoom = false; return (l + r) / 2 + (FACE.fx - .5) * w; }
     noRoom = true;
     return navW + w;                                                  // 좁으면 선반 밖에서 기다린다
   };
@@ -171,7 +136,7 @@ export function initNavShelf(nav) {
   // 감사 [56]: 마지막 'See you again' 구역에서 바를 접는 판단은 app.js 로 옮겼다.
   // 같은 바를 세 파일이 따로 켜고 꺼서 서로 어긋나던 것을 주인 하나(app.js applyNav)로 모은 것이다.
   // 여기서는 접힘 여부를 '읽기만' 한다.
-  let x = null, dir = 1, phase = 0, stopped = 0, waveAt = 0, current = -2, last = performance.now();
+  let x = null, stopped = 0, current = -2, last = performance.now();
   let running = false, parked = false, needIndex = true, lastY = -1, awakeUntil = 0;
   const rmq = matchMedia('(prefers-reduced-motion:reduce)');
   const reduced = () => document.documentElement.classList.contains('reduced-motion') || rmq.matches;
@@ -198,33 +163,15 @@ export function initNavShelf(nav) {
     }
     if (x === null) x = t;
     const dx = t - x, speed = Math.abs(dx);
-    x += dx * Math.min(1, dt / 1000 * 5.5);
+    x += dx * Math.min(1, dt / 1000 * 4.2);
     if (speed > 2) {
-      dir = dx > 0 ? 1 : -1;
-      const stride = Math.min(.028, .006 + speed * .00022);
-      const before = Math.floor(phase);
-      phase = (Number.isFinite(phase) ? phase : 0) + dt * stride;
-      const fi = ((Math.floor(phase) % RUN.length) + RUN.length) % RUN.length;
-      place(RUN[fi], x, dir, Math.abs(Math.sin(phase * Math.PI)) * 2.5, 0);
-      if (Math.floor(phase) !== before && speed > 14) puff(x - 6);
+      place(x, Math.abs(Math.sin(now / 180)) * 2.4, now, dx > 0 ? 1 : -1);
       stopped = 0;
       awake = true;
     } else {
       stopped += dt;
-      if (stopped < 150) place('brake1', x, dir, 0, .06);
-      else if (stopped < 300) place('brake2', x, dir, 0, 0);
-      else {
-        // 가만히 있어도 살아 있게: 숨쉬기 + 발끝 까딱 + 5초마다 두 컷짜리 손 흔들기
-        if (now - waveAt > 5200) waveAt = now;
-        const w = now - waveAt;
-        if (w < 1600) place(Math.floor(w / 170) % 2 ? 'wave' : 'idle', x, dir, 1.6 + Math.sin(w / 120) * 1.4, 0);
-        else {
-          const ts = (now - waveAt - 1600) / 1000;
-          const tap = ts % 2.6 < .34 ? Math.abs(Math.sin((ts % 2.6) / .34 * Math.PI)) * 2.2 : 0;
-          place('idle', x, dir, Math.sin(now / 700) * 1.6 + tap, 0);
-        }
-      }
-      if (stopped < IDLE_HOLD) awake = true;   // 인사까지 마치면 잠든다
+      place(x, 0, now, 0);
+      if (stopped < IDLE_HOLD) awake = true;
     }
     return awake;
   }
@@ -238,9 +185,8 @@ export function initNavShelf(nav) {
   function park() {
     if (parked) return;
     parked = true;
-    if (x !== null) place('idle', x, dir, 0, 0);   // 어정쩡한 중간 포즈로 굳지 않게 한 번 정리한다
-    // 숨쉬기는 CSS 가 이어받는다. 다만 바가 안 보일 때는 그것조차 걸지 않는다(안 보이는 화면에서 60fps 스타일 재계산이 붙는다).
-    // 감사 [17]: 선반 밖에 서 있을 때도 마찬가지다(보이지 않는데 숨쉬기만 돈다).
+    if (x !== null) place(x, 0);
+    mascot.style.transform = '';
     if (navShown() && x !== null && x - restWidth() < navW) mascot.classList.add('is-parked');
   }
   function start() {
@@ -255,7 +201,7 @@ export function initNavShelf(nav) {
   // ms 만큼 더 깨어 있게 하고 루프를 돌린다
   function poke(ms) { awakeUntil = Math.max(awakeUntil, performance.now() + ms); start(); }
   // 바에 마우스를 올리거나 키보드 초점이 들어오면 캐릭터가 다시 인사한다
-  function greet() { stopped = 400; waveAt = performance.now(); poke(2400); }
+  function greet() { poke(1200); }
 
   document.addEventListener('visibilitychange', () => { if (!document.hidden) poke(600); });
   addEventListener('scroll', () => poke(300), { passive: true });

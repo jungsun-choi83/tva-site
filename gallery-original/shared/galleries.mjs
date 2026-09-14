@@ -402,6 +402,7 @@ function init02() {
   const categories = [
     {
       label: 'Influencer',
+      blurb: '크리에이터와 찍은 기록',
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
@@ -420,6 +421,7 @@ function init02() {
     },
     {
       label: 'Together',
+      blurb: '가족과 아이가 함께한 순간',
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
@@ -438,6 +440,7 @@ function init02() {
     },
     {
       label: 'Letters',
+      blurb: 'Soul Trace로 남긴 편지',
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
@@ -456,6 +459,7 @@ function init02() {
     },
     {
       label: 'Display',
+      blurb: '기기 안에서 다시 만난 모습',
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
@@ -480,7 +484,7 @@ function init02() {
   stage.setAttribute('role', 'region');
   stage.setAttribute('aria-roledescription', 'carousel');
   stage.setAttribute('aria-label', 'Records with us. Drag a record card, scroll over a card, or use arrow keys.');
-  stage.innerHTML = `<nav class="g02-categories" aria-labelledby="g02-category-title"><h2 class="g02-categories__title" id="g02-category-title">RECORDS</h2><div class="g02-category-list is-positioning" role="group" aria-label="Choose a record category">${categories.map((category, index) => `<button class="g02-category" type="button" data-category="${index}" aria-label="${String(index + 1).padStart(2, '0')} ${category.label} category, ${category.items.length} records" aria-pressed="${index === 0}"><span class="g02-category__icon" data-icon="${category.iconName}" aria-hidden="true">${category.icon}</span><span class="g02-category__label" aria-hidden="true">${category.label}</span></button>`).join('')}</div></nav><div class="g02-wheel">${initialWorks.map((work, index) => `<button class="g02-card" data-index="${index}" data-logical-id="${work.id}" aria-describedby="g02-caption-${index}" aria-label="${index ? 'Select' : 'Open'} ${work.title || 'record ' + (index + 1)}"><img src="${photo(work)}" style="object-position:${work.crop}" ${load(index)} alt="${work.title}"><span class="g02-card__title" aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</span><span class="g02-card__caption" id="g02-caption-${index}"><strong aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</strong><small${work.discipline ? '' : ' hidden'}>${work.discipline}</small><em${work.year ? '' : ' hidden'}>${work.year}</em></span></button>`).join('')}</div><button class="g02-nav g02-nav--prev" type="button" aria-label="Previous record">‹</button><button class="g02-nav g02-nav--next" type="button" aria-label="Next record">›</button><h2 class="g02-workmark" aria-label="WITH US">WITH US</h2>${pullerRig}`;
+  stage.innerHTML = `<nav class="g02-categories" aria-labelledby="g02-category-title"><h2 class="g02-categories__title" id="g02-category-title">STORIES WE'VE MADE TOGETHER<small>함께 만든 이야기</small></h2><div class="g02-category-list is-positioning" role="group" aria-label="Choose a record category">${categories.map((category, index) => `<button class="g02-category" type="button" data-category="${index}" aria-label="${String(index + 1).padStart(2, '0')} ${category.label}. ${category.blurb}" aria-pressed="${index === 0}"><span class="g02-category__icon" data-icon="${category.iconName}" aria-hidden="true">${category.icon}</span><span class="g02-category__label" aria-hidden="true">${category.label}</span><span class="g02-category__blurb">${category.blurb}</span></button>`).join('')}</div></nav><div class="g02-wheel">${initialWorks.map((work, index) => `<button class="g02-card" data-index="${index}" data-logical-id="${work.id}" aria-describedby="g02-caption-${index}" aria-label="${index ? 'Select' : 'Open'} ${work.title || 'record ' + (index + 1)}"><img src="${photo(work)}" style="object-position:${work.crop}" ${load(index)} alt="${work.title}"><span class="g02-card__title" aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</span><span class="g02-card__caption" id="g02-caption-${index}"><strong aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</strong><small${work.discipline ? '' : ' hidden'}>${work.discipline}</small><em${work.year ? '' : ' hidden'}>${work.year}</em></span></button>`).join('')}</div><button class="g02-nav g02-nav--prev" type="button" aria-label="Previous record">‹</button><button class="g02-nav g02-nav--next" type="button" aria-label="Next record">›</button><h2 class="g02-workmark" aria-label="WITH US">WITH US</h2>${pullerRig}`;
   const workmark = stage.querySelector('.g02-workmark');
   workmark.textContent = 'WITH US';
   const cards = [...stage.querySelectorAll('.g02-card')];
@@ -849,7 +853,13 @@ function init02() {
     }
     iconLayoutMobile = mobile;
     iconLayoutBounds = nextBounds;
+    const title = categoriesElement.querySelector('.g02-categories__title');
+    if (title) {
+      const floor = title.getBoundingClientRect().bottom - categoryList.getBoundingClientRect().top + 12;
+      iconPositions = iconPositions.map(point => ({ ...point, y: Math.max(point.y, floor) }));
+    }
     categoryButtons.forEach((_, index) => setIconPosition(index, iconPositions[index] || { x: 0, y: 0 }, !iconPositionsAreDefault));
+    categoryButtons.forEach((_, index) => settleIconPosition(index, iconPositions[index]));
     if (reposition) {
       void categoryList.offsetWidth;
       requestAnimationFrame(() => categoryList.classList.remove('is-positioning'));

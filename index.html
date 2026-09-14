@@ -1,5 +1,7 @@
 <!doctype html>
 <html lang="ko">
+<!-- 한영 전환: 저장된 언어가 있으면 첫 페인트 전에 lang 을 맞춘다 -->
+<script>try{var ebLang=localStorage.getItem('eb-lang');if(ebLang==='en'||ebLang==='ko')document.documentElement.lang=ebLang}catch(e){}</script>
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
@@ -31,42 +33,37 @@
   <script>if('scrollRestoration' in history)history.scrollRestoration='manual';document.documentElement.dataset.powerState=matchMedia('(prefers-reduced-motion: reduce)').matches||!['','#home'].includes(location.hash)?'locked':'off';window.__tvaPowerFailOpen=setTimeout(()=>{const hero=document.querySelector('#home');if(hero){hero.dataset.powerState='locked';hero.classList.remove('is-powering')}document.documentElement.dataset.powerState='locked';window.__tvaPowerRevealed=1/* 느린 회선에서 이미 글자를 보여줬다는 표시. 늦게 온 연출이 다시 숨기지 않게 한다 */},1200);</script>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <!-- 2026-09-12 감사 [114]: 글꼴 스타일시트가 첫 화면과 app.js 실행을 막지 않도록 비차단으로 받는다
-       2026-09-13 서체 정리: 화면에서 실제로 글자를 그리는 것만 남겼다. 재어 보니
-         Space Grotesk 0자 · Big Shoulders Display 0자 — 둘 다 유일한 사용처가
-         only-tva-walk.css 인데 그 파일은 어느 페이지에서도 부르지 않는다.
-         ([34] 로 Space Grotesk 를 넣었던 것도 그 죽은 파일을 보고 판단한 것이라 되돌린다)
-         Cinzel 700 도 부르는 곳이 없어 뺐고, 반대로 IBM Plex Mono 600·700 은
-         11곳이 달라 하는데 받지 않아 브라우저가 굵기를 합성하고 있었다 — 실제 굵기로 받는다.
-       글꼴 파일 11개 → 10개, 그리고 열 개 모두 실제로 쓰인다. -->
+  <!-- 2026-09-13 서체 정리: 화면에 실제로 그리는 글꼴만 받는다.
+       Space Grotesk·Big Shoulders Display 는 메인에서 쓰이지 않고(only-tva-walk.css 는 어떤 페이지에서도 부르지 않는다).
+       Cinzel 700 은 부르는 곳이 없어 뺐고, IBM Plex Mono 600·700 은 굵기를 합성하지 않도록 받는다. -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cinzel:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&family=Libre+Caslon+Text:ital@0;1&display=swap" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Cinzel:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500;600;700&family=Libre+Caslon+Text:ital@0;1&display=swap"></noscript>
   <!-- 2026-09-12 감사 [32]: 한글 웹폰트. 지금까지 한국어는 방문자 OS 글꼴로 렌더됐다. 라틴은 그대로 Arial 을 쓰고 한글만 Pretendard 로 받는다 -->
   <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"></noscript>
-  <link rel="preload" as="image" href="assets/hero/beam-device-1920x1080.png?v=eternal-beam-r31" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=eb-20260914">
-  <link rel="stylesheet" href="hero.css?v=eb-20260914">
-  <link rel="stylesheet" href="brand-mark.css?v=eternal-beam-r29">
-  <link rel="stylesheet" href="hero-material.css?v=entry-optics-sync-r3.hdee4aa4f">
+  <link rel="preload" as="image" href="assets/hero/beam-device-3q-shadow-glow-v1.png?v=eternal-beam-r33" fetchpriority="high">
+  <link rel="stylesheet" href="styles.css?v=eb-20260914j">
+  <link rel="stylesheet" href="hero.css?v=eb-20260914w">
+  <link rel="stylesheet" href="brand-mark.css?v=eternal-beam-r30">
+  <link rel="stylesheet" href="hero-material.css?v=eternal-beam-r33">
   <link rel="stylesheet" href="about.css?v=exit-copy-r3.h82d1f28b">
-  <link rel="stylesheet" href="about-walk.css?v=eb-20260914">
-  <link rel="stylesheet" href="signal-passage.css?v=fall-welcome-production-r3.h98421667">
+  <link rel="stylesheet" href="about-walk.css?v=eb-20260914n">
+  <link rel="stylesheet" href="signal-passage.css?v=eb-20260914g">
   <link rel="stylesheet" href="fall-welcome/actor.css?v=fall-welcome-production-r3.h492e636f" data-fall-actor-style>
-  <link rel="stylesheet" href="portfolio.css?v=eb-20260913">
-  <link rel="stylesheet" href="original-table.css?v=eb-20260914">
-  <link rel="stylesheet" href="contact-letterbox.css?v=eb-20260914">
-  <link rel="stylesheet" href="ending.css?v=eb-20260913b">
-  <link rel="stylesheet" href="scroll-cue.css?v=scroll-cue-r3.h52f59f0f">
-  <link rel="stylesheet" href="nav-shelf.css?v=eb-20260913">
-  <link rel="stylesheet" href="archive-pillars.css?v=eb-20260914">
+  <link rel="stylesheet" href="portfolio.css?v=eb-20260914g">
+  <link rel="stylesheet" href="story-keep.css?v=eb-20260914z">
+  <link rel="stylesheet" href="contact-letterbox.css?v=eb-20260914k">
+  <link rel="stylesheet" href="ending.css?v=eb-20260914g">
+  <link rel="stylesheet" href="scroll-cue.css?v=eb-20260914g">
+  <link rel="stylesheet" href="nav-shelf.css?v=eb-20260914m">
+  <link rel="stylesheet" href="archive-pillars.css?v=eb-20260914g">
   <!-- 2026-09-12 감사 [7]: 느린 회선에서 PORTFOLIO·ORIGINAL 에 도착하면 4초 동안 화면이 통째로 흰 종이였다.
        대표 그림(작업대)이 오기 전까지 그 그림의 평균색을 자리에 깔아 둔다. 그림은 불투명하고 상자를 꽉 채우므로
        다 온 뒤에는 이 색이 1px 도 보이지 않는다. 새 UI 가 아니라 바탕색만 까는 것이다. -->
   <style>
     /* 작업대 그림 평균색 — 실측 rgb(195,182,173) (다 온 화면에서 잰 값) */
-    .original-table__image { background-color:#d8c4a6; }
+    .story-keep { background-color:#f6f2e8; }
   </style>
   <!-- 검색 결과 회사 정보 카드. 대표자·사업자등록번호·주소·연락처는 확정된 값이 오면 채운다 -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Eternal Beam","alternateName":"이터널빔","url":"https://device.eternalbeam.com/","logo":"https://device.eternalbeam.com/assets/favicon/favicon-192.png?v=eternal-beam-r29","image":"https://device.eternalbeam.com/assets/og/tva-og-1200x630.jpg","description":"Soul Trace와 연결되는 홀로그램 디스플레이어. 하드웨어 안에 콘텐츠 아카이브를 남깁니다.","address":{"@type":"PostalAddress","addressLocality":"Seoul","addressCountry":"KR"},"knowsAbout":["홀로그램 디스플레이","반려동물 메모리얼","Soul Trace","콘텐츠 아카이브","Identity Lock"]}</script>
@@ -76,13 +73,18 @@
   <!-- 2026-09-12 #M04: 상단바는 첫 화면에서 inert 라 탭 순서에 없다. 키보드만 쓰는 사람이 문의까지
        가려면 낙하 통로와 ABOUT 일곱 칸을 전부 탭으로 지나야 했다. 건너뛰기 링크를 두 개 둔다.
        초점을 받을 때만 보이므로 일반 화면에는 변화가 없다. -->
-  <a class="skip-link" href="#about">본문 바로가기 Skip to content</a>
-  <a class="skip-link" href="#contact">문의 바로가기 Skip to contact</a>
+  <a class="skip-link" href="#about" data-i18n="skip.content">본문 바로가기 Skip to content</a>
+  <a class="skip-link" href="#contact" data-i18n="skip.contact">문의 바로가기 Skip to contact</a>
   <header class="site-nav" inert aria-hidden="true">
-    <a class="nav-logo" href="#home" aria-label="Eternal Beam 첫 화면으로"><span class="eb-mark eb-mark--nav"><img src="assets/brand/eternal-beam-mark.png?v=eternal-beam-r29" width="1400" height="99" alt="Eternal Beam"><span class="eb-a-slot" aria-hidden="true"><i></i></span></span></a>
-    <nav aria-label="주 메뉴">
-      <a href="#about">ABOUT</a><a href="#portfolio">RECORDS</a><a href="#original">ORIGINAL</a><a href="#contact">CONTACT</a>
+    <a class="nav-logo" href="#home" data-i18n-aria="nav.home" aria-label="Eternal Beam 첫 화면으로"><span class="eb-mark eb-mark--nav"><img src="assets/brand/eternal-beam-mark.png?v=eternal-beam-r29" width="1400" height="99" alt="Eternal Beam"><span class="eb-a-slot" aria-hidden="true"><i></i></span></span></a>
+    <nav data-i18n-aria="nav.main" aria-label="주 메뉴">
+      <a href="#about">ABOUT</a><a href="#portfolio">RECORDS</a><a href="#original">JOURNEY</a><a href="#contact">CONTACT</a>
     </nav>
+    <div class="lang-switch lang-switch--nav" role="group" aria-label="언어">
+      <button type="button" data-lang-set="ko" aria-pressed="true">KO</button>
+      <span aria-hidden="true">/</span>
+      <button type="button" data-lang-set="en" aria-pressed="false">EN</button>
+    </div>
   </header>
   <main>
     <section id="home" class="hero" data-hero-visual="keyvisual-v1" aria-labelledby="hero-title">
@@ -94,8 +96,9 @@
       </div>
       <div class="hero-original__power-room" aria-hidden="true"><i></i><i></i></div>
       <div class="hero-vintage__field" aria-hidden="true"></div>
-      <div class="hero-original__tv" aria-label="Eternal Beam 홀로그램 디스플레이">
-        <img class="hero-original__housing" src="assets/hero/beam-device-1920x1080.png?v=eternal-beam-r31" width="1920" height="1080" alt="Eternal Beam 홀로그램 기기" fetchpriority="high">
+      <div class="hero-original__tv" data-i18n-aria="hero.device" aria-label="Eternal Beam 홀로그램 디스플레이">
+        <i class="hero-device-shadow" aria-hidden="true"></i>
+        <img class="hero-original__housing" src="assets/hero/beam-device-3q-shadow-glow-v1.png?v=eternal-beam-r33" width="1280" height="720" data-i18n-alt="hero.deviceImg" alt="Eternal Beam 홀로그램 기기" fetchpriority="high">
         <i class="hero-vintage__crt" aria-hidden="true"></i>
         <span class="hero-material" aria-hidden="true"><i class="hero-material__housing-light"></i><i class="hero-material__glass"></i><i class="hero-material__spill"></i><i class="hero-material__contact"></i></span>
         <span class="hero-original__blink" aria-hidden="true"><i class="hero-original__eyelid hero-original__eyelid--left"></i><i class="hero-original__eyelid hero-original__eyelid--right"></i></span>
@@ -103,10 +106,9 @@
         <section class="hero-original__broadcast" inert aria-hidden="true">
           <canvas class="hero-original__power-noise" aria-hidden="true"></canvas><span class="hero-original__scanlines" aria-hidden="true"></span><span class="hero-original__glare" aria-hidden="true"></span><span class="hero-original__interior-wash" aria-hidden="true"></span><span class="hero-original__orbit" aria-hidden="true"><i></i><i></i><i></i></span>
           <header class="hero-original__station-head"><span class="hero-original__brand"><img src="assets/brand/eternal-beam-mark.png?v=eternal-beam-r29" width="720" height="51" alt="Eternal Beam"><small>Soul Trace × Device</small></span><p><i aria-hidden="true"></i>IDENTITY LOCKED<small>BEAM–01 / SEOUL</small></p></header>
-          <section class="hero-original__program" aria-live="polite" aria-atomic="true"><p class="hero-original__kicker" data-hero-kicker>SOUL TRACE / 01</p><h2 class="hero-original__title" data-hero-title>YOUR PET.<br>THEIR STORY.<br>STILL GROWING.</h2><p class="hero-original__body" data-hero-body>For the moments that deserve to last forever.</p><p class="hero-original__program-index" data-hero-program-index>LETTER / IDENTITY / HOLOGRAM</p></section>
-          <nav class="hero-original__channels" aria-label="Eternal Beam 채널"><button class="hero-original__channel is-selected" type="button" data-hero-channel="intro" data-hero-target="home" aria-pressed="true"><small>CH 01</small><strong>INTRO</strong></button><button class="hero-original__channel" type="button" data-hero-channel="about" data-hero-target="about" aria-pressed="false"><small>CH 02</small><strong>WHO WE ARE</strong></button><!-- CH 03 은 "FOUR WAYS TO KEEP / LETTER · STAMP · CARD · DEVICE" 를 말하는 칸이다.
-               그 내용이 실제로 놓인 곳은 BEAM ARCHIVE 탁자(#original)이지 사진 갤러리(#portfolio)가 아니다. -->
-            <button class="hero-original__channel" type="button" data-hero-channel="work" data-hero-target="original" aria-pressed="false"><small>CH 03</small><strong>ARCHIVE</strong></button><button class="hero-original__channel" type="button" data-hero-channel="contact" data-hero-target="contact" aria-pressed="false"><small>CH 04</small><strong>CONTACT</strong></button></nav>
+          <section class="hero-original__program" aria-live="polite" aria-atomic="true"><p class="hero-original__kicker" data-hero-kicker>SOUL TRACE / 01</p><h2 class="hero-original__title" data-hero-title>YOUR PET.<br>THEIR STORY.<br>KEPT CLOSE.</h2><p class="hero-original__body" data-hero-body>For the moments that deserve to last forever.</p><p class="hero-original__program-index" data-hero-program-index>LETTER / IDENTITY / HOLOGRAM</p></section>
+          <nav class="hero-original__channels" aria-label="Eternal Beam 채널"><button class="hero-original__channel is-selected" type="button" data-hero-channel="intro" data-hero-target="home" aria-pressed="true"><small>CH 01</small><strong>INTRO</strong></button>            <button class="hero-original__channel" type="button" data-hero-channel="about" data-hero-target="about" aria-pressed="false"><small>CH 02</small><strong>WHO WE ARE</strong></button>
+            <button class="hero-original__channel" type="button" data-hero-channel="work" data-hero-target="original" aria-pressed="false"><small>CH 03</small><strong>JOURNEY</strong></button><button class="hero-original__channel" type="button" data-hero-channel="contact" data-hero-target="contact" aria-pressed="false"><small>CH 04</small><strong>CONTACT</strong></button></nav>
           <footer class="hero-original__foot"><p><span aria-hidden="true">●</span> TRANSMISSION ACTIVE</p><button class="hero-original__replay" type="button">REPLAY SIGNAL</button></footer>
         </section>
         <span class="hero-original__power-edge" aria-hidden="true"></span>
@@ -114,121 +116,138 @@
         <span class="hero-original__bevel" aria-hidden="true"></span>
       </div>
       <div class="hero-vintage__copy">
+        <div class="lang-switch lang-switch--hero" role="group" aria-label="언어">
+          <button type="button" data-lang-set="ko" aria-pressed="true">KO</button>
+          <span aria-hidden="true">/</span>
+          <button type="button" data-lang-set="en" aria-pressed="false">EN</button>
+        </div>
         <div class="hero-vintage__headline">
-          <h1 id="hero-title" class="hero-vintage__title"><span class="hero-vintage__logo">ETERNAL<br>BEAM</span><span class="visually-hidden">Eternal Beam — Soul Trace에서 홀로그램 기기로 이어지는 콘텐츠 아카이브</span></h1>
-          <p class="hero-vintage__statement"><span class="hero-vintage__stmt" data-hero-stmt>YOUR PET.
+          <h1 id="hero-title" class="hero-vintage__title"><span class="hero-vintage__logo">ETERNAL<br>BEAM</span><span class="visually-hidden" data-i18n="hero.sr">Eternal Beam — Soul Trace에서 홀로그램 기기로 이어지는 콘텐츠 아카이브</span></h1>
+          <p class="hero-vintage__statement"><span class="hero-vintage__stmt" data-hero-stmt data-i18n="hero.stmt">YOUR PET.
 THEIR STORY.
-STILL GROWING.</span><span class="hero-vintage__stmt-sub">FOR THE MOMENTS THAT DESERVE TO LAST FOREVER</span></p>
+KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">FOR THE MOMENTS THAT DESERVE TO LAST FOREVER</span></p>
+          <p class="hero-vintage__explain" data-i18n="hero.explain">사진과 편지로 기록하고,
+손에 쥐는 카드와 일상 속 디스플레이로 이어갑니다.</p>
+        </div>
+        <div class="hero-cta">
+          <a class="hero-soultrace" href="https://soultrace.eternalbeam.com/" target="_blank" rel="noopener noreferrer" data-i18n="hero.soultrace">소울트레이스 연결</a>
+          <a class="hero-soultrace" href="#contact" data-i18n="hero.launch">출시 소식 받기</a>
         </div>
       </div>
       <button class="mascot hero-original__mascot" type="button" hidden aria-hidden="true" tabindex="-1"></button>
-      <a class="hero-original__scroll" href="#drop"><b>SCROLL TO ENTER</b><span aria-hidden="true"><i></i></span></a>
+      <a class="hero-original__scroll" href="#drop"><b data-i18n="hero.scroll">SCROLL TO ENTER</b><span aria-hidden="true"><i></i></span></a>
       </div>
     </section>
 
-    <section id="drop" class="drop-runway" aria-label="Eternal Beam 아카이브 안으로" data-stage="cross">
+    <section id="drop" class="drop-runway" data-i18n-aria="drop.label" aria-label="Eternal Beam 아카이브 안으로" data-stage="cross">
       <div class="drop-stage">
-        <div class="drop-actor" aria-hidden="true"><img src="assets/goya/idle.png?v=eb-20260914" width="1254" height="1254" alt=""><span class="guide-shadow"></span></div>
+        <div class="drop-actor" aria-hidden="true"><img src="assets/goya/goya-photo-idle.png?v=eb-20260914af" width="1024" height="1024" alt=""><span class="guide-shadow"></span></div>
       </div>
     </section>
 
     <section id="about" class="about-runway" tabindex="-1" aria-labelledby="about-title">
       <div class="about-sr-summary">
-        <h2>Eternal Beam 아카이브 전체</h2>
+        <h2 data-i18n="about.srTitle">Eternal Beam 아카이브 전체</h2>
         <ul>
-          <li>01 회사소개 — COMPANY. 함께하는 시간을, 계속 이어지는 이야기로. Eternal Beam은 반려동물과 함께한 기억을 디지털 기록과 실물 오브제로 연결하는 브랜드입니다. 사진 · 편지 · 오브제 · 아카이브</li>
-          <li>02 LETTER — 그 아이의 하루를, 한 통의 편지로 남깁니다. A MEMORY BECOMES A LETTER. AI 편지 · 감정 기록 · 일상 아카이브</li>
-          <li>03 IDENTITY — 원본의 특징을 지키고, 그 아이답게 움직입니다. ORIGINAL FIRST. IDENTITY LOCKED. 원본 유지 · 특징 분석 · 브리딩 · 블링크</li>
-          <li>04 HOLOGRAM DISPLAY — 기억 속 아이가 공간 안에 다시 나타납니다. THE ARCHIVE APPEARS IN SPACE. 듀얼 디스플레이 · NFC · QR · OTA</li>
-          <li>05 MOTION — 사진 한 장에서 시작해, 움직임으로 연결됩니다. FROM IMAGE TO MOTION. 업로드 · 생성 · 테마 · 동기화</li>
-          <li>06 ARCHIVE — 흩어진 기억을 모아, 하나의 아카이브로 남깁니다. EVERY MEMORY RETURNS TO ONE PLACE. 사진 · 편지 · 영상 · 스탬프 · NFC 카드</li>
-          <li>07 모든 과정 — ALL PROCESSES. 편지에서 빛까지 한 줄로 이어집니다. Soul Trace · App · Device · Archive</li>
+          <li data-i18n="about.sr1">01 회사소개 — COMPANY. 함께하는 시간을, 계속 이어지는 이야기로. Eternal Beam은 반려동물과 함께한 기억을 디지털 기록과 실물 오브제로 연결하는 브랜드입니다. 사진 · 편지 · 오브제 · 아카이브</li>
+          <li data-i18n="about.sr2">02 LETTER — 그 아이의 하루를, 한 통의 편지로 남깁니다. A MEMORY BECOMES A LETTER. 편지 · 감정 기록 · 일상 아카이브</li>
+          <li data-i18n="about.sr3">03 IDENTITY — 원본의 특징을 지키고, 그 아이답게 움직입니다. ORIGINAL FIRST. IDENTITY LOCKED. 원본 유지 · 특징 분석 · 브리딩 · 블링크</li>
+          <li data-i18n="about.sr4">04 HOLOGRAM DISPLAY — 기억 속 아이가 공간 안에 다시 나타납니다. THE ARCHIVE APPEARS IN SPACE. 듀얼 디스플레이 · NFC · QR · OTA</li>
+          <li data-i18n="about.sr5">05 MOTION — 사진 한 장에서 시작해, 움직임으로 연결됩니다. FROM IMAGE TO MOTION. 업로드 · 생성 · 테마 · 동기화</li>
+          <li data-i18n="about.sr6">06 ARCHIVE — 흩어진 기억을 모아, 하나의 아카이브로 남깁니다. EVERY MEMORY RETURNS TO ONE PLACE. 사진 · 편지 · 영상 · 스탬프 · NFC 카드</li>
+          <li data-i18n="about.sr7">07 모든 과정 — ALL PROCESSES. 편지에서 빛까지 한 줄로 이어집니다. Soul Trace · App · Device · Archive</li>
         </ul>
       </div>
       <div class="about-camera">
-        <div class="about-topline"><h2 id="about-title">ETERNAL BEAM / CONTENTS ARCHIVE</h2><p>A letter, an identity, a hologram.<br>Hardware that keeps the contents.</p></div>
+        <div class="about-topline"><h2 id="about-title">ETERNAL BEAM / CONTENTS ARCHIVE</h2><p data-i18n-html="about.topline">A letter, an identity, a hologram.<br>Hardware that keeps the contents.</p></div>
         <div class="studio-track">
           <article class="studio-station station-intro station-goldpage" data-station="Company">
-            <div class="station-copy station-copy--head"><span class="eyebrow">01. 회사소개</span><h3>함께하는 시간을,<br>계속 이어지는 이야기로.</h3></div>
-            <div class="station-copy station-copy--foot"><p>Eternal Beam은 반려동물과 함께한 기억을<br>디지털 기록과 실물 오브제로 연결하는 브랜드입니다.</p><p class="service-scope">사진 · 편지 · 오브제 · 아카이브</p></div>
+            <div class="station-copy station-copy--head"><span class="eyebrow" data-i18n="s1.eye">01. 회사소개</span><h3 data-i18n-html="s1.h">함께하는 시간을,<br>계속 이어지는 이야기로.</h3></div>
+            <div class="station-copy station-copy--foot"><p data-i18n-html="s1.p">Eternal Beam은 반려동물과 함께한 기억을<br>디지털 기록과 실물 오브제로 연결하는 브랜드입니다.</p><p class="service-scope" data-i18n="s1.scope">사진 · 편지 · 오브제 · 아카이브</p></div>
             <aside class="beam-gold">
               <span class="beam-gold__kicker">PHILOSOPHY</span>
-              <span class="beam-gold__kicker-ko">필로소피</span>
-              <p class="beam-gold__lead">Eternal Beam은 기기를 만드는 데서 멈추지 않습니다.<br>반려동물과 함께한 평범한 하루에도 오래 간직할 이야기가 있다고 믿습니다.</p>
+              <span class="beam-gold__kicker-ko" data-i18n="s1.kickerKo">필로소피</span>
+              <p class="beam-gold__lead" data-i18n-html="s1.lead">Eternal Beam은 기기를 만드는 데서 멈추지 않습니다.<br>반려동물과 함께한 평범한 하루에도 오래 간직할 이야기가 있다고 믿습니다.</p>
               <div class="beam-gold__body">
-                <p>Soul Trace에 사진과 편지로 기록하고, 카드와 오브제로 간직하며, Eternal Beam을 통해 일상에서 다시 만납니다.</p>
-                <p>기술은 기억을 위한 수단입니다.<br>우리는 함께한 시간을 간직하고 이어가는 방식을 만듭니다.</p>
+                <p data-i18n="s1.body1">Soul Trace에 사진과 편지로 기록하고, 카드와 오브제로 간직하며, Eternal Beam을 통해 일상에서 다시 만납니다.</p>
+                <p data-i18n-html="s1.body2">기술은 기억을 위한 수단입니다.<br>우리는 함께한 시간을 간직하고 이어가는 방식을 만듭니다.</p>
               </div>
             </aside>
           </article>
           <article class="studio-station station-plan station-goldpage" data-station="Letter">
-            <div class="station-copy station-copy--head"><span class="eyebrow">02. LETTER</span><h3>그 아이의 하루를,<br>한 통의 편지로 남깁니다.</h3></div>
-            <div class="station-copy station-copy--foot"><p class="service-en">A MEMORY BECOMES A LETTER.</p><p class="service-scope">AI 편지 · 감정 기록 · 일상 아카이브</p></div>
+            <div class="station-copy station-copy--head"><span class="eyebrow">02. LETTER</span><h3 data-i18n-html="s2.h">그 아이의 하루를,<br>한 통의 편지로 남깁니다.</h3></div>
+            <div class="station-copy station-copy--foot"><p class="service-en">A MEMORY BECOMES A LETTER.</p><p class="service-scope" data-i18n="s2.scope">편지 · 감정 기록 · 일상 아카이브</p></div>
             <aside class="beam-gold">
               <span class="beam-gold__kicker">LETTER</span>
-              <span class="beam-gold__kicker-ko">편지</span>
-              <p class="beam-gold__lead">Soul Trace는 반려동물과 함께한 하루의 감정과 순간을<br>질문과 기록을 통해 하나의 편지로 정리합니다.</p>
+              <span class="beam-gold__kicker-ko" data-i18n="s2.kickerKo">편지</span>
+              <p class="beam-gold__lead" data-i18n-html="s2.lead">Soul Trace는 반려동물과 함께한 하루의 감정과 순간을<br>질문과 기록을 통해 하나의 편지로 정리합니다.</p>
               <div class="beam-gold__body">
-                <p>단순한 텍스트 생성이 아니라, 기억을 언어로 남기는 첫 단계입니다.</p>
+                <p data-i18n="s2.body">하루를 질문과 글로 정리해, 기억으로 남기는 첫 단계입니다.</p>
               </div>
             </aside>
           </article>
           <article class="studio-station station-space station-goldpage" data-station="Identity">
-            <div class="station-copy station-copy--head"><span class="eyebrow">03. IDENTITY</span><h3>원본의 특징을 지키고,<br>그 아이답게 움직입니다.</h3></div>
-            <div class="station-copy station-copy--foot"><p class="service-en">ORIGINAL FIRST. IDENTITY LOCKED.</p><p class="service-scope">원본 유지 · 특징 분석 · 브리딩 · 블링크</p></div>
+            <div class="station-copy station-copy--head"><span class="eyebrow">03. IDENTITY</span><h3 data-i18n-html="s3.h">원본의 특징을 지키고,<br>그 아이답게 움직입니다.</h3></div>
+            <div class="station-copy station-copy--foot"><p class="service-en">ORIGINAL FIRST. IDENTITY LOCKED.</p><p class="service-scope" data-i18n="s3.scope">원본 유지 · 특징 분석 · 브리딩 · 블링크</p></div>
             <aside class="beam-gold">
               <span class="beam-gold__kicker">IDENTITY</span>
-              <span class="beam-gold__kicker-ko">아이덴티티</span>
-              <p class="beam-gold__lead">우리는 새로운 모습을 만들어내기보다 먼저<br>그 아이의 얼굴, 털무늬, 표정과 분위기를 살핍니다.</p>
+              <span class="beam-gold__kicker-ko" data-i18n="s3.kickerKo">아이덴티티</span>
+              <p class="beam-gold__lead" data-i18n-html="s3.lead">우리는 새로운 모습을 만들어내기보다 먼저<br>그 아이의 얼굴, 털무늬, 표정과 분위기를 살핍니다.</p>
               <div class="beam-gold__body">
-                <p>Identity Lock은 생성보다 앞서, “누구인가”를 지키는 과정입니다.</p>
+                <p data-i18n="s3.body">Identity Lock은 생성보다 앞서, “누구인가”를 지키는 과정입니다.</p>
               </div>
             </aside>
           </article>
           <article class="studio-station station-creative station-goldpage" data-station="Hologram">
-            <div class="station-copy station-copy--head"><span class="eyebrow">04. HOLOGRAM DISPLAY</span><h3>기억 속 아이가<br>공간 안에 다시 나타납니다.</h3></div>
-            <div class="station-copy station-copy--foot"><p class="service-en">THE ARCHIVE APPEARS IN SPACE.</p><p class="service-scope">듀얼 디스플레이 · NFC · QR · OTA</p></div>
+            <div class="station-copy station-copy--head"><span class="eyebrow">04. HOLOGRAM DISPLAY</span><h3 data-i18n-html="s4.h">기억 속 아이가<br>공간 안에 다시 나타납니다.</h3></div>
+            <div class="station-copy station-copy--foot"><p class="service-en">THE ARCHIVE APPEARS IN SPACE.</p><p class="service-scope" data-i18n="s4.scope">듀얼 디스플레이 · NFC · QR · OTA</p></div>
             <aside class="beam-gold">
               <span class="beam-gold__kicker">HOLOGRAM</span>
-              <span class="beam-gold__kicker-ko">홀로그램</span>
-              <p class="beam-gold__lead">Eternal Beam은 반려동물의 모습과 배경 장면을<br>하나의 광학 구조 안에서 겹쳐 보여줍니다.</p>
+              <span class="beam-gold__kicker-ko" data-i18n="s4.kickerKo">홀로그램</span>
+              <p class="beam-gold__lead" data-i18n-html="s4.lead">Eternal Beam은 반려동물의 모습과 배경 장면을<br>하나의 광학 구조 안에서 겹쳐 보여줍니다.</p>
               <div class="beam-gold__body">
-                <p>단순한 화면 재생이 아니라, 이야기가 공간 속에 머무는 방식입니다.</p>
+                <p data-i18n="s4.body">단순한 화면 재생이 아니라, 이야기가 공간 속에 머무는 방식입니다.</p>
               </div>
             </aside>
           </article>
           <article class="studio-station station-product station-goldpage" data-station="Motion">
-            <div class="station-copy station-copy--head"><span class="eyebrow">05. MOTION</span><h3>사진 한 장에서 시작해,<br>움직임으로 연결됩니다.</h3></div>
-            <div class="station-copy station-copy--foot"><p class="service-en">FROM IMAGE TO MOTION.</p><p class="service-scope">업로드 · 생성 · 테마 · 동기화</p></div>
+            <div class="station-copy station-copy--head"><span class="eyebrow">05. MOTION</span><h3 data-i18n-html="s5.h">사진 한 장에서 시작해,<br>움직임으로 연결됩니다.</h3></div>
+            <div class="station-copy station-copy--foot"><p class="service-en">FROM IMAGE TO MOTION.</p><p class="service-scope" data-i18n="s5.scope">업로드 · 생성 · 테마 · 동기화</p></div>
             <aside class="beam-gold">
               <span class="beam-gold__kicker">MOTION</span>
-              <span class="beam-gold__kicker-ko">모션</span>
-              <p class="beam-gold__lead">업로드된 사진과 레퍼런스를 바탕으로<br>아이의 특징을 유지한 모션과 장면을 만듭니다.</p>
+              <span class="beam-gold__kicker-ko" data-i18n="s5.kickerKo">모션</span>
+              <p class="beam-gold__lead" data-i18n-html="s5.lead">업로드된 사진과 레퍼런스를 바탕으로<br>아이의 특징을 유지한 모션과 장면을 만듭니다.</p>
               <div class="beam-gold__body">
-                <p>생성된 결과는 검토를 거쳐 Beam으로 연결되는 콘텐츠가 됩니다.</p>
+                <p data-i18n="s5.body">생성된 결과는 검토를 거쳐 Beam으로 연결되는 콘텐츠가 됩니다.</p>
               </div>
             </aside>
           </article>
           <article class="studio-station station-event station-goldpage" data-station="Archive">
-            <div class="station-copy station-copy--head"><span class="eyebrow">06. ARCHIVE</span><h3>흩어진 기억을 모아,<br>하나의 아카이브로 남깁니다.</h3></div>
-            <div class="station-copy station-copy--foot"><p class="service-en">EVERY MEMORY RETURNS TO ONE PLACE.</p><p class="service-scope">사진 · 편지 · 영상 · 스탬프 · NFC 카드</p></div>
+            <div class="station-copy station-copy--head"><span class="eyebrow">06. ARCHIVE</span><h3 data-i18n-html="s6.h">흩어진 기억을 모아,<br>하나의 아카이브로 남깁니다.</h3></div>
+            <div class="station-copy station-copy--foot"><p class="service-en">EVERY MEMORY RETURNS TO ONE PLACE.</p><p class="service-scope" data-i18n="s6.scope">사진 · 편지 · 영상 · 스탬프 · NFC 카드</p></div>
             <aside class="beam-gold">
               <span class="beam-gold__kicker">ARCHIVE</span>
-              <span class="beam-gold__kicker-ko">아카이브</span>
-              <p class="beam-gold__lead">Soul Trace에 쌓이는 사진, 편지, 영상, 메모리 스탬프는<br>각각 흩어진 데이터가 아니라 하나의 흐름으로 연결됩니다.</p>
+              <span class="beam-gold__kicker-ko" data-i18n="s6.kickerKo">아카이브</span>
+              <p class="beam-gold__lead" data-i18n-html="s6.lead">Soul Trace에 쌓이는 사진, 편지, 영상, 메모리 스탬프는<br>각각 흩어진 데이터가 아니라 하나의 흐름으로 연결됩니다.</p>
               <div class="beam-gold__body">
-                <p>디지털 기록은 결국 손에 쥘 수 있는 기억과 기기 경험으로 이어집니다.</p>
+                <p data-i18n="s6.body">디지털 기록은 결국 손에 쥘 수 있는 기억과 기기 경험으로 이어집니다.</p>
               </div>
             </aside>
           </article>
-          <article class="studio-station station-exit" data-station="Process">
-            <div class="station-copy"><span class="eyebrow">07. 모든 과정</span><h3>ALL<br>PROCESSES</h3><p>편지에서 빛까지<br>한 줄로 이어집니다.</p><p class="service-en">Soul Trace, App, Device, Archive — one line.</p><p class="service-scope">Soul Trace · App · Device · Archive</p></div>
+          <article class="studio-station station-exit station-goldpage" data-station="Process">
+            <div class="station-copy station-copy--head"><span class="eyebrow" data-i18n="s7.eye">07. 모든 과정</span><h3>ALL<br>PROCESSES</h3></div>
+            <div class="station-copy station-copy--foot"><p class="service-en">Soul Trace, App, Device, Archive — one line.</p><p class="service-scope">Soul Trace · App · Device · Archive</p></div>
+            <aside class="beam-gold">
+              <span class="beam-gold__kicker">PROCESS</span>
+              <span class="beam-gold__kicker-ko">모든 과정</span>
+              <p class="beam-gold__lead" data-i18n-html="s7.p">편지에서 빛까지<br>한 줄로 이어집니다.</p>
+            </aside>
             <div class="exit-arrow" aria-hidden="true">↗</div>
           </article>
         </div>
         <div class="studio-ledge" aria-hidden="true"></div>
-        <div class="studio-host" aria-hidden="true"><img src="assets/goya/idle.png?v=eb-20260914" alt="" width="1254" height="1254"><span class="host-shadow"></span></div>
-        <div class="studio-controls"><button type="button" data-station-step="-1" aria-label="이전 칸">←</button><span class="studio-stop-label" role="status" aria-live="polite" aria-atomic="true">Company</span><div class="studio-progress" aria-hidden="true"><i></i></div><span class="studio-scroll-label">SCROLL TO EXPLORE</span><button type="button" data-station-step="1" aria-label="다음 칸">→</button></div>
+        <div class="studio-host" aria-hidden="true"><img src="assets/goya/goya-photo-idle.png?v=eb-20260914aw" alt="" width="1024" height="1024"><span class="host-shadow"></span></div>
+        <div class="studio-controls"><button type="button" data-station-step="-1" data-i18n-aria="about.prev" aria-label="이전 칸">←</button><span class="studio-stop-label" role="status" aria-live="polite" aria-atomic="true">Company</span><div class="studio-progress" aria-hidden="true"><i></i></div><span class="studio-scroll-label">SCROLL TO EXPLORE</span><button type="button" data-station-step="1" data-i18n-aria="about.next" aria-label="다음 칸">→</button></div>
       </div>
     </section>
 
@@ -236,18 +255,58 @@ STILL GROWING.</span><span class="hero-vintage__stmt-sub">FOR THE MOMENTS THAT D
       <!-- 지금 걸린 사진과 이름은 예시다. 실제 촬영본이 들어오면
            gallery-original/shared/galleries.mjs 의 categories 를 채우고 이 띠를 지운다. -->
       <p class="portfolio-sample-note">예시 화면입니다. 사진과 이름은 아직 실제 작업물이 아닙니다.<span>Sample records — not published work.</span></p></section>
-    <section id="original" class="white-section original-table" aria-labelledby="original-title">
-      <h2 id="original-title" class="original-table__accessible">BEAM ARCHIVE</h2>
-      <div class="original-table__mobile-heading"><span>BEAM ARCHIVE</span><p>← 옆으로 끌어 보기</p></div>
-      <div class="original-table__viewport" aria-label="Beam 아카이브 네 갈래"><div class="original-table__scene">
-        <!-- 2026-09-10 합침(3개 페이지 방): 캐릭터 없는 탁자 그림 + 별도 층 문진 + 살아있는 캐릭터 -->
-        <picture><source media="(max-width: 700px)" srcset="assets/original-table/table-clean-nologo-960.webp?v=eternal-beam-r3 960w, assets/original-table/table-clean-nologo-1671.webp?v=eternal-beam-r3 1671w" sizes="1100px"><img class="original-table__image" src="assets/original-table/table-clean-1671.webp?v=eternal-beam-r3" srcset="assets/original-table/table-clean-960.webp?v=eternal-beam-r3 960w, assets/original-table/table-clean-1671.webp?v=eternal-beam-r3 1671w" sizes="(max-width: 700px) 1100px, (min-width: 1671px) 1671px, 100vw" width="1671" height="941" loading="lazy" decoding="async" alt="위에서 내려다본 아카이브 탁자. 편지, 정체성, 홀로그램, 아카이브 네 장이 놓여 있습니다."></picture>
-        <div id="original-folios" class="original-table__works" aria-label="LETTER · IDENTITY · HOLOGRAM · ARCHIVE"></div>
-        <img class="original-table__weight" src="assets/original-table/paperweight.webp?v=3" width="85" height="86" alt="" aria-hidden="true" decoding="async">
-        <div class="original-host" aria-hidden="true"><img src="assets/goya/sit.png?v=eb-20260914" width="1254" height="1254" alt=""></div>
+    <section id="original" class="white-section story-keep" aria-labelledby="original-title" data-act="1">
+      <div class="story-keep__pin">
+        <div class="story-keep__space" aria-hidden="true"><img src="assets/ending/living-room-clean-v3.webp?v=eternal-beam-r103" width="1280" height="720" alt="" decoding="async"></div>
+        <header class="story-keep__head">
+          <p class="story-keep__kicker">CH 03 / JOURNEY</p>
+          <h2 id="original-title">ONE STORY.<br>THREE WAYS TO KEEP IT.</h2>
+          <p class="story-keep__sub" data-i18n-html="sk.sub">하나의 이야기가 기록에서 오브제로,<br>그리고 일상의 경험으로 이어집니다.</p>
+        </header>
+        <div class="story-keep__stage" aria-hidden="true">
+          <div class="sk-a1">
+            <figure class="sk-photo">
+              <img src="assets/goya/goya-holo-quad.png?v=eternal-beam-r51" width="696" height="891" alt="">
+              <figcaption>PHOTO 01</figcaption>
+            </figure>
+            <aside class="sk-note"><small>RECORD</small><span data-i18n-html="sk.note">오늘 해가 길었어요.<br>같이 걷던 골목.</span></aside>
+            <div class="sk-letters">
+              <article class="sk-letter" data-i="0"><em>LETTER 01</em><span data-i18n="sk.l1">오늘 해가 길었어요.</span></article>
+              <article class="sk-letter" data-i="1"><em>LETTER 02</em><span data-i18n="sk.l2">같이 걷던 골목.</span></article>
+              <article class="sk-letter" data-i="2"><em>LETTER 03</em><span data-i18n="sk.l3">그 아이의 하루.</span></article>
+            </div>
+          </div>
+          <div class="sk-a2">
+            <div class="sk-album" aria-hidden="true"></div>
+            <div class="sk-card">
+              <i class="sk-card__beam" aria-hidden="true"></i>
+              <div class="sk-card__acrylic" aria-hidden="true"></div>
+              <i class="sk-card__foil" aria-hidden="true"></i>
+              <span class="sk-card__name">NFC CARD</span>
+            </div>
+          </div>
+          <div class="sk-a3">
+            <div class="sk-device">
+              <img src="assets/hero/beam-device-3q-shadow-glow-v1.png?v=eternal-beam-r33" width="1280" height="720" alt="">
+              <i class="sk-slot"></i>
+              <i class="sk-screen"></i>
+            </div>
+            <div class="sk-holo"><img src="assets/goya/goya-holo-quad.png?v=eternal-beam-r51" width="696" height="891" alt=""></div>
+          </div>
+        </div>
+        <div class="story-keep__copy" aria-live="polite">
+          <p class="story-keep__idx"><i data-sk-num>01</i><span data-sk-en>SOULTRACE</span></p>
+          <p class="story-keep__verb" data-sk-verb>RECORD</p>
+          <p class="story-keep__title" data-sk-title>이야기를 기록하는 곳</p>
+          <p class="story-keep__lead" data-sk-lead>사진과 편지로 함께한 순간을 기록합니다.</p>
+        </div>
+        <ol class="story-keep__steps" aria-label="Journey steps">
+          <li><button type="button" data-sk-jump="1">01 <small>RECORD</small></button></li>
+          <li><button type="button" data-sk-jump="2">02 <small>KEEP</small></button></li>
+          <li><button type="button" data-sk-jump="3">03 <small>EXPERIENCE</small></button></li>
+        </ol>
+        <div class="original-host" aria-hidden="true"><img src="assets/goya/goya-photo-idle.png?v=eb-20260914af" width="1024" height="1024" alt=""></div>
       </div>
-      </div>
-      <nav class="original-table__pages" aria-label="작품 선택"></nav>
     </section>
     <section id="contact" class="white-section contact-section contact-letterbox" aria-label="문의 CONTACT"><div id="contact-mount"><div class="ctl-fallback"><p class="ctl-fallback__t">CONTACT</p>
         <!-- 자바스크립트가 없을 때만 보이는 자리. 편지지 연출 대신 메일 주소 하나만 정확히 알린다.
@@ -258,21 +317,16 @@ STILL GROWING.</span><span class="hero-vintage__stmt-sub">FOR THE MOMENTS THAT D
     <section id="ending" class="white-section ending" aria-labelledby="ending-title" data-phase="room">
       <div class="ending-stage">
         <h2 id="ending-title" class="ending-description">기억을 간직하는 자리</h2>
-        <p class="ending-description">아래로 내리면 기기의 빛이 천천히 꺼집니다. 거실 소파에는 아이와 보호자가 앉아 있고, 책상 위 큐브에는 홀로그램이 남아 있습니다.</p>
-        <div class="ending-room" aria-hidden="true"><picture><img src="assets/ending/living-room-clean-v1.webp?v=eternal-beam-r99" srcset="assets/ending/living-room-clean-v1-1024.webp?v=eternal-beam-r99 1400w, assets/ending/living-room-clean-v1.webp?v=eternal-beam-r99 1672w" sizes="100vw" width="1672" height="941" alt="" loading="lazy" decoding="async"></picture><div class="ending-pair"><img src="assets/goya/goya-girl-buddy-sit.png?v=eternal-beam-r99" width="645" height="1105" alt=""></div><div class="ending-holo"><img src="assets/goya/goya-holo-quad.png?v=eb-20260914" width="696" height="891" alt=""></div><div class="ending-screen"><div class="ending-programme"><span class="ending-screen-title">KEEP THE MEMORY</span></div><div class="ending-crt-line"></div><div class="ending-glass"></div></div></div>
+        <p class="ending-description">아래로 내리면 책상 위 기기가 가까워지고, 처음 화면으로 돌아갑니다.</p>
+        <div class="ending-room" aria-hidden="true"><picture><img src="assets/ending/living-room-clean-v3.webp?v=eternal-beam-r103" srcset="assets/ending/living-room-clean-v3-1024.webp?v=eternal-beam-r103 1024w, assets/ending/living-room-clean-v3.webp?v=eternal-beam-r103 1280w" sizes="100vw" width="1280" height="720" alt="" decoding="async"></picture><div class="ending-pair"><img src="assets/goya/goya-girl-look-cube-sit.png?v=eternal-beam-r104" width="627" height="1086" alt=""></div><div class="ending-table-fg" aria-hidden="true"><img src="assets/ending/living-room-clean-v3.webp?v=eternal-beam-r103" width="1280" height="720" alt=""></div><div class="ending-holo"><img src="assets/goya/goya-holo-quad.png?v=eternal-beam-r51" width="696" height="891" alt=""></div><div class="ending-screen"><div class="ending-programme"><span class="ending-screen-title">KEEP THE MEMORY</span></div><div class="ending-crt-line"></div><div class="ending-glass"></div></div></div>
         <div class="ending-chrome">
           <div class="ending-actions">
             <button class="ending-scroll" type="button">One more scroll <span aria-hidden="true">↓</span></button>
             <button class="replay-button" type="button">Replay ↻</button>
           </div>
         </div>
-        <canvas class="ending-game" aria-hidden="true"></canvas>
-        <div class="ending-game-ui" aria-hidden="true" inert>
-          <div class="ending-needs" aria-hidden="true"><i></i><i></i><i></i><span>HOME IS A LITTLE CLOSER.</span></div>
-          <button class="ending-skip" type="button">Back to home ↗</button>
-        </div>
-        <div class="ending-home-match" aria-hidden="true"><img src="assets/hero/beam-device-1920x1080.png?v=eternal-beam-r31" width="1920" height="1080" alt=""></div>
-        <p class="ending-fallback">이 브라우저에서는 마지막 장면을 띄울 수 없습니다. Back to home 을 누르면 처음 화면으로 돌아갑니다.</p>
+        <button class="ending-skip" type="button" aria-hidden="true" inert>Back to home ↗</button>
+        <div class="ending-home-match" aria-hidden="true"><img src="assets/hero/beam-device-3q-shadow-glow-v1.png?v=eternal-beam-r33" width="1280" height="720" alt=""></div>
         <div class="ending-legacy" hidden aria-hidden="true"><div class="ending-mascot"></div></div>
         <!-- 2026-09-12 감사 [61]: 회사 표기를 읽히는 크기로. 대표자·사업자등록번호·주소·연락처는 확정된 값이 없어 넣지 않았다(지어내지 않음) -->
         <footer class="site-footer"><span>상호 Eternal Beam (이터널빔) · 서울 Seoul</span><span><a href="privacy.html">개인정보 처리방침 Privacy</a></span><span>© <span id="year">2026</span> Eternal Beam</span></footer>
@@ -284,8 +338,8 @@ STILL GROWING.</span><span class="hero-vintage__stmt-sub">FOR THE MOMENTS THAT D
   <!-- 2026-09-12 감사 [119]: 장식용 그림(alt="")이 안 오면 흰 깨진-그림 상자 대신 자리를 비운다 -->
   <script>addEventListener('error',e=>{const t=e.target;if(t&&t.tagName==='IMG'&&t.getAttribute('alt')==='')t.style.visibility='hidden'},true);for(const i of document.querySelectorAll('img[alt=""]'))if(i.complete&&i.naturalWidth===0)i.style.visibility='hidden';</script>
   <button class="motion-toggle" type="button" aria-pressed="false">움직임 줄이기</button>
-  <script src="app.js?v=eb-20260914" type="module"></script>
+  <script src="app.js?v=eb-20260914bp" type="module"></script>
   <script type="module" src="scroll-cue.js?v=scroll-cue-r6.h255f18f1"></script>
-  <script type="module" src="about-walk.js?v=eb-20260914"></script>
+  <script type="module" src="about-walk.js?v=eb-20260914az"></script>
 </body>
 </html>

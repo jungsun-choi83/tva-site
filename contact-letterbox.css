@@ -30,17 +30,13 @@
 .ctl .beam path:nth-of-type(3){animation:ctl-beamglow 3.4s ease-in-out .9s infinite}
 @keyframes ctl-beamglow{50%{opacity:.42}}
 @media (prefers-reduced-motion:reduce){.ctl .beam path{animation:none}}
-.ctl .ctl-s1char{
-  position:absolute;z-index:2;left:clamp(1%, 6vw, 10%);
-  bottom:4%;height:min(58%, calc(var(--ctlH)*.56));width:auto;
-  filter:drop-shadow(0 18px 18px rgb(12 8 4 / .45));
-  pointer-events:none;user-select:none;
-}
+.ctl .ctl-s1char{display:none!important}
 .ctl .sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
 .ctl .copy{position:absolute;left:var(--pad);top:clamp(18px, 4vh, 40px);z-index:5;max-width:42vw}
 .ctl .copy h2{
-  margin:0;color:#f3ead6;font:500 clamp(28px,4.2vw,56px)/.9 var(--display);
-  letter-spacing:.32em;text-transform:uppercase;
+  margin:0;color:#f3ead6;
+  font:400 var(--section-title-size)/var(--section-title-leading) "Archivo Black",Impact,"Arial Black",var(--sans);
+  letter-spacing:var(--section-title-tracking);text-transform:uppercase;
   text-shadow:0 2px 18px rgb(12 8 4 / .45);
 }
 .ctl .openbtn{display:none}
@@ -59,10 +55,10 @@
 .ctl .letter.in{animation:ctl-sheetin .5s cubic-bezier(.2,.85,.25,1)}
 .ctl .f{display:grid;gap:4px;min-width:0}
 .ctl .f>span{display:flex;gap:8px;align-items:baseline;font:500 11px var(--display);letter-spacing:.14em;text-transform:uppercase;color:#5c5348}
-.ctl .f>span i{font:400 12px "Pretendard Variable",Pretendard,sans-serif;font-style:normal;color:#6a6258;text-transform:none;letter-spacing:0}
+.ctl .f>span i{font:400 12px var(--sans);font-style:normal;color:#6a6258;text-transform:none;letter-spacing:0}
 .ctl .f input,.ctl .f textarea{
   width:100%;min-height:44px;border:0;border-bottom:1px solid rgb(58 50 40 / .45);
-  background:transparent;padding:4px 0 5px;font:16px "Pretendard Variable",Pretendard,var(--display);
+  background:transparent;padding:4px 0 5px;font:16px var(--sans);
   color:var(--ink);outline:0;border-radius:0;pointer-events:auto;position:relative;z-index:1;
 }
 .ctl .f input:focus-visible,.ctl .f textarea:focus-visible{outline:2px solid var(--cobalt);outline-offset:2px;border-bottom-color:var(--cobalt);border-bottom-width:2px}
@@ -88,7 +84,7 @@
 .ctl .foot{display:flex;flex-direction:column;align-items:center;gap:10px;margin-top:6px;padding-top:10px;border-top:1px solid rgb(58 50 40 / .28)}
 .ctl .consent{display:flex;gap:6px 12px;align-items:center;justify-content:center;flex-wrap:wrap;font:500 11px var(--display);letter-spacing:.1em;text-transform:uppercase}
 .ctl .consent label,.ctl .consent .pv,.ctl .consent i{white-space:nowrap}
-.ctl .consent i{font:400 12px "Pretendard Variable",Pretendard,sans-serif;font-style:normal;color:#6a6258;text-transform:none;letter-spacing:0}
+.ctl .consent i{font:400 12px var(--sans);font-style:normal;color:#6a6258;text-transform:none;letter-spacing:0}
 .ctl .consent label{display:flex;gap:8px;align-items:center;min-height:44px;cursor:pointer}
 /* WCAG 2.2 AA 2.5.8 최소 과녁 24x24 — 예전에는 데스크톱만 20px 였다(휴대폰 규칙에만 24px 이 있었다) */
 .ctl .consent input{width:24px;height:24px;flex:none;margin:0;accent-color:var(--cobalt)}
@@ -103,7 +99,7 @@
   font:500 max(13px,calc(var(--sheetW)*.038)) var(--display);
   letter-spacing:.22em;text-transform:uppercase;cursor:pointer;white-space:nowrap;border-radius:0;
 }
-.ctl .send i{font:400 .85em "Pretendard Variable",Pretendard,sans-serif;font-style:normal;letter-spacing:0;text-transform:none}
+.ctl .send i{font:400 .85em var(--sans);font-style:normal;letter-spacing:0;text-transform:none}
 .ctl .send:hover{background:#3a3228;color:#f3ead6}
 .ctl .send:active{transform:translateY(1px)}
 .ctl .privacy{position:absolute;inset:7% 6%;z-index:9;display:flex;flex-direction:column;gap:8px;padding:16px;background:#f3ebd5;border:1px solid rgb(58 50 40 / .4);box-shadow:0 8px 24px rgb(23 25 35 / .18);overflow:auto;overscroll-behavior:contain;text-align:left}
@@ -111,8 +107,8 @@
 .ctl .privacy h3{margin:0;font:500 12px var(--display);letter-spacing:.14em;text-transform:uppercase}
 .ctl .privacy dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:6px 10px;font-size:12px;line-height:1.5}
 .ctl .privacy dt{font:500 11px var(--display);letter-spacing:.06em;color:#6a6258;white-space:nowrap}
-.ctl .privacy dd{margin:0;font:400 12px "Pretendard Variable",Pretendard,sans-serif;color:var(--ink)}
-.ctl .pvmore{margin:2px 0 0;font:400 12px "Pretendard Variable",Pretendard,sans-serif}
+.ctl .privacy dd{margin:0;font:400 12px var(--sans);color:var(--ink)}
+.ctl .pvmore{margin:2px 0 0;font:400 12px var(--sans)}
 .ctl .pvmore a{color:#8f7034;text-underline-offset:3px}
 .ctl .pvclose{align-self:flex-start;margin-top:6px;min-height:44px;padding:0 1.4em;border:1.5px solid #3a3228;background:#fff;color:#3a3228;font:500 11px var(--display);letter-spacing:.14em;text-transform:uppercase;cursor:pointer;border-radius:0}
 .ctl .posted{
@@ -123,15 +119,15 @@
 .ctl .posted[hidden]{display:none}
 /* 첫 줄만 크게. 아래 두 줄은 '아직 한 번 더 눌러야 한다'는 안내라 읽는 글씨로 둔다. */
 .ctl .posted b{display:block;font:500 clamp(16px,2vw,22px)/1.5 var(--display);letter-spacing:.12em}
-.ctl .posted span{display:block;margin-top:.7em;font:400 clamp(13px,1.3vw,15px)/1.65 "Pretendard Variable",Pretendard,sans-serif;letter-spacing:0;color:#e6dcc6}
-.ctl .posted a{display:inline-block;margin-top:.5em;color:var(--cobalt);letter-spacing:.04em;text-transform:none;font:400 clamp(13px,1.3vw,15px)/1.6 "Pretendard Variable",Pretendard,sans-serif}
+.ctl .posted span{display:block;margin-top:.7em;font:400 clamp(13px,1.3vw,15px)/1.65 var(--sans);letter-spacing:0;color:#e6dcc6}
+.ctl .posted a{display:inline-block;margin-top:.5em;color:var(--cobalt);letter-spacing:.04em;text-transform:none;font:400 clamp(13px,1.3vw,15px)/1.6 var(--sans)}
 .ctl .again{
   position:absolute;left:50%;bottom:7%;transform:translateX(-50%);z-index:8;
   display:inline-flex;align-items:center;gap:.7em;min-height:44px;padding:0 1.8em;
   border:1.5px solid #f3ead6;background:rgb(13 13 15 / .35);color:#f3ead6;
   font:500 12px var(--display);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;border-radius:0;white-space:nowrap;
 }
-.ctl .again i{font:400 12px "Pretendard Variable",Pretendard,sans-serif;font-style:normal;text-transform:none;letter-spacing:0}
+.ctl .again i{font:400 12px var(--sans);font-style:normal;text-transform:none;letter-spacing:0}
 .ctl .again[hidden]{display:none}
 .ctl .again:hover{background:#f3ead6;color:#1a140e}
 
@@ -141,7 +137,7 @@
   .ctl .hall picture img{object-position:left 40%}
   .ctl .ctl-s1char{left:0;bottom:auto;top:8%;height:42%;opacity:.92}
   .ctl .copy{left:16px;top:14px;max-width:none}
-  .ctl .copy h2{font-size:clamp(22px,8vw,36px);letter-spacing:.24em}
+  .ctl .copy h2{font-size:var(--section-title-size);letter-spacing:var(--section-title-tracking)}
   .ctl .letter{left:50%;right:auto;top:54%;transform:translate(-50%,-50%);width:var(--sheetW);height:min(var(--sheetH), calc(var(--ctlH)*.78))}
   .ctl .inner{padding:0;inset:10% 11% 9% 11%}
   .ctl .row{gap:6px 12px}
@@ -161,7 +157,7 @@
     min-height:44px;padding:0 1.2em;border:1.5px solid #f3ead6;background:rgb(13 13 15 / .28);
     color:#f3ead6;font:500 13px var(--display);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;
   }
-  .ctl .openbtn i{font:400 1em "Pretendard Variable",Pretendard,sans-serif;font-style:normal;text-transform:none;letter-spacing:0}
+  .ctl .openbtn i{font:400 1em var(--sans);font-style:normal;text-transform:none;letter-spacing:0}
   .ctl .stage.open .openbtn{opacity:0;pointer-events:none}
   .ctl .stage:not(.open) .ctl-s1char{height:58%;top:auto;bottom:4%;left:50%;transform:translateX(-50%)}
 }
@@ -178,7 +174,7 @@
 @media (min-width:761px) and (min-aspect-ratio:1/1) and (max-height:520px){
   .ctl{--sheetH:calc(var(--ctlH)*.88);--sheetW:min(calc(var(--sheetH)*650/985), 48vw)}
   .ctl .ctl-s1char{height:86%}
-  .ctl .copy h2{font-size:clamp(20px,4vh,32px)}
+  .ctl .copy h2{font-size:var(--section-title-size)}
   .ctl .inner{inset:8% 8% 7% 8%}
   .ctl .form{grid-template-columns:1fr 1fr;grid-template-rows:auto minmax(0,1fr);gap:6px 14px}
   .ctl .row{grid-column:1;grid-row:1 / span 2;grid-template-columns:1fr;align-content:start;gap:5px}

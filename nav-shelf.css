@@ -1,17 +1,18 @@
 /* 상단 선반 바 — 위층은 메뉴 글자, 아래층은 마스코트가 걷는 선반 */
-:root{--nav-height:76px;--shelf-body:60px;--nav-link-pad:11px}
-.site-nav{height:var(--nav-height);align-items:flex-end;gap:0;border-bottom:0;overflow:hidden}
+:root{--nav-height:76px;--shelf-body:60px;--shelf-face:68px;--nav-link-pad:11px}
+.site-nav{height:var(--nav-height);align-items:flex-end;gap:0;border-bottom:0;overflow:visible}
 .site-nav:after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:var(--ink)}
 .site-nav .nav-logo{position:relative;z-index:2;display:flex;align-items:center;height:var(--shelf-body);padding:0;transform:translateY(calc(var(--shelf-body) * -.2))}
 .site-nav .nav-logo .eb-mark{display:inline-block;line-height:0;filter:none}
 .site-nav .nav-logo .eb-mark img{display:block;width:148px;height:auto}
 .site-nav .nav-logo .eb-wordmark{display:inline-flex;filter:none}
 .site-nav nav{position:relative;z-index:2;flex:1;height:var(--shelf-body);display:flex;align-items:center;justify-content:space-around;gap:0;padding:0 0 0 6%;transform:translateY(calc(var(--shelf-body) * -.2))}
+.site-nav .lang-switch{position:relative;z-index:2;flex:0 0 auto;color:var(--ink);transform:translateY(calc(var(--shelf-body) * -.2))}
 /* 감사 #25·#29·#36·#85: 흐림을 opacity 로 주면 포커스 테두리까지 같이 지워진다. 그래서 흐림은 글자색으로만 준다.
    #6f7077 = 흰 바 위에서 대비 4.93:1 (WCAG AA 기준 4.5:1 통과).
    감사 #95·[22]: 누르는 영역을 21px → 35px 로 넓혔지만, min-height:0 이 styles.css 의 44px 기준을 지우고 있었다.
    이제 44px 를 그대로 살린다. 글자는 flex 로 가운데 정렬해 보이는 위치가 전과 같다(상자만 커진다). */
-.site-nav nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:var(--nav-link-pad) 6px;font:500 13px/1 Cinzel,Georgia,serif;letter-spacing:.14em;color:#6f7077;transition:color .3s}
+.site-nav nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:var(--nav-link-pad) 6px;font:500 13px/1 var(--caps);letter-spacing:.14em;color:#6f7077;transition:color .3s}
 .site-nav nav a:after{display:none}
 .site-nav nav a:hover{color:var(--ink)}
 /* 지금 보고 있는 구역 — 글자를 살려 두고 밑줄로 표시한다.
@@ -22,16 +23,20 @@
 /* 마지막 화면에서는 바를 접어 둔다 */
 .site-nav.is-away,.site-nav.is-visible.is-away{transform:translateY(-101%);visibility:hidden;pointer-events:none}
 /* 선반 위를 걷는 마스코트 */
-.nav-mascot{position:absolute;left:0;bottom:0;z-index:1;pointer-events:none;transform-origin:50% 100%;will-change:transform,left;transition:opacity .2s}
-/* 감사 #7·#102: 자리에 서면 JS 루프를 재운다. 숨쉬기만 CSS 로 이어받아 메인 스레드 비용 없이 살아 있게 한다 */
-.nav-mascot.is-parked{animation:nav-mascot-breathe 3.6s ease-in-out infinite}
-@keyframes nav-mascot-breathe{0%,100%{transform:scaleX(var(--nav-dir,1)) translateY(0)}50%{transform:scaleX(var(--nav-dir,1)) translateY(-1.4px)}}
+.nav-mascot{position:absolute;left:0;bottom:0;z-index:1;pointer-events:none;object-fit:contain;opacity:1;transform-origin:50% 90%;will-change:left,transform;filter:drop-shadow(0 1px 1px rgb(23 25 35/.55)) drop-shadow(0 3px 5px rgb(23 25 35/.28))}
+.nav-mascot.is-parked{animation:nav-mascot-swim 4.4s ease-in-out infinite}
+@keyframes nav-mascot-swim{
+  0%,100%{transform:translateY(-3px) rotate(-6deg)}
+  28%{transform:translate(2px,-6px) rotate(5deg)}
+  54%{transform:translate(-1px,-2px) rotate(8deg)}
+  78%{transform:translate(2px,-5px) rotate(-2deg)}
+}
 /* 선반에 설 빈칸이 없으면(휴대폰 세로) 아예 숨긴다 — 예전에는 선반 밖에 서서 보이지도 않는 채로 그려졌다 */
 .nav-mascot.is-noroom{display:none}
 .nav-puff{position:absolute;bottom:2px;z-index:1;width:5px;height:5px;border-radius:50%;background:rgb(23 25 35/.2);opacity:0;pointer-events:none}
 
 @media(max-width:760px){
-  :root{--nav-height:64px;--shelf-body:48px;--nav-link-pad:13px}
+  :root{--nav-height:64px;--shelf-body:48px;--shelf-face:50px;--nav-link-pad:13px}
   .site-nav{padding:0 16px}
   .site-nav .nav-logo{height:var(--shelf-body)}
   /* 폭은 감싸개(.eb-mark)에 준다 — img 만 줄이면 brand-mark.css 의 132px 감싸개가 그대로 남아

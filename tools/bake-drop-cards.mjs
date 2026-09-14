@@ -187,16 +187,18 @@ for (const card of cards) {
 }
 
 const laid = [
-  { name: 'flower', rotate: -12, width: 104, flatten: 0.8, skew: 0.14, left: 428, top: 706 },
-  { name: 'peace', rotate: -6, width: 106, flatten: 0.78, skew: 0.12, left: 572, top: 658 },
-  { name: 'forest', rotate: 8, width: 108, flatten: 0.8, skew: 0.08, left: 812, top: 678 },
+  { name: 'peace', rotate: -6, width: 80, flatten: 0.78, skew: 0.12, left: 588, top: 689 },
+  { name: 'forest', rotate: 6, width: 81, flatten: 0.8, skew: 0.08, left: 818, top: 692 },
+  { name: 'flower', rotate: 8, width: 74, flatten: 0.76, skew: 0.05, left: 1078, top: 646 },
 ];
 
 const overlays = [];
 for (const spec of laid) {
   const buf = await layCard(isolated[spec.name], spec);
+  const meta = await sharp(buf).metadata();
   await sharp(buf).png().toFile(path.join(preview, `laid-acrylic-${spec.name}.png`));
   overlays.push({ input: buf, left: spec.left, top: spec.top, blend: 'over' });
+  console.log('place', spec.name, { left: spec.left, top: spec.top, w: meta.width, h: meta.height });
 }
 
 const baked = await sharp(roomOrig)
@@ -206,7 +208,7 @@ const baked = await sharp(roomOrig)
   .toBuffer();
 await sharp(baked).png().toFile(path.join(preview, 'landing-sofa-baked.png'));
 await sharp(baked)
-  .extract({ left: 380, top: 600, width: 720, height: 320 })
+  .extract({ left: 420, top: 610, width: 820, height: 310 })
   .png()
   .toFile(path.join(preview, 'table-baked-zoom-v6.png'));
 await sharp(baked)

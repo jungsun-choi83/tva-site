@@ -2,16 +2,16 @@
 // 카메라(studio-track 이동)는 journey.js 그대로 쓰고, 이 파일은 배경 띠와 캐릭터 자리만 맡는다.
 // 좌표 원본: Design_Studies/tva-about-anim-20260910/stops.js (띠 폭 10644×887, 칸 폭 1774)
 const STRIP = { W: 10644, H: 887, PANEL: 1774, PANELS: 6, FLOOR: .95 };
-const SEATF = .66; // 앉기 그림에서 엉덩이 높이(그림 높이 비율)
+const SEATF = .92; // 앉기 그림에서 엉덩이·발 접점(그림 높이 비율)
 const P = STRIP.PANEL;
 const STOPS = [
-  { x: P * .355, pose: 'present', size: .50, ground: .95, seat: false, floor: .96 },  // 01 COMPANY — 골드 바로 왼쪽
-  { x: P * 1.355, pose: 'letter', size: .50, ground: .95, seat: false, floor: .96 }, // 02 LETTER
-  { x: P * 2.355, pose: 'point', size: .50, ground: .95, seat: false, floor: .96 },  // 03 IDENTITY
-  { x: P * 3.355, pose: 'lookup', size: .50, ground: .95, seat: false, floor: .96 }, // 04 HOLOGRAM
-  { x: P * 4.355, pose: 'tablet', size: .50, ground: .95, seat: false, floor: .96 }, // 05 MOTION
-  { x: P * 5.355, pose: 'archive', size: .50, ground: .95, seat: false, floor: .96 }, // 06 ARCHIVE
-  { x: P * 6.36, pose: 'usher', size: .50, ground: .95, seat: false, floor: .96 },   // 07 ALL PROCESSES — 다음으로 보냄
+  { x: P * .355, pose: 'present', size: .50, ground: .95, seat: false, floor: .96 },
+  { x: P * 1.355, pose: 'letter', size: .50, ground: .95, seat: false, floor: .96 },
+  { x: P * 2.355, pose: 'point', size: .50, ground: .95, seat: false, floor: .96 },
+  { x: P * 3.355, pose: 'lookup', size: .50, ground: .95, seat: false, floor: .96 },
+  { x: P * 4.355, pose: 'tablet', size: .50, ground: .95, seat: false, floor: .96 },
+  { x: P * 5.355, pose: 'archive', size: .50, ground: .95, seat: false, floor: .96 },
+  { x: P * 6.36, pose: 'usher', size: .50, ground: .95, seat: false, floor: .96 },
 ];
 // 6번 칸 접수 테이블은 캐릭터보다 앞에 놓는 전경 층(띠 좌표에서 잘라낸 그림)
 const TABLE_FG = { x: 9890, y: 540, w: 555, h: 310 };
@@ -19,14 +19,23 @@ const TABLE_FG = { x: 9890, y: 540, w: 555, h: 310 };
 const TABLE_FG2 = { x: 7976, y: 480, w: 480, h: 382 };
 const POSES = ['stand', 'walk1', 'walk1b', 'walk2', 'walk3', 'walk4', 'sit', 'present', 'letter', 'point', 'lookup', 'tablet', 'archive', 'usher'];
 const WALK_FRAMES = ['walk1', 'walk2', 'walk3', 'walk4'];
-// 2026-09-10 사장님 지적("포스트잇 붙이고 내려오는 거"): 팔 올린 그림(pointup)은 캔버스 안에서 몸통이 작고, 내려선 그림(stand)은 몸통이 캔버스를
-// 거의 채운다. 같은 높이로 그리면 내려서는 순간 몸이 1.5배로 훌쩍 커졌다. 그림마다 몸통(모니터) 폭·중심·신발 아래끝을 재 두고(qa/fall-strip/pose_grid.py),
-// 내려선 뒤에는 몸통 폭이 같아지도록 크기를 줄이고 몸통 중심과 신발 자리를 그대로 맞춘다.
-const BODY_FRAC = .50;   // 캐릭터 키(모니터 위~신발 아래) = 띠 높이(887·배율)의 50% — 예전 걷는 크기와 같음
-// 그림마다: 캔버스 폭 w, 몸통(모니터) 좌우 bodyL/bodyR(가로 중심 맞춤용), 모니터 위 bodyT, 신발 아래 shoeB (키 = shoeB−bodyT 로 배율을 정한다).
-// 몸통 '폭'으로 맞추면 안 된다 — 걷는 그림은 3/4 옆모습이라 모니터가 좁고, 서 있는 그림은 정면이라 넓다(폭 기준이면 걷다 서는 순간 키가 40% 줄었음).
-const GOYA_METRICS = { w: 1024, bodyL: 140, bodyR: 880, bodyT: 60, shoeB: 990 };
-const POSE_METRICS = Object.fromEntries(POSES.map(name => [name, GOYA_METRICS]));
+const BODY_FRAC = .50;
+const PHOTO_IDLE = { w: 1024, h: 1024, bodyL: 271, bodyR: 753, bodyT: 63, shoeB: 986 };
+const PHOTO_POSE = {
+  walk1: { w: 1024, h: 1024, bodyL: 233, bodyR: 791, bodyT: 64, shoeB: 986 },
+  walk1b: { w: 1024, h: 1024, bodyL: 237, bodyR: 787, bodyT: 65, shoeB: 986 },
+  walk2: { w: 1024, h: 1024, bodyL: 237, bodyR: 787, bodyT: 65, shoeB: 986 },
+  walk3: { w: 1024, h: 1024, bodyL: 214, bodyR: 812, bodyT: 64, shoeB: 985 },
+  walk4: { w: 1024, h: 1024, bodyL: 225, bodyR: 799, bodyT: 64, shoeB: 986 },
+  present: { w: 1024, h: 1024, bodyL: 215, bodyR: 809, bodyT: 63, shoeB: 986 },
+  letter: { w: 1024, h: 1024, bodyL: 216, bodyR: 807, bodyT: 63, shoeB: 986 },
+  point: { w: 1024, h: 1024, bodyL: 242, bodyR: 782, bodyT: 63, shoeB: 986 },
+  lookup: { w: 1024, h: 1024, bodyL: 269, bodyR: 755, bodyT: 64, shoeB: 985 },
+  tablet: { w: 1024, h: 1024, bodyL: 240, bodyR: 783, bodyT: 63, shoeB: 986 },
+  archive: { w: 1024, h: 1024, bodyL: 232, bodyR: 791, bodyT: 64, shoeB: 986 },
+  usher: { w: 1024, h: 1024, bodyL: 253, bodyR: 771, bodyT: 63, shoeB: 986 },
+};
+const POSE_METRICS = Object.fromEntries(POSES.map(name => [name, PHOTO_POSE[name] || PHOTO_IDLE]));
 const clamp = (v, a = 0, b = 1) => Math.min(b, Math.max(a, v));
 const ease = t => t < .5 ? 4 * t * t * t : 1 - Math.pow(-2 * t + 2, 3) / 2;
 const lerp = (a, b, t) => a + (b - a) * t;
@@ -47,7 +56,7 @@ function init() {
   // 그림 파일 이름이 늘 같으므로(strip.webp 등) 스크립트의 ?v= 를 그림 주소에도 붙여 옛 캐시를 쓰지 않게 한다
   // 캐릭터 그림의 판 번호는 이 모듈의 판 번호와 별개다. 전에는 모듈의 ?v= 를 그대로 찍어
   // 같은 idle.png 를 nav-shelf(r51) 와 다른 주소로 한 번 더 내려받았다. journey.js 의 GOYA_V 와 같은 값을 쓴다.
-  const ver = 'eb-20260914';
+  const ver = 'eb-20260914az';
   const asset = name => `${base}${name}${ver ? `?v=${encodeURIComponent(ver)}` : ''}`;
   const strip = document.createElement('img');
   strip.className = 'about-walk__strip';
@@ -67,6 +76,10 @@ function init() {
   tableFg2.decoding = 'async';
   tableFg2.src = asset('table2_fg.webp');
   host.after(tableFg2);
+  const paws = document.createElement('div');
+  paws.className = 'about-walk__paws';
+  paws.setAttribute('aria-hidden', 'true');
+  camera.append(paws);
   // 2번 칸: 캐릭터가 붙이고 내려온 뒤 벽에 남는 포스트잇 (팔 올린 그림의 메모 위치에서 잘라낸 그림)
   const note = document.createElement('img');
   note.className = 'about-walk__note';
@@ -75,14 +88,15 @@ function init() {
   note.hidden = true;
   host.before(note);
   const goyaBase = new URL('./assets/goya/', import.meta.url).href;
+  const pawSrc = `${goyaBase}goya-paw-print.png?v=${encodeURIComponent(ver)}`;
   const GOYA_FILE = {
-    stand: 'idle.png', walk1: 'walk-a.png', walk1b: 'walk-b.png', walk2: 'walk-b.png',
-    walk3: 'walk-c.png', walk4: 'walk-d.png',
-    sit: 'sit.png', present: 'present.png', letter: 'letter.png', point: 'point.png',
-    lookup: 'lookup.png', tablet: 'tablet.png', archive: 'archive.png', usher: 'usher.png',
+    stand: 'goya-photo-idle.png', walk1: 'goya-photo-walk-a.png', walk1b: 'goya-photo-walk-b.png', walk2: 'goya-photo-walk-b.png',
+    walk3: 'goya-photo-walk-c.png', walk4: 'goya-photo-walk-d.png',
+    sit: 'goya-photo-idle.png', present: 'goya-photo-present.png', letter: 'goya-photo-letter.png', point: 'goya-photo-point.png',
+    lookup: 'goya-photo-lookup.png', tablet: 'goya-photo-tablet.png', archive: 'goya-photo-archive.png', usher: 'goya-photo-usher.png',
   };
   const poseSrc = Object.fromEntries(POSES.map(name => {
-    const file = GOYA_FILE[name] || 'idle.png';
+    const file = GOYA_FILE[name] || 'goya-photo-idle.png';
     return [name, `${goyaBase}${file}${ver ? `?v=${encodeURIComponent(ver)}` : ''}`];
   }));
   // 그림을 미리 '디코딩'까지 해 둔다: src 만 바꾸면 새 그림이 준비될 때까지 한두 프레임 동안 옛 그림이 새 상자 크기로 그려져
@@ -154,12 +168,14 @@ function init() {
     tableFg.style.height = `${(TABLE_FG.h * s).toFixed(2)}px`;
     tableFg2.style.width = `${(TABLE_FG2.w * s).toFixed(2)}px`;
     tableFg2.style.height = `${(TABLE_FG2.h * s).toFixed(2)}px`;
+    paws.style.width = `${Math.max(track.scrollWidth, stationW)}px`;
+    paws.style.height = `${camH}px`;
     lastHpx = 0;
   }
   // 칸을 바꿀 때 카메라는 그 자리에 두고, 고야만 화면을 가로질러 걷는다.
   // (카메라가 고야를 따라가면 배경이 같이 밀려 '미끄러져 넣는' 것처럼 보인다.)
   let charX = null;            // 캐릭터의 띠 좌표(x)
-  let walk = null;             // { from, to, dir, phase:'out'|'in', cam, destX }
+  let walk = null;             // { kind:'paw', from, to, dir, t0, dur, camFrom, camTo, lastPlant, planted }
   const copyBoxes = [];        // 정거장별 글 잉크 범위(화면 좌표, 칸 시작 기준) — 캐릭터가 글과 겹치지 않게 서는 자리 계산용
   function copyBox(index) {
     if (copyBoxes[index] !== undefined) return copyBoxes[index];
@@ -199,7 +215,7 @@ function init() {
   let lastTime = 0;
   const SPEED = STRIP.PANEL * 0.55;   // 초당 이동(띠 px): 화면의 약 절반을 1초쯤에 걸어 간다
   // 2026-09-13: 컷 간격 110ms → 80ms. 한 걸음(2컷)이 160ms 라 초당 여섯 걸음쯤 — '총총총' 하는 잔걸음이 된다.
-  const WALK_FRAME_MS = 80;
+  const WALK_FRAME_MS = 110;
   function stationDistance(index) {
     const el = track.children[clamp(index, 0, STOPS.length - 1)];
     return clamp(el ? el.offsetLeft : 0, 0, L.travel);
@@ -225,6 +241,33 @@ function init() {
     strip.style.transform = `translate3d(${(L.offset - L.k * distance).toFixed(2)}px,${L.top.toFixed(2)}px,0)`;
     tableFg.style.transform = `translate3d(${(L.offset + TABLE_FG.x * L.s - L.k * distance).toFixed(2)}px,${(L.top + TABLE_FG.y * L.s).toFixed(2)}px,0)`;
     tableFg2.style.transform = `translate3d(${(L.offset + TABLE_FG2.x * L.s - L.k * distance).toFixed(2)}px,${(L.top + TABLE_FG2.y * L.s).toFixed(2)}px,0)`;
+    paws.style.transform = `translate3d(${(-distance).toFixed(2)}px,0,0)`;
+  }
+  function plantPaw(worldX, side, dir) {
+    if (!L || !Number.isFinite(worldX)) return;
+    const img = document.createElement('img');
+    img.className = 'about-walk__paw';
+    img.alt = '';
+    img.src = pawSrc;
+    const size = Math.max(40, L.camH * .055);
+    img.style.width = `${size.toFixed(1)}px`;
+    img.style.left = `${(worldX - size * .5).toFixed(1)}px`;
+    img.style.top = `${(L.camH * (.70 + side * .028)).toFixed(1)}px`;
+    img.style.setProperty('--paw-rot', `${dir > 0 ? 72 : -72}deg`);
+    img.style.setProperty('--paw-flip', side > 0 ? '1' : '-1');
+    paws.append(img);
+    while (paws.childElementCount > 18) paws.firstElementChild.remove();
+  }
+  function stepPaws(distance, dir) {
+    if (!walk || !L) return;
+    const stride = Math.max(108, L.stationW * .12);
+    const foot = distance + (dir > 0 ? .24 : .76) * L.stationW;
+    if (!Number.isFinite(walk.lastPlant)) walk.lastPlant = foot - dir * stride;
+    while ((foot - walk.lastPlant) * dir >= stride) {
+      walk.lastPlant += dir * stride;
+      walk.planted = (walk.planted || 0) + 1;
+      plantPaw(walk.lastPlant, walk.planted % 2 ? 1 : -1, dir);
+    }
   }
   function keepWalkingLoop() {
     if (!walkingLoop) walkingLoop = requestAnimationFrame(loop);
@@ -267,8 +310,9 @@ function init() {
       panel.append(stripPanel);
       const poseName = stop.then || stop.pose;           // 붙이고 내려선 뒤 모습(2번 칸)처럼 '도착한 다음' 자세로
       const PM = POSE_METRICS[poseName] || POSE_METRICS.stand;
+      const canvasH = PM.h || 1024;
       const k = BODY_FRAC * STRIP.H / (PM.shoeB - PM.bodyT);   // 그림 1px 이 띠에서 몇 px (키 기준, 걷기와 같은 식)
-      const hS = 720 * k, wS = PM.w * k, localX = stop.x - index * STRIP.PANEL;
+      const hS = canvasH * k, wS = PM.w * k, localX = stop.x - index * STRIP.PANEL;
       const figure = document.createElement('img');
       figure.className = 'awp-figure';
       figure.alt = '';
@@ -282,7 +326,7 @@ function init() {
       figure.dataset.baseLeft = Number.parseFloat(figure.style.left);   // 글 피하기 전 원래 자리(다시 잴 때 기준)
       panel.append(figure);
       if (stop.note) {   // 2번 칸 벽에 남는 포스트잇 — 팔 올린 그림의 손끝 자리(걷기와 같은 계산)
-        const PU = POSE_METRICS.pointup, kU = BODY_FRAC * STRIP.H / (PU.shoeB - PU.bodyT), upH = 720 * kU;
+        const PU = POSE_METRICS.pointup, kU = BODY_FRAC * STRIP.H / (PU.shoeB - PU.bodyT), upH = (PU.h || 1024) * kU;
         const upLeft = localX - (PU.bodyL + PU.bodyR) / 2 * kU, upTop = STRIP.FLOOR * STRIP.H - PU.shoeB * kU;
         const nw = .137 * upH, nh = nw * 200 / 116;
         const noteCopy = document.createElement('img');
@@ -341,45 +385,26 @@ function init() {
     const dt = lastTime ? Math.min(.05, (now - lastTime) / 1000) : 0;
     lastTime = now;
     const y = scrollY;
-    let distance = walk ? walk.cam : clamp(y - L.aboutTop, 0, L.travel);
-    if (walk) pinScroll(walk.cam);
-    let station = walk
-      ? (walk.phase === 'out' ? walk.from : walk.to)
-      : stationIndexFromDistance(distance);
+    let distance = clamp(y - L.aboutTop, 0, L.travel);
+    if (walk && walk.kind === 'paw') {
+      const u = clamp((now - walk.t0) / walk.dur);
+      distance = lerp(walk.camFrom, walk.camTo, ease(u));
+      pinScroll(distance);
+      stepPaws(distance, walk.dir);
+      if (u >= 1) {
+        distance = walk.camTo;
+        pinScroll(distance);
+        walk = null;
+        document.documentElement.classList.remove('is-about-walking');
+      }
+    }
+    let station = walk ? walk.to : stationIndexFromDistance(distance);
     let target = { ...STOPS[station], x: stopX(station) };
     const aboutOnScreen = y + L.vh > L.aboutTop && y < L.aboutTop + L.aboutH;
     onScreen = aboutOnScreen;
     if (charX === null || (!aboutOnScreen && !walk)) charX = target.x;
-    let remain = 0;
-    let walking = false;
-    if (walk) {
-      remain = walk.destX - charX;
-      walking = true;
-      facing = walk.dir;
-      if (dt > 0) {
-        const step = Math.min(Math.abs(remain), SPEED * dt);
-        charX += Math.sign(remain || walk.dir) * step;
-      }
-      if (Math.abs(walk.destX - charX) <= 3) {
-        charX = walk.destX;
-        if (walk.phase === 'out') {
-          walk.phase = 'in';
-          walk.cam = stationDistance(walk.to);
-          station = walk.to;
-          target = { ...STOPS[station], x: stopX(station) };
-          walk.destX = target.x;
-          charX = screenX(walk.dir > 0 ? .08 : .90, walk.cam);
-          pinScroll(walk.cam);
-          distance = walk.cam;
-        } else {
-          station = walk.to;
-          target = { ...STOPS[station], x: stopX(station) };
-          walk = null;
-          walking = false;
-          document.documentElement.classList.remove('is-about-walking');
-        }
-      }
-    } else {
+    let walking = Boolean(walk);
+    if (!walk) {
       document.documentElement.classList.remove('is-about-walking');
       charX = target.x;
     }
@@ -397,12 +422,12 @@ function init() {
       ? WALK_FRAMES[Math.floor(now / WALK_FRAME_MS) % WALK_FRAMES.length]
       : cycling ? target.cycle[Math.floor(sinceArrival / (target.cycleMs || 700)) % target.cycle.length] : (afterPose ? target.then : target.pose);
     const PM = POSE_METRICS[poseName] || POSE_METRICS.stand;
-    const sPx = BODY_FRAC * STRIP.H * L.s / (PM.shoeB - PM.bodyT) * (PM.k || 1);   // 그림 1px 이 화면에서 몇 px (키 기준)
-    const hpx = sPx * 720;                                              // 그림 캔버스 높이 720
+    const sPx = BODY_FRAC * STRIP.H * L.s / (PM.shoeB - PM.bodyT) * (PM.k || 1);
+    const hpx = sPx * (PM.h || 1024);
     const hostW = sPx * PM.w;
     // 포스트잇: 팔 올린 그림 기준으로 손끝 자리(그림 안 비율: 왼쪽에서 .474·높이, 위에서 .102·높이)에 두고, 내려선 뒤에도 벽에 남긴다
     if (target.note && arrived) {
-      const PU = POSE_METRICS.pointup; const sUp = BODY_FRAC * STRIP.H * L.s / (PU.shoeB - PU.bodyT) * (PU.k || 1); const upHpx = sUp * 720;
+      const PU = POSE_METRICS.pointup; const sUp = BODY_FRAC * STRIP.H * L.s / (PU.shoeB - PU.bodyT) * (PU.k || 1); const upHpx = sUp * (PU.h || 1024);
       const upTop = L.top + STRIP.FLOOR * STRIP.H * L.s - PU.shoeB * sUp;
       const upLeft = L.offset + target.x * L.s - L.k * distance - (PU.bodyL + PU.bodyR) / 2 * sUp;
       // v2 그림에서 손에 든 포스트잇: 캔버스(466×720) 안 x 0~95, y 0~90 → 중심 (.067, .0625)·높이, 폭 .132·높이. note.webp(116×200)는 위 2~105행이 포스트잇이라 그 중심(.265·nh)을 손 자리에 맞춘다
@@ -415,14 +440,10 @@ function init() {
     const lift = arrived && target.lift ? target.lift * STRIP.H * L.s : 0;   // 받침대 위에 선 칸
     const top = (arrived && target.seat ? L.top + target.ground * STRIP.H * L.s - hpx * SEATF : floorTop) - lift;
     let cx = L.offset + charX * L.s - L.k * distance;
-    // 2026-09-13 사장님 요청("총총총 걸어가는 모습"): 걷기 그림 4컷(walk-a~d)은 실측해 보면
-    // 다리 자세가 서로 거의 같다 — 컷만 돌리면 걸음이 아니라 미끄러지는 것처럼 보인다.
-    // 그래서 걸음은 그림이 아니라 '움직임'으로 만든다.
-    //   한 걸음 = 2컷(=WALK_FRAME_MS×2). 걸음마다 작게 통통 튀고(bob), 몸이 살짝 기울었다 돌아온다(lean).
-    //   예전에는 컷마다(110ms) 튀고 기울기는 8도로 고정이라, 몸이 기운 채 미끄러지는 모습이었다.
-    const stepPhase = now / (WALK_FRAME_MS * 2) * Math.PI;      // 한 걸음의 위상
-    const bob = walking ? Math.abs(Math.sin(stepPhase)) * hpx * .038 : 0;
-    const lean = walking ? (facing > 0 ? -1 : 1) * (3.2 + Math.sin(stepPhase * 2) * 1.6) : 0;
+    // 걷기 4컷은 접지·통과·반대접지·반대통과로 다리가 갈린다. 작은 상하 흔들림만 보탠다.
+    const stepPhase = now / (WALK_FRAME_MS * 2) * Math.PI;
+    const bob = walking ? Math.abs(Math.sin(stepPhase)) * hpx * .016 : 0;
+    const lean = walking ? (facing > 0 ? -1 : 1) * Math.sin(stepPhase * 2) * 1.1 : 0;
     if (poseName !== lastPoseName) { host.style.transition = 'none'; requestAnimationFrame(() => { host.style.transition = ''; }); lastPoseName = poseName; }
     host.style.left = `${(cx - (PM.bodyL + PM.bodyR) / 2 * sPx).toFixed(2)}px`;
     host.style.top = `${top.toFixed(2)}px`;
@@ -453,7 +474,7 @@ function init() {
   addEventListener('tva:studio-station', schedule);
   addEventListener('tva:studio-station-intent', event => {
     const dir = Number(event.detail?.direction) || 0;
-    if (!dir || walk) return;
+    if (!dir) return;
     if (!L) measure();
     if (!L) return;
     const from = Number.isInteger(event.detail?.from)
@@ -464,20 +485,28 @@ function init() {
       : clamp(from + dir, 0, STOPS.length - 1);
     if (to === from) return;
     facing = dir;
+    const nowCam = walk && walk.kind === 'paw'
+      ? lerp(walk.camFrom, walk.camTo, clamp((performance.now() - walk.t0) / walk.dur))
+      : clamp(scrollY - L.aboutTop, 0, L.travel);
     if (reduceMotion()) {
       charX = stopX(to);
+      walk = null;
       pinScroll(stationDistance(to));
       document.documentElement.classList.remove('is-about-walking');
       schedule();
       return;
     }
-    const cam = stationDistance(from);
-    if (charX === null) charX = stopX(from);
+    const span = Math.abs(stationDistance(to) - nowCam);
+    const stride = Math.max(108, L.stationW * .12);
+    const steps = Math.max(4, Math.round(span / stride));
     walk = {
-      from, to, dir, phase: 'out', cam,
-      destX: screenX(dir > 0 ? .90 : .10, cam),
+      kind: 'paw', from, to, dir,
+      t0: performance.now(),
+      dur: Math.max(720, steps * 170),
+      camFrom: nowCam, camTo: stationDistance(to),
+      lastPlant: NaN, planted: 0,
     };
-    pinScroll(cam);
+    pinScroll(nowCam);
     schedule();
     keepWalkingLoop();
   });

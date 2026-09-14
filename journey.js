@@ -1,6 +1,6 @@
-import { initSignalPassage } from './signal-passage.js?v=eb-20260914';
-import { createCharacterRig } from './character-rig.js?v=eb-20260914';
-import { ACTOR_ASSET_KIND, getActorPose } from './fall-welcome/actor.js?v=eb-20260914';
+import { initSignalPassage } from './signal-passage.js?v=eb-20260914bp';
+import { createCharacterRig } from './character-rig.js?v=eb-20260913';
+import { ACTOR_ASSET_KIND, getActorPose } from './fall-welcome/actor.js?v=eb-20260913';
 import { measureAperture } from './fall-welcome/home-bridge.mjs';
 const clamp = (value, min = 0, max = 1) => Math.min(max, Math.max(min, value));
 const smoothstep = (start, end, value) => {
@@ -10,18 +10,16 @@ const smoothstep = (start, end, value) => {
 const lerp = (from, to, value) => from + (to - from) * value;
 // 캐릭터 그림(assets/goya/*)의 공통 판 번호. nav-shelf.js·about-walk.js·character-rig.js·
 // ending-scene-r15.js·index.html 이 모두 이 값을 써야 같은 그림을 한 번만 내려받는다.
-const GOYA_V = 'eb-20260914';
+const GOYA_V = 'eb-20260914as';
 const GOYA_POSES = {
-  'tva-mascot-idle': `assets/goya/idle.png?v=${GOYA_V}`,
-  'tva-mascot-sit': `assets/goya/sit.png?v=${GOYA_V}`,
-  'character-run': `assets/goya/walk-a.png?v=${GOYA_V}`,
-  'character-inspect': `assets/goya/idle.png?v=${GOYA_V}`,
+  'tva-mascot-idle': `assets/goya/goya-photo-idle.png?v=${GOYA_V}`,
+  'tva-mascot-sit': `assets/goya/goya-photo-idle.png?v=${GOYA_V}`,
+  'character-run': `assets/goya/goya-photo-walk-a.png?v=${GOYA_V}`,
+  'character-inspect': `assets/goya/goya-photo-idle.png?v=${GOYA_V}`,
 };
-const goyaFile = name => GOYA_POSES[name] || `assets/goya/idle.png?v=${GOYA_V}`;
-// 2026-09-12: 걷기 그림을 walk1(긴소매) → walk-a(반소매)로. 서 있는 포즈(idle·sit 외 11장)가 모두
-// 반소매라, 다리 구간에서 걷다 멈출 때마다 소매 길이가 바뀌어 캐릭터가 두 종류로 보였다.
-const GOYA_WALK = `assets/goya/walk-a.png?v=${GOYA_V}`;
-const GOYA_FOOT = .92;
+const goyaFile = name => GOYA_POSES[name] || `assets/goya/goya-photo-idle.png?v=${GOYA_V}`;
+const GOYA_WALK = `assets/goya/goya-photo-walk-a.png?v=${GOYA_V}`;
+const GOYA_FOOT = .963;
 
 export function initJourney(onScene, portfolio) {
   const hero = document.querySelector('#home');
@@ -234,7 +232,7 @@ export function initJourney(onScene, portfolio) {
       if (!from || !to || !from.width || !to.width) continue;
       if (dropHandoff && from.poseId) host.dataset.incomingPoseId = from.poseId;
       const dropTurn = 0;
-      if (!bridgeImage.src.includes('goya/walk-a.png')) bridgeImage.src = GOYA_WALK;
+      if (!bridgeImage.src.includes('goya-photo-walk-a.png')) bridgeImage.src = GOYA_WALK;
       const ease = progress * progress * (3 - 2 * progress);
       const contactAt = .84;
       const landing = dropHandoff ? smoothstep(.68, contactAt, progress) : 0;
@@ -471,7 +469,7 @@ export function initJourney(onScene, portfolio) {
       dropActor.style.removeProperty('--guide-tilt-y');
       dropActor.style.removeProperty('--guide-contact');
       dropActor.style.removeProperty('--drop-guide-opacity');
-      if (!dropImage.src.includes('goya/idle.png')) dropImage.src = 'assets/goya/idle.png?v=eb-20260914';
+      if (!dropImage.src.includes('goya-photo-idle.png')) dropImage.src = `assets/goya/goya-photo-idle.png?v=${GOYA_V}`;
     }
     const arrivalDepth = clamp((y - about.offsetTop) / viewport);
     const handoffProgress = reduced ? 0 : smoothstep(about.offsetTop - viewport, about.offsetTop + viewport * .2, y);
