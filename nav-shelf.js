@@ -12,9 +12,7 @@ export function initNavShelf(nav) {
   if (!links.length) return;
   const sections = links.map(a => document.querySelector(a.getAttribute('href'))).filter(Boolean);
   if (sections.length !== links.length) return;
-  // 메뉴에 대응 링크가 없는 구역(지금은 ENDING 하나). 여기 있는 동안은 어떤 메뉴도 '현재'로 표시하지 않는다.
-  // ('only-tva' 구역은 index.html 에서 사라졌다 — 없는 id 를 계속 찾고 있었다)
-  const linkless = ['ending'].map(id => document.getElementById(id)).filter(Boolean);
+  const linkless = [];
   const iLeftRest = Math.max(0, links.findIndex(a => (a.getAttribute('href') || '') === '#original'));
   const iRightRest = links.findIndex(a => (a.getAttribute('href') || '') === '#contact') >= 0
     ? links.findIndex(a => (a.getAttribute('href') || '') === '#contact') : links.length - 1;

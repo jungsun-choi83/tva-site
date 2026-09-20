@@ -21,13 +21,43 @@ const goyaFile = name => GOYA_POSES[name] || `assets/goya/goya-photo-idle.png?v=
 const GOYA_WALK = `assets/goya/goya-photo-walk-a.png?v=${GOYA_V}`;
 const GOYA_FOOT = .963;
 
+const noopDropWorld = {
+  draw() {},
+  drawArrival() {},
+  resize() {},
+  setPortalActive() {},
+  getCharacterRect() { return null; },
+  setCharacterHidden() {},
+  setHandoffProgress() {},
+};
+
 export function initJourney(onScene, portfolio) {
   const hero = document.querySelector('#home');
   const heroStage = hero.querySelector('.hero-original__stage');
-  const drop = document.querySelector('#drop');
-  const dropStage = drop.querySelector('.drop-stage');
-  const dropActor = drop.querySelector('.drop-actor');
-  const dropImage = dropActor.querySelector('img');
+  const dropEl = document.querySelector('#drop');
+  const skipPassage = !dropEl;
+  let drop = dropEl;
+  let dropStage;
+  let dropActor;
+  let dropImage;
+  let dropWorld;
+  if (skipPassage) {
+    dropStage = { style: { setProperty() {}, classList: { toggle() {} } }, classList: { toggle() {} }, addEventListener() {} };
+    dropActor = { dataset: {}, style: { setProperty() {}, removeProperty() {} }, offsetWidth: 1 };
+    dropImage = { src: '', includes: () => true };
+    drop = {
+      offsetTop: 0,
+      offsetHeight: 0,
+      dataset: { stage: '' },
+      getBoundingClientRect: () => ({ top: 0, bottom: 0, left: 0, right: 0, width: 0, height: 0 }),
+      classList: { toggle() {}, add() {}, remove() {} },
+    };
+    dropWorld = noopDropWorld;
+  } else {
+    dropStage = drop.querySelector('.drop-stage');
+    dropActor = drop.querySelector('.drop-actor');
+    dropImage = dropActor.querySelector('img');
+  }
   const heroGuide = hero.querySelector('.hero-original__mascot');
   const heroGuideImage = heroGuide?.querySelector('img');
   const heroScreen = hero.querySelector('.hero-original__broadcast');
@@ -48,11 +78,9 @@ export function initJourney(onScene, portfolio) {
   const stations = [...track.children];
   const host = about.querySelector('.studio-host');
   const hostImage = host.querySelector('img');
-  const endingGuide = document.querySelector('.ending-mascot');
-  const ending = document.querySelector('#ending');
   const stopLabel = about.querySelector('.studio-stop-label');
   const stepButtons = [...about.querySelectorAll('[data-station-step]')];
-  const later = ['portfolio', 'original', 'contact', 'ending'].map(id => document.getElementById(id));
+  const later = ['portfolio', 'original', 'contact'].map(id => document.getElementById(id));
   let reduced = false;
   let frame = 0;
   let travel = 0;
@@ -69,19 +97,20 @@ export function initJourney(onScene, portfolio) {
   let resizeRestoreFrame = 0;
   let resizeRestoreToken = 0;
   let resizeRestoreOverflowAnchor = null;
+  let railAboutDistance = 0;
+  const railMode = () => document.documentElement.dataset.layout === 'beam-rail';
   const pointer = { x: 0, y: 0, held: false };
-  const dropWorld = initSignalPassage(dropStage, camera);
+  if (!skipPassage) dropWorld = initSignalPassage(dropStage, camera);
+  else if (!dropWorld) dropWorld = noopDropWorld;
   const heroRig = { setCategory() {}, setPose() {} };
-  const endingRig = createCharacterRig(endingGuide);
   if (heroGuide) {
     heroGuide.dataset.characterRole = 'programme-host';
   }
-  dropActor.dataset.characterRole = 'signal-traveller';
-  endingGuide.dataset.characterRole = 'farewell-host';
+  if (!skipPassage) {
+    dropActor.dataset.characterRole = 'signal-traveller';
+    dropActor.dataset.guideRig = 'true';
+  }
   heroRig.setCategory(0);
-  endingRig.setCategory(3);
-  endingRig.setPose('present', { category: 3 });
-  dropActor.dataset.guideRig = 'true';
   // about-walk(손그림 정거장)이 켜져 있으면 3D 소품 세계는 만들지 않는다. 화면에도 안 나오는데 gltf 파싱이 0.4초씩 메인 스레드를 잡아 캐릭터 걷기가 끊겼다.
   const aboutWalk = Boolean(document.querySelector('script[src^="about-walk.js"]'));
   // 3D 소품 세계는 about-walk 이 꺼져 있을 때만 쓴다. 정적 import 로 두면 안 쓰는데도 three.js 1.2MB 를 첫 화면에서 받는다.
@@ -99,8 +128,10 @@ export function initJourney(onScene, portfolio) {
   document.body.append(bridge);
   const bridgeImage = bridge.querySelector('img');
   const bridgeLand = bridge.querySelector('.journey-bridge__land');
-  const bridgeSections = [hero, drop, about, ...later];
-  const nativeCharacters = [heroGuide, dropActor, host, null, document.querySelector('.original-host'), document.querySelector('#ctl-s1char'), endingGuide];
+  const bridgeSections = skipPassage ? [hero, about, ...later] : [hero, drop, about, ...later];
+  const nativeCharacters = skipPassage
+    ? [heroGuide, host, null, document.querySelector('.original-host'), document.querySelector('#ctl-s1char')]
+    : [heroGuide, dropActor, host, null, document.querySelector('.original-host'), document.querySelector('#ctl-s1char')];
   const CONTACT_LANDING = { left: .08, top: .04, right: .92, bottom: .96 };
   function contactLanding() {
     const wall = document.querySelector('#ctl-s1char') || document.querySelector('#ctl-s1 img');
@@ -109,17 +140,6 @@ export function initJourney(onScene, portfolio) {
     if (!r.width) return null;
     const left = r.left + r.width * CONTACT_LANDING.left, top = r.top + r.height * CONTACT_LANDING.top;
     const right = r.left + r.width * CONTACT_LANDING.right, bottom = r.top + r.height * CONTACT_LANDING.bottom;
-    return { left, top, right, bottom, width: right - left, height: bottom - top };
-  }
-  // ENDING(6): 소파 위 마스코트는 거실 그림에 그려져 있어 숨길 수 없다
-  const ENDING_LANDING = { left: .21, top: .25, right: .40, bottom: .76 };
-  function endingLanding() {
-    const art = document.querySelector('.ending-room img');
-    if (!art) return null;
-    const r = art.getBoundingClientRect();
-    if (!r.width) return null;
-    const left = r.left + r.width * ENDING_LANDING.left, top = r.top + r.height * ENDING_LANDING.top;
-    const right = r.left + r.width * ENDING_LANDING.right, bottom = r.top + r.height * ENDING_LANDING.bottom;
     return { left, top, right, bottom, width: right - left, height: bottom - top };
   }
   function nativeAt(slot) {
@@ -206,29 +226,32 @@ export function initJourney(onScene, portfolio) {
     // 건너오기가 그보다 아래에서 끝나면, 다 도착했는데도 계속 '건너는 중'으로 계산돼
     // 넘어오던 캐릭터가 98% 자세로 화면에 멈춰 선 채 남는다.
     const barHeight = Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 64;
-    for (let index = 2; index < bridgeSections.length; index++) {
+    const bridgeStart = skipPassage ? 1 : 2;
+    for (let index = bridgeStart; index < bridgeSections.length; index++) {
       const boundary = bridgeSections[index].offsetTop;
-      const dropHandoff = index === 2;
-      const portfolioDrop = index === 3 && lastScrollDirection > 0;
+      const targetId = bridgeSections[index].id;
+      const prevId = bridgeSections[index - 1]?.id;
+      const dropHandoff = !skipPassage && targetId === 'about';
+      const portfolioDrop = targetId === 'portfolio' && lastScrollDirection > 0;
       if (dropHandoff && host.dataset.characterJourney === 'running') continue;
-      const handoffViewport = index === 4 ? viewport * .4 : viewport;
+      const handoffViewport = targetId === 'original' ? viewport * .4 : viewport;
       const handoffStart = boundary - handoffViewport;
       const handoffEnd = boundary + (dropHandoff ? viewport * .2 : -(barHeight + 8));
       const progress = (y - handoffStart) / (handoffEnd - handoffStart);
       if (progress <= 0 || progress >= 1) continue;
-      if (index === 3) portfolioHandoff = { active: true, progress: clamp(progress), direction: lastScrollDirection };
-      if (index === 2) {
+      if (targetId === 'portfolio') portfolioHandoff = { active: true, progress: clamp(progress), direction: lastScrollDirection };
+      if (dropHandoff) {
         pose('tva-mascot-idle');
         host.style.transform = 'none';
         bridge.classList.add('is-fall-bridge');
       }
-      const fromCharacter = index - 1 === 3 ? null : nativeAt(index - 1);
-      const toCharacter = index === 3 ? null : nativeAt(index);
-      let from = dropHandoff ? dropWorld.getCharacterRect() : index - 1 === 3 ? portfolio?.getCharacterRect() : index - 1 === 5 ? contactLanding() : fromCharacter && bridgeBounds(fromCharacter);
+      const fromCharacter = prevId === 'portfolio' ? null : nativeAt(index - 1);
+      const toCharacter = targetId === 'portfolio' ? null : nativeAt(index);
+      let from = dropHandoff ? dropWorld.getCharacterRect() : prevId === 'portfolio' ? portfolio?.getCharacterRect() : prevId === 'contact' ? contactLanding() : fromCharacter && bridgeBounds(fromCharacter);
       // ORIGINAL의 캐릭터는 구역이 멈춘 뒤 위에서 내려앉으므로, 건너오는 비행은 그 '떨어지기 전 자리'(-52%)에서 끝나야 한다.
       // 그러지 않으면 달려와서 사라지고 다른 자세가 위에서 떨어지는 '두 번 도착'이 된다. (3개 페이지 방 작업, 2026-09-10 합침)
-      const landOn = index === 4 && toCharacter ? (toCharacter.querySelector(':scope > img') || toCharacter) : toCharacter;
-      const to = index === 3 ? portfolio?.getCharacterRect() : index === 5 ? contactLanding() : index === 6 ? endingLanding() : landOn && bridgeBounds(landOn);
+      const landOn = targetId === 'original' && toCharacter ? (toCharacter.querySelector(':scope > img') || toCharacter) : toCharacter;
+      const to = targetId === 'portfolio' ? portfolio?.getCharacterRect() : targetId === 'contact' ? contactLanding() : landOn && bridgeBounds(landOn);
       if (!from || !to || !from.width || !to.width) continue;
       if (dropHandoff && from.poseId) host.dataset.incomingPoseId = from.poseId;
       const dropTurn = 0;
@@ -265,7 +288,7 @@ export function initJourney(onScene, portfolio) {
       const rotation = dropHandoff ? dropTurn * (1 - landing) : portfolioDrop ? -8 * (1 - portfolioSettle) : Math.sin(progress * Math.PI) * -10;
       bridgeImage.style.visibility = '';
       // ORIGINAL(4번): 달려와서 서는 그림으로 '뚝' 바뀌지 않도록 마지막 28% 에서 달리는 그림이 옆으로 좁아졌다가 서는 그림이 넓어지며 나온다 (ORIGINAL 방 2026-09-10, _받는칸 합침)
-      const settle = index === 4 && landOn && !reduced ? smoothstep(.72, 1, progress) : 0;
+      const settle = targetId === 'original' && landOn && !reduced ? smoothstep(.72, 1, progress) : 0;
       if (settle > 0) {
         const landSrc = landOn.currentSrc || landOn.src;
         if (landSrc && bridgeLand.src !== landSrc) bridgeLand.src = landSrc;
@@ -287,12 +310,10 @@ export function initJourney(onScene, portfolio) {
       bridge.style.transformOrigin = `50% ${(dropHandoff || portfolioDrop ? GOYA_FOOT : .75) * 100}%`;
       bridge.style.transform = `translate3d(${x}px,${top}px,0) rotate(${rotation}deg) scaleY(${compression})`;
       bridge.style.visibility = 'visible';
-      // CONTACT 고야는 DOM 스프라이트 — 다리 캐릭터가 그 자리에서 스며든다
-      // ENDING 의 소파 마스코트는 그림에 그려져 있어 숨길 수 없다 → 마지막 28% 에서 스며들며 사라진다(거꾸로 올라갈 땐 거기서 나타남)
-      if (index === 6) bridge.style.opacity = String(1 - smoothstep(.72, .97, progress));
       if (dropHandoff) dropWorld.setCharacterHidden(true);
       [index - 1, index].forEach(slot => {
-        if (slot === 3 && galleryCharacter) galleryCharacter.style.visibility = 'hidden';
+        const sectionId = bridgeSections[slot]?.id;
+        if (sectionId === 'portfolio' && galleryCharacter) galleryCharacter.style.visibility = 'hidden';
         else if (nativeAt(slot)) nativeAt(slot).style.visibility = 'hidden';
       });
       break;
@@ -312,10 +333,17 @@ export function initJourney(onScene, portfolio) {
 
   function passageBounds(viewport = window.innerHeight) {
     const heroTravel = Math.max(1, hero.offsetHeight - viewport);
+    if (skipPassage) {
+      return {
+        intentStart: hero.offsetTop + heroTravel * .3,
+        flightStart: hero.offsetTop + heroTravel,
+        end: Math.max(hero.offsetTop + heroTravel, about.offsetTop - viewport * .15),
+      };
+    }
     return {
       intentStart: hero.offsetTop + heroTravel * .3,
       flightStart: hero.offsetTop + heroTravel,
-      end: drop.offsetTop + drop.offsetHeight - viewport
+      end: drop.offsetTop + drop.offsetHeight - viewport,
     };
   }
 
@@ -327,7 +355,8 @@ export function initJourney(onScene, portfolio) {
     const delta = y - previousScroll;
     previousScroll = y;
     const powerReady = reduced || hero.dataset.powerState === 'locked';
-    const homeProgress = powerReady ? clamp((y - hero.offsetTop) / Math.max(1, hero.offsetHeight - viewport)) : 0;
+    const meliusUi = document.documentElement.dataset.heroUi === 'melius';
+    const homeProgress = powerReady && !meliusUi ? clamp((y - hero.offsetTop) / Math.max(1, hero.offsetHeight - viewport)) : 0;
     const tvWidth = Math.max(1, heroTelevision.offsetWidth);
     const tvHeight = Math.max(1, heroTelevision.offsetHeight);
     const screenWidth = Math.max(1, heroScreen.offsetWidth);
@@ -337,9 +366,9 @@ export function initJourney(onScene, portfolio) {
     const cover = imageHero
       ? Math.max(innerWidth / (screenWidth * .89), viewport / (screenHeight * .77)) * 1.18
       : Math.max(innerWidth / (tvWidth * .548), viewport / (tvHeight * .687)) * 1.12;
-    const dolly = smoothstep(0, 1, homeProgress);
-    const entryScale = 1 / (1 - (1 - 1 / cover) * dolly);
-    const entryProgress = reduced || homeProgress >= 1
+    const dolly = meliusUi ? 0 : smoothstep(0, 1, homeProgress);
+    const entryScale = meliusUi ? 1 : 1 / (1 - (1 - 1 / cover) * dolly);
+    const entryProgress = meliusUi || reduced || homeProgress >= 1
       ? 1
       : homeProgress <= 0
         ? 0
@@ -350,8 +379,8 @@ export function initJourney(onScene, portfolio) {
         );
     const bridgeProgress = entryProgress;
     const portalOpacity = reduced ? 0 : smoothstep(.62, .94, homeProgress);
-    const heroCopyOpacity = reduced ? 1 : 1 - smoothstep(.025, .24, homeProgress);
-    const heroFieldOpacity = reduced ? 1 : 1 - smoothstep(.04, .4, entryProgress);
+    const heroCopyOpacity = meliusUi || reduced ? 1 : 1 - smoothstep(.025, .24, homeProgress);
+    const heroFieldOpacity = meliusUi ? 0 : reduced ? 1 : 1 - smoothstep(.04, .4, entryProgress);
     if (reduced) heroStage.style.setProperty('--entry-optics-strength', '0');
     else if (y <= hero.offsetTop + 1) heroStage.style.setProperty('--entry-optics-strength', '1');
     hero.style.setProperty('--hero-copy-opacity', heroCopyOpacity.toFixed(3));
@@ -398,12 +427,14 @@ export function initJourney(onScene, portfolio) {
     if (hero.getBoundingClientRect().bottom > 0 && hero.getBoundingClientRect().top < viewport) {
       heroRig.setPose(heroPhase === 'host' ? 'read' : heroPhase === 'anticipate' ? 'browse' : 'present', { category: 0 });
     }
-    if (ending.getBoundingClientRect().bottom > 0 && ending.getBoundingClientRect().top < viewport) {
-      const endingPhase = ending.classList.contains('is-seen') ? 'farewell' : 'wait';
-      endingGuide.dataset.characterPhase = endingPhase;
-      endingRig.setPose(endingPhase === 'farewell' ? 'present' : 'read', { category: 3 });
-    }
     hero.classList.remove('is-entering');
+    if (skipPassage) {
+      const arrivalDepth = clamp((y - about.offsetTop) / viewport);
+      const handoffProgress = reduced ? 0 : smoothstep(about.offsetTop - viewport, about.offsetTop + viewport * .2, y);
+      dropWorld.setHandoffProgress(handoffProgress);
+      about.classList.toggle('is-signal-arrived', reduced || y >= about.offsetTop);
+      dropWorld.drawArrival(arrivalDepth, reduced);
+    } else {
     const dropProgress = clamp((y - drop.offsetTop) / Math.max(1, drop.offsetHeight - viewport));
     const heroTravel = Math.max(1, hero.offsetHeight - viewport);
     const bounds = passageBounds(viewport);
@@ -515,13 +546,16 @@ export function initJourney(onScene, portfolio) {
         heroStage.style.setProperty('--entry-optics-strength', String(reduced ? 0 : 1 - projectionResolve));
       } catch { /* The photographed screen is axis-aligned in supported layouts. */ }
       dropWorld.draw(fallProgress, pointer, reduced, aperture, bridgeProgress);
-      document.querySelector('.signal-passage').style.opacity = String(reduced ? 1 : portalOpacity);
+      document.querySelector('.signal-passage')?.style?.setProperty?.('opacity', String(reduced ? 1 : portalOpacity));
     }
-    const distance = reduced ? 0 : clamp(y - about.offsetTop, 0, travel);
+    }
+    const distance = railMode() && document.documentElement.dataset.railPanel === 'about'
+      ? clamp(railAboutDistance, 0, travel)
+      : reduced ? 0 : clamp(y - about.offsetTop, 0, travel);
     const progress = travel ? distance / travel : 0;
     if (!about.classList.contains('is-linear') && about.getBoundingClientRect().bottom > 0 && about.getBoundingClientRect().top < viewport) studioWorld.draw(progress, pointer, 0, reduced);
     about.style.setProperty('--about', progress.toFixed(4));
-    if (!reduced) track.style.transform = `translate3d(${-distance}px,0,0)`;
+    if (!reduced && !about.classList.contains('about-bleib')) track.style.transform = `translate3d(${-distance}px,0,0)`;
     const probe = distance + camera.clientWidth * .4;
     const nextStop = reduced ? stations.findLastIndex(station => station.getBoundingClientRect().top <= viewport * .5) : stations.findLastIndex(station => station.offsetLeft <= probe);
     current = !reduced && travel && distance >= travel - 2 ? stations.length - 1 : Math.max(0, nextStop);
@@ -542,8 +576,10 @@ export function initJourney(onScene, portfolio) {
         restingTimer = setTimeout(() => pose(current === 0 || current === 5 ? 'tva-mascot-idle' : 'character-inspect'), 140);
       }
     }
-    let scene = y >= about.offsetTop - 2 ? 'about' : y >= drop.offsetTop - viewport * .25 ? 'drop' : 'home';
-    for (const section of later) if (section.getBoundingClientRect().top <= viewport * .5) scene = section.id;
+    let scene = railMode()
+      ? (document.documentElement.dataset.railPanel || 'home')
+      : y >= about.offsetTop - 2 ? 'about' : (!skipPassage && y >= drop.offsetTop - viewport * .25 ? 'drop' : 'home');
+    if (!railMode()) for (const section of later) if (section.getBoundingClientRect().top <= viewport * .5) scene = section.id;
     onScene(scene);
     connectCharacters(y, viewport, delta);
     if (!reduced && performance.now() < activeUntil) schedule();
@@ -556,7 +592,6 @@ export function initJourney(onScene, portfolio) {
     frame = 0;
     clearTimeout(restingTimer);
     pointer.held = false;
-    [heroRig, endingRig].forEach(rig => rig.stop());
     resetBridge();
   }
 
@@ -571,11 +606,12 @@ export function initJourney(onScene, portfolio) {
     });
     departureAnchor = null;
     dropWorld.resize();
-    const linear = reduced || window.innerHeight < 560;
+    const stackAbout = about.classList.contains('about-bleib');
+    const linear = reduced || stackAbout || window.innerHeight < 560;
     about.classList.toggle('is-linear', linear);
     travel = linear ? 0 : Math.max(0, track.scrollWidth - camera.clientWidth);
     studioWorld.layout(stations.map(station => station.offsetLeft), travel, camera.clientWidth);
-    about.style.height = linear ? 'auto' : `${travel + camera.clientHeight}px`;
+    about.style.height = railMode() ? '100svh' : linear ? 'auto' : `${travel + camera.clientHeight}px`;
     resizeRestoreOverflowAnchor = document.documentElement.style.overflowAnchor;
     document.documentElement.style.overflowAnchor = 'none';
     const token = ++resizeRestoreToken;
@@ -598,6 +634,21 @@ export function initJourney(onScene, portfolio) {
 
   function gotoStation(index, instant = false) {
     const target = clamp(index, 0, stations.length - 1);
+    if (railMode()) {
+      railAboutDistance = Math.min(travel, stations[target].offsetLeft);
+      current = target;
+      reportedStation = target;
+      track.style.transition = instant || reduced ? 'none' : 'transform .85s cubic-bezier(.76,0,.24,1)';
+      track.style.transform = `translate3d(${-railAboutDistance}px,0,0)`;
+      about.style.setProperty('--about', travel ? (railAboutDistance / travel).toFixed(4) : '0');
+      stopLabel.textContent = stations[target].dataset.station;
+      stations.forEach((station, i) => { station.inert = i !== target; });
+      stepButtons[0].disabled = target === 0;
+      stepButtons[1].disabled = target === stations.length - 1;
+      window.dispatchEvent(new CustomEvent('tva:studio-station', { detail: { index: target, station: stations[target].dataset.station, direction: 0 } }));
+      schedule();
+      return;
+    }
     const top = about.classList.contains('is-linear')
       ? window.scrollY + stations[target].getBoundingClientRect().top - 80
       : about.offsetTop + Math.min(travel, stations[target].offsetLeft);
@@ -728,8 +779,7 @@ export function initJourney(onScene, portfolio) {
     reportedStation = 0;
     previousScroll = 0;
     if (heroGuide) heroGuide.dataset.characterPhase = 'host';
-    dropActor.dataset.characterPhase = 'fall';
-    endingGuide.dataset.characterPhase = 'wait';
+    if (!skipPassage) dropActor.dataset.characterPhase = 'fall';
     delete host.dataset.incomingPoseId;
     heroRig.setPose('read', { category: 0 });
   });

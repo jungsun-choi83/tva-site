@@ -55,11 +55,6 @@ export function initEnding({ onComplete, canComplete, onNav }) {
     Object.assign(art.style, { width: `${w}px`, height: `${h}px`, left: `${x}px`, top: `${y}px` });
     const tableFg = room.querySelector('.ending-table-fg');
     if (tableFg) Object.assign(tableFg.style, { width: `${w}px`, height: `${h}px`, left: `${x}px`, top: `${y}px` });
-    const pair = room.querySelector('.ending-pair');
-    const pairH = h * .48;
-    const hip = .49;
-    const seatY = y + h * .655;
-    if (pair) Object.assign(pair.style, { height: `${pairH}px`, width: 'auto', left: `${x + w * .288}px`, top: `${seatY - pairH * hip}px` });
     if (holo) Object.assign(holo.style, { left: `${x + w * .872}px`, top: `${y + h * .468}px`, width: `${w * .074}px`, height: `${h * .088}px` });
     const corners = [[1108,332],[1216,334],[1224,410],[1100,408]];
     glassQuad = corners.map(([sx,sy]) => [x + sx * fit, y + sy * fit]);

@@ -1,0 +1,117 @@
+/* Horizontal main — Jesper-style inertial slide between full-viewport panels */
+html[data-layout="beam-rail"]{
+  overflow:hidden;
+  height:100%;
+  scroll-behavior:auto;
+}
+html[data-layout="beam-rail"] body{
+  overflow:hidden;
+  height:100svh;
+  overscroll-behavior:none;
+  background:#000;
+}
+html[data-layout="beam-rail"] main{
+  display:flex;
+  flex-direction:row;
+  flex-wrap:nowrap;
+  align-items:stretch;
+  height:100svh;
+  min-height:100svh;
+  will-change:transform;
+}
+html[data-layout="beam-rail"] main > #drop{
+  display:none!important;
+}
+html[data-layout="beam-rail"] main > section{
+  flex:0 0 100vw;
+  width:100vw;
+  max-width:100vw;
+  height:100svh;
+  min-height:100svh!important;
+  overflow:hidden;
+  scroll-margin:0;
+  transition:opacity .55s ease,filter .55s ease;
+}
+html[data-layout="beam-rail"].is-rail-transition main > section{
+  filter:saturate(.96);
+}
+html[data-layout="beam-rail"][data-rail-panel="home"] main > #home,
+html[data-layout="beam-rail"][data-rail-panel="about"] main > #about,
+html[data-layout="beam-rail"][data-rail-panel="portfolio"] main > #portfolio,
+html[data-layout="beam-rail"][data-rail-panel="original"] main > #original,
+html[data-layout="beam-rail"][data-rail-panel="contact"] main > #contact{
+  opacity:1;
+  filter:none;
+}
+html[data-layout="beam-rail"] .hero{
+  height:100svh!important;
+  min-height:100svh!important;
+  background:#000;
+}
+html[data-layout="beam-rail"] .hero-original__stage{
+  height:100svh;
+  min-height:100svh;
+  background:#000;
+}
+html[data-layout="beam-rail"] #about,
+html[data-layout="beam-rail"] .about-runway{
+  height:100svh!important;
+  min-height:100svh!important;
+}
+html[data-layout="beam-rail"] .story-keep{
+  height:100svh!important;
+  min-height:calc(100svh - 0px)!important;
+}
+html[data-layout="beam-rail"] .portfolio-section,
+html[data-layout="beam-rail"] .contact-section{
+  min-height:100svh;
+  height:100svh;
+  overflow:hidden;
+}
+.eb-rail-progress{
+  position:fixed;
+  z-index:26;
+  left:clamp(20px,4vw,56px);
+  right:clamp(20px,4vw,56px);
+  bottom:max(16px, env(safe-area-inset-bottom, 0px));
+  display:flex;
+  flex-direction:column;
+  gap:8px;
+  pointer-events:none;
+  opacity:0;
+  transition:opacity .45s ease;
+}
+html[data-layout="beam-rail"][data-rail-ready="true"] .eb-rail-progress{
+  opacity:1;
+}
+html[data-layout="beam-rail"][data-rail-panel="home"] .eb-rail-progress{
+  opacity:0;
+}
+.eb-rail-progress__bar{
+  display:block;
+  height:1px;
+  background:#1112;
+  overflow:hidden;
+}
+.eb-rail-progress__bar:after{
+  content:"";
+  display:block;
+  height:100%;
+  width:100%;
+  background:#111;
+  transform:scaleX(var(--eb-rail-progress,0));
+  transform-origin:left center;
+  transition:transform .75s cubic-bezier(.16,1,.3,1);
+}
+.eb-rail-progress__label{
+  font:500 10px/1 var(--mono);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  color:#fff;
+  opacity:.55;
+  mix-blend-mode:difference;
+}
+@media(prefers-reduced-motion:reduce){
+  html[data-layout="beam-rail"] main > section{transition:none}
+  .eb-rail-progress__bar:after{transition:none}
+}

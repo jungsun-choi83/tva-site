@@ -1,0 +1,241 @@
+/* Melius hero — one infinite rail; small/flat at center hub, large at edges */
+.eb-melius-home{
+  display:none;
+  position:absolute;
+  inset:0;
+  z-index:26;
+  overflow:hidden;
+  background:#e8e6e1;
+  color:#111;
+  flex-direction:column;
+  align-items:stretch;
+  padding:clamp(72px,11vh,104px) 0 clamp(28px,5vh,48px);
+  box-sizing:border-box;
+}
+html[data-power-state="locked"] .eb-melius-home{
+  display:flex;
+}
+
+html[data-power-state="locked"] .hero-original__atmosphere,
+html[data-power-state="locked"] .hero-original__power-room,
+html[data-power-state="locked"] .hero-vintage__field,
+html[data-power-state="locked"] .hero-original__tv,
+html[data-power-state="locked"] .hero-vintage__copy,
+html[data-power-state="locked"] .hero-original__scroll,
+html[data-power-state="locked"] .hero-original__mascot,
+html[data-power-state="locked"] .hero-mark{
+  display:none!important;
+}
+html[data-power-state="mark-out"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__tv,
+html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__tv{
+  display:none!important;
+}
+
+html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"],
+html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__stage{
+  height:100svh;
+  min-height:100svh;
+  background:#e8e6e1;
+}
+html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__stage{
+  position:relative;
+  overflow:hidden;
+}
+html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__stage:after{
+  opacity:0;
+}
+
+.eb-melius-top{
+  position:absolute;
+  z-index:20;
+  inset:clamp(14px,2.5vh,22px) clamp(16px,3vw,28px) auto;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  width:calc(100% - clamp(32px,6vw,56px));
+  pointer-events:none;
+}
+.eb-melius-top__brand{
+  margin:0;
+  font:600 .8125rem/1 var(--sans);
+  letter-spacing:.12em;
+  text-transform:uppercase;
+}
+.lang-switch--melius{pointer-events:auto;font-size:12px}
+
+.eb-melius-headline{
+  flex:none;
+  width:min(94vw,54rem);
+  margin:0 auto clamp(20px,4vh,36px);
+  padding:0 clamp(16px,3vw,24px);
+  text-align:center;
+  font:400 clamp(2.15rem,5.4vw,3.75rem)/1.05 var(--serif);
+  letter-spacing:-.032em;
+  text-wrap:balance;
+}
+.eb-melius-headline__line{
+  display:block;
+  margin:0;
+}
+.eb-melius-headline__line + .eb-melius-headline__line{
+  margin-top:clamp(4px,.7vh,8px);
+}
+.eb-melius-gold-char{
+  display:inline-block;
+  color:#111;
+  paint-order:stroke fill;
+  -webkit-text-stroke:.4px rgba(210,175,108,.9);
+  text-shadow:
+    0 0 1px rgba(255,228,170,.65),
+    0 0 10px rgba(232,201,122,.42),
+    0 0 22px rgba(200,161,94,.28),
+    0 0 36px rgba(200,161,94,.14);
+}
+.eb-melius-gold-char.is-space{
+  width:.34em;
+}
+
+.eb-melius-stage{
+  position:relative;
+  flex:1 1 auto;
+  width:100%;
+  min-height:clamp(260px,46svh,520px);
+  max-height:54svh;
+  margin:0;
+  overflow:hidden;
+}
+.eb-melius-track{
+  position:absolute;
+  inset:0;
+  perspective:2400px;
+  perspective-origin:50% 50%;
+}
+.eb-melius-rail{
+  position:absolute;
+  left:50%;
+  top:50%;
+  display:flex;
+  align-items:center;
+  gap:clamp(5px,.55vw,8px);
+  transform:translate3d(-50%,-50%,0);
+  transform-style:preserve-3d;
+  will-change:transform;
+}
+.eb-melius-hub{
+  position:absolute;
+  z-index:48;
+  left:50%;
+  top:50%;
+  width:clamp(118px,14.5vw,210px);
+  margin:0;
+  transform:translate(-50%,-50%);
+  pointer-events:none;
+  filter:drop-shadow(0 20px 28px rgba(0,0,0,.16));
+}
+.eb-melius-hub__device{
+  display:block;
+  width:100%;
+  height:auto;
+  object-fit:contain;
+}
+.eb-melius-hub__logo{
+  position:absolute;
+  left:50%;
+  bottom:9.5%;
+  width:62%;
+  height:auto;
+  transform:translateX(-50%);
+  object-fit:contain;
+  filter:drop-shadow(0 0 6px rgba(200,161,94,.45));
+  pointer-events:none;
+}
+.eb-melius-card{
+  flex:none;
+  width:clamp(78px,7.2vw,108px);
+  height:clamp(104px,9.6vw,144px);
+  border-radius:12px;
+  overflow:hidden;
+  background:#d5d0c8;
+  box-shadow:0 18px 44px rgba(0,0,0,.12);
+  transform-origin:center center;
+  transform-style:preserve-3d;
+  backface-visibility:hidden;
+  will-change:transform,opacity;
+}
+.eb-melius-card img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 20%;
+  pointer-events:none;
+  user-select:none;
+}
+
+.eb-melius-foot{
+  flex:none;
+  width:min(92vw,34rem);
+  margin:clamp(12px,2vh,20px) auto 0;
+  padding:0 clamp(16px,3vw,24px);
+  text-align:center;
+}
+.eb-melius-foot__sub{
+  margin:0;
+  color:#6a6560;
+  font:400 clamp(10px,.85vw,11px)/1.5 var(--mono);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+}
+.eb-melius-foot__lead{
+  margin:clamp(10px,1.6vh,14px) 0 0;
+  color:#4a4743;
+  font:400 clamp(14px,1.15vw,16px)/1.65 var(--sans);
+  letter-spacing:-.015em;
+  white-space:pre-line;
+}
+.eb-melius-foot__cta{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px;
+  margin-top:clamp(18px,2.8vh,24px);
+}
+.eb-melius-btn{
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:.72em 1.35em;
+  border-radius:999px;
+  font:600 14px/1 var(--sans);
+  text-decoration:none;
+}
+.eb-melius-btn--primary{background:#111;color:#fff;border:1px solid #111}
+.eb-melius-btn--ghost{background:#f3f1ec;color:#111;border:1px solid #c5c0b8}
+.eb-melius-foot__scroll{
+  display:inline-block;
+  margin-top:clamp(14px,2.2vh,20px);
+  color:#6f6b65;
+  font:600 11px/1 var(--sans);
+  letter-spacing:.14em;
+  text-decoration:none;
+  text-transform:uppercase;
+}
+
+html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
+  height:100svh;
+  min-height:100svh;
+}
+
+.eb-melius-home.is-reduced .eb-melius-rail{
+  transform:translate3d(-50%,-50%,0)!important;
+}
+@media(max-width:720px){
+  .eb-melius-headline{font-size:clamp(1.6rem,7.2vw,2.15rem)}
+  .eb-melius-card{width:68px;height:90px}
+  .eb-melius-stage{min-height:40svh}
+  .eb-melius-hub{width:clamp(108px,26vw,168px)}
+}
+@media(prefers-reduced-motion:reduce){
+  .eb-melius-home.is-reduced .eb-melius-card{transform:none!important;opacity:1!important}
+}

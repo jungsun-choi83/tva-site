@@ -4,6 +4,14 @@
   "installCommand": null,
   "buildCommand": null,
   "outputDirectory": ".",
+  "redirects": [
+    {
+      "source": "/:path*",
+      "has": [{ "type": "host", "value": "www.eternalbeam.com" }],
+      "destination": "https://eternalbeam.com/:path*",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/assets/(.*)",

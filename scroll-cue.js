@@ -9,7 +9,7 @@ document.body.appendChild(cue);
 const hero = document.getElementById('home');
 // 이미 자기 안내가 있는 구역(어바웃의 SCROLL TO EXPLORE, 문의 폼, 마지막 화면)에서는 겹치지 않게 비운다
 // 모바일 포트폴리오는 캐릭터와 OUR WORKS가 아래를 차지하므로 스크롤 표시를 뺀다 (2026-09-10 A안)
-const quietIds = ['about', 'contact', 'ending', ...(innerWidth <= 760 ? ['portfolio'] : [])];
+const quietIds = ['about', 'contact', ...(innerWidth <= 760 ? ['portfolio'] : [])];
 const quiet = quietIds.map(id => document.getElementById(id)).filter(Boolean);
 let moving = false, idleTimer = 0, raf = 0;
 

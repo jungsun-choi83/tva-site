@@ -5,6 +5,37 @@ const programs = {
   contact: { kicker: 'OPEN CHANNEL / 04', title: 'START A<br>NEW<br>ARCHIVE.', body: 'Write to us. When your Beam arrives, their story is already there.', index: 'SOUL TRACE / SEOUL / KOREA', station: 'STATION 04 / CONTACT', number: '04' }
 };
 
+function scatterMark(word) {
+  if (!word) return;
+  if (!word.dataset.split) {
+    const text = word.textContent;
+    word.textContent = '';
+    word.dataset.split = '1';
+    [...text].forEach((ch, i) => {
+      const span = document.createElement('span');
+      span.className = ch === ' ' ? 'hero-mark__ch hero-mark__ch--space' : 'hero-mark__ch';
+      span.style.setProperty('--i', String(i));
+      span.textContent = ch === ' ' ? '\u00a0' : ch;
+      word.append(span);
+    });
+  }
+  const chars = [...word.querySelectorAll('.hero-mark__ch')];
+  const mid = (chars.length - 1) / 2;
+  chars.forEach((span, i) => {
+    const t = (i - mid) / Math.max(1, mid);
+    const gatherX = (Math.random() - .5) * 86;
+    const gatherY = (Math.random() - .5) * 92;
+    const scatterX = t * 58 + (Math.random() - .5) * 36;
+    const scatterY = (Math.random() < .5 ? -1 : 1) * (22 + Math.random() * 68);
+    span.style.setProperty('--gx', `${gatherX.toFixed(1)}vw`);
+    span.style.setProperty('--gy', `${gatherY.toFixed(1)}vh`);
+    span.style.setProperty('--grot', `${((Math.random() - .5) * 48).toFixed(1)}deg`);
+    span.style.setProperty('--sx', `${scatterX.toFixed(1)}vw`);
+    span.style.setProperty('--sy', `${scatterY.toFixed(1)}vh`);
+    span.style.setProperty('--srot', `${(t * 52 + (Math.random() - .5) * 70).toFixed(1)}deg`);
+  });
+}
+
 function fillStmtLetters(el) {
   if (!el || el.dataset.beamed) return;
   const text = el.textContent;
@@ -39,9 +70,11 @@ export function initHeroOriginal({ onNavigate } = {}) {
   const stage = hero.querySelector('.hero-original__stage');
   const copyPlane = hero.querySelector('.hero-vintage__copy');
   fillStmtLetters(hero.querySelector('[data-hero-stmt]'));
+  const markWord = hero.querySelector('.hero-mark__word');
+  scatterMark(markWord);
   const noise = hero.querySelector('.hero-original__power-noise');
   const context = noise.getContext('2d', { alpha: true });
-  const timing = { off: 0, ignite: 240, tune: 620, locked: 1500 };
+  const timing = { off: 0, mark: 160, markOut: 2680, ignite: 4120, tune: 4500, locked: 5380 };
   let powerFrame = 0;
   let powerTimer = 0;
   let powerStartedAt = 0;
@@ -128,7 +161,7 @@ export function initHeroOriginal({ onNavigate } = {}) {
     target.focus({ preventScroll: true });
   }
 
-  hero.dataset.powerTiming = 'off:0,ignite:240,tune:620,locked:1500';
+  hero.dataset.powerTiming = 'off:0,mark:160,markOut:2680,ignite:4120,tune:4500,locked:5380';
   hero.dataset.powerDuration = String(timing.locked);
 
   function setPowerState(state) {
@@ -227,15 +260,12 @@ export function initHeroOriginal({ onNavigate } = {}) {
     powerStartedAt = performance.now();
     hero.dataset.powerStartedAt = String(Math.round(powerStartedAt));
     hero.classList.add('is-powering');
-    setPowerState('off');
+    scatterMark(markWord);
+    setPowerState('mark');
     powerTimer = window.setTimeout(() => {
-      setPowerState('ignite');
-      powerTimer = window.setTimeout(() => {
-        setPowerState('tune');
-        powerFrame = requestAnimationFrame(drawNoise);
-        queueState('locked', timing.locked - timing.tune);
-      }, timing.tune - timing.ignite);
-    }, timing.ignite);
+      setPowerState('mark-out');
+      powerTimer = window.setTimeout(() => settlePower(), 780);
+    }, timing.markOut);
   }
 
   function shouldPlayOpening() {

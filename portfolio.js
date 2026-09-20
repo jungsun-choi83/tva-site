@@ -225,7 +225,7 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
     // 손을 뗐을 때 옆 구역으로 붙여 준다. 다른 구역은 app.js 가 해 주지만, 갤러리는 iframe 안에서
     // 직접 굴리기 때문에 그 길을 타지 않아 구역 중간에 멈춰 버렸다(실측: 첫 쓸기 190px 뒤로는 안 움직임).
     const sectionTop = (section) => {
-      const nav = ['home', 'drop', 'about', 'ending'].includes(section.id)
+      const nav = ['home', 'drop', 'about', 'contact'].includes(section.id)
         ? 0 : (Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 0);
       return Math.max(0, Math.min(document.documentElement.scrollHeight - innerHeight, section.offsetTop - nav));
     };

@@ -39,9 +39,11 @@ ES 모듈로 서로를 불러오기 때문에 반드시 HTTP 로 띄워야 합�
 
 ## 배포 전에 확인할 것
 
-- **도메인**: `https://device.eternalbeam.com` 기준으로 `index.html` 의 canonical·OG·
-  JSON-LD, `sitemap.xml`, `robots.txt` 가 모두 절대 주소로 적혀 있습니다. 주소가 바뀌면
-  이 네 파일을 함께 고치십시오.
+- **도메인**: 공식 주소는 `https://eternalbeam.com/` 입니다. `index.html` 의 canonical·OG·
+  JSON-LD, `sitemap.xml`, `robots.txt` 가 모두 이 주소로 적혀 있습니다. Vercel 프로젝트
+  (GitHub `tva-site`)에 `eternalbeam.com`·`www` 를 붙입니다. `device.eternalbeam.com` 은
+  기기용 웹앱, `soultrace.eternalbeam.com` 은 Soul Trace — 각각 별도 Vercel 프로젝트로 둡니다.
+  `vercel.json` 은 www 만 `eternalbeam.com` 으로 넘깁니다.
 - **문의**: 보내기는 방문자의 메일 앱에 편지를 담아 주는 `mailto:` 동작입니다. 서버로
   보내지도, 저장하지도 않습니다. 받는 주소는 `contact-letterbox.js` 의 `MAIL` 한 곳입니다.
   실제 접수 백엔드를 붙이면 `privacy.html` 의 '처리 위탁' 줄도 같이 고쳐야 합니다.

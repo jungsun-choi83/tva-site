@@ -4,4 +4,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://device.eternalbeam.com/sitemap.xml
+Sitemap: https://eternalbeam.com/sitemap.xml

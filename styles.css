@@ -41,7 +41,41 @@ section{scroll-margin-top:0}
 .ctl-fallback p{margin:0 auto;max-width:34em}
 .ctl-fallback-hint a{color:var(--cobalt);font:500 16px/1.6 var(--mono);letter-spacing:.02em;word-break:break-all}
 /* [61] 회사 표기를 읽히는 크기로. ending.css 가 #ending 으로 잡고 있어 한 단계 높은 선택자로 덮는다 */
-html #ending .site-footer{font-size:11px;opacity:1;letter-spacing:.05em}
-html #ending .site-footer a{pointer-events:auto;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px;padding:4px 2px}
-html #ending .site-footer a:hover{color:var(--cobalt)}
-@media(max-width:760px){html #ending .site-footer{font-size:10px;line-height:1.7}}
+html #contact .contact-site-footer{font-size:11px;opacity:1;letter-spacing:.05em;margin:0;padding:12px clamp(16px,3vw,32px) max(16px,env(safe-area-inset-bottom));border-top:1px solid #17192318;color:#55565b}
+html #contact .contact-site-footer a{pointer-events:auto;text-decoration:underline;text-underline-offset:3px;display:inline-flex;align-items:center;min-height:44px;padding:4px 2px;color:#171923b3}
+html #contact .contact-site-footer a:hover{color:#171923}
+@media(max-width:760px){html #contact .contact-site-footer{font-size:10px;line-height:1.7}}
+/* ABOUT → CONTACT: one type system (sans body, display titles, caps labels, mono meta) */
+#about.about-bleib,
+#portfolio.portfolio-section,
+#original.story-keep,
+#contact.contact-letterbox,
+#contact.contact-letterbox .ctl{
+  font-family:var(--sans);
+}
+#about.about-bleib .station-goldpage .station-copy--head h3,
+#about.about-bleib .about-bleib-title{
+  font-family:var(--display);
+}
+#about.about-bleib .eyebrow,
+#about.about-bleib .about-bleib-eyebrow,
+#about.about-bleib .about-bleib-board__hint,
+#about.about-bleib .beam-gold__kicker,
+.story-keep__kicker,
+.story-keep__verb,
+#contact.contact-letterbox .ctl .eyebrow,
+#contact.contact-letterbox .ctl .f>span{
+  font-family:var(--caps);
+}
+#about.about-bleib .service-en,
+.story-keep__idx,
+.contact-letterbox .ctl .note{
+  font-family:var(--mono);
+}
+#original.story-keep .story-keep__head h2,
+#original.story-keep .story-keep__title,
+#contact.contact-letterbox .ctl-card__title,
+#contact.contact-letterbox .ctl h2{
+  font-family:var(--display);
+  letter-spacing:var(--section-title-tracking);
+}

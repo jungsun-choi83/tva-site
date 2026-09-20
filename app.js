@@ -1,12 +1,13 @@
-import { initLang } from './i18n.js?v=eb-20260914w';
-import { initEnding } from './ending.js?v=eb-20260913n';
+import { initLang } from './i18n.js?v=eb-20260920i';
 import {initNavShelf} from './nav-shelf.js?v=eb-20260914bc';
 import { initPortfolio } from './portfolio.js?v=eb-20260914l';
-import { initContact } from './contact-letterbox.js?v=eb-20260914az';
-import { initJourney } from './journey.js?v=eb-20260914bp';
-import { initStoryKeep } from './story-keep.js?v=eb-20260914z';
-import { initHeroOriginal } from './hero-original.js?v=eb-20260914h';
+import { initContact } from './contact-letterbox.js?v=eb-20260920i';
+import { initJourney } from './journey.js?v=eb-20260919y';
+import { initStoryKeep } from './story-keep.js?v=eb-20260920e';
+import { initHeroOriginal } from './hero-original.js?v=eb-20260918p';
 import { initCharacterDirection } from './character-direction.js?v=eb-20260913';
+import { initBeamRail } from './beam-rail.js?v=eb-20260918p';
+import { initHeroMelius } from './hero-melius.js?v=eb-20260920k';
 
 initLang();
 
@@ -19,7 +20,6 @@ const nav = document.querySelector('.site-nav');
 initNavShelf(nav);
 const navLinks = [...nav.querySelectorAll('nav a')];
 const mediaMotion = matchMedia('(prefers-reduced-motion: reduce)');
-const ending = document.querySelector('#ending');
 let reduced = mediaMotion.matches;
 let scene = 'home';
 let replaying = false;
@@ -82,15 +82,10 @@ const portfolio = initPortfolio(document.querySelector('#portfolio-mount'), {
   onStoryWheel: event => handleSectionWheel(event, document.querySelector('#portfolio-mount')),
 });
 initStoryKeep();
-// ── 상단바를 켜고 끄는 주인은 이 아래 두 함수뿐이다 ──────────────────────────
+// ── 상단바를 켜고 끄는 주인은 applyNav 뿐이다 ───────────────────────────────
 // 감사 [56]: 예전에는 같은 바를 app.js·ending.js·nav-shelf.js 세 곳이 따로 켜고 꺼서
 // '보이라고 표시해 두었는데 화면에는 없는' 바가 생겼다(눈에는 안 보이는데 Tab·화면낭독기만 닿는 유령 바).
-// 이제 판단은 여기서만 하고, 다른 파일은 '다시 판단해 달라'고 부르기만 한다.
-function endingCovers() {
-  // 마지막 구역이 화면의 절반 이상을 덮으면 바를 접는다 (예전 nav-shelf 의 is-away 규칙을 여기로 옮겼다)
-  const rect = ending.getBoundingClientRect();
-  return Math.min(rect.bottom, innerHeight) - Math.max(rect.top, 0) > innerHeight * .5;
-}
+// 이제 판단은 여기서만 한다.
 
 // 스크립트가 옮긴 초점에는 파란 테두리 상자를 그리지 않는다 (2026-09-10 사장님: "박스 안 나오게").
 // 구역은 Tab 으로는 닿을 수 없는 자리(tabindex=-1)라 표시를 지워도 키보드 사용자가 잃는 것이 없다.
@@ -121,12 +116,10 @@ function anchorFocus(force = false) {
   scriptFocus(dest);
 }
 
-// covered = 마지막 구역이 화면 절반을 덮었는가. 엔딩 쪽에서 이미 잰 값이 있으면 그것을 받아 쓴다
-// (매 굴림마다 자리를 다시 재면 화면 계산이 두 번 돌아 무거워진다).
 let navVisible = null;
-function applyNav(covered) {
-  const blocked = ['home', 'drop', 'ending'].includes(scene) || root.classList.contains('ending-in-game');
-  const visible = !blocked && !(covered ?? endingCovers());
+function applyNav() {
+  const blocked = scene === 'home';
+  const visible = !blocked;
   if (visible === navVisible) return visible;   // 값이 바뀔 때만 쓴다 (같은 값 재기록은 상단바 감시자를 깨운다)
   navVisible = visible;
   const rescue = !visible && nav.contains(document.activeElement);
@@ -145,8 +138,7 @@ function updateScene(next) {
     if (link.hash === `#${next}`) link.setAttribute('aria-current', 'location');
     else link.removeAttribute('aria-current');
   });
-  ending.classList.toggle('is-seen', next === 'ending');
-  const atBottom = next === 'ending' && window.scrollY + innerHeight >= document.documentElement.scrollHeight - 6;
+  const atBottom = next === 'contact' && window.scrollY + innerHeight >= document.documentElement.scrollHeight - 6;
   if (atBottom && !bottomSince) bottomSince = performance.now();
   if (!atBottom) bottomSince = 0;
   captureView();
@@ -154,24 +146,11 @@ function updateScene(next) {
 }
 const journey = initJourney(updateScene, portfolio);
 journeyReady = true;
+let beamRail = null;
 initCharacterDirection();
-const endingExperience = initEnding({
-  canComplete: replayAllowed,
-  // 감사 [56]: 엔딩 진행도가 바뀌면 '다시 판단해 달라'고만 부른다. 바를 직접 켜고 끄지 않는다.
-  onNav: covered => applyNav(covered),
-  onComplete: async () => {
-    replaying = true;
-    releaseOffscreenEditor();
-    try {
-      restartProgramme();
-      await new Promise(resolve => requestAnimationFrame(resolve));
-      heroOriginal.focus();
-    } finally { replaying = false; }
-  },
-});
-
+initHeroMelius(() => reduced);
 function applyMotion(preservePosition = false) {
-  const anchor = preservePosition && [...document.querySelectorAll('#home,#drop,#about,#portfolio,#original,#contact,#ending')].find(section => section.getBoundingClientRect().bottom > 80);
+  const anchor = preservePosition && [...document.querySelectorAll('#home,#about,#portfolio,#original,#contact')].find(section => section.getBoundingClientRect().bottom > 80);
   const relativeTop = anchor ? (scrollY - anchor.offsetTop) / anchor.offsetHeight : 0;
   const station = journey.currentStation;
   root.classList.toggle('reduced-motion', reduced);
@@ -203,12 +182,12 @@ if (motionToggle) {
 }
 applyMotion();
 
-const aliases = { studio: 'about', work: 'portfolio', lab: 'original' };
-const destinations = new Set(['home', 'drop', 'about', 'portfolio', 'original', 'contact', 'ending']);
-const landingSections = [...document.querySelectorAll('#portfolio,#original,#contact,#ending')];
+const aliases = { studio: 'about', work: 'portfolio', lab: 'original', drop: 'about' };
+const destinations = new Set(['home', 'about', 'portfolio', 'original', 'contact']);
+const landingSections = [...document.querySelectorAll('#portfolio,#original,#contact')];
 
 function sectionOffset(id) {
-  return ['home', 'drop', 'about', 'ending'].includes(id) ? 0 : nav.offsetHeight || 64;
+  return ['home', 'about'].includes(id) ? 0 : nav.offsetHeight || 64;
 }
 
 // ── 주소를 화면과 같게 유지한다 ───────────────────────────────────────────────
@@ -343,13 +322,18 @@ function scheduleViewRestore() {
 window.addEventListener('resize', scheduleViewRestore);
 window.addEventListener('orientationchange', scheduleViewRestore);
 
-function scrollToSection(id, moveFocus = false) {
+function scrollToSection(id, moveFocus = false, instant = false) {
   const target = document.getElementById(id);
   if (!target) return;
   cancelViewRestore();
   const leftLetter = id !== 'contact' && letter.closeForNavigation();
   updateScene(id);
   navigationUntil = performance.now() + 240;
+  if (beamRail?.goTo(id, instant || reduced)) {
+    if (leftLetter || moveFocus) { target.tabIndex = -1; target.focus({ preventScroll: true }); }
+    requestAnimationFrame(journey.update);
+    return;
+  }
   window.scrollTo({ top: Math.max(0, target.offsetTop - sectionOffset(id)), behavior: 'instant' });
   if (leftLetter || moveFocus) { target.tabIndex = -1; target.focus({ preventScroll: true }); }
   requestAnimationFrame(journey.update);
@@ -388,8 +372,8 @@ function routeHash(initial = false) {
   if (!initial && location.hash === routedHash && performance.now() - routedAt < 150) return;
   routedHash = location.hash;
   routedAt = performance.now();
-  scrollToSection(id, !initial);
-  if (initial) pinInitialRoute(id);
+  scrollToSection(id, !initial, initial);
+  if (initial && !beamRail) pinInitialRoute(id);
 }
 document.addEventListener('click', event => {
   const link = event.target.closest('a[href^="#"]');
@@ -401,6 +385,35 @@ document.addEventListener('click', event => {
 });
 window.addEventListener('hashchange', () => routeHash());
 window.addEventListener('popstate', () => routeHash());
+beamRail = initBeamRail({
+  onPanel(id, meta) {
+    if (!meta?.initial) navigationUntil = performance.now() + 1120;
+    updateScene(id);
+    requestAnimationFrame(journey.update);
+  },
+  onCardSelect(id) {
+    if (location.hash !== `#${id}`) {
+      history.pushState(null, '', `#${id}`);
+      window.dispatchEvent(new CustomEvent('tva:navigate'));
+    }
+  },
+  introReady() {
+    if (reduced || window.__tvaPowerRevealed) return true;
+    const home = document.querySelector('#home');
+    return home?.dataset.powerState === 'locked' && !home.classList.contains('is-powering');
+  },
+  panelWheel(id, event) {
+    if (id === 'about') return handleAboutStationWheel(event, event.target);
+    return false;
+  },
+  isReduced: () => reduced,
+});
+if (beamRail) {
+  window.addEventListener('scroll', () => {
+    if (scrollY !== 0) window.scrollTo({ top: 0, behavior: 'instant' });
+  }, { passive: true });
+}
+
 // 딥링크 착지가 구글 폰트에 묶여 있어, 폰트가 늦게 오면 10초 뒤 엉뚱한 구역에 내렸다.
 // 폰트는 0.6초까지만 기다리고 그 뒤엔 먼저 착지한다 (폰트가 정상일 때의 착지 시각은 그대로).
 Promise.race([document.fonts.ready, new Promise(resolve => setTimeout(resolve, 600))])
@@ -431,9 +444,9 @@ function replayAllowed() {
   return !replaying && !document.querySelector('dialog[open]') && !document.querySelector('.is-returning,.is-previewing') && !editableInView();
 }
 
-function atEndingBottom() {
-  const rect = ending.getBoundingClientRect();
-  return rect.top <= innerHeight * .5 && rect.bottom > 0 && scrollY + innerHeight >= document.documentElement.scrollHeight - 6;
+function atPageBottom() {
+  return scrollY + innerHeight >= document.documentElement.scrollHeight - 6
+    && (scene === 'contact' || document.querySelector('#contact')?.getBoundingClientRect().top <= innerHeight * .55);
 }
 
 function resetWheelReplayArm() {
@@ -445,10 +458,10 @@ function resetWheelReplayArm() {
 function scheduleWheelReplayArm(restart = false) {
   if (restart) resetWheelReplayArm();
   else if (wheelReplayTimer || wheelReplayArmed) return;
-  if (!atEndingBottom() || replaying) return;
+  if (!atPageBottom() || replaying) return;
   wheelReplayTimer = window.setTimeout(() => {
     wheelReplayTimer = 0;
-    wheelReplayArmed = atEndingBottom() && replayAllowed();
+    wheelReplayArmed = atPageBottom() && replayAllowed();
   }, 320);
 }
 
@@ -470,10 +483,16 @@ function restartProgramme() {
   resetWheelReplayArm();
 }
 
-function replay() {
-  if (replayAllowed()) endingExperience.play();
+async function replay() {
+  if (!replayAllowed()) return;
+  replaying = true;
+  releaseOffscreenEditor();
+  try {
+    restartProgramme();
+    await new Promise(resolve => requestAnimationFrame(resolve));
+    heroOriginal.focus();
+  } finally { replaying = false; }
 }
-document.querySelector('.replay-button').addEventListener('click', replay);
 function bottomReady() { return bottomSince > 0 && performance.now() - bottomSince > 700; }
 
 function canSettleFrom(target) {
@@ -525,10 +544,12 @@ function handleEntryBoundaryWheel(event, source) {
 
 function handleAboutStationWheel(event, source) {
   const about = document.querySelector('#about');
-  if (about.classList.contains('is-linear') || event.ctrlKey || !event.deltaY
+  if (about.classList.contains('about-bleib') || about.classList.contains('is-linear') || event.ctrlKey || !event.deltaY
     || Math.abs(event.deltaX) > Math.abs(event.deltaY) || !canSettleFrom(source)) return false;
-  const aboutRect = about.getBoundingClientRect();
-  if (aboutRect.top > (nav.offsetHeight || 64) + 8 || aboutRect.bottom < innerHeight - 8) return false;
+  if (root.dataset.layout !== 'beam-rail') {
+    const aboutRect = about.getBoundingClientRect();
+    if (aboutRect.top > (nav.offsetHeight || 64) + 8 || aboutRect.bottom < innerHeight - 8) return false;
+  } else if (root.dataset.railPanel !== 'about') return false;
   const direction = Math.sign(event.deltaY);
   const now = performance.now();
   if (Number.isInteger(sectionWheelLock?.aboutTarget)
@@ -553,8 +574,14 @@ function handleAboutStationWheel(event, source) {
   };
   if (next >= 0 && next < stationCount) {
     window.dispatchEvent(new CustomEvent('tva:studio-station-intent', { detail: { direction, from: current, to: next } }));
+    if (root.dataset.layout === 'beam-rail') journey.gotoStation(next, reduced);
   } else if (next >= stationCount) {
     window.dispatchEvent(new CustomEvent('tva:studio-station-intent', { detail: { direction, from: current } }));
+    sectionWheelLock = null;
+    if (beamRail) {
+      beamRail.goTo('portfolio');
+      return true;
+    }
     const portfolio = document.getElementById('portfolio');
     updateScene('portfolio');
     navigationUntil = performance.now() + 240;
@@ -655,7 +682,7 @@ function handleSectionWheel(event, source = wheelSource(event)) {
   // (사진 구역 안에서는 이 함수의 false 가 곧 '페이지를 그만큼 밀어라'는 뜻이라 true 로 막는다)
   if (Math.abs(event.deltaY) < 4 && event.deltaMode === 0) { event.preventDefault(); return true; }
   if (event.ctrlKey || !event.deltaY || Math.abs(event.deltaX) > Math.abs(event.deltaY)
-    || replaying || endingExperience.active || root.classList.contains('ending-in-game')
+    || replaying
     || document.querySelector('dialog[open]') || editableInView() || wheelSourceIsEditable(source)) return false;
   const now = performance.now();
   // 이동하는 동안에는 남은 관성을 가장 먼저 삼켜야 한다. 이 검사가 뒤에 있으면
@@ -690,14 +717,14 @@ function handleSectionWheel(event, source = wheelSource(event)) {
     const { section, top, bottom } = stops[index];
     // 화면보다 조금만 큰 구역(예: 871px vs 746px)까지 '긴 페이지'로 보면 중간에 한 번 더 멈춰
     // 한 구역에 두 번 움직이는 것처럼 보인다. 확실히 긴 구역만 내부 단계를 둔다.
-    const longPage = section.id !== 'ending' && section.offsetHeight > innerHeight * 1.35;
+    const longPage = section.offsetHeight > innerHeight * 1.35;
     if (longPage && direction > 0 && scrollY < bottom - 8) destination = Math.min(bottom, scrollY + innerHeight);
     else if (longPage && direction < 0 && scrollY > top + 8) destination = Math.max(top, scrollY - innerHeight);
     else if (direction > 0) destination = stops[index + 1]?.top ?? null;
     else if (scrollY > top + 20) destination = top;
     else if (index > 0) {
       const previous = stops[index - 1];
-      destination = previous.section.id !== 'ending' && previous.section.offsetHeight > innerHeight * 1.35 ? previous.bottom : previous.top;
+      destination = previous.section.offsetHeight > innerHeight * 1.35 ? previous.bottom : previous.top;
     }
     else {
       const previous = document.querySelector('#about');
@@ -727,7 +754,7 @@ function rememberLandingIntent(event) {
 
 function settleSection() {
   clearTimeout(landingTimer);
-  if (atEndingBottom() || endingExperience.active) {
+  if (atPageBottom()) {
     landingTarget = null;
     return;
   }
@@ -747,7 +774,7 @@ function settleSection() {
 }
 
 function scheduleSettle() {
-  const atBottom = atEndingBottom();
+  const atBottom = atPageBottom();
   if (atBottom && !bottomSince) bottomSince = performance.now();
   if (!atBottom) {
     bottomSince = 0;
@@ -762,6 +789,7 @@ window.addEventListener('scroll', scheduleSettle, { passive: true });
 window.addEventListener('scrollend', scheduleSettle);
 window.addEventListener('wheel', event => {
   if (event.isTrusted) cancelViewRestore(); // 스스로 굴렸으면 크기변경 되돌리기는 그만둔다
+  if (beamRail?.handleWheel(event)) return;
   if (replaying) {
     event.preventDefault();
     return;
@@ -785,7 +813,7 @@ window.addEventListener('wheel', event => {
     replay();
     return;
   }
-  if (atEndingBottom()) scheduleWheelReplayArm(true);
+  if (atPageBottom()) scheduleWheelReplayArm(true);
 }, { passive: false });
 window.addEventListener('touchstart', event => {
   if (event.isTrusted) cancelViewRestore();

@@ -47,6 +47,7 @@ function init() {
   const host = about?.querySelector('.studio-host');
   const hostImage = host?.querySelector('img');
   if (!about || !camera || !track || !host || !hostImage) return;
+  if (about.classList.contains('about-bleib')) return;
   about.classList.add('about-walk');
   about.dataset.walkStrip = 'true';
   // journey.js 의 옛 캐릭터 조작(좌우 흔들기·달리기 그림 교체)은 이 속성이 있으면 쉰다.
