@@ -40,10 +40,28 @@ ES 모듈로 서로를 불러오기 때문에 반드시 HTTP 로 띄워야 합�
 ## 배포 전에 확인할 것
 
 - **도메인**: 공식 주소는 `https://eternalbeam.com/` 입니다. `index.html` 의 canonical·OG·
-  JSON-LD, `sitemap.xml`, `robots.txt` 가 모두 이 주소로 적혀 있습니다. Vercel 프로젝트
-  (GitHub `tva-site`)에 `eternalbeam.com`·`www` 를 붙입니다. `device.eternalbeam.com` 은
-  기기용 웹앱, `soultrace.eternalbeam.com` 은 Soul Trace — 각각 별도 Vercel 프로젝트로 둡니다.
-  `vercel.json` 은 www 만 `eternalbeam.com` 으로 넘깁니다.
+  JSON-LD, `sitemap.xml`, `robots.txt` 가 모두 이 주소로 적혀 있습니다. `device.eternalbeam.com` 은
+  **기기용 웹앱**, `soultrace.eternalbeam.com` 은 **Soul Trace** — 각각 **별도 Vercel 프로젝트**로
+  둡니다. `vercel.json` 은 `www` 만 `eternalbeam.com` 으로 넘깁니다.
+
+### eternalbeam.com 이 이 사이트로 안 열릴 때 (Vercel)
+
+DNS(`76.76.21.21` / `cname.vercel-dns.com`)는 이미 Vercel을 가리킵니다. **어느 Vercel
+프로젝트에 도메인이 붙었는지만** 바꾸면 됩니다. 지금 `eternalbeam.com` 은 **예전 Next.js
+랜딩**에 연결되어 있고, 이 저장소(`jungsun-choi83/tva-site`)는 **아직 그 도메인에
+연결되지 않은 상태**일 수 있습니다.
+
+1. [vercel.com](https://vercel.com) 로그인 → **Add New… → Project** → GitHub **`tva-site`** Import  
+   (이미 Import 되어 있으면 해당 프로젝트로 이동)
+2. Build 설정: Framework **Other**, Root **`.`**, Build Command **비움**, Output **`.`**
+3. **Deploy** 한 번 성공 확인 (미리보기 URL에서 제목이 `홀로그램 콘텐츠 아카이브` 인지 확인)
+4. **Settings → Domains** → `eternalbeam.com`, `www.eternalbeam.com` **Add**
+5. **예전 랜딩 프로젝트** → Domains에서 `eternalbeam.com` / `www` **Remove** (한 도메인은
+   프로젝트 하나에만 붙을 수 있음)
+6. **`device` / `soultrace` 서브도메인은 건드리지 않음** (각자 프로젝트 유지)
+
+로컬에서 CLI로 붙이려면: `npx vercel login` 후 프로젝트 폴더에서 `npx vercel link` →
+`npx vercel domains add eternalbeam.com` (팀/프로젝트 선택).
 - **문의**: 보내기는 방문자의 메일 앱에 편지를 담아 주는 `mailto:` 동작입니다. 서버로
   보내지도, 저장하지도 않습니다. 받는 주소는 `contact-letterbox.js` 의 `MAIL` 한 곳입니다.
   실제 접수 백엔드를 붙이면 `privacy.html` 의 '처리 위탁' 줄도 같이 고쳐야 합니다.

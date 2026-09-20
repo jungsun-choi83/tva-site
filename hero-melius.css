@@ -5,6 +5,7 @@
   inset:0;
   z-index:26;
   overflow:hidden;
+  isolation:isolate;
   background:#e8e6e1;
   color:#111;
   flex-direction:column;
@@ -99,8 +100,8 @@ html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-ori
   position:relative;
   flex:1 1 auto;
   width:100%;
-  min-height:clamp(260px,46svh,520px);
-  max-height:54svh;
+  min-height:clamp(200px,38svh,460px);
+  max-height:46svh;
   margin:0;
   overflow:hidden;
 }
@@ -213,14 +214,25 @@ html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-ori
 .eb-melius-btn--primary{background:#111;color:#fff;border:1px solid #111}
 .eb-melius-btn--ghost{background:#f3f1ec;color:#111;border:1px solid #c5c0b8}
 .eb-melius-foot__scroll{
-  display:inline-block;
-  margin-top:clamp(14px,2.2vh,20px);
-  color:#6f6b65;
-  font:600 11px/1 var(--sans);
-  letter-spacing:.14em;
+  position:absolute;
+  z-index:52;
+  left:50%;
+  bottom:clamp(72px,11vh,104px);
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  min-height:44px;
+  padding:8px 14px;
+  margin:0;
+  color:#4a4743;
+  font:600 clamp(11px,1vw,12px)/1 var(--sans);
+  letter-spacing:.16em;
   text-decoration:none;
   text-transform:uppercase;
+  transform:translateX(-50%);
+  pointer-events:auto;
 }
+.eb-melius-foot__scroll:hover{color:#111}
 
 html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   height:100svh;
@@ -233,8 +245,11 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 @media(max-width:720px){
   .eb-melius-headline{font-size:clamp(1.6rem,7.2vw,2.15rem)}
   .eb-melius-card{width:68px;height:90px}
-  .eb-melius-stage{min-height:40svh}
+  .eb-melius-stage{min-height:34svh;max-height:42svh}
   .eb-melius-hub{width:clamp(108px,26vw,168px)}
+  .eb-melius-foot__scroll{bottom:clamp(64px,10vh,88px)}
+  .eb-melius-foot__cta{margin-top:clamp(12px,2vh,18px)}
+  .eb-melius-foot__lead{margin-top:8px}
 }
 @media(prefers-reduced-motion:reduce){
   .eb-melius-home.is-reduced .eb-melius-card{transform:none!important;opacity:1!important}
