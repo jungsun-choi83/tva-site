@@ -7,7 +7,7 @@ import { initStoryKeep } from './story-keep.js?v=eb-20260920e';
 import { initHeroOriginal } from './hero-original.js?v=eb-20260918p';
 import { initCharacterDirection } from './character-direction.js?v=eb-20260913';
 import { initBeamRail } from './beam-rail.js?v=eb-20260918p';
-import { initHeroMelius } from './hero-melius.js?v=eb-20260920k';
+import { initHeroMelius } from './hero-melius.js?v=eb-20260921a';
 
 initLang();
 
