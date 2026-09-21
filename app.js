@@ -1,9 +1,9 @@
 import { initLang } from './i18n.js?v=eb-20260920i';
-import {initNavShelf} from './nav-shelf.js?v=eb-20260914bc';
+import {initNavShelf} from './nav-shelf.js?v=eb-20260920w';
 import { initPortfolio } from './portfolio.js?v=eb-20260914l';
 import { initContact } from './contact-letterbox.js?v=eb-20260920i';
 import { initJourney } from './journey.js?v=eb-20260919y';
-import { initStoryKeep } from './story-keep.js?v=eb-20260920e';
+import { initStoryKeep } from './story-keep.js?v=eb-20260920y';
 import { initHeroOriginal } from './hero-original.js?v=eb-20260918p';
 import { initCharacterDirection } from './character-direction.js?v=eb-20260913';
 import { initBeamRail } from './beam-rail.js?v=eb-20260918p';

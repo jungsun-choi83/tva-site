@@ -8,20 +8,24 @@
   color:#0d0d0f;
   overflow:clip;
 }
-.story-keep[data-act="1"]{
+.story-keep[data-act="1"],
+.story-keep[data-act="2"]{
   --melius-offblack:#121214;
   --melius-dot:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15'%3E%3Crect x='6.5' y='6.5' width='2' height='2' rx='1' ry='1' fill='rgb(255%2C255%2C255)' fill-opacity='0.08'/%3E%3C/svg%3E");
   color:#f4f0e8;
   background:var(--melius-offblack);
   overflow:visible;
 }
-.story-keep[data-act="1"] .story-keep__pin{
+.story-keep[data-act="1"] .story-keep__pin,
+.story-keep[data-act="2"] .story-keep__pin{
   overflow:visible;
 }
-.story-keep[data-act="1"] .story-keep__pin:before{
+.story-keep[data-act="1"] .story-keep__pin:before,
+.story-keep[data-act="2"] .story-keep__pin:before{
   opacity:0;
 }
-.story-keep[data-act="1"] .story-keep__pin:after{
+.story-keep[data-act="1"] .story-keep__pin:after,
+.story-keep[data-act="2"] .story-keep__pin:after{
   content:"";
   position:absolute;
   inset:0;
@@ -39,8 +43,10 @@
   max-width:none;
   margin-inline:auto;
 }
-.story-keep[data-act="1"] .story-keep__kicker{opacity:.45}
-.story-keep[data-act="1"] .story-keep__sub{opacity:.62;margin-inline:auto}
+.story-keep[data-act="1"] .story-keep__kicker,
+.story-keep[data-act="2"] .story-keep__kicker{opacity:.45}
+.story-keep[data-act="1"] .story-keep__sub,
+.story-keep[data-act="2"] .story-keep__sub{opacity:.62;margin-inline:auto}
 .story-keep[data-act="2"] .sk-record-cta,
 .story-keep[data-act="3"] .sk-record-cta{display:none}
 .sk-record-cta{
@@ -88,20 +94,26 @@
   70%{transform:translateX(8px)}
 }
 .sk-record-cta:focus-visible{outline:2px solid #e8c98a;outline-offset:4px;border-radius:4px}
-.story-keep[data-act="1"] .story-keep__steps button{
+.story-keep[data-act="1"] .story-keep__steps button,
+.story-keep[data-act="2"] .story-keep__steps button{
   color:#f6f2e8;
   background:#14120f;
   border-color:#f6f2e866;
   box-shadow:0 10px 24px #0008;
 }
-.story-keep[data-act="1"] .story-keep__steps button[aria-current="true"]{
+.story-keep[data-act="1"] .story-keep__steps button[aria-current="true"],
+.story-keep[data-act="2"] .story-keep__steps button[aria-current="true"]{
   color:#0d0d0f;
   background:#c8a15e;
   border-color:#c8a15e;
 }
-.story-keep[data-act="1"] .story-keep__verb{color:#e8c98a}
-.story-keep[data-act="1"] .story-keep__lead{opacity:.68}
+.story-keep[data-act="1"] .story-keep__verb,
+.story-keep[data-act="2"] .story-keep__verb{color:#e8c98a}
+.story-keep[data-act="1"] .story-keep__lead,
+.story-keep[data-act="2"] .story-keep__lead{opacity:.68}
 .story-keep[data-act="1"] .sk-letter-view__close{color:#f6f2e8}
+.story-keep[data-act="1"].white-section,
+.story-keep[data-act="2"].white-section{background:var(--melius-offblack,#121214)}
 .story-keep__pin{
   position:relative;
   height:100%;
@@ -151,6 +163,7 @@
   position:relative;
   z-index:4;
   grid-column:1 / -1;
+  grid-row:1;
   padding:clamp(16px,2.4vh,28px) clamp(20px,4vw,64px) 0;
   max-width:min(1100px,92vw);
   pointer-events:none;
@@ -177,14 +190,22 @@
   position:relative;
   z-index:3;
   grid-column:1 / -1;
+  grid-row:2;
   min-height:0;
   perspective:1200px;
   pointer-events:none;
+  overflow:hidden;
 }
-.story-keep[data-act="1"] .story-keep__stage{
+.story-keep[data-act="1"] .story-keep__stage,
+.story-keep[data-act="2"] .story-keep__stage{
   pointer-events:auto;
   min-height:min(58vh,560px);
   flex:1 1 auto;
+}
+.story-keep[data-act="2"] .story-keep__stage{
+  min-height:min(44vh,440px);
+  max-height:min(44vh,440px);
+  flex:0 1 auto;
 }
 .story-keep[data-act="1"].white-section{background:var(--melius-offblack,#121214)}
 .sk-photo,.sk-letter,.sk-card,.sk-device,.sk-holo,
@@ -192,12 +213,17 @@
   position:absolute;
 }
 .sk-a1{overflow:visible}
-.story-keep[data-act="1"] .sk-a1{
+.story-keep[data-act="1"] .sk-a1,
+.story-keep[data-act="2"] .sk-a2{
   position:absolute;
   left:0;right:0;
-  top:clamp(108px,19vh,176px);
-  bottom:clamp(72px,14vh,112px);
+  top:clamp(48px,10vh,96px);
+  bottom:clamp(24px,5vh,48px);
   z-index:2;
+  overflow:hidden;
+}
+.story-keep[data-act="2"] .sk-album.sk-album--flow{
+  overflow:hidden;
 }
 .sk-a1{
   --mx:0;--my:0;
@@ -611,6 +637,27 @@
   overflow:hidden;
   pointer-events:none;
 }
+.sk-album.sk-album--flow{
+  overflow:visible;
+  perspective:1200px;
+}
+.sk-melius-flow-card.sk-tile--photo .sk-photo-flow{
+  margin:0;
+  width:100%;
+  aspect-ratio:3/4.1;
+  padding:8px 8px 22px;
+  background:#fbf7ef;
+  border-radius:10px;
+  box-shadow:0 16px 28px #0d0d0f28,0 1px 0 #fff inset;
+  overflow:hidden;
+}
+.sk-melius-flow-card.sk-tile--photo img{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  border-radius:4px;
+}
 .story-keep[data-act="3"] .sk-album{
   opacity:0;
   visibility:hidden;
@@ -804,9 +851,27 @@
   position:relative;
   z-index:4;
   grid-column:1;
+  grid-row:3;
+  align-self:end;
   min-width:0;
   padding:0 clamp(20px,4vw,64px) 20px;
   max-width:520px;
+}
+.story-keep[data-act="2"] .story-keep__copy{
+  z-index:16;
+  padding-top:clamp(8px,1.5vh,14px);
+  padding-bottom:clamp(12px,2vh,20px);
+  background:linear-gradient(180deg,transparent,#121214e6 32%);
+}
+.story-keep[data-act="2"] .story-keep__title,
+.story-keep[data-act="2"] .story-keep__idx,
+.story-keep[data-act="2"] .story-keep__head h2{
+  color:inherit;
+}
+.story-keep[data-act="2"] .story-keep__lead{
+  display:block;
+  min-height:1.5em;
+  color:inherit;
 }
 .story-keep[data-act="3"] .story-keep__copy{
   background:linear-gradient(180deg,transparent,#0d0d0fcc 36%);
@@ -838,6 +903,7 @@
   position:relative;
   z-index:6;
   grid-column:2;
+  grid-row:3;
   align-self:end;
   display:flex;
   gap:8px;
@@ -972,7 +1038,8 @@
   .sk-record-cta:hover .sk-record-cta__icon,
   .sk-record-cta.is-nudged .sk-record-cta__label,
   .sk-record-cta.is-nudged .sk-record-cta__icon{transform:none;animation:none}
-  .story-keep[data-act="1"] .sk-melius-rail{transform:translate3d(-50%,-50%,0)!important}
+  .story-keep[data-act="1"] .sk-melius-rail,
+  .story-keep[data-act="2"] .sk-album--flow .sk-melius-rail{transform:translate3d(-50%,-50%,0)!important}
   .story-keep[data-act="1"]:not(.is-playing) .sk-photo .sk-rise{transform:none}
   .story-keep.is-playing .sk-photo,
   .story-keep.is-playing .sk-tile,

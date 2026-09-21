@@ -281,8 +281,8 @@ html[data-about-grid="open"]{
   --type-ml:auto;--type-mr:0;--type-x:clamp(36px,7vw,72px);text-align:right
 }
 #about.about-bleib .studio-station[data-type-slot="4"]{
-  --type-order:4;--type-align:flex-start;--type-w:min(72%,510px);
-  --type-ml:clamp(12%,16vw,22%);--type-mr:auto;--type-x:clamp(12px,2.5vw,28px);text-align:left
+  --type-order:4;--type-align:flex-start;--type-w:min(76%,520px);
+  --type-ml:0;--type-mr:auto;--type-x:clamp(-48px,-6.5vw,-14px);text-align:left
 }
 #about.about-bleib .studio-station[data-type-slot="5"]{
   --type-order:5;--type-align:flex-end;--type-w:min(60%,450px);

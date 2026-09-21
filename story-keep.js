@@ -47,113 +47,6 @@ function motionOff() {
     || matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-function initAlbum(section) {
-  const album = section.querySelector('.sk-album');
-  const card = section.querySelector('.sk-card');
-  if (!album) return;
-  album.replaceChildren();
-
-  const LANES = [
-    { through: true, x: .5, w: .2 },
-    { through: false, x: .13, w: .15 },
-    { through: false, x: .87, w: .15 },
-  ];
-  const pool = PETS.slice();
-  for (let i = pool.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pool[i], pool[j]] = [pool[j], pool[i]];
-  }
-  let cursor = 0;
-  const recent = [];
-
-  function nextSrc() {
-    let src;
-    let guard = 0;
-    do {
-      src = pool[cursor % pool.length];
-      cursor += 1;
-      guard += 1;
-    } while (recent.includes(src) && guard < pool.length);
-    recent.push(src);
-    if (recent.length > 12) recent.shift();
-    return src;
-  }
-
-  const nodes = LANES.map((lane, index) => {
-    const fig = document.createElement('figure');
-    fig.className = 'sk-float';
-    const img = document.createElement('img');
-    img.alt = '';
-    img.decoding = 'async';
-    fig.append(img);
-    album.append(fig);
-    return { fig, img, lane, index };
-  });
-
-  function spawn(item, first) {
-    item.img.src = nextSrc();
-    item.through = item.lane.through;
-    item.x = item.lane.x;
-    item.w = item.lane.w;
-    item.speed = .0017;
-    item.rot = item.through ? 0 : (item.index === 1 ? -5 : 5);
-    item.phase = item.index * 1.7;
-    item.amp = item.through ? 0 : .012;
-    item.spin = 0;
-    item.y = first ? .12 + item.index * .38 : 1.22;
-  }
-
-  nodes.forEach((node) => spawn(node, true));
-
-  let raf = 0;
-  let last = 0;
-
-  function paint(item, aw, ah, x, w) {
-    item.fig.style.width = `${w}px`;
-    item.fig.style.transform = `translate3d(${x * aw - w / 2}px, ${item.y * ah}px, 0) rotate(${item.rot}deg)`;
-  }
-
-  function frame(now) {
-    raf = requestAnimationFrame(frame);
-    const aw = album.clientWidth || 1;
-    const ah = album.clientHeight || 1;
-    if (motionOff()) {
-      nodes.forEach((item) => {
-        item.y = item.through ? .32 : item.index === 1 ? .18 : .55;
-        item.phase = 0;
-        item.amp = 0;
-        paint(item, aw, ah, item.x, Math.max(140, item.w * aw));
-      });
-      return;
-    }
-    if (section.dataset.act !== '2') return;
-    const dt = Math.min(40, now - last || 16) / 16.67;
-    last = now;
-    const cr = card ? card.getBoundingClientRect() : null;
-    const ar = album.getBoundingClientRect();
-    const cardMid = cr ? (cr.left + cr.width / 2 - ar.left) / aw : .5;
-    const cardTop = cr ? (cr.top - ar.top) / ah : .28;
-    const cardBot = cr ? (cr.bottom - ar.top) / ah : .72;
-    const slotW = cr ? cr.width * .72 : aw * .2;
-
-    for (const item of nodes) {
-      item.y -= item.speed * dt;
-      item.phase += .008 * dt;
-      if (item.y < -.45) spawn(item, false);
-      let x = item.x + Math.sin(item.phase) * item.amp;
-      let w = Math.max(140, item.w * aw);
-      if (item.through && item.y + .4 > cardTop && item.y < cardBot) {
-        x += (cardMid - x) * .2;
-        w += (slotW - w) * .18;
-      }
-      paint(item, aw, ah, x, w);
-    }
-  }
-
-  raf = requestAnimationFrame(frame);
-  addEventListener('eb:motion', () => { last = 0; });
-}
-
 export function initStoryKeep() {
   const section = document.querySelector('#original.story-keep');
   if (!section) return;
@@ -174,8 +67,14 @@ export function initStoryKeep() {
     if (num) num.textContent = row.num;
     if (en) en.textContent = row.en;
     if (verb) verb.textContent = row.verb;
-    if (title) title.textContent = t(row.title);
-    if (lead) lead.textContent = t(row.lead);
+    if (title) {
+      title.textContent = t(row.title);
+      title.style.display = title.textContent.trim() ? '' : 'none';
+    }
+    if (lead) {
+      lead.textContent = t(row.lead);
+      lead.hidden = !lead.textContent.trim();
+    }
     steps.forEach((btn, i) => {
       if (i === next - 1) btn.setAttribute('aria-current', 'true');
       else btn.removeAttribute('aria-current');
@@ -231,7 +130,7 @@ export function initStoryKeep() {
   }, { threshold: [0, 0.1, 0.25, 0.35] });
   watch.observe(section);
 
-  initAlbum(section);
+  initPhotoFlow(section);
   initMeliusArc(section);
   initLetterCollage(section);
   initRecordCta(section);
@@ -359,25 +258,42 @@ function buildFlowTile(spec, index) {
   return tile;
 }
 
-function initMeliusArc(section) {
-  const arc = section.querySelector('.sk-melius-arc');
-  if (!arc) return;
-  arc.replaceChildren();
+const PHOTO_FLOW_BLOCK = 14;
+
+function journeyBleibOpen(section) {
+  return !section.classList.contains('story-keep-bleib')
+    || section.classList.contains('is-bleib-open');
+}
+
+function buildPhotoTile(src, index) {
+  const tile = document.createElement('div');
+  tile.className = 'sk-melius-flow-card sk-tile sk-tile--photo';
+  tile.dataset.id = `photo-${index}`;
+  tile.setAttribute('aria-hidden', 'true');
+  const fig = document.createElement('figure');
+  fig.className = 'sk-photo-flow';
+  const img = document.createElement('img');
+  img.src = src;
+  img.alt = '';
+  img.decoding = 'async';
+  fig.append(img);
+  tile.append(fig);
+  return tile;
+}
+
+/** Left→right cover-flow rail (act 1 letters, act 2 photos). */
+function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang }) {
+  if (!root) return;
+  root.replaceChildren();
 
   const track = document.createElement('div');
   track.className = 'sk-melius-track';
   const rail = document.createElement('div');
   rail.className = 'sk-melius-rail';
-
-  const loop = [...MELIUS_ARC, ...MELIUS_ARC, ...MELIUS_ARC, ...MELIUS_ARC];
-  loop.forEach((spec, index) => {
-    rail.append(buildFlowTile(spec, index % MELIUS_ARC.length));
-  });
-
+  populate(rail);
   track.append(rail);
-  arc.append(track);
+  root.append(track);
 
-  const block = MELIUS_ARC.length;
   let offset = 0;
   let velocity = 1.62;
   const baseVelocity = 1.62;
@@ -389,8 +305,8 @@ function initMeliusArc(section) {
 
   function measureLoop() {
     const cards = rail.querySelectorAll('.sk-melius-flow-card');
-    if (cards.length < block * 3) return;
-    const quarter = block;
+    if (cards.length < blockSize * 3) return;
+    const quarter = blockSize;
     loopWidth = cards[quarter * 2].offsetLeft - cards[quarter].offsetLeft;
     if (loopWidth <= 0) loopWidth = rail.scrollWidth / 4;
   }
@@ -425,7 +341,7 @@ function initMeliusArc(section) {
     if (!last) last = now;
     const dt = Math.min(32, now - last);
     last = now;
-    if (section.dataset.act === '1' && !motionOff()) {
+    if (section.dataset.act === activeAct && !motionOff()) {
       offset += velocity * (dt / 16.67);
       if (loopWidth > 0) {
         while (offset >= loopWidth) offset -= loopWidth;
@@ -438,13 +354,8 @@ function initMeliusArc(section) {
     raf = requestAnimationFrame(tick);
   }
 
-  function journeyBleibOpen() {
-    return !section.classList.contains('story-keep-bleib')
-      || section.classList.contains('is-bleib-open');
-  }
-
   function start() {
-    if (running || motionOff() || section.dataset.act !== '1' || !journeyBleibOpen()) return;
+    if (running || motionOff() || section.dataset.act !== activeAct || !journeyBleibOpen(section)) return;
     running = true;
     last = 0;
     measureLoop();
@@ -461,7 +372,7 @@ function initMeliusArc(section) {
   }
 
   function nudgeMotion(delta) {
-    if (!delta || section.dataset.act !== '1' || motionOff()) return;
+    if (!delta || section.dataset.act !== activeAct || motionOff()) return;
     const push = Math.abs(delta);
     velocity = Math.max(0.6, Math.min(6.5, velocity + delta * 0.006));
     flowSpread = Math.min(1.38, flowSpread + push * 0.002);
@@ -483,13 +394,13 @@ function initMeliusArc(section) {
       paintCards();
       return;
     }
-    if (section.dataset.act === '1' && journeyBleibOpen()) start();
+    if (section.dataset.act === activeAct && journeyBleibOpen(section)) start();
     else stop();
   }
 
   new MutationObserver(syncFlow).observe(section, { attributes: true, attributeFilter: ['data-act', 'class'] });
   const io = new IntersectionObserver((entries) => {
-    if (!journeyBleibOpen()) return;
+    if (!journeyBleibOpen(section)) return;
     if (entries.some((entry) => entry.isIntersecting && entry.intersectionRatio > 0.08)) start();
     else stop();
   }, { threshold: [0, 0.08, 0.2] });
@@ -505,15 +416,55 @@ function initMeliusArc(section) {
     else syncFlow();
   });
 
-  addEventListener('eb:lang', () => {
-    arc.querySelectorAll('[data-i18n]').forEach((node) => {
-      node.textContent = t(node.dataset.i18n);
-    });
-  });
+  if (onLang) addEventListener('eb:lang', onLang);
 
   requestAnimationFrame(() => {
     measureLoop();
     syncFlow();
+  });
+}
+
+function initMeliusArc(section) {
+  const arc = section.querySelector('.sk-melius-arc');
+  if (!arc) return;
+  initMeliusFlow(section, {
+    root: arc,
+    activeAct: '1',
+    blockSize: MELIUS_ARC.length,
+    populate(rail) {
+      const loop = [...MELIUS_ARC, ...MELIUS_ARC, ...MELIUS_ARC, ...MELIUS_ARC];
+      loop.forEach((spec, index) => {
+        rail.append(buildFlowTile(spec, index % MELIUS_ARC.length));
+      });
+    },
+    onLang() {
+      arc.querySelectorAll('[data-i18n]').forEach((node) => {
+        node.textContent = t(node.dataset.i18n);
+      });
+    },
+  });
+}
+
+function initPhotoFlow(section) {
+  const album = section.querySelector('.sk-album');
+  if (!album) return;
+  album.classList.add('sk-album--flow');
+  const pool = PETS.slice();
+  for (let i = pool.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  const picks = pool.slice(0, PHOTO_FLOW_BLOCK);
+  initMeliusFlow(section, {
+    root: album,
+    activeAct: '2',
+    blockSize: PHOTO_FLOW_BLOCK,
+    populate(rail) {
+      const loop = [...picks, ...picks, ...picks, ...picks];
+      loop.forEach((src, index) => {
+        rail.append(buildPhotoTile(src, index % PHOTO_FLOW_BLOCK));
+      });
+    },
   });
 }
 
