@@ -1,4 +1,4 @@
-/* Melius hero — one infinite rail; small/flat at center hub, large at edges */
+/* Melius hero — pet cards orbit the fixed device; headline and hub stay still */
 .eb-melius-home{
   display:none;
   position:absolute;
@@ -65,6 +65,8 @@ html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-ori
 .lang-switch--melius{pointer-events:auto;font-size:12px}
 
 .eb-melius-headline{
+  position:relative;
+  z-index:6;
   flex:none;
   width:min(94vw,54rem);
   margin:0 auto clamp(20px,4vh,36px);
@@ -98,29 +100,23 @@ html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-ori
 
 .eb-melius-stage{
   position:relative;
+  z-index:1;
   flex:1 1 auto;
   width:100%;
   min-height:clamp(200px,38svh,460px);
   max-height:46svh;
   margin:0;
-  overflow:hidden;
+  overflow:visible;
 }
 .eb-melius-track{
   position:absolute;
   inset:0;
-  perspective:2400px;
-  perspective-origin:50% 50%;
+  pointer-events:none;
 }
 .eb-melius-rail{
   position:absolute;
-  left:50%;
-  top:50%;
-  display:flex;
-  align-items:center;
-  gap:clamp(5px,.55vw,8px);
-  transform:translate3d(-50%,-50%,0);
-  transform-style:preserve-3d;
-  will-change:transform;
+  inset:0;
+  pointer-events:none;
 }
 .eb-melius-hub{
   position:absolute;
@@ -151,16 +147,19 @@ html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-ori
   pointer-events:none;
 }
 .eb-melius-card{
-  flex:none;
+  position:absolute;
+  left:50%;
+  top:50%;
   width:clamp(78px,7.2vw,108px);
   height:clamp(104px,9.6vw,144px);
+  margin:0;
   border-radius:12px;
   overflow:hidden;
   background:#d5d0c8;
   box-shadow:0 18px 44px rgba(0,0,0,.12);
+  transform:translate(-50%,-50%);
   transform-origin:center center;
-  transform-style:preserve-3d;
-  backface-visibility:hidden;
+  pointer-events:none;
   will-change:transform,opacity;
 }
 .eb-melius-card img{
@@ -174,6 +173,8 @@ html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-ori
 }
 
 .eb-melius-foot{
+  position:relative;
+  z-index:6;
   flex:none;
   width:min(92vw,34rem);
   margin:clamp(12px,2vh,20px) auto 0;
@@ -239,9 +240,6 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   min-height:100svh;
 }
 
-.eb-melius-home.is-reduced .eb-melius-rail{
-  transform:translate3d(-50%,-50%,0)!important;
-}
 @media(max-width:720px){
   .eb-melius-headline{font-size:clamp(1.6rem,7.2vw,2.15rem)}
   .eb-melius-card{width:68px;height:90px}
@@ -250,7 +248,4 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   .eb-melius-foot__scroll{bottom:clamp(64px,10vh,88px)}
   .eb-melius-foot__cta{margin-top:clamp(12px,2vh,18px)}
   .eb-melius-foot__lead{margin-top:8px}
-}
-@media(prefers-reduced-motion:reduce){
-  .eb-melius-home.is-reduced .eb-melius-card{transform:none!important;opacity:1!important}
 }

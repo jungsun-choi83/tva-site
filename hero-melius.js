@@ -13,6 +13,17 @@ const PET_PHOTOS = [
 
 const DEVICE_FALLBACK = 'assets/hero/beam-device-melius-front-cut.png?v=eb-20260919a';
 
+const CARD_COUNT = 16;
+const TWO_PI = Math.PI * 2;
+const PERIOD_MS = 40000;
+const SCALE_BACK = 0.78;
+const SCALE_FRONT = 1.12;
+const OPACITY_BACK = 0.56;
+const OPACITY_FRONT = 1;
+const BLUR_BACK = 1.4;
+const TILT_MIN = 2;
+const TILT_MAX = 4;
+
 function wrapMeliusGoldLines(home) {
   home?.querySelectorAll('[data-melius-gold-line]').forEach((gold) => {
     const raw = gold.textContent || '';
@@ -34,33 +45,15 @@ function cardMarkup(src, eager) {
   return `<article class="eb-melius-card"><img src="${src}" width="720" height="960" alt="" loading="${load}" decoding="async"${pri}></article>`;
 }
 
-/** Melius-style: flat + small at center hub, large + rotateY at sides */
-function coverFlow(norm, spreadMul = 1) {
-  const n = norm / spreadMul;
-  const t = Math.min(1.18, Math.abs(n));
-  const sign = n < 0 ? -1 : 1;
-  const scale = 0.34 + t * t * (1.28 * spreadMul);
-  const rotateY = -sign * (8 + t * 66);
-  const tz = (1 - Math.min(1, t)) * (-320 - spreadMul * 36);
-  const opacity = t < 0.06 ? 0.35 + t * 8 : 1;
-  return { scale, rotateY, tz, z: Math.round(12 + t * 86), opacity };
+function cardTilt(index) {
+  const span = TILT_MAX - TILT_MIN;
+  const mag = TILT_MIN + ((index * 5) % 7) * (span / 6);
+  return (index % 2 === 0 ? -1 : 1) * mag;
 }
 
-/** Center on hub line; edges dip slightly (not a bowl under the device). */
-function meliusArcLift(norm, trackHeight) {
-  const t = Math.min(1.12, Math.abs(norm));
-  const amp = Math.min(Math.max(trackHeight * 0.12, 24), 56);
-  return amp * t * t;
-}
-
-function hubRailAlignY(heroEl, stageEl) {
-  const dev = heroEl.querySelector('.eb-melius-hub__device');
-  const stageR = stageEl.getBoundingClientRect();
-  if (!dev || stageR.height < 48) return 0;
-  const devR = dev.getBoundingClientRect();
-  const targetY = devR.top + devR.height * 0.36;
-  const railAnchorY = stageR.top + stageR.height * 0.5;
-  return targetY - railAnchorY;
+function wrapAngle(angle) {
+  const wrapped = angle % TWO_PI;
+  return wrapped < 0 ? wrapped + TWO_PI : wrapped;
 }
 
 export function initHeroMelius(isReduced) {
@@ -69,6 +62,7 @@ export function initHeroMelius(isReduced) {
   const home = hero?.querySelector('.eb-melius-home');
   const stage = hero?.querySelector('.eb-melius-stage');
   const rail = hero?.querySelector('.eb-melius-rail');
+  const hub = hero?.querySelector('.eb-melius-hub');
   const hubImg = hero?.querySelector('.eb-melius-hub__device');
   if (!hero || !home || !stage || !rail) return;
 
@@ -85,59 +79,53 @@ export function initHeroMelius(isReduced) {
     );
   }
 
-  const sequence = PET_PHOTOS.slice(0, 16);
-  const loop = [...sequence, ...sequence, ...sequence];
-  rail.innerHTML = loop.map((src, i) => cardMarkup(src, i < 10)).join('');
+  const sequence = PET_PHOTOS.slice(0, CARD_COUNT);
+  const phases = sequence.map((_, i) => (i / CARD_COUNT) * TWO_PI);
+  const tilts = sequence.map((_, i) => cardTilt(i));
+  const radiusMul = sequence.map((_, i) => 0.9 + (i % 4) * 0.045);
+  rail.innerHTML = sequence.map((src, i) => cardMarkup(src, i < 8)).join('');
+  const cards = [...rail.querySelectorAll('.eb-melius-card')];
 
-  let offset = 0;
-  let velocity = 1.62;
-  const baseVelocity = 1.62;
-  let flowSpread = 1;
-  let loopWidth = 0;
   let raf = 0;
   let running = false;
-  let last = 0;
+  let origin = 0;
+  let pausedAt = 0;
 
-  function applyRailTransform() {
-    const alignY = hubRailAlignY(hero, stage);
-    rail.style.transform = `translate3d(calc(-50% + ${offset.toFixed(2)}px), calc(-50% + ${alignY.toFixed(1)}px), 0)`;
+  function ellipseMetrics() {
+    const homeR = home.getBoundingClientRect();
+    const hubR = hub?.getBoundingClientRect();
+    const mobile = innerWidth <= 720;
+    const hubW = hubR?.width || (mobile ? 130 : 180);
+    const hubH = hubR?.height || hubW * 1.12;
+    const keep = Math.max(hubW, hubH) * 0.58 + (mobile ? 36 : 52);
+    const maxRx = Math.max(96, homeR.width * 0.5 - (mobile ? 42 : 64));
+    const maxRy = Math.max(72, homeR.height * 0.5 - (mobile ? 88 : 72));
+    const rx = Math.min(Math.max(homeR.width * (mobile ? 0.36 : 0.4), keep + 20), maxRx);
+    const ry = Math.min(Math.max(homeR.height * (mobile ? 0.2 : 0.28), keep * 0.72), maxRy);
+    return { rx, ry, keep };
   }
 
-  function measureLoop() {
-    const cards = rail.querySelectorAll('.eb-melius-card');
-    if (cards.length < 3) return;
-    const third = cards.length / 3;
-    loopWidth = cards[third * 2].offsetLeft - cards[third].offsetLeft;
-    if (loopWidth <= 0) loopWidth = rail.scrollWidth / 3;
-  }
-
-  function paintCards() {
-    const rect = stage.getBoundingClientRect();
-    const hubX = rect.left + rect.width * 0.5;
-    const spread = Math.max(rect.width * 0.46, 340);
-    const hubHalf = (hero.querySelector('.eb-melius-hub')?.getBoundingClientRect().width || 0) * 0.32;
-
-    rail.querySelectorAll('.eb-melius-card').forEach((card) => {
-      const box = card.getBoundingClientRect();
-      const cx = box.left + box.width * 0.5;
-      const distFromHub = Math.abs(cx - hubX);
-      const norm = (cx - hubX) / spread;
-      const { scale, rotateY, tz, z, opacity } = coverFlow(norm, flowSpread);
-      const arcY = meliusArcLift(norm, rect.height);
-      const rotateZ = norm * -5.8;
-
-      let hide = 1;
-      if (distFromHub < hubHalf * 1.02) {
-        hide = Math.max(0.12, (distFromHub - hubHalf * 0.06) / (hubHalf * 0.72));
-      }
-      const zCap = distFromHub < hubHalf * 0.95 ? Math.min(z, 36) : Math.min(z, 44);
-      card.style.zIndex = String(zCap);
-      card.style.opacity = String(Math.min(opacity, hide));
+  function paint(angle) {
+    const { rx, ry, keep } = ellipseMetrics();
+    const keepSq = keep * keep;
+    cards.forEach((card, i) => {
+      const theta = wrapAngle(angle + phases[i]);
+      const r = radiusMul[i];
+      const x = rx * r * Math.cos(theta);
+      const y = ry * r * Math.sin(theta);
+      const depth = (Math.sin(theta) + 1) / 2;
+      const scale = SCALE_BACK + (SCALE_FRONT - SCALE_BACK) * depth;
+      const opacity = OPACITY_BACK + (OPACITY_FRONT - OPACITY_BACK) * depth;
+      const blur = (1 - depth) * BLUR_BACK;
+      const nearHub = x * x + y * y < keepSq;
+      const z = nearHub ? Math.round(8 + depth * 24) : Math.round(14 + depth * 32);
+      card.style.zIndex = String(z);
+      card.style.opacity = opacity.toFixed(3);
+      card.style.filter = blur > 0.18 ? `blur(${blur.toFixed(2)}px)` : 'none';
       card.style.transform = [
-        `translateY(${arcY.toFixed(1)}px)`,
-        `rotateY(${rotateY.toFixed(2)}deg)`,
-        `rotateZ(${rotateZ.toFixed(2)}deg)`,
-        `translateZ(${tz.toFixed(1)}px)`,
+        'translate(-50%, -50%)',
+        `translate(${x.toFixed(1)}px, ${y.toFixed(1)}px)`,
+        `rotate(${tilts[i].toFixed(2)}deg)`,
         `scale(${scale.toFixed(3)})`,
       ].join(' ');
     });
@@ -145,54 +133,31 @@ export function initHeroMelius(isReduced) {
 
   function tick(now) {
     if (!running) return;
-    if (!last) last = now;
-    const dt = Math.min(32, now - last);
-    last = now;
-    offset += velocity * (dt / 16.67);
-    if (loopWidth > 0) {
-      while (offset >= loopWidth) offset -= loopWidth;
-    }
-    velocity += (baseVelocity - velocity) * 0.032;
-    flowSpread += (1 - flowSpread) * 0.045;
-    applyRailTransform();
-    paintCards();
+    paint(((now - origin) / PERIOD_MS) * TWO_PI);
     raf = requestAnimationFrame(tick);
   }
 
   function start() {
     if (running) return;
     running = true;
-    last = 0;
-    measureLoop();
-    offset = loopWidth * 0.33;
-    applyRailTransform();
+    origin = performance.now() - pausedAt;
     raf = requestAnimationFrame(tick);
   }
 
   function stop() {
+    if (running && origin) pausedAt = performance.now() - origin;
     running = false;
-    last = 0;
     if (raf) cancelAnimationFrame(raf);
     raf = 0;
   }
 
-  function nudgeMotion(delta) {
-    if (!delta) return;
-    const push = Math.abs(delta);
-    velocity = Math.max(0.65, Math.min(6.8, velocity + delta * 0.0062));
-    flowSpread = Math.min(1.42, flowSpread + push * 0.0021);
-    offset += delta * 0.32;
-    if (loopWidth > 0) {
-      while (offset >= loopWidth) offset -= loopWidth;
-      while (offset < 0) offset += loopWidth;
-    }
+  function reduced() {
+    return home.classList.contains('is-reduced') || Boolean(isReduced?.());
   }
 
-  function onWheel(event) {
-    if (hero.dataset.powerState !== 'locked') return;
-    const rect = hero.getBoundingClientRect();
-    if (rect.bottom < innerHeight * 0.15 || rect.top > innerHeight * 0.4) return;
-    nudgeMotion(event.deltaY || event.deltaX);
+  function freeze() {
+    stop();
+    paint(0);
   }
 
   const syncUi = () => {
@@ -200,39 +165,37 @@ export function initHeroMelius(isReduced) {
     root.dataset.heroUi = on ? 'melius' : '';
     home.setAttribute('aria-hidden', on ? 'false' : 'true');
     stage.setAttribute('aria-hidden', on ? 'false' : 'true');
-    if (on) {
-      measureLoop();
-      start();
-    } else stop();
+    if (!on) {
+      stop();
+      return;
+    }
+    if (reduced()) freeze();
+    else start();
   };
 
   syncUi();
   new MutationObserver(syncUi).observe(hero, { attributes: true, attributeFilter: ['data-power-state'] });
   window.addEventListener('resize', () => {
-    measureLoop();
-    applyRailTransform();
-    paintCards();
+    if (hero.dataset.powerState !== 'locked') return;
+    if (running) return;
+    paint(pausedAt ? (pausedAt / PERIOD_MS) * TWO_PI : 0);
   });
-  window.addEventListener('wheel', onWheel, { passive: true });
+  document.addEventListener('visibilitychange', () => {
+    if (document.hidden) stop();
+    else if (hero.dataset.powerState === 'locked' && !reduced()) start();
+  });
+  window.addEventListener('tva:motion', (event) => {
+    if (event.detail?.reduced) {
+      home.classList.add('is-reduced');
+      freeze();
+      return;
+    }
+    home.classList.remove('is-reduced');
+    if (hero.dataset.powerState === 'locked') start();
+  });
 
-  let lastScrollY = window.scrollY;
-  window.addEventListener(
-    'scroll',
-    () => {
-      if (hero.dataset.powerState !== 'locked') return;
-      const dy = window.scrollY - lastScrollY;
-      lastScrollY = window.scrollY;
-      nudgeMotion(dy);
-    },
-    { passive: true },
-  );
-
-  if (isReduced?.()) {
+  if (reduced()) {
     home.classList.add('is-reduced');
-    velocity = 0;
-    stop();
-    measureLoop();
-    applyRailTransform();
-    paintCards();
+    freeze();
   }
 }
