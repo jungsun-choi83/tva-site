@@ -87,10 +87,17 @@
 #about.about-bleib .about-bleib-board:hover{
   transform:translateY(-2px);
   box-shadow:0 18px 40px rgba(23,25,35,.08);
+  filter:brightness(1.025);
 }
 #about.about-bleib .about-bleib-board:focus-visible{
   outline:2px solid #171923;
   outline-offset:4px;
+}
+#about.about-bleib .about-bleib-board:active{
+  transform:translateY(1px) scale(.995);
+  box-shadow:0 5px 14px rgba(23,25,35,.12);
+  filter:brightness(.97);
+  transition-duration:80ms;
 }
 #about.about-bleib.is-grid-open .about-bleib-board{
   filter:saturate(.98);
@@ -141,10 +148,8 @@
   display:flex;
   flex-direction:column;
   min-height:0;
-  max-height:calc(100svh - var(--nav-height,64px));
-  overflow-x:hidden;
-  overflow-y:auto;
-  overscroll-behavior:contain;
+  max-height:none;
+  overflow:visible;
   background:var(--about-bleib-beige-deep);
   padding:0;
   opacity:0;
@@ -278,7 +283,7 @@ html[data-about-grid="open"]{
 }
 #about.about-bleib .studio-station[data-type-slot="3"]{
   --type-order:3;--type-align:flex-end;--type-w:min(58%,440px);
-  --type-ml:auto;--type-mr:0;--type-x:clamp(36px,7vw,72px);text-align:right
+  --type-ml:auto;--type-mr:clamp(4%,6vw,10%);--type-x:0;text-align:right
 }
 #about.about-bleib .studio-station[data-type-slot="4"]{
   --type-order:4;--type-align:flex-start;--type-w:min(72%,510px);
@@ -347,11 +352,13 @@ html[data-about-grid="open"]{
 }
 .about-bleib-flip__face--front{
   display:block;
+  min-height:44px;
   padding:0;
   border:0;
   background:transparent;
   cursor:pointer;
   text-align:inherit;
+  touch-action:manipulation;
 }
 .about-bleib-flip__face--front:focus-visible{
   outline:2px solid #171923;
@@ -375,9 +382,19 @@ html[data-about-grid="open"]{
   color:transparent;
   transition:opacity .2s ease;
 }
-.about-bleib-flip__face--front:hover .about-bleib-type__title,
 .about-bleib-flip__face--front:focus-visible .about-bleib-type__title{
   animation:about-bleib-title-blink 1.05s ease-in-out infinite;
+}
+@media(hover:hover) and (pointer:fine){
+  .about-bleib-flip__face--front:hover .about-bleib-type__title{
+    animation:about-bleib-title-blink 1.05s ease-in-out infinite;
+  }
+}
+@media(hover:none),(pointer:coarse){
+  .about-bleib-flip__face--front:hover .about-bleib-type__title{
+    animation:none!important;
+    opacity:1;
+  }
 }
 #about.about-bleib .studio-station:not(.is-flipped) .about-bleib-flip{
   min-height:0;
@@ -578,6 +595,38 @@ html[data-about-grid="open"]{
 #about.about-bleib .station-exit.is-flipped .about-bleib-flip{
   min-height:clamp(380px,50vh,520px);
 }
+#about.about-bleib .about-detail-overlay{
+  position:fixed;
+  z-index:80;
+  top:var(--nav-height,64px);
+  right:0;
+  bottom:0;
+  left:0;
+  box-sizing:border-box;
+  padding:clamp(18px,3vh,28px) clamp(18px,4vw,48px) max(clamp(18px,3vh,28px),env(safe-area-inset-bottom));
+  overflow-x:hidden;
+  overflow-y:auto;
+  overscroll-behavior-y:auto;
+  background:var(--about-bleib-beige-deep);
+}
+#about.about-bleib .about-detail-overlay[hidden]{display:none!important}
+#about.about-bleib .about-detail-overlay__content{
+  width:min(980px,100%);
+  min-height:100%;
+  margin:0 auto;
+}
+#about.about-bleib .about-detail-overlay .about-bleib-flip__face--back{
+  position:relative;
+  inset:auto;
+  display:flex;
+  width:100%;
+  min-height:clamp(420px,58vh,580px);
+  height:auto;
+  max-height:none;
+  transform:none;
+  backface-visibility:visible;
+  overflow:visible;
+}
 #about.about-bleib .exit-arrow{display:none}
 @media (prefers-reduced-motion:reduce){
   #about.about-bleib .beam-gold:hover,
@@ -591,6 +640,7 @@ html[data-about-grid="open"]{
     position:relative;
     transform:none;
   }
+  #about.about-bleib .about-detail-overlay .about-bleib-flip__face--back{transform:none}
   .about-bleib-flip__face--front:hover .about-bleib-type__title,
   .about-bleib-flip__face--front:focus-visible .about-bleib-type__title{
     animation:none;

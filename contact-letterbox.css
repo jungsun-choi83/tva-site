@@ -45,8 +45,8 @@
   position:relative;
   width:100%;
   min-height:var(--ctlH);
-  overflow:auto;
-  overscroll-behavior:contain;
+  overflow:visible;
+  overscroll-behavior:auto;
 }
 .ctl .ctl-shell{
   min-height:var(--ctlH);
@@ -90,6 +90,16 @@
   object-position:50% 42%;
   opacity:1;
   filter:saturate(.95) contrast(1.04);
+  pointer-events:none;
+}
+.ctl-viz-image{
+  position:absolute;
+  inset:0;
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
   pointer-events:none;
 }
 .ctl-card__viz:after{

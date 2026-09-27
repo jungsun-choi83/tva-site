@@ -6,9 +6,7 @@ import { applyI18n, getLang, t } from './i18n.js?v=eb-20260919v';
 
 
 
-const V = 'eb-20260919z';
-const GOYA_VIDEO = `assets/contact/goya-space-astronaut-float.mp4?v=${V}`;
-const GOYA_POSTER = `assets/contact/goya-space-astronaut-poster.webp?v=${V}`;
+const CONTACT_IMAGE = 'gallery-original/assets/photos/optimized/dogc.png';
 
 const MAIL = 'jadechoi@eternalbeamapp.com';
 
@@ -31,9 +29,7 @@ function markup() {
     <article class="ctl-card" aria-labelledby="ctl-contact-title">
 
       <div class="ctl-card__viz" aria-hidden="true">
-        <video class="ctl-viz-video" autoplay loop muted playsinline disablepictureinpicture preload="auto" poster="${GOYA_POSTER}" width="720" height="900">
-          <source src="${GOYA_VIDEO}" type="video/mp4">
-        </video>
+        <img class="ctl-viz-image" src="${CONTACT_IMAGE}" width="1122" height="1402" alt="" decoding="async">
       </div>
 
       <div class="ctl-card__body">
@@ -139,6 +135,8 @@ function objectParticle(word) {
 
 
 function mailHref(name, email, phone, subject, message) {
+
+  // Follow-up: replace this mailto handoff with a real form endpoint; some in-app browsers do not open mail clients reliably.
 
   const head = [`${t('contact.mailName')}: ${name}`, `${t('contact.mailEmail')}: ${email}`];
 

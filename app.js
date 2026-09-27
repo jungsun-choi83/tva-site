@@ -1,13 +1,13 @@
-import { initLang } from './i18n.js?v=eb-20260920i';
+import { initLang } from './i18n.js?v=eb-20260926-static-hero-1';
 import {initNavShelf} from './nav-shelf.js?v=eb-20260914bc';
-import { initPortfolio } from './portfolio.js?v=eb-20260914l';
-import { initContact } from './contact-letterbox.js?v=eb-20260920i';
-import { initJourney } from './journey.js?v=eb-20260919y';
-import { initStoryKeep } from './story-keep.js?v=eb-20260920e';
-import { initHeroOriginal } from './hero-original.js?v=eb-20260918p';
+import { initPortfolio } from './portfolio.js?v=scroll-ownership-1';
+import { initContact } from './contact-letterbox.js?v=eb-20260927-contact-dogc-1';
+import { initJourney } from './journey.js?v=eb-20260926-about-click-2';
+import { initStoryKeep } from './story-keep.js?v=eb-20260927-keep-images-1';
+import { initHeroOriginal } from './hero-original.js?v=eb-20260921a';
 import { initCharacterDirection } from './character-direction.js?v=eb-20260913';
 import { initBeamRail } from './beam-rail.js?v=eb-20260918p';
-import { initHeroMelius } from './hero-melius.js?v=eb-20260920k';
+import { initHeroMelius } from './hero-melius.js?v=eb-20260926-orbit-3';
 
 initLang();
 
@@ -181,6 +181,14 @@ if (motionToggle) {
   syncToggle();
 }
 applyMotion();
+
+// Keep anchor navigation immediate while visibly acknowledging the click during the opening transition.
+document.querySelectorAll('.hero-original__scroll,.eb-melius-foot__scroll').forEach(control => {
+  control.addEventListener('click', () => {
+    control.classList.add('is-clicked');
+    window.setTimeout(() => control.classList.remove('is-clicked'), 320);
+  });
+});
 
 const aliases = { studio: 'about', work: 'portfolio', lab: 'original', drop: 'about' };
 const destinations = new Set(['home', 'about', 'portfolio', 'original', 'contact']);
@@ -680,7 +688,7 @@ function handleEntryWheel(event, source = wheelSource(event)) {
 function handleSectionWheel(event, source = wheelSource(event)) {
   // 4px 미만의 약한 입력(관성 먼지)으로는 구역 이동을 시작하지 않고, 페이지도 밀리지 않게 한다.
   // (사진 구역 안에서는 이 함수의 false 가 곧 '페이지를 그만큼 밀어라'는 뜻이라 true 로 막는다)
-  if (Math.abs(event.deltaY) < 4 && event.deltaMode === 0) { event.preventDefault(); return true; }
+  if (Math.abs(event.deltaY) < 4 && event.deltaMode === 0) return false;
   if (event.ctrlKey || !event.deltaY || Math.abs(event.deltaX) > Math.abs(event.deltaY)
     || replaying
     || document.querySelector('dialog[open]') || editableInView() || wheelSourceIsEditable(source)) return false;

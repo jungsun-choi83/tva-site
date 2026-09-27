@@ -18,3 +18,42 @@
 }
 .portfolio-sample-note span{font:10px/1.4 var(--mono);letter-spacing:.08em;text-transform:uppercase}
 @media(max-width:760px){.portfolio-sample-note{right:0;border-right:0;padding:8px 12px;font-size:10px}}
+
+#portfolio.portfolio-bleib.is-bleib-open #portfolio-mount{
+  flex:0 0 auto;
+  width:100%;
+  height:clamp(620px,calc(100svh - 190px),820px);
+  min-height:620px;
+}
+.portfolio-scroll-indicator{
+  flex:none;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  gap:10px;
+  margin:18px 24px 6px 372px;
+  padding-top:14px;
+  border-top:1px solid var(--line);
+  color:var(--muted);
+  font:500 10px/1 var(--mono);
+  letter-spacing:.2em;
+}
+.portfolio-scroll-indicator i{font-style:normal;font-size:16px;line-height:1}
+#portfolio.portfolio-bleib.is-bleib-open .portfolio-sample-note{
+  position:absolute;
+  z-index:4;
+  left:48px;
+  right:auto;
+  bottom:42px;
+  width:252px;
+  box-sizing:border-box;
+  border:1px solid var(--line);
+  background:rgb(255 255 255 / .96);
+}
+@media(max-width:760px){
+  #portfolio.portfolio-bleib.is-bleib-open #portfolio-mount{height:clamp(560px,78svh,720px);min-height:560px}
+  .portfolio-scroll-indicator{margin:16px 16px 8px;padding-top:12px}
+  #portfolio.portfolio-bleib.is-bleib-open .portfolio-sample-note{
+    position:relative;left:auto;right:auto;bottom:auto;width:auto;margin:8px 16px 0;border-right:1px solid var(--line)
+  }
+}

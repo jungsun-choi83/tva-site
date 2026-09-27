@@ -5,7 +5,7 @@
   "scripts": {
     "check": "node qa-check.mjs",
     "capture": "node audit/capture.mjs capture",
-    "serve": "python3 -m http.server 8000"
+    "serve": "python serve.py"
   },
   "repository": {
     "type": "git",

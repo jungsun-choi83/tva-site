@@ -25,6 +25,8 @@
 .station-copy,.about-topline,.station-copy p,.station-copy h3{word-break:keep-all;overflow-wrap:break-word}
 /* 2026-09-10 사장님: ABOUT 아래 조종줄(OUR WORK ··· SCROLL TO EXPLORE) 위의 가는 선 제거 */
 .studio-controls{border-top:0}
+.studio-controls button:disabled{opacity:.38;cursor:not-allowed}
+.studio-controls button:disabled:hover,.studio-controls button:disabled:focus-visible{color:#a5a6aa}
 
 /* 2026-09-11 사장님: 마지막 칸 문구를 앞 정거장들과 똑같은 구성(번호·영문 제목·한글 두 줄·영문 한 줄·범위)으로. "모든 프로세스가 가능합니다." */
 .station-exit{display:block;width:80vw;min-width:700px;height:100%;padding:clamp(170px,24vh,210px) 6vw 160px;align-items:initial;justify-content:initial}
