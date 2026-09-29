@@ -1,10 +1,11 @@
-import { initLang } from './i18n.js?v=eb-20260926-static-hero-1';
-import {initNavShelf} from './nav-shelf.js?v=eb-20260914bc';
-import { initPortfolio } from './portfolio.js?v=scroll-ownership-1';
-import { initContact } from './contact-letterbox.js?v=eb-20260927-contact-dogc-1';
-import { initJourney } from './journey.js?v=eb-20260926-about-click-2';
-import { initStoryKeep } from './story-keep.js?v=eb-20260927-keep-images-1';
-import { initHeroOriginal } from './hero-original.js?v=eb-20260921a';
+import { initLang } from './i18n.js?v=eb-20260927-merge-1';
+import { initNavShelf } from './nav-shelf.js?v=eb-20260927-merge-1';
+import { initPortfolio } from './portfolio.js?v=eb-20260927-merge-1';
+import { initContact } from './contact-letterbox.js?v=eb-20260927-merge-1';
+import { initJourney } from './journey.js?v=eb-20260927-merge-1';
+import { initStoryKeep } from './story-keep.js?v=eb-20260927-merge-1';
+import { initHeroOriginal } from './hero-original.js?v=eb-20260927-merge-1';
+
 import { initCharacterDirection } from './character-direction.js?v=eb-20260913';
 import { initBeamRail } from './beam-rail.js?v=eb-20260918p';
 import { initHeroMelius } from './hero-melius.js?v=eb-20260926-orbit-3';
