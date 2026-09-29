@@ -368,6 +368,9 @@ html[data-power-state="locked"] .hero[data-hero-resting="true"][data-hero-docume
 .hero[data-hero-visual="keyvisual-v1"] .hero-original__scroll{z-index:17}
 .hero[data-hero-visual="keyvisual-v1"] .hero-original__scroll:focus-visible{outline:2px solid #f0e8d4;outline-offset:5px}
 .hero[data-hero-visual="keyvisual-v1"] .hero-original__scroll.is-script-focus:focus-visible{outline:none}
+.hero[data-hero-visual="keyvisual-v1"] .hero-original__scroll:hover{color:#fff;filter:brightness(1.16)}
+.hero[data-hero-visual="keyvisual-v1"] .hero-original__scroll:active,
+.hero[data-hero-visual="keyvisual-v1"] .hero-original__scroll.is-clicked{opacity:.58;transform:translateY(2px);filter:brightness(1.3)}
 html[data-power-state="off"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__scroll,
 html[data-power-state="mark"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__scroll,
 html[data-power-state="mark-out"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__scroll,

@@ -10,7 +10,7 @@
 폴더 안에서 작은 서버를 띄우고 브라우저로 엽니다.
 
 ```sh
-python3 -m http.server 8000
+python serve.py
 # http://127.0.0.1:8000/
 ```
 

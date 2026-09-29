@@ -13,7 +13,7 @@ const LETTERS = [
 ];
 
 /** Left→right along Melius-style U arc (decorative + three openable letters). */
-const MELIUS_ARC = [
+/* Previous graphic UI card set retained here only as design history.
   { kind: 'deco', variant: '04', sticker: '💌', line: 'FOR YOU' },
   { kind: 'deco', variant: '05', sticker: '★', line: 'EB' },
   { kind: 'letter', id: '01', variant: '01' },
@@ -27,24 +27,181 @@ const MELIUS_ARC = [
   { kind: 'deco', variant: '11', sticker: '📎', line: 'tape' },
   { kind: 'deco', variant: '12', sticker: '☺', line: 'hi!' },
   { kind: 'deco', variant: '13', sticker: '♪', line: 'hum' },
+]; */
+
+const MELIUS_ARC = [
+  { kind: 'letter', id: '01', image: 'gallery-original/assets/photos/optimized/letters/l1.png' },
+  { kind: 'deco', image: 'gallery-original/assets/photos/optimized/letters/l2.png' },
+  { kind: 'deco', image: 'gallery-original/assets/photos/optimized/letters/l3.png' },
+  { kind: 'letter', id: '02', image: 'gallery-original/assets/photos/optimized/letters/l4.png' },
+  { kind: 'deco', image: 'gallery-original/assets/photos/optimized/letters/l5.png' },
+  { kind: 'deco', image: 'gallery-original/assets/photos/optimized/letters/l6.png' },
+  { kind: 'letter', id: '03', image: 'gallery-original/assets/photos/optimized/letters/l7.png' },
+  { kind: 'deco', image: 'gallery-original/assets/photos/optimized/letters/l8.png' },
 ];
 
 const PET_V = 'eb-20260914v';
 const PETS = [
-  ...Array.from({ length: 36 }, (_, i) => `assets/journey/pets/p${String(i + 1).padStart(2, '0')}.webp?v=${PET_V}`),
-  `assets/journey/pets/shiba.webp?v=eb-20260914s`,
-  `assets/journey/pets/beagle.webp?v=eb-20260914s`,
-  `assets/journey/pets/husky.webp?v=eb-20260914s`,
-  `assets/journey/pets/retriever.webp?v=eb-20260914s`,
-  `assets/journey/pets/puppy.webp?v=eb-20260914s`,
-  `assets/journey/pets/tabby.webp?v=eb-20260914s`,
-  `assets/journey/pets/black-cat.webp?v=eb-20260914s`,
-  `assets/journey/pets/grey-cat.webp?v=eb-20260914s`,
+  ...Array.from({ length: 16 }, (_, i) => `assets/journey/pets/p${String(i + 1).padStart(2, '0')}.webp?v=${PET_V}`),
 ];
 
 function motionOff() {
   return document.documentElement.classList.contains('reduced-motion')
     || matchMedia('(prefers-reduced-motion: reduce)').matches;
+}
+
+function initAlbum(section) {
+  const album = section.querySelector('.sk-album');
+  const card = section.querySelector('.sk-card');
+  if (!album) return;
+  album.replaceChildren();
+
+  const LANES = [
+    { role: 'storage', through: true, x: .5, w: .2 },
+    { role: 'incoming', through: false, x: .13, w: .15 },
+    { role: 'preserved', through: false, x: .87, w: .15 },
+  ];
+  const pool = PETS.slice();
+  for (let i = pool.length - 1; i > 0; i -= 1) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [pool[i], pool[j]] = [pool[j], pool[i]];
+  }
+  let cursor = 0;
+  const recent = [];
+
+  function nextSrc() {
+    let src;
+    let guard = 0;
+    do {
+      src = pool[cursor % pool.length];
+      cursor += 1;
+      guard += 1;
+    } while (recent.includes(src) && guard < pool.length);
+    recent.push(src);
+    if (recent.length > 12) recent.shift();
+    return src;
+  }
+
+  const nodes = LANES.map((lane, index) => {
+    const fig = document.createElement('figure');
+    fig.className = `sk-float sk-float--${lane.role}`;
+    fig.dataset.lane = lane.role;
+    const img = document.createElement('img');
+    img.alt = '';
+    img.decoding = 'async';
+    const extraImages = [];
+    const caption = document.createElement('figcaption');
+    fig.append(...extraImages, img, caption);
+    album.append(fig);
+    return {
+      fig, img, extraImages, caption, lane, index,
+      cardFocus: 0, inCard: false, hasDwelled: false, dwellRemaining: 0,
+    };
+  });
+
+  function spawn(item, first) {
+    item.img.src = nextSrc();
+    item.caption.textContent = item.lane.role === 'preserved' ? 'KEPT CLOSE' : 'MEMORY';
+    item.through = item.lane.through;
+    item.x = item.lane.x;
+    item.w = item.lane.w;
+    item.speed = .00265;
+    item.rot = item.through ? 0 : (item.index === 1 ? -5 : 5);
+    item.phase = item.index * 1.7;
+    item.amp = item.through ? 0 : .006;
+    item.spin = 0;
+    item.cardFocus = 0;
+    item.inCard = false;
+    item.hasDwelled = false;
+    item.dwellRemaining = 0;
+    item.fig.classList.remove('is-in-card');
+    item.y = first ? .12 + item.index * .38 : 1.22;
+  }
+
+  nodes.forEach((node) => spawn(node, true));
+
+  let raf = 0;
+  let last = 0;
+
+  function paint(item, aw, ah, x, w) {
+    const focus = item.cardFocus || 0;
+    const rotation = item.rot * (1 - focus * .9);
+    const scale = 1 + focus * .06;
+    item.fig.style.width = `${w}px`;
+    item.fig.style.transform = `translate3d(${x * aw - w / 2}px, ${item.y * ah}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
+  }
+
+  function frame(now) {
+    raf = requestAnimationFrame(frame);
+    const aw = album.clientWidth || 1;
+    const ah = album.clientHeight || 1;
+    if (motionOff()) {
+      const reducedCardWidth = card?.getBoundingClientRect().width || aw * .2;
+      nodes.forEach((item) => {
+        item.y = item.through ? .32 : item.index === 1 ? .18 : .55;
+        item.phase = 0;
+        item.amp = 0;
+        item.cardFocus = item.through ? 1 : 0;
+        item.fig.classList.toggle('is-in-card', item.through);
+        const w = item.through
+          ? Math.max(96, reducedCardWidth * .72)
+          : Math.max(112, Math.min(190, reducedCardWidth * .7));
+        const edgeInset = item.through ? 0 : (w * .68) / aw;
+        const x = item.through ? item.x : Math.max(edgeInset, Math.min(1 - edgeInset, item.x));
+        paint(item, aw, ah, x, w);
+      });
+      return;
+    }
+    if (section.dataset.act !== '2') return;
+    const dt = Math.min(40, now - last || 16) / 16.67;
+    last = now;
+    const cr = card ? card.getBoundingClientRect() : null;
+    const ar = album.getBoundingClientRect();
+    const cardMid = cr ? (cr.left + cr.width / 2 - ar.left) / aw : .5;
+    const cardTop = cr ? (cr.top - ar.top) / ah : .28;
+    const cardBot = cr ? (cr.bottom - ar.top) / ah : .72;
+    const slotW = cr ? cr.width * .72 : aw * .2;
+
+    for (const item of nodes) {
+      let travelRate = 1;
+      if (item.through && item.inCard) travelRate = .48;
+      if (item.through && item.dwellRemaining > 0) {
+        item.dwellRemaining = Math.max(0, item.dwellRemaining - dt * 16.67);
+        travelRate = .06;
+      }
+      item.y -= item.speed * dt * travelRate;
+      item.phase += .008 * dt;
+      if (item.y < -.45) spawn(item, false);
+      let x = item.x + Math.sin(item.phase) * item.amp;
+      let w = item.through
+        ? (cr ? slotW : Math.max(96, Math.min(190, item.w * aw)))
+        : Math.max(112, Math.min(190, cr ? cr.width * .7 : item.w * aw));
+      if (!item.through) {
+        const edgeInset = (w * .68) / aw;
+        x = Math.max(edgeInset, Math.min(1 - edgeInset, x));
+      }
+      const photoHeight = (w * 4 / 3) / ah;
+      const isInCard = item.through
+        && item.y + photoHeight * .72 > cardTop
+        && item.y + photoHeight * .28 < cardBot;
+      const photoCenter = item.y + photoHeight * .5;
+      const cardCenter = (cardTop + cardBot) * .5;
+      if (isInCard && !item.hasDwelled && Math.abs(photoCenter - cardCenter) < photoHeight * .14) {
+        item.hasDwelled = true;
+        item.dwellRemaining = 440;
+      }
+      item.inCard = isInCard;
+      item.cardFocus += ((isInCard ? 1 : 0) - item.cardFocus) * .12;
+      item.fig.classList.toggle('is-in-card', isInCard);
+      if (isInCard) {
+        x += (cardMid - x) * .2;
+      }
+      paint(item, aw, ah, x, w);
+    }
+  }
+
+  raf = requestAnimationFrame(frame);
+  addEventListener('eb:motion', () => { last = 0; });
 }
 
 export function initStoryKeep() {
@@ -67,14 +224,8 @@ export function initStoryKeep() {
     if (num) num.textContent = row.num;
     if (en) en.textContent = row.en;
     if (verb) verb.textContent = row.verb;
-    if (title) {
-      title.textContent = t(row.title);
-      title.style.display = title.textContent.trim() ? '' : 'none';
-    }
-    if (lead) {
-      lead.textContent = t(row.lead);
-      lead.hidden = !lead.textContent.trim();
-    }
+    if (title) title.textContent = t(row.title);
+    if (lead) lead.textContent = t(row.lead);
     steps.forEach((btn, i) => {
       if (i === next - 1) btn.setAttribute('aria-current', 'true');
       else btn.removeAttribute('aria-current');
@@ -130,7 +281,7 @@ export function initStoryKeep() {
   }, { threshold: [0, 0.1, 0.25, 0.35] });
   watch.observe(section);
 
-  initPhotoFlow(section);
+  initAlbum(section);
   initMeliusArc(section);
   initLetterCollage(section);
   initRecordCta(section);
@@ -162,68 +313,46 @@ function initRecordCta(section) {
   btn.addEventListener('click', () => {
     nudge();
     if (section.dataset.act !== '1') return;
-    const first = section.querySelector('.sk-tile--letter[data-letter="01"]');
-    first?.focus({ preventScroll: true });
+    section.dispatchEvent(new CustomEvent('sk:open-letter-reader'));
   });
 }
 
-function buildLetterCard(variant, { num, previewKey, sticker, line } = {}) {
+function buildLetterCard(image) {
   const card = document.createElement('span');
-  card.className = `sk-letter-card sk-letter-card--${variant}`;
-  if (num) {
-    const n = document.createElement('span');
-    n.className = 'sk-letter-card__num';
-    n.textContent = num;
-    card.append(n);
-  }
-  const mark = document.createElement('span');
-  mark.className = 'sk-letter-card__mark';
-  mark.setAttribute('aria-hidden', 'true');
-  card.append(mark);
-  if (sticker) {
-    const st = document.createElement('span');
-    st.className = 'sk-letter-card__sticker';
-    st.textContent = sticker;
-    card.append(st);
-  }
-  if (previewKey) {
-    const prev = document.createElement('span');
-    prev.className = 'sk-letter-card__preview';
-    prev.dataset.i18n = previewKey;
-    prev.textContent = t(previewKey);
-    card.append(prev);
-  } else if (line) {
-    const prev = document.createElement('span');
-    prev.className = 'sk-letter-card__preview sk-letter-card__preview--deco';
-    prev.textContent = line;
-    card.append(prev);
-  }
+  card.className = 'sk-letter-card sk-soul-letter-asset';
+  const img = document.createElement('img');
+  img.src = image;
+  img.alt = '';
+  img.decoding = 'async';
+  card.append(img);
   return card;
 }
 
 /** JOURNEY act 1 — cover-flow without hub fade (cards stay visible) */
 function coverFlowJourney(norm, spreadMul = 1) {
   const n = norm / spreadMul;
-  const t = Math.min(1.12, Math.abs(n));
+  const t = Math.min(1, Math.abs(n));
   const sign = n < 0 ? -1 : 1;
-  const scale = 0.62 + t * t * (0.78 * spreadMul);
-  const rotateY = -sign * t * 16;
-  const tz = (1 - Math.min(1, t)) * (-48 - spreadMul * 8);
-  return { scale, rotateY, tz, z: Math.round(10 + t * 36), opacity: 1 };
+  const focus = 1 - t;
+  const easedFocus = focus * focus * (3 - 2 * focus);
+  const scale = 0.68 + easedFocus * 0.5;
+  const rotateY = -sign * t * 12;
+  const tz = -90 + easedFocus * 150;
+  const opacity = 0.28 + easedFocus * 0.72;
+  return { scale, rotateY, tz, z: Math.round(10 + easedFocus * 40), opacity, focus: easedFocus };
 }
 
 /** JOURNEY act 1 — wavy lying-S across full viewport width */
 function journeyWaveLift(waveX, trackHeight) {
-  const amp = Math.min(Math.max(trackHeight * 0.22, 40), 88);
+  const amp = Math.min(Math.max(trackHeight * 0.07, 14), 30);
   const n = Math.max(-1.05, Math.min(1.05, waveX));
-  const s = Math.sin(n * Math.PI);
-  const ripple = 0.14 * Math.sin(n * Math.PI * 2.05 + 0.38);
-  return amp * (s + ripple);
+  const progress = (n + 1) * 0.5;
+  return Math.sin(progress * Math.PI) * amp;
 }
 
 function journeyWaveTilt(waveX) {
   const n = Math.max(-1.05, Math.min(1.05, waveX));
-  return (Math.cos(n * Math.PI) * 3.2 + n * -1.2);
+  return Math.sin(n * Math.PI) * 2.4;
 }
 
 function journeyWaveNorm(cx, trackRect) {
@@ -241,59 +370,36 @@ function buildFlowTile(spec, index) {
     tile.dataset.id = `letter${spec.id}`;
     tile.setAttribute('aria-haspopup', 'dialog');
     tile.setAttribute('aria-label', `Letter ${spec.id}`);
-    tile.append(buildLetterCard(spec.variant, {
-      num: spec.id,
-      previewKey: LETTERS.find((row) => row.id === spec.id)?.title,
-    }));
+    tile.append(buildLetterCard(spec.image));
   } else {
     tile = document.createElement('div');
     tile.className = 'sk-melius-flow-card sk-tile sk-tile--deco';
     tile.dataset.id = `arc-deco-${index}`;
     tile.setAttribute('aria-hidden', 'true');
-    tile.append(buildLetterCard(spec.variant, {
-      sticker: spec.sticker,
-      line: spec.line,
-    }));
+    tile.append(buildLetterCard(spec.image));
   }
   return tile;
 }
 
-const PHOTO_FLOW_BLOCK = 14;
-
-function journeyBleibOpen(section) {
-  return !section.classList.contains('story-keep-bleib')
-    || section.classList.contains('is-bleib-open');
-}
-
-function buildPhotoTile(src, index) {
-  const tile = document.createElement('div');
-  tile.className = 'sk-melius-flow-card sk-tile sk-tile--photo';
-  tile.dataset.id = `photo-${index}`;
-  tile.setAttribute('aria-hidden', 'true');
-  const fig = document.createElement('figure');
-  fig.className = 'sk-photo-flow';
-  const img = document.createElement('img');
-  img.src = src;
-  img.alt = '';
-  img.decoding = 'async';
-  fig.append(img);
-  tile.append(fig);
-  return tile;
-}
-
-/** Left→right cover-flow rail (act 1 letters, act 2 photos). */
-function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang }) {
-  if (!root) return;
-  root.replaceChildren();
+function initMeliusArc(section) {
+  const arc = section.querySelector('.sk-melius-arc');
+  if (!arc) return;
+  arc.replaceChildren();
 
   const track = document.createElement('div');
   track.className = 'sk-melius-track';
   const rail = document.createElement('div');
   rail.className = 'sk-melius-rail';
-  populate(rail);
-  track.append(rail);
-  root.append(track);
 
+  const loop = [...MELIUS_ARC, ...MELIUS_ARC, ...MELIUS_ARC, ...MELIUS_ARC];
+  loop.forEach((spec, index) => {
+    rail.append(buildFlowTile(spec, index % MELIUS_ARC.length));
+  });
+
+  track.append(rail);
+  arc.append(track);
+
+  const block = MELIUS_ARC.length;
   let offset = 0;
   let velocity = 1.62;
   const baseVelocity = 1.62;
@@ -305,8 +411,8 @@ function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang 
 
   function measureLoop() {
     const cards = rail.querySelectorAll('.sk-melius-flow-card');
-    if (cards.length < blockSize * 3) return;
-    const quarter = blockSize;
+    if (cards.length < block * 3) return;
+    const quarter = block;
     loopWidth = cards[quarter * 2].offsetLeft - cards[quarter].offsetLeft;
     if (loopWidth <= 0) loopWidth = rail.scrollWidth / 4;
   }
@@ -320,11 +426,23 @@ function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang 
       const cx = box.left + box.width * 0.5;
       const waveX = journeyWaveNorm(cx, rect);
       const norm = (cx - hubX) / spread;
-      const { scale, rotateY, tz, z, opacity } = coverFlowJourney(norm, flowSpread);
+      let { scale, rotateY, tz, z, opacity, focus } = coverFlowJourney(norm, flowSpread);
       const arcY = journeyWaveLift(waveX, rect.height);
-      const rotateZ = journeyWaveTilt(waveX);
-      const stackZ = Math.round(8 + ((cx - rect.left) / Math.max(rect.width, 1)) * 40);
-      card.style.zIndex = String(Math.max(stackZ, Math.min(z, 48)));
+      let rotateZ = journeyWaveTilt(waveX);
+      const selected = card.matches(':hover, :focus-visible');
+      if (selected) {
+        scale *= 1.07;
+        rotateY *= 0.25;
+        rotateZ *= 0.2;
+        tz += 70;
+        opacity = 1;
+        focus = 1;
+        z = 60;
+      }
+      card.style.setProperty('--sk-depth-blur', `${((1 - focus) * 2.8).toFixed(2)}px`);
+      card.style.setProperty('--sk-depth-shadow-y', `${(12 + focus * 12).toFixed(1)}px`);
+      card.style.setProperty('--sk-depth-shadow-blur', `${(20 + focus * 16).toFixed(1)}px`);
+      card.style.zIndex = String(z);
       card.style.opacity = String(opacity);
       card.style.transform = [
         `translateY(${arcY.toFixed(1)}px)`,
@@ -341,7 +459,7 @@ function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang 
     if (!last) last = now;
     const dt = Math.min(32, now - last);
     last = now;
-    if (section.dataset.act === activeAct && !motionOff()) {
+    if (section.dataset.act === '1' && !motionOff()) {
       offset += velocity * (dt / 16.67);
       if (loopWidth > 0) {
         while (offset >= loopWidth) offset -= loopWidth;
@@ -354,8 +472,13 @@ function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang 
     raf = requestAnimationFrame(tick);
   }
 
+  function journeyBleibOpen() {
+    return !section.classList.contains('story-keep-bleib')
+      || section.classList.contains('is-bleib-open');
+  }
+
   function start() {
-    if (running || motionOff() || section.dataset.act !== activeAct || !journeyBleibOpen(section)) return;
+    if (running || motionOff() || section.dataset.act !== '1' || !journeyBleibOpen() || section.classList.contains('is-reading')) return;
     running = true;
     last = 0;
     measureLoop();
@@ -371,20 +494,6 @@ function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang 
     raf = 0;
   }
 
-  function nudgeMotion(delta) {
-    if (!delta || section.dataset.act !== activeAct || motionOff()) return;
-    const push = Math.abs(delta);
-    velocity = Math.max(0.6, Math.min(6.5, velocity + delta * 0.006));
-    flowSpread = Math.min(1.38, flowSpread + push * 0.002);
-    offset += delta * 0.3;
-    if (loopWidth > 0) {
-      while (offset >= loopWidth) offset -= loopWidth;
-      while (offset < 0) offset += loopWidth;
-    }
-    rail.style.transform = `translate3d(calc(-50% + ${offset.toFixed(2)}px),-50%,0)`;
-    paintCards();
-  }
-
   function syncFlow() {
     if (motionOff()) {
       stop();
@@ -394,13 +503,13 @@ function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang 
       paintCards();
       return;
     }
-    if (section.dataset.act === activeAct && journeyBleibOpen(section)) start();
+    if (section.dataset.act === '1' && journeyBleibOpen() && !section.classList.contains('is-reading')) start();
     else stop();
   }
 
   new MutationObserver(syncFlow).observe(section, { attributes: true, attributeFilter: ['data-act', 'class'] });
   const io = new IntersectionObserver((entries) => {
-    if (!journeyBleibOpen(section)) return;
+    if (!journeyBleibOpen()) return;
     if (entries.some((entry) => entry.isIntersecting && entry.intersectionRatio > 0.08)) start();
     else stop();
   }, { threshold: [0, 0.08, 0.2] });
@@ -408,7 +517,6 @@ function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang 
   section.addEventListener('eb:bleib-open', syncFlow);
   section.addEventListener('eb:bleib-close', stop);
 
-  track.addEventListener('wheel', (e) => nudgeMotion(e.deltaY + e.deltaX), { passive: true });
   window.addEventListener('resize', () => { measureLoop(); paintCards(); }, { passive: true });
   addEventListener('eb:motion', syncFlow);
   document.addEventListener('visibilitychange', () => {
@@ -416,7 +524,11 @@ function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang 
     else syncFlow();
   });
 
-  if (onLang) addEventListener('eb:lang', onLang);
+  addEventListener('eb:lang', () => {
+    arc.querySelectorAll('[data-i18n]').forEach((node) => {
+      node.textContent = t(node.dataset.i18n);
+    });
+  });
 
   requestAnimationFrame(() => {
     measureLoop();
@@ -424,101 +536,114 @@ function initMeliusFlow(section, { root, activeAct, blockSize, populate, onLang 
   });
 }
 
-function initMeliusArc(section) {
-  const arc = section.querySelector('.sk-melius-arc');
-  if (!arc) return;
-  initMeliusFlow(section, {
-    root: arc,
-    activeAct: '1',
-    blockSize: MELIUS_ARC.length,
-    populate(rail) {
-      const loop = [...MELIUS_ARC, ...MELIUS_ARC, ...MELIUS_ARC, ...MELIUS_ARC];
-      loop.forEach((spec, index) => {
-        rail.append(buildFlowTile(spec, index % MELIUS_ARC.length));
-      });
-    },
-    onLang() {
-      arc.querySelectorAll('[data-i18n]').forEach((node) => {
-        node.textContent = t(node.dataset.i18n);
-      });
-    },
-  });
-}
-
-function initPhotoFlow(section) {
-  const album = section.querySelector('.sk-album');
-  if (!album) return;
-  album.classList.add('sk-album--flow');
-  const pool = PETS.slice();
-  for (let i = pool.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pool[i], pool[j]] = [pool[j], pool[i]];
-  }
-  const picks = pool.slice(0, PHOTO_FLOW_BLOCK);
-  initMeliusFlow(section, {
-    root: album,
-    activeAct: '2',
-    blockSize: PHOTO_FLOW_BLOCK,
-    populate(rail) {
-      const loop = [...picks, ...picks, ...picks, ...picks];
-      loop.forEach((src, index) => {
-        rail.append(buildPhotoTile(src, index % PHOTO_FLOW_BLOCK));
-      });
-    },
-  });
-}
-
 function initLetterCollage(section) {
   const view = section.querySelector('.sk-letter-view');
   const desk = section.querySelector('.sk-melius-arc') || section.querySelector('.sk-desk');
   if (!view || !desk) return;
+  const letterAssets = Array.from({ length: 8 }, (_, index) => `gallery-original/assets/photos/optimized/letters/l${index + 1}.png`);
+  let activeLetterIndex = 0;
+  let returnFocus = null;
+  let lockedScrollY = null;
 
-  const dialog = view.querySelector('.sk-letter-view__dialog');
-  const backdrop = view.querySelector('.sk-letter-view__backdrop');
-  const closeBtn = view.querySelector('.sk-letter-view__close');
-  const titleEl = view.querySelector('[data-sk-letter-title]');
-  const bodyEl = view.querySelector('[data-sk-letter-body]');
-  let openId = '';
+  view.innerHTML = `<div class="sk-letter-reader__shade" aria-hidden="true"></div><div class="sk-letter-reader" role="dialog" aria-modal="true" aria-label="Soul Trace letter reader"><button type="button" class="sk-letter-reader__close" aria-label="Close letter reader">CLOSE <span aria-hidden="true">×</span></button><div class="sk-letter-reader__glow" aria-hidden="true"></div><img class="sk-letter-reader__image" alt="Soul Trace letter 1 of 8"><div class="sk-letter-reader__controls"><button type="button" class="sk-letter-reader__nav sk-letter-reader__nav--prev" aria-label="Previous letter"><span aria-hidden="true">←</span><small>Previous</small></button><span class="sk-letter-reader__counter" aria-live="polite">01 / 08</span><button type="button" class="sk-letter-reader__nav sk-letter-reader__nav--next" aria-label="Next letter"><span aria-hidden="true">→</span><small>Next</small></button></div></div>`;
+  const reader = view.querySelector('.sk-letter-reader');
+  const image = view.querySelector('.sk-letter-reader__image');
+  const counter = view.querySelector('.sk-letter-reader__counter');
+  const closeButton = view.querySelector('.sk-letter-reader__close');
+  const previousButton = view.querySelector('.sk-letter-reader__nav--prev');
+  const nextButton = view.querySelector('.sk-letter-reader__nav--next');
 
-  function writeOpen() {
-    const row = LETTERS.find((item) => item.id === openId);
-    if (!row || !titleEl || !bodyEl) return;
-    view.dataset.theme = row.theme;
-    titleEl.textContent = t(row.title);
-    bodyEl.innerHTML = t(row.body);
-  }
-
-  function openLetter(id) {
-    if (section.dataset.act !== '1') return;
-    openId = id;
-    writeOpen();
-    section.classList.add('is-letter-open');
+  const renderLetter = () => {
+    image.src = letterAssets[activeLetterIndex];
+    image.alt = `Soul Trace letter ${activeLetterIndex + 1} of ${letterAssets.length}`;
+    counter.textContent = `${String(activeLetterIndex + 1).padStart(2, '0')} / ${String(letterAssets.length).padStart(2, '0')}`;
+  };
+  const move = (direction) => {
+    activeLetterIndex = (activeLetterIndex + direction + letterAssets.length) % letterAssets.length;
+    renderLetter();
+    if (!motionOff()) image.animate([
+      { opacity: .45, transform: `translateX(${direction * 14}px) scale(.985)` },
+      { opacity: 1, transform: 'none' },
+    ], { duration: 240, easing: 'cubic-bezier(.22,.61,.36,1)' });
+  };
+  const nearestLetterIndex = () => {
+    const center = innerWidth / 2;
+    const cards = [...desk.querySelectorAll('.sk-melius-flow-card')];
+    const nearest = cards.reduce((best, card) => {
+      const rect = card.getBoundingClientRect();
+      const distance = Math.abs(rect.left + rect.width / 2 - center);
+      return !best || distance < best.distance ? { card, distance } : best;
+    }, null)?.card;
+    const src = nearest?.querySelector('.sk-soul-letter-asset > img')?.getAttribute('src') || '';
+    const match = src.match(/\/l([1-8])\.png(?:\?|$)/);
+    return match ? Number(match[1]) - 1 : 0;
+  };
+  const openReader = (index = nearestLetterIndex()) => {
+    if (section.dataset.act !== '1' || section.classList.contains('is-reading')) return;
+    activeLetterIndex = index;
+    returnFocus = document.activeElement;
+    lockedScrollY = scrollY;
+    renderLetter();
+    section.classList.add('is-reading');
     view.hidden = false;
     view.setAttribute('aria-hidden', 'false');
-    closeBtn?.focus({ preventScroll: true });
-  }
+    requestAnimationFrame(() => {
+      view.classList.add('is-visible');
+      closeButton.focus({ preventScroll: true });
+    });
+  };
+  const closeReader = () => {
+    if (!section.classList.contains('is-reading')) return;
+    view.classList.remove('is-visible');
+    const finish = () => {
+      section.classList.remove('is-reading');
+      view.hidden = true;
+      view.setAttribute('aria-hidden', 'true');
+      if (lockedScrollY !== null) window.scrollTo({ top: lockedScrollY, behavior: 'instant' });
+      lockedScrollY = null;
+      returnFocus?.focus?.({ preventScroll: true });
+      returnFocus = null;
+    };
+    if (motionOff()) finish();
+    else window.setTimeout(finish, 260);
+  };
 
-  function closeLetter() {
-    openId = '';
-    section.classList.remove('is-letter-open');
-    view.hidden = true;
-    view.setAttribute('aria-hidden', 'true');
-    delete view.dataset.theme;
-  }
-
+  section.addEventListener('sk:open-letter-reader', () => openReader());
   desk.addEventListener('click', (event) => {
-    const btn = event.target.closest('.sk-tile--letter[data-letter]');
-    if (!btn || !desk.contains(btn)) return;
-    openLetter(btn.dataset.letter);
+    const card = event.target.closest('.sk-melius-flow-card');
+    if (!card || !desk.contains(card)) return;
+    const src = card.querySelector('.sk-soul-letter-asset > img')?.getAttribute('src') || '';
+    const match = src.match(/\/l([1-8])\.png(?:\?|$)/);
+    openReader(match ? Number(match[1]) - 1 : 0);
   });
-  closeBtn?.addEventListener('click', closeLetter);
-  backdrop?.addEventListener('click', closeLetter);
+  previousButton.addEventListener('click', () => move(-1));
+  nextButton.addEventListener('click', () => move(1));
+  closeButton.addEventListener('click', closeReader);
+  view.querySelector('.sk-letter-reader__shade').addEventListener('click', closeReader);
+  const lockReadingScroll = (event) => {
+    if (!section.classList.contains('is-reading')) return;
+    event.preventDefault();
+    event.stopImmediatePropagation();
+  };
+  addEventListener('wheel', lockReadingScroll, { capture: true, passive: false });
+  addEventListener('touchmove', lockReadingScroll, { capture: true, passive: false });
+  addEventListener('scroll', () => {
+    if (lockedScrollY !== null && Math.abs(scrollY - lockedScrollY) > 1) {
+      window.scrollTo({ top: lockedScrollY, behavior: 'instant' });
+    }
+  }, { passive: true });
   addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && section.classList.contains('is-letter-open')) closeLetter();
+    if (!section.classList.contains('is-reading')) return;
+    if (event.key === 'ArrowRight') { event.preventDefault(); move(1); }
+    else if (event.key === 'ArrowLeft') { event.preventDefault(); move(-1); }
+    else if (event.key === 'Escape') { event.preventDefault(); closeReader(); }
+    else if (['ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', 'Home', 'End', ' '].includes(event.key)) event.preventDefault();
   });
-  addEventListener('eb:lang', () => {
-    if (openId) writeOpen();
+  reader.addEventListener('keydown', (event) => {
+    if (event.key !== 'Tab') return;
+    const controls = [closeButton, previousButton, nextButton];
+    const index = controls.indexOf(document.activeElement);
+    if (event.shiftKey && index === 0) { event.preventDefault(); controls.at(-1).focus(); }
+    else if (!event.shiftKey && index === controls.length - 1) { event.preventDefault(); controls[0].focus(); }
   });
-
-  if (dialog) dialog.setAttribute('aria-labelledby', 'sk-letter-dialog-title');
 }

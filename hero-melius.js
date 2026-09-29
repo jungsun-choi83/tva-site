@@ -34,16 +34,17 @@ function cardMarkup(src, eager) {
   return `<article class="eb-melius-card"><img src="${src}" width="720" height="960" alt="" loading="${load}" decoding="async"${pri}></article>`;
 }
 
-/** Melius-style: flat + small at center hub, large + rotateY at sides */
-function coverFlow(norm, spreadMul = 1) {
+/** Existing Melius depth character, adapted to an elliptical path. */
+function coverFlow(norm, spreadMul = 1, depth = 0, mobile = false) {
   const n = norm / spreadMul;
-  const t = Math.min(1.18, Math.abs(n));
+  const t = Math.min(1, Math.abs(n));
   const sign = n < 0 ? -1 : 1;
-  const scale = 0.34 + t * t * (1.28 * spreadMul);
-  const rotateY = -sign * (8 + t * 66);
-  const tz = (1 - Math.min(1, t)) * (-320 - spreadMul * 36);
-  const opacity = t < 0.06 ? 0.35 + t * 8 : 1;
-  return { scale, rotateY, tz, z: Math.round(12 + t * 86), opacity };
+  const front = (depth + 1) * 0.5;
+  const scale = (mobile ? 0.72 : 0.68) + front * (mobile ? 0.22 : 0.4) + t * 0.08;
+  const rotateY = -sign * (mobile ? 6 + t * 34 : 8 + t * 58);
+  const tz = (front - 0.5) * (mobile ? 90 : 220);
+  const opacity = 0.58 + front * 0.42;
+  return { scale, rotateY, tz, z: Math.round(10 + front * 70), opacity };
 }
 
 /** Center on hub line; edges dip slightly (not a bowl under the device). */
@@ -85,9 +86,8 @@ export function initHeroMelius(isReduced) {
     );
   }
 
-  const sequence = PET_PHOTOS.slice(0, 16);
-  const loop = [...sequence, ...sequence, ...sequence];
-  rail.innerHTML = loop.map((src, i) => cardMarkup(src, i < 10)).join('');
+  const sequence = PET_PHOTOS.slice(0, 14);
+  rail.innerHTML = sequence.map((src, i) => cardMarkup(src, i < 10)).join('');
 
   let offset = 0;
   let velocity = 1.62;
@@ -99,47 +99,47 @@ export function initHeroMelius(isReduced) {
   let last = 0;
 
   function applyRailTransform() {
-    const alignY = hubRailAlignY(hero, stage);
-    rail.style.transform = `translate3d(calc(-50% + ${offset.toFixed(2)}px), calc(-50% + ${alignY.toFixed(1)}px), 0)`;
+    rail.style.transform = 'none';
   }
 
   function measureLoop() {
     const cards = rail.querySelectorAll('.eb-melius-card');
-    if (cards.length < 3) return;
-    const third = cards.length / 3;
-    loopWidth = cards[third * 2].offsetLeft - cards[third].offsetLeft;
-    if (loopWidth <= 0) loopWidth = rail.scrollWidth / 3;
+    loopWidth = Math.max(1, cards.length * 116);
   }
 
   function paintCards() {
     const rect = stage.getBoundingClientRect();
-    const hubX = rect.left + rect.width * 0.5;
-    const spread = Math.max(rect.width * 0.46, 340);
-    const hubHalf = (hero.querySelector('.eb-melius-hub')?.getBoundingClientRect().width || 0) * 0.32;
+    const cards = [...rail.querySelectorAll('.eb-melius-card')];
+    const mobile = rect.width <= 720;
+    const visibleCount = mobile ? 8 : cards.length;
+    const radiusX = rect.width * (mobile ? 0.43 : 0.455);
+    const radiusY = rect.height * (mobile ? 0.42 : 0.44);
+    const phase = (offset / loopWidth) * Math.PI * 2;
 
-    rail.querySelectorAll('.eb-melius-card').forEach((card) => {
-      const box = card.getBoundingClientRect();
-      const cx = box.left + box.width * 0.5;
-      const distFromHub = Math.abs(cx - hubX);
-      const norm = (cx - hubX) / spread;
-      const { scale, rotateY, tz, z, opacity } = coverFlow(norm, flowSpread);
-      const arcY = meliusArcLift(norm, rect.height);
-      const rotateZ = norm * -5.8;
-
-      let hide = 1;
-      if (distFromHub < hubHalf * 1.02) {
-        hide = Math.max(0.12, (distFromHub - hubHalf * 0.06) / (hubHalf * 0.72));
+    cards.forEach((card, index) => {
+      if (index >= visibleCount) {
+        card.style.display = 'none';
+        return;
       }
-      const zCap = distFromHub < hubHalf * 0.95 ? Math.min(z, 36) : Math.min(z, 44);
-      card.style.zIndex = String(zCap);
-      card.style.opacity = String(Math.min(opacity, hide));
-      card.style.transform = [
-        `translateY(${arcY.toFixed(1)}px)`,
+      card.style.display = '';
+      const angle = (index / visibleCount) * Math.PI * 2 + phase - Math.PI / 2;
+      const x = Math.cos(angle) * radiusX;
+      const y = Math.sin(angle) * radiusY;
+      const depth = Math.sin(angle);
+      const norm = Math.cos(angle);
+      const { scale, rotateY, tz, z, opacity } = coverFlow(norm, flowSpread, depth, mobile);
+      const rotateZ = norm * (mobile ? -3.5 : -6);
+      const transform = [
+        `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,${tz.toFixed(1)}px)`,
         `rotateY(${rotateY.toFixed(2)}deg)`,
         `rotateZ(${rotateZ.toFixed(2)}deg)`,
-        `translateZ(${tz.toFixed(1)}px)`,
         `scale(${scale.toFixed(3)})`,
       ].join(' ');
+      card.style.zIndex = String(z);
+      card.style.opacity = String(opacity);
+      card.style.transform = transform;
+      card.style.setProperty('--orbit-transform', transform);
+      card.style.setProperty('--orbit-opacity', String(opacity));
     });
   }
 

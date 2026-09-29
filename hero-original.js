@@ -65,7 +65,6 @@ export function initHeroOriginal({ onNavigate } = {}) {
   const index = hero.querySelector('[data-hero-program-index]');
   const station = hero.querySelector('[data-hero-station]');
   const stationIndex = hero.querySelector('[data-hero-index]');
-  const replay = hero.querySelector('.hero-original__replay');
   const scrollGuide = hero.querySelector('.hero-original__scroll');
   const stage = hero.querySelector('.hero-original__stage');
   const copyPlane = hero.querySelector('.hero-vintage__copy');
@@ -281,7 +280,6 @@ export function initHeroOriginal({ onNavigate } = {}) {
     location.hash = target;
   }
   buttons.forEach(button => button.addEventListener('click', () => { const channel = button.dataset.heroChannel; render(channel); go(button.dataset.heroTarget); }));
-  replay.addEventListener('click', () => { reset(); go('home'); focusEntryAfterPower = true; startPower(); });
   const scrollKeys = new Set([' ', 'ArrowDown', 'ArrowUp', 'PageDown', 'PageUp', 'Home', 'End']);
   const holdOpening = event => {
     if (event.type === 'scroll' && window.scrollY > hero.offsetTop + 1) resetPointer(true);

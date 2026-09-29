@@ -5,11 +5,25 @@ function initAboutBleib() {
   if (!about) return;
 
   const track = about.querySelector('.studio-track');
+  const scroller = about.querySelector('.about-bleib-grid');
   const stations = about.querySelectorAll('.studio-station');
   const reduced = matchMedia('(prefers-reduced-motion: reduce)').matches
     || document.documentElement.classList.contains('reduced-motion');
 
   track?.classList.add('about-bleib-type');
+
+  const detailOverlay = document.createElement('div');
+  detailOverlay.className = 'about-detail-overlay';
+  detailOverlay.hidden = true;
+  detailOverlay.setAttribute('role', 'dialog');
+  detailOverlay.setAttribute('aria-modal', 'true');
+
+  const detailOverlayContent = document.createElement('div');
+  detailOverlayContent.className = 'about-detail-overlay__content';
+  detailOverlay.append(detailOverlayContent);
+  about.append(detailOverlay);
+
+  let activeDetail = null;
 
   function syncFlippedState() {
     const any = [...stations].some((s) => s.classList.contains('is-flipped'));
@@ -97,21 +111,44 @@ function initAboutBleib() {
       station.append(flip);
 
       function setOpen(open) {
-        const lockY = window.scrollY;
-        station.classList.toggle('is-flipped', open);
-        front.setAttribute('aria-expanded', open ? 'true' : 'false');
-        back.setAttribute('aria-hidden', open ? 'false' : 'true');
-        syncFlippedState();
         if (open) {
+          if (activeDetail) activeDetail.setOpen(false, false);
+
+          const returnScrollTop = scroller?.scrollTop || 0;
+          activeDetail = { back, front, inner, returnScrollTop, setOpen };
+          station.classList.add('is-flipped');
+          front.setAttribute('aria-expanded', 'true');
+          back.setAttribute('aria-hidden', 'false');
+          detailOverlay.setAttribute('aria-label', title);
+          detailOverlayContent.append(back);
+          detailOverlay.hidden = false;
+          detailOverlay.scrollTop = 0;
+          back.scrollTop = 0;
+          syncFlippedState();
           requestAnimationFrame(() => {
-            window.scrollTo({ top: lockY, left: 0, behavior: 'instant' });
+            detailOverlay.scrollTop = 0;
+            back.querySelector('.about-bleib-flip__close')?.focus({ preventScroll: true });
           });
+          return;
         }
+
+        if (!activeDetail || activeDetail.back !== back) return;
+        const returnScrollTop = activeDetail.returnScrollTop;
+        inner.append(back);
+        detailOverlay.hidden = true;
+        detailOverlay.removeAttribute('aria-label');
+        station.classList.remove('is-flipped');
+        front.setAttribute('aria-expanded', 'false');
+        back.setAttribute('aria-hidden', 'true');
+        activeDetail = null;
+        syncFlippedState();
+        if (scroller) scroller.scrollTo({ top: returnScrollTop, behavior: 'instant' });
       }
 
       front.addEventListener('click', (e) => {
         e.preventDefault();
         e.stopPropagation();
+        if (!about.classList.contains('is-grid-open')) about._ebBleibOpen?.();
         setOpen(true);
       });
       close.addEventListener('click', (e) => {
@@ -141,6 +178,7 @@ function initAboutBleib() {
   applyI18n(about);
 
   function resetFlips() {
+    activeDetail?.setOpen(false, false);
     stations.forEach((station) => {
       station.classList.remove('is-flipped');
       const front = station.querySelector('.about-bleib-flip__face--front');
@@ -168,6 +206,13 @@ function initAboutBleib() {
     resetFlips();
     stations.forEach((station) => station.classList.remove('is-inview'));
     about.querySelectorAll('.beam-gold.is-nudged').forEach((panel) => panel.classList.remove('is-nudged'));
+  });
+
+  detailOverlay.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape' || !activeDetail) return;
+    const front = activeDetail.front;
+    activeDetail.setOpen(false);
+    front.focus({ preventScroll: true });
   });
 }
 

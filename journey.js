@@ -696,6 +696,7 @@ export function initJourney(onScene, portfolio) {
     window.dispatchEvent(new CustomEvent('tva:studio-station-intent', { detail: { direction: dir, from: current, to: clamp(current + dir, 0, stations.length - 1) } }));
   }));
   stations.forEach((station, index) => station.addEventListener('focusin', event => {
+    if (about.classList.contains('is-linear')) return;
     if (event.target.closest('button,a') && index !== current) gotoStation(index, true);
   }));
   about.querySelectorAll('[data-object]').forEach((button, index) => button.addEventListener('click', () => {

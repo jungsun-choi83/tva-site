@@ -399,10 +399,11 @@ function init02() {
   // 이름은 SAMPLE 번호로 돌리고 연도는 비웠다. 잘라내기 위치(crop)는 손으로 맞춘
   // 값이라 그대로 둔다. 실제 자료가 들어오면 #portfolio 의 '예시' 띠도 같이 내린다
   // (index.html 의 .portfolio-sample-note).
-  const categories = [
-    {
+  const recordCategories = {
+    influencer: {
+      key: 'influencer',
       label: 'Influencer',
-      blurb: '크리에이터와 찍은 기록',
+      blurb: 'Creator stories',
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
@@ -414,77 +415,62 @@ function init02() {
         record('brand-06', 'SAMPLE 06', 'Influencer', '', '06.jpg', '43% 46%'),
         record('brand-07', 'SAMPLE 07', 'Influencer', '', '07.jpg', '62% 50%'),
         record('brand-08', 'SAMPLE 08', 'Influencer', '', '08.jpg', '50% 58%'),
-        record('brand-09', 'SAMPLE 09', 'Influencer', '', '01.jpg', '35% 54%'),
-        record('brand-10', 'SAMPLE 10', 'Influencer', '', '04.jpg', '66% 42%'),
-        record('brand-11', 'SAMPLE 11', 'Influencer', '', '03.jpg', '40% 62%'),
       ],
     },
-    {
+    together: {
+      key: 'together',
       label: 'Together',
-      blurb: '가족과 아이가 함께한 순간',
+      blurb: 'Shared moments',
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
-        record('campaign-01', 'SAMPLE 01', 'Together', '', '04.jpg', '52% 44%'),
-        record('campaign-02', 'SAMPLE 02', 'Together', '', '05.jpg', '44% 48%'),
-        record('campaign-03', 'SAMPLE 03', 'Together', '', '07.jpg', '55% 42%'),
-        record('campaign-04', 'SAMPLE 04', 'Together', '', '01.jpg', '60% 55%'),
-        record('campaign-05', 'SAMPLE 05', 'Together', '', '03.jpg', '48% 52%'),
-        record('campaign-06', 'SAMPLE 06', 'Together', '', '08.jpg', '58% 40%'),
-        record('campaign-07', 'SAMPLE 07', 'Together', '', '02.jpg', '35% 47%'),
-        record('campaign-08', 'SAMPLE 08', 'Together', '', '06.jpg', '62% 56%'),
-        record('campaign-09', 'SAMPLE 09', 'Together', '', '04.jpg', '38% 58%'),
-        record('campaign-10', 'SAMPLE 10', 'Together', '', '05.jpg', '66% 38%'),
-        record('campaign-11', 'SAMPLE 11', 'Together', '', '07.jpg', '42% 60%'),
+        ...Array.from({ length: 8 }, (_, index) => record(`together-${index + 1}`, `SAMPLE ${String(index + 1).padStart(2, '0')}`, 'Together', '', `together/t${index + 1}.png`, '50% 50%')),
       ],
     },
-    {
+    letters: {
+      key: 'letters',
       label: 'Letters',
-      blurb: 'Soul Trace로 남긴 편지',
+      blurb: 'Soul Trace letters',
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
-        record('media-01', 'SAMPLE 01', 'Letters', '', '07.jpg', '48% 45%'),
-        record('media-02', 'SAMPLE 02', 'Letters', '', '05.jpg', '57% 50%'),
-        record('media-03', 'SAMPLE 03', 'Letters', '', '02.jpg', '45% 54%'),
-        record('media-04', 'SAMPLE 04', 'Letters', '', '03.jpg', '64% 42%'),
-        record('media-05', 'SAMPLE 05', 'Letters', '', '01.jpg', '40% 48%'),
-        record('media-06', 'SAMPLE 06', 'Letters', '', '08.jpg', '54% 60%'),
-        record('media-07', 'SAMPLE 07', 'Letters', '', '06.jpg', '46% 38%'),
-        record('media-08', 'SAMPLE 08', 'Letters', '', '04.jpg', '60% 52%'),
-        record('media-09', 'SAMPLE 09', 'Letters', '', '07.jpg', '36% 58%'),
-        record('media-10', 'SAMPLE 10', 'Letters', '', '03.jpg', '56% 58%'),
-        record('media-11', 'SAMPLE 11', 'Letters', '', '05.jpg', '38% 42%'),
+        ...Array.from({ length: 8 }, (_, index) => record(`letter-${index + 1}`, `LETTER ${String(index + 1).padStart(2, '0')}`, 'Soul Trace', '', `letters/l${index + 1}.png`, '50% 50%')),
       ],
     },
-    {
+    display: {
+      key: 'display',
       label: 'Display',
-      blurb: '기기 안에서 다시 만난 모습',
+      blurb: 'Eternal Beam memories',
       iconName: 'folder',
       icon: macFolderIcon,
       items: [
-        record('experience-01', 'SAMPLE 01', 'Display', '', '08.jpg', '50% 44%'),
-        record('experience-02', 'SAMPLE 02', 'Display', '', '06.jpg', '42% 52%'),
-        record('experience-03', 'SAMPLE 03', 'Display', '', '04.jpg', '58% 46%'),
-        record('experience-04', 'SAMPLE 04', 'Display', '', '02.jpg', '50% 40%'),
-        record('experience-05', 'SAMPLE 05', 'Display', '', '01.jpg', '64% 52%'),
-        record('experience-06', 'SAMPLE 06', 'Display', '', '03.jpg', '38% 48%'),
-        record('experience-07', 'SAMPLE 07', 'Display', '', '07.jpg', '57% 58%'),
-        record('experience-08', 'SAMPLE 08', 'Display', '', '05.jpg', '43% 40%'),
-        record('experience-09', 'SAMPLE 09', 'Display', '', '06.jpg', '60% 46%'),
-        record('experience-10', 'SAMPLE 10', 'Display', '', '08.jpg', '36% 55%'),
-        record('experience-11', 'SAMPLE 11', 'Display', '', '02.jpg', '62% 44%'),
+        ...Array.from({ length: 4 }, (_, index) => record(`display-${index + 1}`, `DISPLAY ${String(index + 1).padStart(2, '0')}`, 'Eternal Beam', '', `display/d${index + 1}.png`, '50% 50%')),
       ],
     },
+  };
+  const categoryKeys = Object.keys(recordCategories);
+  const categories = categoryKeys.map(key => recordCategories[key]);
+  // Keep the original 11-card wheel density; shorter categories reuse only
+  // their own records as internal slots for the continuous loop.
+  const wheelSlotCount = 11;
+  const influencerWheelItems = [
+    ...recordCategories.influencer.items,
+    record('brand-09', 'SAMPLE 09', 'Influencer', '', '01.jpg', '35% 54%'),
+    record('brand-10', 'SAMPLE 10', 'Influencer', '', '04.jpg', '66% 42%'),
+    record('brand-11', 'SAMPLE 11', 'Influencer', '', '03.jpg', '40% 62%'),
   ];
-  const initialWorks = categories[0].items;
+  const fillWheelSlots = (items, key) => {
+    if (key === 'influencer') return influencerWheelItems;
+    return Array.from({ length: Math.max(wheelSlotCount, items.length) }, (_, index) => items[index % items.length]);
+  };
+  const initialWorks = fillWheelSlots(recordCategories.influencer.items, 'influencer');
   const pullerRig = '<button class="g02-puller" type="button" aria-label="Show the next project" data-gallery-role="archive-guide" data-archive-state="ready" data-phase="rest" data-direction="0" data-position="0"></button>';
   stage.classList.add('g02-stage');
   stage.tabIndex = 0;
   stage.setAttribute('role', 'region');
   stage.setAttribute('aria-roledescription', 'carousel');
   stage.setAttribute('aria-label', 'Records with us. Drag a record card, scroll over a card, or use arrow keys.');
-  stage.innerHTML = `<nav class="g02-categories" aria-labelledby="g02-category-title"><h2 class="g02-categories__title" id="g02-category-title">STORIES WE'VE MADE TOGETHER<small>함께 만든 이야기</small></h2><div class="g02-category-list is-positioning" role="group" aria-label="Choose a record category">${categories.map((category, index) => `<button class="g02-category" type="button" data-category="${index}" aria-label="${String(index + 1).padStart(2, '0')} ${category.label}. ${category.blurb}" aria-pressed="${index === 0}"><span class="g02-category__icon" data-icon="${category.iconName}" aria-hidden="true">${category.icon}</span><span class="g02-category__label" aria-hidden="true">${category.label}</span><span class="g02-category__blurb">${category.blurb}</span></button>`).join('')}</div></nav><div class="g02-wheel">${initialWorks.map((work, index) => `<button class="g02-card" data-index="${index}" data-logical-id="${work.id}" aria-describedby="g02-caption-${index}" aria-label="${index ? 'Select' : 'Open'} ${work.title || 'record ' + (index + 1)}"><img src="${photo(work)}" style="object-position:${work.crop}" ${load(index)} alt="${work.title}"><span class="g02-card__title" aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</span><span class="g02-card__caption" id="g02-caption-${index}"><strong aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</strong><small${work.discipline ? '' : ' hidden'}>${work.discipline}</small><em${work.year ? '' : ' hidden'}>${work.year}</em></span></button>`).join('')}</div><button class="g02-nav g02-nav--prev" type="button" aria-label="Previous record">‹</button><button class="g02-nav g02-nav--next" type="button" aria-label="Next record">›</button><h2 class="g02-workmark" aria-label="WITH US">WITH US</h2>${pullerRig}`;
+  stage.innerHTML = `<nav class="g02-categories" aria-labelledby="g02-category-title"><h2 class="g02-categories__title" id="g02-category-title">STORIES WE'VE MADE TOGETHER<small>함께 만든 이야기</small></h2><div class="g02-category-list is-positioning" role="group" aria-label="Choose a record category">${categories.map((category, index) => `<button class="g02-category" type="button" data-category="${category.key}" aria-label="${String(index + 1).padStart(2, '0')} ${category.label}. ${category.blurb}" aria-pressed="${index === 0}"><span class="g02-category__icon" data-icon="${category.iconName}" aria-hidden="true">${category.icon}</span><span class="g02-category__label" aria-hidden="true">${category.label}</span><span class="g02-category__blurb">${category.blurb}</span></button>`).join('')}</div></nav><div class="g02-wheel">${initialWorks.map((work, index) => `<button class="g02-card" data-index="${index}" data-logical-id="${work.id}" aria-describedby="g02-caption-${index}" aria-label="${index ? 'Select' : 'Open'} ${work.title || 'record ' + (index + 1)}"><img src="${photo(work)}" style="object-position:${work.crop}" ${load(index)} alt="${work.title}"><span class="g02-card__title" aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</span><span class="g02-card__caption" id="g02-caption-${index}"><strong aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</strong><small${work.discipline ? '' : ' hidden'}>${work.discipline}</small><em${work.year ? '' : ' hidden'}>${work.year}</em></span></button>`).join('')}</div><button class="g02-nav g02-nav--prev" type="button" aria-label="Previous record">‹</button><button class="g02-nav g02-nav--next" type="button" aria-label="Next record">›</button><h2 class="g02-workmark" aria-label="WITH US">WITH US</h2>${pullerRig}`;
   const workmark = stage.querySelector('.g02-workmark');
   workmark.textContent = 'WITH US';
   const cards = [...stage.querySelectorAll('.g02-card')];
@@ -546,8 +532,8 @@ function init02() {
     });
   };
   puller.dataset.archiveAssetStatus = 'ready';
-  const categoryPositions = categories.map(() => 0);
-  let activeCategory = 0;
+  const categoryPositions = Object.fromEntries(categoryKeys.map(key => [key, 0]));
+  let activeCategory = 'influencer';
   let activeWorks = initialWorks;
   let position = 0;
   let current = -1;
@@ -1071,19 +1057,22 @@ function init02() {
     void button.offsetWidth;
     button.classList.add('is-opening');
   };
-  const selectCategory = (index, { focus = false } = {}) => {
-    const categoryIndex = wrap(index, 0, categories.length);
-    const category = categories[categoryIndex];
+  const selectCategory = (key, { focus = false } = {}) => {
+    const categoryKey = Object.hasOwn(recordCategories, key) ? key : 'influencer';
+    const categoryIndex = categoryKeys.indexOf(categoryKey);
+    const category = recordCategories[categoryKey];
     if (focus) categoryButtons[categoryIndex].focus({ preventScroll: true });
     resetWheelGesture();
     spring.stop();
     categoryPositions[activeCategory] = Math.round(position);
-    activeCategory = categoryIndex;
-    activeWorks = category.items;
+    activeCategory = categoryKey;
+    activeWorks = fillWheelSlots(recordCategories[activeCategory].items, activeCategory);
+    stage.querySelector('.g02-wheel').classList.add('is-changing');
     syncCards();
+    requestAnimationFrame(() => stage.querySelector('.g02-wheel').classList.remove('is-changing'));
     categoryList.dataset.current = String(activeCategory);
     categoryButtons.forEach((button, buttonIndex) => {
-      button.setAttribute('aria-pressed', String(buttonIndex === activeCategory));
+      button.setAttribute('aria-pressed', String(buttonIndex === categoryIndex));
     });
     playCategoryOpen(categoryIndex);
     current = -1;
@@ -1094,7 +1083,7 @@ function init02() {
     guideSettleTimer = window.setTimeout(() => {
       setArchiveGuideState('category', { settleAfter: 420 });
     }, prefersReducedMotion() ? 0 : 220);
-    announce(`${category.label} gallery selected. ${activeWorks.length} projects.`);
+    announce(`${category.label} gallery selected. ${category.items.length} records.`);
   };
 
   const normalizedWheelDelta = (event) => {
@@ -1245,7 +1234,8 @@ function init02() {
     event.detail.handled = true;
     event.detail.completion = (async () => {
       await portfolio.whenIdle();
-      if (activeCategory !== categoryIndex) selectCategory(categoryIndex);
+      const categoryKey = categoryKeys[categoryIndex];
+      if (activeCategory !== categoryKey) selectCategory(categoryKey);
       select(index, false, true);
       portfolio.set(index);
       return openProject(cards[index]);
@@ -1258,7 +1248,7 @@ function init02() {
         event.preventDefault();
         return;
       }
-      selectCategory(index);
+      selectCategory(button.dataset.category);
     });
     button.addEventListener('keydown', (event) => {
       let next = null;
@@ -1269,7 +1259,8 @@ function init02() {
       if (next === null) return;
       event.preventDefault();
       event.stopPropagation();
-      selectCategory(wrap(next, 0, categories.length), { focus: true });
+      const nextIndex = wrap(next, 0, categories.length);
+      selectCategory(categoryKeys[nextIndex], { focus: true });
     });
   });
   puller.addEventListener('click', () => {

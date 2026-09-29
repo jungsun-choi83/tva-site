@@ -1,4 +1,4 @@
-const originalGalleryPath = './gallery-original/galleries/02-concave-wheel.html?v=eb-20260914l';
+const originalGalleryPath = '/gallery-original/galleries/02-concave-wheel.html?v=records-final';
 const focusableSelector = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),iframe,[tabindex]:not([tabindex="-1"])';
 
 export function initPortfolio(root, { onStoryWheel } = {}) {
@@ -110,6 +110,14 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
     const galleryWindow = frame.contentWindow;
     if (!galleryDocument || !galleryWindow) return;
 
+    if (!galleryDocument.querySelector('[data-records-ui-fix]')) {
+      const recordsStyle = galleryDocument.createElement('link');
+      recordsStyle.rel = 'stylesheet';
+      recordsStyle.href = '../shared/galleries.css?v=eb-20260927-records-layout-3';
+      recordsStyle.dataset.recordsUiFix = '1';
+      galleryDocument.head.append(recordsStyle);
+    }
+
     const nativeMatchMedia = galleryWindow.matchMedia.bind(galleryWindow);
     galleryWindow.matchMedia = (query) => {
       const media = nativeMatchMedia(query);
@@ -164,7 +172,7 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
     // 작품을 한 바퀴 다 본 뒤에는 굴림을 페이지에 넘겨, 갇히지 않게 한다.
     let spinCount = 0;
     let spinDirection = 0;
-    const spinLimit = () => Math.max(3, galleryDocument.querySelectorAll(galleryInputSelector).length);
+    const spinLimit = () => 2;
     const resetSpin = () => { spinCount = 0; spinDirection = 0; };
     const resetWheelOwner = () => {
       clearTimeout(wheelOwnerTimer);
@@ -281,7 +289,7 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
       // 위로 올라갈 때는 작품을 돌리지 않고 바로 앞 구역으로 보낸다.
       // 되돌아가는 사람은 작품을 다시 보려는 게 아니라 나가려는 것이고,
       // 여기서 수레바퀴를 돌리면 '휠이 안 먹는다'로 느껴진다(사장님 지적).
-      const overWork = galleryIsAligned() && galleryInputFor(event) && Math.sign(event.deltaY) > 0;
+      const overWork = galleryIsAligned() && galleryInputFor(event);
       const direction = Math.sign(event.deltaY);
       if (!overWork || direction !== spinDirection) resetSpin();
       // 한 바퀴를 다 돌았으면 이 굴림부터는 페이지 몫이다
