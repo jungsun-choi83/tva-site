@@ -115,8 +115,8 @@
   min-height:0;
   max-height:calc(100svh - var(--nav-height,64px));
   overflow-x:hidden;
-  overflow-y:auto;
-  overscroll-behavior:contain;
+  overflow-y:hidden;
+  overscroll-behavior:auto;
   padding:0;
   opacity:0;
   visibility:hidden;
@@ -175,12 +175,18 @@
   background:#fff;
 }
 #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-panel{
+  height:calc(100svh - var(--nav-height,64px));
+  min-height:0;
+  max-height:calc(100svh - var(--nav-height,64px));
+  box-sizing:border-box;
+  overflow:hidden;
   padding-top:clamp(48px,7vh,64px);
 }
 #portfolio.portfolio-bleib.is-bleib-open #portfolio-mount{
   flex:1 1 auto;
-  min-height:calc(100svh - var(--nav-height,64px) - 120px);
-  height:auto;
+  min-height:0;
+  height:0;
+  overflow:hidden;
 }
 #portfolio.portfolio-bleib.is-bleib-open .portfolio-sample-note{
   position:sticky;
@@ -271,11 +277,89 @@
   }
 }
 @media(max-width:760px){
-  .eb-bleib-title{font-size:clamp(3rem,18vw,4.5rem)}
-  .eb-bleib-index{font-size:clamp(2rem,12vw,3rem)}
+  /* Give the closed chapter card a real mobile column instead of squeezing
+     it between the decorative desktop index numbers. */
+  .eb-bleib-stage{
+    position:relative;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:minmax(0,1fr);
+    gap:0;
+    padding:clamp(72px,11vh,104px) 16px clamp(28px,5vh,44px);
+  }
+  .eb-bleib-index{display:none}
+  .eb-bleib-stage::before{
+    content:"2026";
+    position:absolute;
+    top:clamp(34px,5vh,52px);
+    right:18px;
+    z-index:3;
+    color:#55565b;
+    font:500 10px/1 var(--mono);
+    letter-spacing:.2em;
+  }
+  .eb-bleib-board{
+    width:100%;
+    min-height:min(58vh,520px);
+    padding:clamp(34px,7vh,58px) 22px clamp(62px,9vh,82px);
+  }
+  .eb-bleib-title{font-size:clamp(3rem,15vw,4.5rem);line-height:.92}
+  .eb-bleib-hint{max-width:18em;margin-top:22px;font-size:11px;line-height:1.55}
 }
 @media(prefers-reduced-motion:reduce){
   .eb-bleib.is-bleib-open .eb-bleib-stage{transform:none}
   .eb-bleib.is-bleib-open .eb-bleib-panel{transform:none}
   .eb-bleib:not(.is-bleib-open) .eb-bleib-panel{display:none}
+}
+
+/* Contact intro: restore the two chapter numbers as card-corner markers on
+   phones; the shared mobile card remains wide and centered. */
+@media(max-width:768px){
+  #contact.contact-bleib .eb-bleib-stage::before{content:none}
+  #contact.contact-bleib .eb-bleib-index{
+    display:block;
+    position:absolute;
+    top:24px;
+    z-index:4;
+    color:#55565b;
+    font:400 clamp(26px,8vw,32px)/1 var(--display);
+    letter-spacing:-.04em;
+  }
+  #contact.contact-bleib .eb-bleib-index--prev{left:20px}
+  #contact.contact-bleib .eb-bleib-index--next{right:20px}
+  #contact.contact-bleib .eb-bleib-board{
+    min-height:430px;
+    max-width:420px;
+    margin-inline:auto;
+    box-sizing:border-box;
+  }
+  #contact.contact-bleib .eb-bleib-eyebrow{
+    margin-bottom:22px;
+    font-size:10px;
+    letter-spacing:.18em;
+  }
+  #contact.contact-bleib .eb-bleib-title{
+    max-width:100%;
+    font-size:clamp(40px,13vw,58px);
+    line-height:.92;
+    letter-spacing:-.04em;
+    white-space:nowrap;
+  }
+  #contact.contact-bleib .eb-bleib-hint{
+    margin-top:24px;
+    max-width:100%;
+    font-size:10px;
+    line-height:1.5;
+    letter-spacing:.14em;
+  }
+  #contact.contact-bleib .eb-bleib-bars{
+    left:50%;
+    right:auto;
+    bottom:28px;
+    display:flex;
+    width:auto;
+    transform:translateX(-50%);
+    gap:8px;
+  }
+  #contact.contact-bleib .eb-bleib-bars i{width:52px;height:4px}
 }

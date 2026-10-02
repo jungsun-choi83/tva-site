@@ -43,20 +43,20 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"></noscript>
   <link rel="preload" as="image" href="assets/hero/beam-device-3q-shadow-glow-v1.png?v=eternal-beam-r33" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=eb-20260920g">
+  <link rel="stylesheet" href="styles.css?v=mobile-fit-1">
 <link rel="stylesheet" href="hero.css?v=eb-20260927-merge-1">
-<link rel="stylesheet" href="hero-melius.css?v=eb-20260927-merge-1">
+<link rel="stylesheet" href="hero-melius.css?v=eb-20260929-tonal-bridge-2">
   <link rel="stylesheet" href="brand-mark.css?v=eternal-beam-r30">
   <link rel="stylesheet" href="hero-material.css?v=eternal-beam-r33">
   <link rel="stylesheet" href="about.css?v=eb-20260921a">
   <link rel="stylesheet" href="about-walk.css?v=eb-20260914n">
-<link rel="stylesheet" href="about-bleib.css?v=eb-20260927-merge-1">
-<link rel="stylesheet" href="section-bleib.css?v=eb-20260927-merge-1">
+<link rel="stylesheet" href="about-bleib.css?v=mobile-fit-1">
+<link rel="stylesheet" href="section-bleib.css?v=fitted-panels-1">
 <link rel="stylesheet" href="signal-passage.css?v=eb-20260914g">
 <link rel="stylesheet" href="fall-welcome/actor.css?v=fall-welcome-production-r3.h492e636f" data-fall-actor-style>
-<link rel="stylesheet" href="portfolio.css?v=eb-20260927-merge-1">
-<link rel="stylesheet" href="story-keep.css?v=eb-20260927-merge-1">
-<link rel="stylesheet" href="contact-letterbox.css?v=eb-20260927-merge-1">
+<link rel="stylesheet" href="portfolio.css?v=mobile-overflow-2">
+<link rel="stylesheet" href="story-keep.css?v=mobile-fit-1">
+<link rel="stylesheet" href="contact-letterbox.css?v=contact-mobile-fit-2">
   <link rel="stylesheet" href="scroll-cue.css?v=eb-20260914g">
   <link rel="stylesheet" href="nav-shelf.css?v=eb-20260920w">
   <link rel="stylesheet" href="archive-pillars.css?v=eb-20260914g">
@@ -81,7 +81,8 @@
   <a class="skip-link" href="#contact" data-i18n="skip.contact">문의 바로가기 Skip to contact</a>
   <header class="site-nav" inert aria-hidden="true">
     <a class="nav-logo" href="#home" data-i18n-aria="nav.home" aria-label="Eternal Beam 첫 화면으로"><span class="eb-mark eb-mark--nav"><img src="assets/brand/eternal-beam-mark.png?v=eternal-beam-r29" width="1400" height="99" alt="Eternal Beam"><span class="eb-a-slot" aria-hidden="true"><i></i></span></span></a>
-    <nav data-i18n-aria="nav.main" aria-label="주 메뉴">
+    <button class="nav-menu-toggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="site-mobile-menu"><span></span><span></span><span></span></button>
+    <nav id="site-mobile-menu" data-i18n-aria="nav.main" aria-label="주 메뉴">
       <a href="#about">ABOUT</a><a href="#portfolio">RECORDS</a><a href="#original">JOURNEY</a><a href="#contact">CONTACT</a>
     </nav>
     <div class="lang-switch lang-switch--nav" role="group" aria-label="언어">
@@ -109,11 +110,30 @@
             <button type="button" data-lang-set="en" aria-pressed="false">EN</button>
           </div>
         </header>
-        <h1 id="hero-title" class="eb-melius-headline">
-          <span class="eb-melius-headline__line" data-melius-gold-line data-i18n="hero.melius.goldLine">YOUR PET.</span>
-          <span class="eb-melius-headline__line" data-melius-gold-line data-i18n="hero.melius.goldLine2">THEIR STORY.</span>
-          <span class="eb-melius-headline__line" data-melius-gold-line data-i18n="hero.melius.goldLine3">KEPT CLOSE.</span>
-        </h1>
+        <div class="eb-melius-florals" aria-hidden="true">
+          <img class="eb-melius-floral eb-melius-floral--left" src="assets/hero/hero-floral-left.png" width="1122" height="1402" alt="" decoding="async">
+          <img class="eb-melius-floral eb-melius-floral--right" src="assets/hero/hero-floral-right.png" width="1122" height="1402" alt="" decoding="async">
+          <img class="eb-melius-floral eb-melius-floral--top" src="assets/hero/hero-floral-top.png" width="1254" height="1254" alt="" decoding="async">
+        </div>
+        <div class="eb-melius-content">
+          <h1 id="hero-title" class="eb-melius-headline">
+            <span class="eb-melius-headline__line" data-melius-gold-line data-i18n="hero.melius.goldLine">YOUR PET.</span>
+            <span class="eb-melius-headline__line" data-melius-gold-line data-i18n="hero.melius.goldLine2">THEIR STORY.</span>
+            <span class="eb-melius-headline__line" data-melius-gold-line data-i18n="hero.melius.goldLine3">KEPT CLOSE.</span>
+          </h1>
+          <div class="eb-melius-foot">
+            <p class="eb-melius-foot__sub" data-i18n="hero.sub">영원히 남을 순간을 위하여</p>
+            <p class="eb-melius-foot__lead" data-i18n="hero.explain">사진과 편지로 기록하고,
+손에 쥐는 카드와 일상 속 디스플레이로 이어갑니다.</p>
+            <div class="eb-melius-foot__cta">
+              <div class="eb-melius-foot__cta-row">
+                <a class="eb-melius-btn eb-melius-btn--primary" href="https://soultrace.pet" target="_blank" rel="noopener noreferrer" data-i18n="hero.soultrace">소울트레이스 연결</a>
+                <a class="eb-melius-btn eb-melius-btn--ghost" href="#contact" data-i18n="hero.launch">출시 소식 받기</a>
+              </div>
+              <a class="eb-melius-foot__scroll" href="#about"><span data-i18n="hero.scroll">NEXT →</span></a>
+            </div>
+          </div>
+        </div>
         <div class="eb-melius-stage" aria-hidden="true">
           <div class="eb-melius-track">
             <div class="eb-melius-rail"></div>
@@ -122,18 +142,6 @@
             <img class="eb-melius-hub__device" src="assets/hero/beam-device-melius-front-cut.png?v=eb-20260919a" width="640" height="720" alt="" data-i18n-alt="hero.deviceImg" decoding="async" fetchpriority="high">
             <img class="eb-melius-hub__logo" src="assets/brand/eternal-beam-mark.png?v=eternal-beam-r29" width="720" height="51" alt="Eternal Beam">
           </figure>
-        </div>
-        <div class="eb-melius-foot">
-          <p class="eb-melius-foot__sub" data-i18n="hero.sub">영원히 남을 순간을 위하여</p>
-          <p class="eb-melius-foot__lead" data-i18n="hero.explain">사진과 편지로 기록하고,
-손에 쥐는 카드와 일상 속 디스플레이로 이어갑니다.</p>
-          <div class="eb-melius-foot__cta">
-            <div class="eb-melius-foot__cta-row">
-              <a class="eb-melius-btn eb-melius-btn--primary" href="https://soultrace.eternalbeam.com/" target="_blank" rel="noopener noreferrer" data-i18n="hero.soultrace">소울트레이스 연결</a>
-              <a class="eb-melius-btn eb-melius-btn--ghost" href="#contact" data-i18n="hero.launch">출시 소식 받기</a>
-            </div>
-            <a class="eb-melius-foot__scroll" href="#about"><span data-i18n="hero.scroll">NEXT →</span></a>
-          </div>
         </div>
       </div>
       <div class="hero-mark" aria-hidden="true">
@@ -178,7 +186,7 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
           </ul>
         </div>
         <div class="hero-cta">
-          <a class="hero-soultrace" href="https://soultrace.eternalbeam.com/" target="_blank" rel="noopener noreferrer" data-i18n="hero.soultrace">소울트레이스 연결</a>
+          <a class="hero-soultrace" href="https://soultrace.pet" target="_blank" rel="noopener noreferrer" data-i18n="hero.soultrace">소울트레이스 연결</a>
           <a class="hero-soultrace" href="#contact" data-i18n="hero.launch">출시 소식 받기</a>
         </div>
       </div>
@@ -187,7 +195,7 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
       </div>
     </section>
 
-    <section id="about" class="about-runway about-walk about-bleib is-linear" tabindex="-1" aria-labelledby="about-bleib-title">
+    <section id="about" class="about-runway about-walk about-bleib is-linear" tabindex="-1" aria-labelledby="about-cinematic-title">
       <div class="about-sr-summary">
         <h2 data-i18n="about.srTitle">Eternal Beam 아카이브 전체</h2>
         <ul>
@@ -201,6 +209,26 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
         </ul>
       </div>
       <div class="about-camera">
+        <div class="about-cinematic">
+          <div class="about-cinematic__story">
+            <img class="about-cinematic__dog" src="assets/homepage/about/dog.png" width="1448" height="1086" alt="" decoding="async">
+            <div class="about-cinematic__copy">
+              <p class="about-cinematic__chapter" data-i18n="about.cinematic.chapter">01 / ABOUT</p>
+              <h2 id="about-cinematic-title" class="about-cinematic__title">
+                <span data-i18n-html="about.cinematic.title">Technology should<br>hold</span>
+                <em data-i18n="about.cinematic.gold">what matters.</em>
+              </h2>
+              <p class="about-cinematic__description" data-i18n="about.cinematic.description">Eternal Beam preserves the memories of the pets we love — through stories, letters, physical keepsakes, a beautiful display, and a presence that can remain close in everyday life.</p>
+            </div>
+          </div>
+          <div class="about-cinematic__right" aria-hidden="true">
+            <div class="about-cinematic__brand">
+              <strong>ETERNAL BEAM</strong>
+              <span data-i18n-html="about.cinematic.phrase">MORE THAN MEMORIES<br>A LASTING PRESENCE</span>
+            </div>
+          </div>
+          <span class="about-cinematic__divider" aria-hidden="true"><i></i></span>
+        </div>
         <div class="about-bleib-stage">
           <span class="about-bleib-index about-bleib-index--prev" data-about-index-prev aria-hidden="true">20</span>
           <button type="button" class="about-bleib-board" id="about-bleib-board" aria-expanded="false" aria-controls="about-bleib-grid" data-i18n-aria="about.bleib.board">
@@ -319,6 +347,10 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
           <span class="eb-bleib-index eb-bleib-index--next" aria-hidden="true">26</span>
         </div>
         <div class="eb-bleib-panel" id="portfolio-bleib-panel" data-bleib-panel>
+          <div class="records-panel-florals" aria-hidden="true">
+            <img class="records-panel-floral records-panel-floral--left" src="assets/homepage/records/left-up.png" alt="" width="1254" height="1254" decoding="async">
+            <img class="records-panel-floral records-panel-floral--right" src="assets/homepage/records/right up.png" alt="" width="1254" height="1254" decoding="async">
+          </div>
           <button type="button" class="eb-bleib-back" data-bleib-back hidden data-i18n="portfolio.bleib.back">← RECORDS</button>
           <div id="portfolio-mount"></div>
           <div class="portfolio-scroll-indicator" aria-hidden="true"><span>SCROLL</span><i>↓</i></div>
@@ -448,6 +480,6 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
 <script src="app.js?v=eb-20260927-merge-1" type="module"></script>
 <script type="module" src="scroll-cue.js?v=eb-20260927-merge-1"></script>
   <script type="module" src="section-bleib.js?v=eb-20260927-merge-1"></script>
-  <script type="module" src="about-bleib.js?v=eb-20260927-merge-1"></script>
+  <script type="module" src="about-bleib.js?v=eb-20260929-cinematic-about"></script>
 </body>
 </html>

@@ -668,10 +668,748 @@ html[data-about-grid="open"]{
   #about.about-bleib .about-bleib-title{font-size:clamp(3rem,18vw,4.5rem)}
   #about.about-bleib .about-bleib-index{font-size:clamp(2rem,12vw,3rem)}
 }
+
+/* Mobile ABOUT intro: use the same roomy single-card composition as the
+   other chapter gates instead of squeezing the desktop three-column rail. */
+@media(max-width:768px){
+  #about.about-bleib:not(.is-grid-open) .about-bleib-stage{
+    position:absolute;
+    inset:0;
+    display:grid;
+    grid-template-columns:minmax(0,1fr);
+    grid-template-rows:minmax(0,1fr);
+    gap:0;
+    width:100%;
+    min-height:100svh;
+    padding:clamp(72px,11vh,104px) 16px clamp(28px,5vh,44px);
+    box-sizing:border-box;
+  }
+  #about.about-bleib:not(.is-grid-open) .about-bleib-index{
+    display:block;
+    position:absolute;
+    top:24px;
+    z-index:4;
+    color:var(--about-bleib-beige,#e3ded3);
+    font:400 clamp(26px,8vw,32px)/1 var(--display);
+    letter-spacing:-.04em;
+  }
+  #about.about-bleib:not(.is-grid-open) .about-bleib-index--prev{left:20px}
+  #about.about-bleib:not(.is-grid-open) .about-bleib-index--next{right:20px}
+  #about.about-bleib:not(.is-grid-open) .about-bleib-board{
+    width:100%;
+    max-width:420px;
+    min-height:430px;
+    margin-inline:auto;
+    box-sizing:border-box;
+    padding:clamp(34px,7vh,58px) 22px clamp(62px,9vh,82px);
+  }
+  #about.about-bleib:not(.is-grid-open) .about-bleib-eyebrow{
+    margin-bottom:22px;
+    font-size:10px;
+    letter-spacing:.18em;
+  }
+  #about.about-bleib:not(.is-grid-open) .about-bleib-title{
+    max-width:100%;
+    font-size:clamp(40px,13vw,58px);
+    line-height:.92;
+    letter-spacing:-.04em;
+    white-space:nowrap;
+  }
+  #about.about-bleib:not(.is-grid-open) .about-bleib-board__hint{
+    margin-top:24px;
+    max-width:100%;
+    font-size:10px;
+    line-height:1.5;
+    letter-spacing:.14em;
+  }
+  #about.about-bleib:not(.is-grid-open) .about-bleib-board__bars{
+    left:50%;
+    right:auto;
+    bottom:28px;
+    display:flex;
+    width:auto;
+    transform:translateX(-50%);
+    gap:8px;
+  }
+  #about.about-bleib:not(.is-grid-open) .about-bleib-board__bars i{width:52px;height:4px}
+}
 @media(prefers-reduced-motion:reduce){
   #about.about-bleib.is-grid-open .about-bleib-stage{transform:none}
   #about.about-bleib.is-grid-open .about-bleib-grid{transform:none;padding:clamp(72px,10vh,96px) 0 clamp(48px,8vh,72px)}
   #about.about-bleib:not(.is-grid-open) .about-bleib-grid{display:none}
   #about.about-bleib.is-grid-open .studio-station{opacity:1;transform:translate3d(var(--type-x,0),0,0)}
   #about.about-bleib .about-bleib-board{transition:none}
+}
+
+/* 2026-09-29 — Eternal Beam cinematic ABOUT shell.
+   Existing station/flip/dialog hooks remain intact beneath this presentation. */
+#about.about-bleib{
+  --about-cinematic-black:#171512;
+  --about-cinematic-ivory:#f4efe6;
+  --about-cinematic-gold:#c49a55;
+  --about-cinematic-copy:rgba(244,239,230,.62);
+  height:auto!important;
+  overflow:hidden;
+  background:var(--about-cinematic-black);
+  color:var(--about-cinematic-ivory);
+}
+#about.about-bleib .about-camera{
+  position:relative;
+  display:block;
+  min-height:100svh;
+  height:100svh;
+  overflow:hidden;
+  background:var(--about-cinematic-black);
+}
+#about.about-bleib .about-camera:after{
+  content:"";
+  position:absolute;
+  z-index:18;
+  top:0;
+  right:0;
+  left:0;
+  height:18%;
+  pointer-events:none;
+  background:linear-gradient(180deg,
+    rgba(229,214,191,.18) 0%,
+    rgba(155,132,107,.1) 28%,
+    rgba(23,21,18,.035) 62%,
+    transparent 100%);
+}
+
+#about.about-bleib .about-cinematic{
+  position:absolute;
+  z-index:1;
+  inset:0;
+  overflow:hidden;
+  pointer-events:none;
+}
+#about.about-bleib .about-cinematic__story{
+  position:absolute;
+  inset:0 45% 0 0;
+  overflow:hidden;
+  background:#2b2520;
+}
+#about.about-bleib .about-cinematic__story:before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:0;
+  background:url("assets/homepage/about/dog.png") 58% center/cover no-repeat;
+  filter:saturate(.78) contrast(.96) brightness(.92);
+}
+#about.about-bleib .about-cinematic__dog{
+  position:absolute;
+  inset:0;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:58% center;
+  filter:saturate(.83) contrast(1.02) brightness(.82);
+  visibility:hidden;
+}
+#about.about-bleib .about-cinematic__story:after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  inset:0;
+  background:
+    linear-gradient(90deg,rgba(12,10,8,.72) 0%,rgba(12,10,8,.42) 40%,rgba(12,10,8,.08) 72%,rgba(12,10,8,0) 100%),
+    linear-gradient(180deg,rgba(12,10,8,.16),transparent 34% 74%,rgba(12,10,8,.24));
+}
+#about.about-bleib .about-cinematic__copy{
+  position:absolute;
+  z-index:2;
+  left:clamp(64px,5vw,96px);
+  top:clamp(58px,8vh,96px);
+  width:min(520px,43vw);
+  color:var(--about-cinematic-ivory);
+  animation:about-cinematic-copy-in .72s cubic-bezier(.22,.61,.36,1) both;
+}
+#about.about-bleib .about-cinematic__chapter{
+  margin:0 0 clamp(38px,6vh,68px);
+  color:rgba(244,239,230,.8);
+  font:500 11px/1 var(--mono);
+  letter-spacing:.17em;
+}
+#about.about-bleib .about-cinematic__title{
+  margin:0;
+  max-width:520px;
+  color:var(--about-cinematic-ivory);
+  font:400 clamp(42px,3.35vw,66px)/1.08 var(--serif);
+  letter-spacing:-.035em;
+  text-wrap:balance;
+}
+#about.about-bleib .about-cinematic__title span,
+#about.about-bleib .about-cinematic__title em{display:block}
+#about.about-bleib .about-cinematic__title em{
+  color:var(--about-cinematic-gold);
+  font-style:normal;
+}
+#about.about-bleib .about-cinematic__description{
+  max-width:390px;
+  margin:clamp(26px,3.8vh,40px) 0 0;
+  color:rgba(244,239,230,.72);
+  font:400 clamp(15px,1.05vw,17px)/1.7 var(--sans);
+  letter-spacing:-.012em;
+  text-wrap:pretty;
+}
+#about.about-bleib .about-cinematic__helper{
+  margin:clamp(24px,3.4vh,38px) 0 0;
+  color:rgba(196,154,82,.78);
+  font:500 9px/1 var(--mono);
+  letter-spacing:.19em;
+  text-transform:uppercase;
+}
+
+#about.about-bleib .about-cinematic__right{
+  position:absolute;
+  inset:0 0 0 55%;
+  overflow:hidden;
+  background:
+    radial-gradient(ellipse 80% 55% at 88% 78%,rgba(164,115,49,.11),transparent 68%),
+    var(--about-cinematic-black);
+}
+#about.about-bleib .about-cinematic__right:after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Ccircle cx='9' cy='9' r='.7' fill='%23f5f0e7' fill-opacity='.035'/%3E%3C/svg%3E");
+  pointer-events:none;
+}
+#about.about-bleib .about-cinematic__brand{
+  position:absolute;
+  z-index:8;
+  top:5%;
+  right:5%;
+  text-align:right;
+}
+#about.about-bleib .about-cinematic__brand strong,
+#about.about-bleib .about-cinematic__brand span{display:block}
+#about.about-bleib .about-cinematic__brand strong{
+  color:rgba(244,239,230,.78);
+  font:500 11px/1 var(--sans);
+  letter-spacing:.16em;
+}
+#about.about-bleib .about-cinematic__brand span{
+  margin-top:9px;
+  color:rgba(244,239,230,.3);
+  font:500 8px/1.45 var(--mono);
+  letter-spacing:.12em;
+}
+#about.about-bleib .about-cinematic__divider{
+  position:absolute;
+  z-index:10;
+  left:55%;
+  top:0;
+  bottom:0;
+  width:1px;
+  background:rgba(196,154,85,.25);
+  box-shadow:0 0 34px rgba(196,154,85,.1);
+}
+#about.about-bleib .about-cinematic__divider:before{
+  content:"";
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:90px;
+  height:42%;
+  transform:translate(-50%,-50%);
+  background:radial-gradient(circle at center,rgba(196,154,85,.1),transparent 60%);
+  pointer-events:none;
+}
+#about.about-bleib .about-cinematic__divider i{
+  position:absolute;
+  left:50%;
+  top:50%;
+  width:7px;
+  height:7px;
+  border:1px solid rgba(196,154,85,.5);
+  background:#171512;
+  transform:translate(-50%,-50%) rotate(45deg);
+}
+
+/* The original board remains in the DOM for its existing gate API. */
+#about.about-bleib .about-bleib-stage{
+  position:absolute;
+  width:1px;
+  height:1px;
+  min-height:0;
+  margin:-1px;
+  padding:0;
+  overflow:hidden;
+  clip-path:inset(50%);
+  opacity:0;
+  pointer-events:none;
+}
+#about.about-bleib.is-grid-open .about-bleib-stage{opacity:0;visibility:hidden;transform:none}
+
+/* Existing generated category faces become the editorial navigation. */
+#about.about-bleib .about-bleib-grid,
+#about.about-bleib.is-grid-open .about-bleib-grid{
+  position:absolute;
+  z-index:12;
+  top:0;
+  right:0;
+  bottom:0;
+  width:45%;
+  min-height:0;
+  padding:clamp(58px,8vh,86px) 0 clamp(46px,7vh,68px);
+  overflow:hidden;
+  visibility:visible;
+  opacity:1;
+  pointer-events:auto;
+  transform:none;
+  background:transparent;
+  display:flex!important;
+}
+#about.about-bleib .about-bleib-grid > .studio-track,
+#about.about-bleib .studio-track.about-bleib-type{
+  position:relative;
+  z-index:5;
+  display:flex;
+  flex-direction:column;
+  gap:0;
+  width:86%;
+  max-width:none;
+  min-height:0;
+  height:100%;
+  margin:0;
+  padding:0 0 0 clamp(24px,2.5vw,48px);
+  overflow:visible;
+  background:transparent;
+  border:0;
+  border-radius:0;
+  transform:none!important;
+}
+
+html[lang="ko"] #about.about-bleib .about-cinematic__title{
+  max-width:520px;
+  font-size:clamp(42px,3.35vw,66px);
+  line-height:1.08;
+  letter-spacing:-.035em;
+}
+#about.about-bleib .studio-track.about-bleib-type:before,
+#about.about-bleib .studio-track.about-bleib-type:after{display:none}
+#about.about-bleib .about-bleib-grid .studio-station{
+  --type-x:0!important;
+  position:relative;
+  display:block;
+  flex:1 1 0;
+  width:100%!important;
+  min-width:0;
+  max-width:none;
+  min-height:72px;
+  height:auto;
+  margin:0!important;
+  padding:0!important;
+  overflow:visible;
+  color:var(--about-cinematic-ivory);
+  background:transparent;
+  text-align:left!important;
+  opacity:1;
+  transform:none;
+  pointer-events:auto;
+  animation:about-cinematic-row-in .56s cubic-bezier(.22,.61,.36,1) both;
+}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(2){animation-delay:.04s}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(3){animation-delay:.08s}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(4){animation-delay:.12s}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(5){animation-delay:.16s}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(6){animation-delay:.2s}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(7){animation-delay:.24s}
+#about.about-bleib .about-bleib-grid .studio-station:before{
+  content:counter(about-theme,decimal-leading-zero);
+  counter-increment:about-theme;
+  position:absolute;
+  display:block!important;
+  z-index:4;
+  top:50%;
+  left:0;
+  width:24px;
+  height:auto;
+  background:none;
+  color:var(--about-cinematic-gold);
+  font:500 10px/1 var(--mono);
+  letter-spacing:.08em;
+  transform:translateY(-50%);
+}
+#about.about-bleib .studio-track.about-bleib-type{counter-reset:about-theme}
+#about.about-bleib .about-bleib-grid .studio-station:after{
+  content:"";
+  position:absolute;
+  z-index:1;
+  right:0;
+  bottom:0;
+  left:0;
+  height:1px;
+  background:linear-gradient(90deg,rgba(196,154,85,.25),rgba(244,239,230,.07));
+  transition:background .22s ease;
+}
+#about.about-bleib .about-bleib-grid .studio-station > .station-copy,
+#about.about-bleib .about-bleib-grid .studio-station > .beam-gold,
+#about.about-bleib .about-bleib-grid .studio-station > .exit-arrow{display:none!important}
+#about.about-bleib .about-bleib-grid .about-bleib-flip,
+#about.about-bleib .about-bleib-grid .about-bleib-flip__inner{
+  width:100%;
+  height:100%;
+  min-height:0;
+}
+#about.about-bleib .about-bleib-grid .studio-station:not(.is-flipped) .about-bleib-flip,
+#about.about-bleib .about-bleib-grid .studio-station:not(.is-flipped) .about-bleib-flip__inner{
+  height:100%;
+  min-height:100%;
+}
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front{
+  position:relative;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  width:100%;
+  height:100%;
+  min-height:72px;
+  padding:12px 34px 12px 38px;
+  border:0;
+  border-radius:0;
+  color:var(--about-cinematic-ivory);
+  background:transparent;
+  text-align:left;
+  transition:transform .22s ease,color .22s ease;
+}
+#about.about-bleib .about-bleib-grid .about-bleib-type__title{
+  display:block;
+  color:rgba(244,239,230,.9);
+  font:600 clamp(11px,.82vw,14px)/1.1 var(--sans);
+  letter-spacing:.14em;
+  text-transform:uppercase;
+  -webkit-text-stroke:0;
+  text-shadow:none;
+  opacity:1;
+  transition:color .22s ease;
+}
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:before{
+  content:"→";
+  position:absolute;
+  right:8px;
+  top:50%;
+  color:rgba(196,154,85,.76);
+  font:400 14px/1 var(--sans);
+  transform:translateY(-50%);
+  transition:transform .22s ease,color .22s ease;
+}
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:after{
+  display:block;
+  margin-top:7px;
+  color:rgba(244,239,230,.54);
+  font:400 clamp(9px,.68vw,11px)/1.25 var(--sans);
+  letter-spacing:.01em;
+}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(1) .about-bleib-flip__face--front:after{content:"Why we preserve"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(2) .about-bleib-flip__face--front:after{content:"Words that stay"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(3) .about-bleib-flip__face--front:after{content:"A more human way"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(4) .about-bleib-flip__face--front:after{content:"Presence in daily life"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(5) .about-bleib-flip__face--front:after{content:"Bringing memories to life"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(6) .about-bleib-flip__face--front:after{content:"A lasting collection"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(7) .about-bleib-flip__face--front:after{content:"From story to presence"}
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover,
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible{
+  color:#fff;
+  outline:0;
+  transform:translateX(3px);
+}
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover .about-bleib-type__title,
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible .about-bleib-type__title{
+  color:#fff;
+  animation:none;
+}
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover:before,
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible:before{
+  color:#d9b36f;
+  transform:translate(4px,-50%);
+}
+#about.about-bleib .about-bleib-grid .studio-station:hover:after,
+#about.about-bleib .about-bleib-grid .studio-station:focus-within:after{
+  background:linear-gradient(90deg,rgba(196,154,85,.7),rgba(244,239,230,.11));
+}
+#about.about-bleib .about-bleib-back{
+  position:absolute;
+  z-index:20;
+  top:clamp(72px,9vh,94px);
+  left:calc(55% + clamp(24px,2.5vw,48px));
+  margin:0;
+  padding:8px 0;
+  border:0;
+  border-radius:0;
+  color:rgba(244,239,230,.62);
+  background:transparent;
+  box-shadow:none;
+  font-size:9px;
+}
+
+@keyframes about-cinematic-copy-in{
+  from{opacity:0;transform:translateY(16px)}
+  to{opacity:1;transform:none}
+}
+@keyframes about-cinematic-row-in{
+  from{opacity:0;transform:translateY(12px)}
+  to{opacity:1;transform:none}
+}
+@media(max-width:900px){
+  #about.about-bleib .about-camera{height:auto;min-height:1370px}
+  #about.about-bleib .about-cinematic__story{
+    inset:0 0 auto;
+    width:100%;
+    height:720px;
+  }
+  #about.about-bleib .about-cinematic__dog{object-position:62% center}
+  #about.about-bleib .about-cinematic__copy{
+    left:clamp(24px,7vw,64px);
+    top:clamp(72px,10vh,104px);
+    width:min(78vw,520px);
+  }
+  #about.about-bleib .about-cinematic__right{
+    inset:720px 0 0;
+    width:100%;
+  }
+  #about.about-bleib .about-cinematic__divider{
+    left:0;
+    right:0;
+    top:720px;
+    bottom:auto;
+    width:auto;
+    height:1px;
+  }
+  #about.about-bleib .about-cinematic__divider i{top:50%}
+  #about.about-bleib .about-bleib-grid,
+  #about.about-bleib.is-grid-open .about-bleib-grid{
+    top:720px;
+    right:0;
+    bottom:auto;
+    width:100%;
+    height:650px;
+    padding:36px clamp(22px,6vw,52px) 26px;
+  }
+  #about.about-bleib .about-bleib-grid > .studio-track,
+  #about.about-bleib .studio-track.about-bleib-type{
+    width:min(620px,100%);
+    height:100%;
+    margin:0;
+    padding:0;
+  }
+  #about.about-bleib .about-bleib-grid .studio-station{min-height:76px}
+  #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front{min-height:76px;padding-left:40px}
+  #about.about-bleib .about-bleib-grid .about-bleib-type__title{font-size:13px}
+  #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:after{font-size:11px}
+  #about.about-bleib .about-cinematic__brand{
+    top:580px;
+    left:clamp(22px,6vw,52px);
+    right:auto;
+    text-align:left;
+  }
+  #about.about-bleib .about-bleib-back{top:730px;left:auto;right:24px}
+}
+
+@media(max-width:560px){
+  #about.about-bleib .about-camera{min-height:1270px}
+  #about.about-bleib .about-cinematic__story{height:650px}
+  #about.about-bleib .about-cinematic__story:after{
+    background:linear-gradient(90deg,rgba(12,11,11,.8),rgba(14,12,11,.35) 78%),linear-gradient(180deg,rgba(12,11,11,.28),transparent 52%,rgba(12,11,11,.56));
+  }
+  #about.about-bleib .about-cinematic__copy{top:68px;width:min(88vw,440px)}
+  #about.about-bleib .about-cinematic__chapter{margin-bottom:34px}
+  #about.about-bleib .about-cinematic__title{font-size:clamp(39px,11.5vw,58px);line-height:.98}
+  #about.about-bleib .about-cinematic__description{max-width:320px;font-size:13px;line-height:1.55}
+  #about.about-bleib .about-cinematic__helper{margin-top:24px}
+  #about.about-bleib .about-cinematic__right{inset:650px 0 0}
+  #about.about-bleib .about-cinematic__divider{top:650px}
+  #about.about-bleib .about-bleib-grid,
+  #about.about-bleib.is-grid-open .about-bleib-grid{
+    top:650px;
+    height:620px;
+    padding:22px 20px 18px;
+  }
+  #about.about-bleib .about-bleib-grid .studio-station{min-height:72px}
+  #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front{min-height:72px;padding:9px 30px 9px 38px}
+  #about.about-bleib .about-cinematic__brand{top:570px;left:20px}
+  #about.about-bleib .about-bleib-back{top:656px;right:20px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  #about.about-bleib .about-cinematic__copy,
+  #about.about-bleib .about-bleib-grid .studio-station{
+    animation:none!important;
+    opacity:1;
+    translate:none;
+    scale:1;
+    transform:none;
+  }
+  #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front{transition:none}
+}
+
+/* ABOUT gate: retain the editorial title card, then reveal this composition. */
+#about.about-bleib .about-cinematic{
+  opacity:0;
+  visibility:hidden;
+  transition:opacity .55s cubic-bezier(.22,.61,.36,1),visibility .55s;
+}
+#about.about-bleib .about-bleib-grid,
+#about.about-bleib.is-grid-open .about-bleib-grid{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+}
+#about.about-bleib .about-bleib-stage{
+  position:absolute;
+  z-index:24;
+  inset:0;
+  display:grid;
+  grid-template-columns:minmax(48px,1fr) minmax(0,8fr) minmax(48px,1fr);
+  align-items:center;
+  gap:clamp(8px,2vw,24px);
+  width:auto;
+  height:auto;
+  min-height:100svh;
+  margin:0;
+  padding:clamp(88px,12vh,120px) clamp(12px,2vw,28px) clamp(32px,5vh,48px);
+  overflow:visible;
+  clip-path:none;
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+  background:#171512;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15'%3E%3Crect x='6.5' y='6.5' width='2' height='2' rx='1' ry='1' fill='rgb(255%2C255%2C255)' fill-opacity='0.07'/%3E%3C/svg%3E");
+  transition:opacity .45s ease,visibility .45s,transform .55s cubic-bezier(.22,.61,.36,1);
+}
+#about.about-bleib.is-grid-open .about-bleib-stage{
+  opacity:0;
+  visibility:hidden;
+  pointer-events:none;
+  transform:scale(.985) translateY(-10px);
+}
+#about.about-bleib.is-grid-open .about-cinematic{
+  opacity:1;
+  visibility:visible;
+}
+#about.about-bleib.is-grid-open .about-bleib-grid{
+  opacity:1;
+  visibility:visible;
+  pointer-events:auto;
+}
+
+/* Open ABOUT is a single fitted composition; vertical wheel remains with the homepage. */
+#about.about-bleib.is-grid-open,
+#about.about-bleib.is-grid-open .about-camera{
+  height:calc(100svh - var(--nav-height,64px));
+  min-height:0;
+  max-height:calc(100svh - var(--nav-height,64px));
+  overflow:hidden;
+}
+#about.about-bleib.is-grid-open .about-cinematic{
+  height:100%;
+  min-height:0;
+  overflow:hidden;
+}
+
+@media(max-width:900px){
+  #about.about-bleib:not(.is-grid-open) .about-camera{height:100svh;min-height:700px}
+  #about.about-bleib .about-bleib-stage{
+    grid-template-columns:minmax(36px,.6fr) minmax(0,1fr) minmax(36px,.6fr);
+    min-height:100svh;
+  }
+}
+
+@media(prefers-reduced-motion:reduce){
+  #about.about-bleib .about-cinematic,
+  #about.about-bleib .about-bleib-stage{transition:none}
+}
+
+/* Mobile ABOUT keeps the desktop story/navigation relationship in one fitted screen. */
+@media(max-width:760px){
+  #about.about-bleib.is-grid-open,
+  #about.about-bleib.is-grid-open .about-camera,
+  #about.about-bleib.is-grid-open .about-cinematic{
+    height:calc(100svh - var(--nav-height,64px));
+    min-height:0;
+    max-height:calc(100svh - var(--nav-height,64px));
+    overflow:hidden;
+  }
+  #about.about-bleib.is-grid-open .about-cinematic__story{
+    inset:0 0 52%;
+    width:100%;
+    height:auto;
+  }
+  #about.about-bleib.is-grid-open .about-cinematic__dog{object-position:62% center}
+  #about.about-bleib.is-grid-open .about-cinematic__copy{
+    top:clamp(22px,4vh,36px);
+    left:18px;
+    width:min(62vw,242px);
+  }
+  #about.about-bleib.is-grid-open .about-cinematic__chapter{
+    margin-bottom:12px;
+    font-size:9px;
+  }
+  #about.about-bleib.is-grid-open .about-cinematic__title{
+    max-width:8.5em;
+    font-size:clamp(27px,8.4vw,36px);
+    line-height:.98;
+  }
+  #about.about-bleib.is-grid-open .about-cinematic__description{
+    max-width:235px;
+    margin-top:14px;
+    font-size:11px;
+    line-height:1.45;
+  }
+  #about.about-bleib.is-grid-open .about-cinematic__helper{display:none}
+  #about.about-bleib.is-grid-open .about-cinematic__right{
+    inset:52% 0 0;
+    width:100%;
+    height:auto;
+  }
+  #about.about-bleib.is-grid-open .about-cinematic__divider{
+    top:52%;
+    right:0;
+    bottom:auto;
+    left:0;
+    width:auto;
+    height:1px;
+  }
+  #about.about-bleib.is-grid-open .about-cinematic__brand{display:none}
+  #about.about-bleib.is-grid-open .about-bleib-grid{
+    inset:52% 0 0;
+    width:100%;
+    height:auto;
+    padding:8px 16px 10px;
+    overflow:hidden;
+  }
+  #about.about-bleib.is-grid-open .about-bleib-grid > .studio-track,
+  #about.about-bleib.is-grid-open .studio-track.about-bleib-type{
+    display:grid;
+    grid-template-rows:repeat(7,minmax(0,1fr));
+    width:100%;
+    height:100%;
+    min-height:0;
+    gap:0;
+  }
+  #about.about-bleib.is-grid-open .about-bleib-grid .studio-station,
+  #about.about-bleib.is-grid-open .about-bleib-grid .about-bleib-flip__face--front{
+    min-height:0;
+    height:100%;
+  }
+  #about.about-bleib.is-grid-open .about-bleib-grid .about-bleib-flip__face--front{
+    padding:4px 27px 4px 34px;
+  }
+  #about.about-bleib.is-grid-open .about-bleib-grid .about-bleib-type__title{font-size:11px}
+  #about.about-bleib.is-grid-open .about-bleib-grid .about-bleib-flip__face--front::after{
+    font-size:9px;
+    line-height:1.15;
+  }
+  #about.about-bleib.is-grid-open .about-bleib-back{
+    position:absolute;
+    top:8px;
+    right:10px;
+    left:auto;
+    z-index:70;
+    padding:8px 12px;
+    font-size:9px;
+  }
 }

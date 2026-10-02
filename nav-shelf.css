@@ -50,6 +50,98 @@
      360px 이하에서 네 칸이 선반 폭을 넘지 않는 크기까지 줄어든다. */
   .site-nav nav a{font-size:clamp(9.5px,2.7vw,12px);letter-spacing:.04em;padding:var(--nav-link-pad) 1px}
 }
+
+/* Mobile navigation uses the existing links in a vertical, accessible panel.
+   Desktop shelf geometry above remains untouched. */
+.nav-menu-toggle{display:none}
+@media(max-width:768px){
+  .site-nav{
+    height:64px;
+    padding:0 18px;
+    align-items:center;
+    background:#f6f2e8;
+    border-bottom:1px solid rgba(23,25,35,.24);
+    overflow:visible;
+  }
+  .site-nav .nav-logo{height:64px;transform:none;z-index:4}
+  .site-nav .nav-logo .eb-mark{width:auto}
+  .site-nav .nav-logo .eb-mark img{width:clamp(112px,34vw,142px);height:auto}
+  .nav-menu-toggle{
+    position:relative;
+    z-index:6;
+    display:flex;
+    flex:0 0 24px;
+    width:24px;
+    height:24px;
+    flex-direction:column;
+    justify-content:center;
+    gap:5px;
+    padding:0;
+    border:0;
+    background:transparent;
+    color:#171923;
+  }
+  .nav-menu-toggle span{display:block;width:22px;height:1.5px;background:currentColor;transition:transform .2s ease,opacity .2s ease}
+  .site-nav.is-mobile-menu-open .nav-menu-toggle span:nth-child(1){transform:translateY(6.5px) rotate(45deg)}
+  .site-nav.is-mobile-menu-open .nav-menu-toggle span:nth-child(2){opacity:0}
+  .site-nav.is-mobile-menu-open .nav-menu-toggle span:nth-child(3){transform:translateY(-6.5px) rotate(-45deg)}
+  .site-nav nav{
+    position:absolute;
+    top:64px;
+    left:0;
+    right:0;
+    z-index:5;
+    display:flex;
+    height:250px;
+    flex-direction:column;
+    align-items:stretch;
+    justify-content:flex-start;
+    gap:4px;
+    padding:28px 24px 22px;
+    background:#f6f2e8;
+    border-bottom:1px solid rgba(196,154,85,.42);
+    box-shadow:0 14px 30px rgba(23,25,35,.12);
+    transform:translateY(-12px);
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    transition:opacity .22s ease,transform .22s ease,visibility .22s ease;
+  }
+  .site-nav.is-mobile-menu-open nav{transform:none;opacity:1;visibility:visible;pointer-events:auto}
+  .site-nav nav a{
+    position:relative;
+    justify-content:flex-start;
+    min-height:44px;
+    padding:8px 0;
+    color:#171923;
+    font:500 20px/1 var(--caps);
+    letter-spacing:.12em;
+  }
+  .site-nav nav a.is-here{color:#171923;border-bottom:0;padding-bottom:8px}
+  .site-nav nav a.is-here::before{
+    content:"";
+    width:6px;
+    height:6px;
+    margin-right:10px;
+    border-radius:50%;
+    background:#c8a15e;
+  }
+  .site-nav .lang-switch--nav{
+    position:absolute;
+    top:314px;
+    left:24px;
+    z-index:6;
+    display:flex;
+    opacity:0;
+    visibility:hidden;
+    pointer-events:none;
+    color:#171923;
+    transform:none;
+    transition:opacity .22s ease,visibility .22s ease;
+  }
+  .site-nav.is-mobile-menu-open .lang-switch--nav{opacity:1;visibility:visible;pointer-events:auto}
+  .site-nav .lang-switch--nav button{min-width:36px;min-height:36px;padding:6px 4px;font:500 11px/1 var(--mono);letter-spacing:.12em}
+}
 /* 360px 이하에서는 로고까지 줄여야 CONTACT 가 들어온다 */
 @media(max-width:360px){
   .site-nav .nav-logo .eb-mark{width:88px}
