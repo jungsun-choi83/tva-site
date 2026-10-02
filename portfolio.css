@@ -25,6 +25,72 @@
   height:clamp(620px,calc(100svh - 190px),820px);
   min-height:620px;
 }
+
+/* The opened Records composition is one viewport, never a nested scroller. */
+#portfolio.portfolio-bleib.is-bleib-open .eb-bleib-shell{
+  height:calc(100svh - var(--nav-height,64px));
+  min-height:0;
+  overflow:hidden;
+}
+#portfolio.portfolio-bleib.is-bleib-open .eb-bleib-panel{
+  height:100%;
+  min-height:0;
+  max-height:100%;
+  overflow:hidden;
+}
+#portfolio.portfolio-bleib.is-bleib-open #portfolio-mount{
+  flex:1 1 0;
+  height:auto;
+  min-height:0;
+  overflow:hidden;
+}
+
+/* Records visual polish: keep the existing chapter and iframe behavior intact. */
+#portfolio.portfolio-bleib,
+#portfolio.portfolio-bleib .eb-bleib-stage,
+#portfolio.portfolio-bleib .eb-bleib-panel,
+#portfolio-mount,
+.portfolio-original-frame{
+  background:#f6f0e5;
+}
+#portfolio.portfolio-bleib .eb-bleib-back{
+  position:sticky;
+  z-index:8;
+  padding:9px 17px;
+  border-color:rgba(196,154,85,.58);
+  background:rgba(255,252,246,.94);
+  color:#30281f;
+  box-shadow:0 8px 22px rgba(70,50,25,.09);
+}
+.records-panel-florals{
+  position:absolute;
+  z-index:2;
+  top:0;
+  right:0;
+  left:0;
+  height:clamp(112px,16vh,168px);
+  overflow:hidden;
+  pointer-events:none;
+  user-select:none;
+}
+.records-panel-floral{
+  position:absolute;
+  top:clamp(-52px,-5vh,-22px);
+  width:clamp(150px,15vw,280px);
+  height:auto;
+  opacity:.76;
+  filter:saturate(.78) contrast(.95);
+}
+.records-panel-floral--left{left:-2%}
+.records-panel-floral--right{right:-2%}
+#portfolio.portfolio-bleib .eb-bleib-back:hover{
+  border-color:rgba(196,154,85,.82);
+  transform:translateY(-1px);
+}
+#portfolio.portfolio-bleib .eb-bleib-back:focus-visible{
+  outline:2px solid rgba(196,154,85,.72);
+  outline-offset:3px;
+}
 .portfolio-scroll-indicator{
   flex:none;
   display:flex;
@@ -51,9 +117,30 @@
   background:rgb(255 255 255 / .96);
 }
 @media(max-width:760px){
-  #portfolio.portfolio-bleib.is-bleib-open #portfolio-mount{height:clamp(560px,78svh,720px);min-height:560px}
+  #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-shell{
+    height:auto;
+    min-height:calc(100svh - var(--nav-height,64px));
+    overflow:visible;
+  }
+  #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-panel{
+    height:auto;
+    max-height:none;
+    overflow:visible;
+  }
+  #portfolio.portfolio-bleib.is-bleib-open #portfolio-mount{
+    height:clamp(620px,calc(100svh - 120px),760px);
+    min-height:620px;
+    overflow:hidden;
+  }
   .portfolio-scroll-indicator{margin:16px 16px 8px;padding-top:12px}
   #portfolio.portfolio-bleib.is-bleib-open .portfolio-sample-note{
     position:relative;left:auto;right:auto;bottom:auto;width:auto;margin:8px 16px 0;border-right:1px solid var(--line)
   }
+  .records-panel-floral{
+    top:-28px;
+    width:clamp(105px,30vw,150px);
+    opacity:.62;
+  }
+  .records-panel-floral--left{left:-10%}
+  .records-panel-floral--right{right:-10%}
 }

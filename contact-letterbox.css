@@ -351,3 +351,47 @@
   .ctl-card{outline:1px solid CanvasText}
   .ctl .send,.ctl .again{border-color:ButtonText;color:ButtonText;background:Canvas}
 }
+
+/* Contact opened view: let the existing card reach the panel edges. */
+#contact.contact-bleib.is-bleib-open .ctl .ctl-shell{
+  width:100%;
+  min-height:100%;
+  padding:0;
+}
+#contact.contact-bleib.is-bleib-open .ctl-card{
+  width:100%;
+  min-height:100%;
+  border-radius:0;
+  padding:0;
+  gap:0;
+}
+#contact.contact-bleib.is-bleib-open .ctl-card__viz,
+#contact.contact-bleib.is-bleib-open .ctl-card__body{
+  border-radius:0;
+}
+@media(max-width:760px){
+  #contact.contact-bleib.is-bleib-open .eb-bleib-shell{
+    height:auto;
+    min-height:calc(100svh - var(--nav-height,64px));
+    overflow:visible;
+  }
+  #contact.contact-bleib.is-bleib-open .eb-bleib-panel{
+    height:auto;
+    max-height:none;
+    overflow:visible;
+  }
+  #contact.contact-bleib.is-bleib-open #contact-mount{
+    height:auto;
+    min-height:0;
+    overflow:visible;
+  }
+  #contact.contact-bleib.is-bleib-open .ctl .ctl-shell{
+    min-height:0;
+  }
+  #contact.contact-bleib.is-bleib-open .ctl-card{
+    min-height:0;
+  }
+  #contact.contact-bleib.is-bleib-open .ctl-card__body{
+    min-height:0;
+  }
+}

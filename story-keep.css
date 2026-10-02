@@ -1864,6 +1864,216 @@
   .story-keep[data-act="1"] .sk-melius-rail{top:50%}
 }
 
+/* Final mobile cascade: keep every Journey state inside the same fitted shell. */
+@media(max-width:760px){
+  #original.story-keep-bleib .story-keep__pin{width:100%;height:100%!important;min-height:0!important}
+  #original.story-keep-bleib .story-keep__head,
+  #original.story-keep-bleib[data-act="3"] .story-keep__head{top:10px;left:16px;width:min(72vw,300px)}
+  #original.story-keep-bleib .story-keep__head h2,
+  #original.story-keep-bleib[data-act="3"] .story-keep__head h2{max-width:290px;font-size:clamp(29px,8.4vw,38px);line-height:.96}
+  #original.story-keep-bleib .story-keep__kicker{margin-bottom:7px;font-size:9px}
+  #original.story-keep-bleib .story-keep__sub{max-width:29em;font-size:11px;line-height:1.42}
+  #original.story-keep-bleib .sk-record-cta{margin-top:10px;gap:8px}
+  #original.story-keep-bleib .sk-record-cta__label{font-size:14px}
+  #original.story-keep-bleib .sk-record-cta__icon{width:30px;height:30px}
+  #original.story-keep-bleib .story-keep__stage,
+  #original.story-keep-bleib .story-keep__space,
+  #original.story-keep-bleib[data-act="3"] .story-keep__stage{inset:25% 0 18%}
+  #original.story-keep-bleib[data-act="3"] .story-keep__space{top:25%;right:-7%;bottom:18%;left:23%;width:auto;height:auto;aspect-ratio:auto;transform:none}
+  #original.story-keep-bleib .story-keep__copy,
+  #original.story-keep-bleib[data-act="3"] .story-keep__copy{left:16px;bottom:58px;width:min(50vw,188px)}
+  #original.story-keep-bleib .story-keep__idx{font-size:9px}
+  #original.story-keep-bleib .story-keep__verb{font-size:clamp(22px,6.5vw,30px)}
+  #original.story-keep-bleib .story-keep__title,
+  #original.story-keep-bleib .story-keep__lead{font-size:10px;line-height:1.35}
+  #original.story-keep-bleib .story-keep__steps,
+  #original.story-keep-bleib[data-act="3"] .story-keep__steps{right:8px;bottom:8px;gap:4px}
+  #original.story-keep-bleib .story-keep__steps button,
+  #original.story-keep-bleib[data-act="3"] .story-keep__steps button{min-width:58px;min-height:40px;padding:6px 7px;font-size:10px}
+  #original.story-keep-bleib .story-keep__steps button small{font-size:8px}
+}
+
+/* Mobile Journey preserves the same four anchors while fitting one viewport. */
+@media(max-width:760px){
+  #original.story-keep-bleib .story-keep__pin{
+    width:100%;
+    height:100%!important;
+    min-height:0!important;
+  }
+  #original.story-keep-bleib .story-keep__head,
+  #original.story-keep-bleib[data-act="3"] .story-keep__head{
+    top:10px;
+    left:16px;
+    width:min(72vw,300px);
+  }
+  #original.story-keep-bleib .story-keep__head h2,
+  #original.story-keep-bleib[data-act="3"] .story-keep__head h2{
+    max-width:290px;
+    font-size:clamp(29px,8.4vw,38px);
+    line-height:.96;
+  }
+  #original.story-keep-bleib .story-keep__kicker{margin-bottom:7px;font-size:9px}
+  #original.story-keep-bleib .story-keep__sub{max-width:29em;font-size:11px;line-height:1.42}
+  #original.story-keep-bleib .sk-record-cta{margin-top:10px;gap:8px}
+  #original.story-keep-bleib .sk-record-cta__label{font-size:14px}
+  #original.story-keep-bleib .sk-record-cta__icon{width:30px;height:30px}
+  #original.story-keep-bleib .story-keep__stage,
+  #original.story-keep-bleib .story-keep__space,
+  #original.story-keep-bleib[data-act="3"] .story-keep__stage{
+    inset:25% 0 18%;
+  }
+  #original.story-keep-bleib[data-act="3"] .story-keep__space{
+    top:25%;
+    right:-7%;
+    bottom:18%;
+    left:23%;
+    width:auto;
+    height:auto;
+    aspect-ratio:auto;
+    transform:none;
+  }
+  #original.story-keep-bleib .story-keep__copy,
+  #original.story-keep-bleib[data-act="3"] .story-keep__copy{
+    left:16px;
+    bottom:58px;
+    width:min(50vw,188px);
+  }
+  #original.story-keep-bleib .story-keep__idx{font-size:9px}
+  #original.story-keep-bleib .story-keep__verb{font-size:clamp(22px,6.5vw,30px)}
+  #original.story-keep-bleib .story-keep__title,
+  #original.story-keep-bleib .story-keep__lead{font-size:10px;line-height:1.35}
+  #original.story-keep-bleib .story-keep__steps,
+  #original.story-keep-bleib[data-act="3"] .story-keep__steps{
+    right:8px;
+    bottom:8px;
+    gap:4px;
+  }
+  #original.story-keep-bleib .story-keep__steps button,
+  #original.story-keep-bleib[data-act="3"] .story-keep__steps button{
+    min-width:58px;
+    min-height:40px;
+    padding:6px 7px;
+    font-size:10px;
+  }
+  #original.story-keep-bleib .story-keep__steps button small{font-size:8px}
+}
+
+/* Journey atmospheric polish: shared by RECORD, KEEP and EXPERIENCE. */
+#original.story-keep-bleib .story-keep__pin{
+  --journey-gold:#c49a55;
+  --journey-ivory:#f4efe6;
+  color:var(--journey-ivory);
+  background-color:#111113;
+  background-image:
+    radial-gradient(circle at 58% 52%,rgba(196,154,85,.08),transparent 42%),
+    var(--melius-dot,url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15'%3E%3Crect x='6.5' y='6.5' width='2' height='2' rx='1' ry='1' fill='rgb(255%2C255%2C255)' fill-opacity='0.08'/%3E%3C/svg%3E"));
+  background-size:cover,15px 15px;
+  background-repeat:no-repeat,repeat;
+}
+#original.story-keep-bleib .story-keep__pin::before{display:none}
+#original.story-keep-bleib .story-keep__pin::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  z-index:1;
+  display:block;
+  pointer-events:none;
+  user-select:none;
+  opacity:.1;
+  background-color:transparent;
+  background-image:url("assets/homepage/journey/journey-gold-particles.png");
+  background-position:center;
+  background-size:cover;
+  background-repeat:no-repeat;
+  mix-blend-mode:screen;
+  -webkit-mask-image:radial-gradient(ellipse at 58% 52%,transparent 0 26%,rgba(0,0,0,.12) 48%,#000 88%);
+  mask-image:radial-gradient(ellipse at 58% 52%,transparent 0 26%,rgba(0,0,0,.12) 48%,#000 88%);
+}
+#original.story-keep-bleib .story-keep__space{z-index:2}
+#original.story-keep-bleib .story-keep__stage{z-index:3}
+#original.story-keep-bleib .story-keep__head,
+#original.story-keep-bleib .story-keep__copy,
+#original.story-keep-bleib .story-keep__steps{color:var(--journey-ivory)}
+#original.story-keep-bleib .story-keep__head{width:min(430px,38vw)}
+#original.story-keep-bleib .story-keep__head h2{
+  max-width:430px;
+  color:var(--journey-ivory);
+  font-size:clamp(44px,3.5vw,64px);
+  line-height:.97;
+  letter-spacing:-.045em;
+}
+#original.story-keep-bleib .story-keep__kicker,
+#original.story-keep-bleib .story-keep__idx,
+#original.story-keep-bleib .story-keep__title,
+#original.story-keep-bleib .story-keep__lead{color:var(--journey-ivory)}
+#original.story-keep-bleib .story-keep__kicker,
+#original.story-keep-bleib .story-keep__idx{opacity:.68}
+#original.story-keep-bleib .story-keep__sub,
+#original.story-keep-bleib .story-keep__lead{color:rgba(244,239,230,.68)}
+#original.story-keep-bleib .story-keep__verb{color:var(--journey-gold)}
+#original.story-keep-bleib .sk-record-cta{
+  color:var(--journey-ivory);
+}
+#original.story-keep-bleib .sk-record-cta__icon{
+  width:34px;
+  height:34px;
+  border:1px solid rgba(196,154,85,.58);
+  background:rgba(17,17,19,.68);
+  color:var(--journey-ivory);
+}
+#original.story-keep-bleib .sk-record-cta:hover .sk-record-cta__label,
+#original.story-keep-bleib .sk-record-cta:hover .sk-record-cta__icon{transform:translateX(4px)}
+#original.story-keep-bleib .story-keep__steps button,
+#original.story-keep-bleib[data-act="3"] .story-keep__steps button{
+  border:1px solid rgba(244,239,230,.28);
+  background:rgba(15,15,15,.72);
+  color:var(--journey-ivory);
+  box-shadow:none;
+  transition:background-color 180ms ease,border-color 180ms ease,color 180ms ease;
+}
+#original.story-keep-bleib .story-keep__steps button[aria-current="true"],
+#original.story-keep-bleib[data-act="3"] .story-keep__steps button[aria-current="true"]{
+  border-color:var(--journey-gold);
+  background:var(--journey-gold);
+  color:#171512;
+  box-shadow:none;
+}
+#original.story-keep-bleib .eb-bleib-back{
+  border:1px solid rgba(196,154,85,.4);
+  background:rgba(17,17,19,.75);
+  color:var(--journey-ivory);
+  box-shadow:none;
+}
+body:has(#original.story-keep-bleib.is-bleib-open) .scroll-cue{
+  color:rgba(244,239,230,.66);
+}
+#original.story-keep-bleib[data-act="2"] .sk-memory-bg{opacity:.22}
+#original.story-keep-bleib[data-act="3"] .story-keep__pin::after{opacity:.025}
+#original.story-keep-bleib[data-act="3"] .story-keep__space::after{
+  content:"";
+  position:absolute;
+  z-index:2;
+  inset:0 auto 0 0;
+  width:50%;
+  pointer-events:none;
+  background:linear-gradient(90deg,rgba(17,17,19,.78),rgba(17,17,19,.3) 44%,transparent 96%);
+}
+@media(max-width:1024px){
+  #original.story-keep-bleib .story-keep__pin::after{opacity:.08}
+}
+@media(max-width:760px){
+  #original.story-keep-bleib .story-keep__pin::after{
+    opacity:.06;
+    background-size:135% auto;
+    background-position:center;
+  }
+  #original.story-keep-bleib .story-keep__head{width:calc(100% - 36px)}
+  #original.story-keep-bleib .story-keep__head h2{font-size:clamp(34px,10vw,48px)}
+}
+@media(prefers-reduced-motion:reduce){
+  #original.story-keep-bleib .story-keep__pin::after{animation:none}
+}
+
 /* RECORD anchor refinement: keep global and state-specific copy in separate zones. */
 @media(min-width:761px){
   .story-keep[data-act="1"] .story-keep__copy{
@@ -2095,4 +2305,49 @@ body:has(#original.story-keep-bleib.is-bleib-open) .scroll-cue.is-on{transform:t
     right:clamp(28px,3vw,48px);
     bottom:clamp(30px,4vh,44px);
   }
+}
+
+@media(min-width:761px){
+  #original.story-keep-bleib .story-keep__head h2,
+  #original.story-keep-bleib[data-act="3"] .story-keep__head h2{
+    color:#f4efe6;
+    max-width:420px;
+    font-size:clamp(44px,3.2vw,62px);
+    line-height:.95;
+    letter-spacing:-.045em;
+  }
+  #original.story-keep-bleib .story-keep__head,
+  #original.story-keep-bleib[data-act="3"] .story-keep__head{
+    top:clamp(24px,5vh,52px);
+    left:clamp(60px,5vw,96px);
+    width:min(420px,38vw);
+  }
+}
+
+@media(max-width:760px){
+  #original.story-keep-bleib .story-keep__pin{width:100%;height:100%!important;min-height:0!important}
+  #original.story-keep-bleib .story-keep__head,
+  #original.story-keep-bleib[data-act="3"] .story-keep__head{top:10px;left:16px;width:min(72vw,300px)}
+  #original.story-keep-bleib .story-keep__head h2,
+  #original.story-keep-bleib[data-act="3"] .story-keep__head h2{max-width:290px;font-size:clamp(29px,8.4vw,38px);line-height:.96}
+  #original.story-keep-bleib .story-keep__kicker{margin-bottom:7px;font-size:9px}
+  #original.story-keep-bleib .story-keep__sub{max-width:29em;font-size:11px;line-height:1.42}
+  #original.story-keep-bleib .sk-record-cta{margin-top:10px;gap:8px}
+  #original.story-keep-bleib .sk-record-cta__label{font-size:14px}
+  #original.story-keep-bleib .sk-record-cta__icon{width:30px;height:30px}
+  #original.story-keep-bleib .story-keep__stage,
+  #original.story-keep-bleib .story-keep__space,
+  #original.story-keep-bleib[data-act="3"] .story-keep__stage{inset:25% 0 18%}
+  #original.story-keep-bleib[data-act="3"] .story-keep__space{top:25%;right:-7%;bottom:18%;left:23%;width:auto;height:auto;aspect-ratio:auto;transform:none}
+  #original.story-keep-bleib .story-keep__copy,
+  #original.story-keep-bleib[data-act="3"] .story-keep__copy{left:16px;bottom:58px;width:min(50vw,188px)}
+  #original.story-keep-bleib .story-keep__idx{font-size:9px}
+  #original.story-keep-bleib .story-keep__verb{font-size:clamp(22px,6.5vw,30px)}
+  #original.story-keep-bleib .story-keep__title,
+  #original.story-keep-bleib .story-keep__lead{font-size:10px;line-height:1.35}
+  #original.story-keep-bleib .story-keep__steps,
+  #original.story-keep-bleib[data-act="3"] .story-keep__steps{right:8px;bottom:8px;gap:4px}
+  #original.story-keep-bleib .story-keep__steps button,
+  #original.story-keep-bleib[data-act="3"] .story-keep__steps button{min-width:58px;min-height:40px;padding:6px 7px;font-size:10px}
+  #original.story-keep-bleib .story-keep__steps button small{font-size:8px}
 }

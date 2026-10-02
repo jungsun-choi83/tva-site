@@ -470,7 +470,7 @@ function init02() {
   stage.setAttribute('role', 'region');
   stage.setAttribute('aria-roledescription', 'carousel');
   stage.setAttribute('aria-label', 'Records with us. Drag a record card, scroll over a card, or use arrow keys.');
-  stage.innerHTML = `<nav class="g02-categories" aria-labelledby="g02-category-title"><h2 class="g02-categories__title" id="g02-category-title">STORIES WE'VE MADE TOGETHER<small>함께 만든 이야기</small></h2><div class="g02-category-list is-positioning" role="group" aria-label="Choose a record category">${categories.map((category, index) => `<button class="g02-category" type="button" data-category="${category.key}" aria-label="${String(index + 1).padStart(2, '0')} ${category.label}. ${category.blurb}" aria-pressed="${index === 0}"><span class="g02-category__icon" data-icon="${category.iconName}" aria-hidden="true">${category.icon}</span><span class="g02-category__label" aria-hidden="true">${category.label}</span><span class="g02-category__blurb">${category.blurb}</span></button>`).join('')}</div></nav><div class="g02-wheel">${initialWorks.map((work, index) => `<button class="g02-card" data-index="${index}" data-logical-id="${work.id}" aria-describedby="g02-caption-${index}" aria-label="${index ? 'Select' : 'Open'} ${work.title || 'record ' + (index + 1)}"><img src="${photo(work)}" style="object-position:${work.crop}" ${load(index)} alt="${work.title}"><span class="g02-card__title" aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</span><span class="g02-card__caption" id="g02-caption-${index}"><strong aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</strong><small${work.discipline ? '' : ' hidden'}>${work.discipline}</small><em${work.year ? '' : ' hidden'}>${work.year}</em></span></button>`).join('')}</div><button class="g02-nav g02-nav--prev" type="button" aria-label="Previous record">‹</button><button class="g02-nav g02-nav--next" type="button" aria-label="Next record">›</button><h2 class="g02-workmark" aria-label="WITH US">WITH US</h2>${pullerRig}`;
+  stage.innerHTML = `<nav class="g02-categories" aria-labelledby="g02-category-title"><h2 class="g02-categories__title" id="g02-category-title">STORIES WE'VE MADE TOGETHER<small>함께 만든 이야기</small></h2><div class="g02-category-list is-positioning" role="group" aria-label="Choose a record category">${categories.map((category, index) => `<button class="g02-category" type="button" data-category="${category.key}" aria-label="${String(index + 1).padStart(2, '0')} ${category.label}. ${category.blurb}" aria-pressed="${index === 0}"><span class="g02-category__icon" data-icon="${category.iconName}" aria-hidden="true">${category.icon}</span><span class="g02-category__label" aria-hidden="true">${category.label}</span><span class="g02-category__blurb">${category.blurb}</span></button>`).join('')}</div></nav><div class="g02-wheel">${initialWorks.map((work, index) => `<button class="g02-card" data-index="${index}" data-logical-id="${work.id}" aria-describedby="g02-caption-${index}" aria-label="${index ? 'Select' : 'Open'} ${work.title || 'record ' + (index + 1)}"><img src="${photo(work)}" style="object-position:${work.crop}" ${load(index)} alt="${work.title}"><span class="g02-card__title" aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</span><span class="g02-card__caption" id="g02-caption-${index}"><strong aria-hidden="true"${work.title ? '' : ' hidden'}>${work.title}</strong><small${work.discipline ? '' : ' hidden'}>${work.discipline}</small><em${work.year ? '' : ' hidden'}>${work.year}</em></span></button>`).join('')}</div><button class="g02-nav g02-nav--prev" type="button" aria-label="Previous record">‹</button><button class="g02-nav g02-nav--next" type="button" aria-label="Next record">›</button><div class="g02-progress" role="group" aria-label="Choose a record"></div><h2 class="g02-workmark" aria-label="WITH US">WITH US</h2>${pullerRig}`;
   const workmark = stage.querySelector('.g02-workmark');
   workmark.textContent = 'WITH US';
   const cards = [...stage.querySelectorAll('.g02-card')];
@@ -481,6 +481,8 @@ function init02() {
   const puller = stage.querySelector('.g02-puller');
   const previousButton = stage.querySelector('.g02-nav--prev');
   const nextButton = stage.querySelector('.g02-nav--next');
+  const progress = stage.querySelector('.g02-progress');
+  let progressButtons = [];
   const GOYA_V = 'eb-20260914';
   const goyaSrc = file => new URL(`../../assets/goya/${file}?v=${GOYA_V}`, import.meta.url).href;
   const GOYA_BY_POSE = Object.freeze({
@@ -812,6 +814,26 @@ function init02() {
   const layoutCategoryIcons = () => {
     if (!categoryList.clientWidth || !categoryList.clientHeight) return;
     const mobile = stage.clientWidth <= 760;
+    // On narrow screens the desktop free-positioned folder rail can push its
+    // fourth item outside the viewport. Keep the same buttons/handlers, but
+    // let CSS grid own their compact four-column layout on mobile.
+    if (mobile) {
+      categoryList.style.display = 'grid';
+      categoryList.style.gridTemplateColumns = 'repeat(4, 80px)';
+      categoryList.style.justifyContent = 'space-between';
+      categoryList.style.width = '100%';
+      categoryList.style.left = '0';
+      categoryList.style.right = 'auto';
+      categoryButtons.forEach((button) => {
+        button.style.position = 'relative';
+        button.style.top = 'auto';
+        button.style.left = 'auto';
+        button.style.width = '80px';
+        button.style.minWidth = '0';
+        button.style.transform = 'none';
+      });
+      return;
+    }
     const nextBounds = categoryButtons.map(button => iconBounds(button));
     const modeChanged = mobile !== iconLayoutMobile;
     const boundsChanged = iconLayoutBounds.some((bounds, index) => (
@@ -874,13 +896,13 @@ function init02() {
   const measure = () => {
     const width = stage.clientWidth;
     if (width <= 600) {
-      return { stageWidth: width, edgeOffset: 2.7, minScale: .48, arc: 34, depth: 72, falloff: 1, spread: 1.05 };
+      return { stageWidth: width, edgeOffset: 2.7, minScale: .48, arc: 34, depth: 72, falloff: 1, spread: .94 };
     }
     const railWidth = Number.parseFloat(getComputedStyle(stage).getPropertyValue('--g02-rail-width')) || 0;
     if (width <= 900) {
-      return { stageWidth: Math.max(360, width - railWidth), edgeOffset: 2.6, minScale: .56, arc: 34, depth: 96, falloff: 1, spread: .98 };
+      return { stageWidth: Math.max(360, width - railWidth), edgeOffset: 2.6, minScale: .56, arc: 34, depth: 96, falloff: 1, spread: .82 };
     }
-    return { stageWidth: Math.max(520, width - railWidth), edgeOffset: 2.5, minScale: .62, arc: 28, depth: 112, falloff: 1, spread: 1.05 };
+    return { stageWidth: Math.max(520, width - railWidth), edgeOffset: 2.5, minScale: .62, arc: 28, depth: 112, falloff: 1, spread: .84 };
   };
   let metrics = measure();
 
@@ -905,6 +927,38 @@ function init02() {
       fill(caption.querySelector('small'), work.discipline);
       fill(caption.querySelector('em'), work.year);
     });
+  };
+
+  const syncProgress = (slotIndex) => {
+    const uniqueItems = recordCategories[activeCategory].items;
+    const activeId = activeWorks[wrap(slotIndex, 0, activeWorks.length)]?.id;
+    let activeIndex = uniqueItems.findIndex(item => item.id === activeId);
+    if (activeIndex < 0) activeIndex = wrap(slotIndex, 0, uniqueItems.length);
+    progressButtons.forEach((button, index) => {
+      const selected = index === activeIndex;
+      button.setAttribute('aria-current', selected ? 'true' : 'false');
+      button.tabIndex = selected ? 0 : -1;
+    });
+  };
+
+  const rebuildProgress = () => {
+    const uniqueItems = recordCategories[activeCategory].items;
+    progress.innerHTML = uniqueItems.map((work, index) => `<button type="button" aria-label="Show ${work.title || `record ${index + 1}`}" aria-current="false"></button>`).join('');
+    progressButtons = [...progress.querySelectorAll('button')];
+    progressButtons.forEach((button, progressIndex) => {
+      button.addEventListener('click', () => {
+        const targetId = uniqueItems[progressIndex].id;
+        const candidates = activeWorks
+          .map((work, index) => work.id === targetId ? index : -1)
+          .filter(index => index >= 0);
+        const target = candidates.reduce((nearest, index) => (
+          Math.abs(signedOffset(index, spring.target, activeWorks.length))
+            < Math.abs(signedOffset(nearest, spring.target, activeWorks.length)) ? index : nearest
+        ), candidates[0] ?? progressIndex);
+        select(target);
+      });
+    });
+    syncProgress(Math.round(position));
   };
 
   const render = (value, velocity = 0) => {
@@ -938,6 +992,7 @@ function init02() {
       });
       portfolio?.set(current);
     }
+    syncProgress(nextCurrent);
     syncArchiveGuideToCarousel(value, velocity);
   };
 
@@ -1067,6 +1122,7 @@ function init02() {
     categoryPositions[activeCategory] = Math.round(position);
     activeCategory = categoryKey;
     activeWorks = fillWheelSlots(recordCategories[activeCategory].items, activeCategory);
+    rebuildProgress();
     stage.querySelector('.g02-wheel').classList.add('is-changing');
     syncCards();
     requestAnimationFrame(() => stage.querySelector('.g02-wheel').classList.remove('is-changing'));
@@ -1269,6 +1325,7 @@ function init02() {
   });
   previousButton.addEventListener('click', () => step(-1));
   nextButton.addEventListener('click', () => step(1));
+  rebuildProgress();
   stage.addEventListener('pointerenter', () => {
     rollPaused = true;
     stopPortfolioRoll();
