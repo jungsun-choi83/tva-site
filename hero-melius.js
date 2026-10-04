@@ -337,9 +337,9 @@ export function initHeroMelius(isReduced) {
     const mobile = rect.width <= 720;
     const count = Math.max(1, cards.length);
     const orbitX = rect.width * (mobile ? 0.5 : 0.42);
-    const orbitY = rect.height * (mobile ? 0.46 : 0.52);
+    const orbitY = rect.height * (mobile ? 0.42 : 0.52);
     const radiusX = rect.width * (mobile ? 0.38 : 0.175);
-    const radiusY = rect.height * (mobile ? 0.24 : 0.24);
+    const radiusY = rect.height * (mobile ? 0.2 : 0.24);
     const tilt = (mobile ? -8 : -22) * Math.PI / 180;
     const cosT = Math.cos(tilt);
     const sinT = Math.sin(tilt);
@@ -355,17 +355,23 @@ export function initHeroMelius(isReduced) {
 
     if (hub) {
       hub.style.setProperty('left', `${(rect.width * (mobile ? 0.5 : 0.76)).toFixed(1)}px`, 'important');
-      hub.style.setProperty('top', `${(rect.height * (mobile ? 0.46 : 0.48)).toFixed(1)}px`, 'important');
+      hub.style.setProperty('top', `${(rect.height * (mobile ? 0.42 : 0.48)).toFixed(1)}px`, 'important');
       hub.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
       hub.style.setProperty('z-index', mobile ? '24' : '70', 'important');
     }
     if (orbitCopy) {
       orbitCopy.style.setProperty('left', `${(mobile ? rect.width * 0.5 : orbitX).toFixed(1)}px`, 'important');
-      orbitCopy.style.setProperty('top', `${(mobile ? rect.height * 0.74 : orbitY).toFixed(1)}px`, 'important');
-      orbitCopy.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
       if (mobile) {
-        orbitCopy.style.setProperty('width', 'min(86vw, 320px)', 'important');
+        orbitCopy.style.setProperty('top', 'auto', 'important');
+        orbitCopy.style.setProperty('bottom', 'max(14px, env(safe-area-inset-bottom))', 'important');
+        orbitCopy.style.setProperty('transform', 'translateX(-50%)', 'important');
+        orbitCopy.style.setProperty('width', 'min(92vw, 380px)', 'important');
         orbitCopy.style.setProperty('text-align', 'center', 'important');
+        orbitCopy.style.setProperty('z-index', '95', 'important');
+      } else {
+        orbitCopy.style.setProperty('top', `${orbitY.toFixed(1)}px`, 'important');
+        orbitCopy.style.setProperty('bottom', 'auto', 'important');
+        orbitCopy.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
       }
     }
     if (headline) {

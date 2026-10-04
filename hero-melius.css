@@ -1175,7 +1175,7 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
   }
   .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-headline{
     left:50%!important;
-    top:28%!important;
+    top:24%!important;
     width:min(86vw,320px)!important;
     max-width:min(86vw,320px)!important;
     transform:translate(-50%,-50%)!important;
@@ -1183,11 +1183,38 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
     font-size:clamp(26px,7.4vw,36px)!important;
   }
   .eb-melius-orbit-copy{
-    width:min(86vw,320px);
+    width:min(92vw,380px);
     text-align:center;
+    z-index:95;
+  }
+  .eb-melius-orbit-copy .eb-melius-foot__lead{
+    display:none;
+  }
+  .eb-melius-orbit-copy .eb-melius-foot__sub{
+    margin:0 0 10px;
+    font-size:clamp(12px,3.3vw,14px);
+    letter-spacing:.06em;
+    line-height:1.45;
+    color:#f3efe6!important;
+    text-shadow:0 1px 10px rgba(0,0,0,.85);
+  }
+  .eb-melius-orbit-copy .eb-melius-foot__cta{
+    margin-top:0;
+    width:100%;
   }
   .eb-melius-orbit-copy .eb-melius-foot__cta-row{
-    flex-wrap:wrap;
+    display:flex;
+    flex-wrap:nowrap;
     justify-content:center;
+    gap:8px;
+    width:100%;
+  }
+  .eb-melius-orbit-copy .eb-melius-btn{
+    flex:1 1 0;
+    min-width:0;
+    min-height:44px;
+    padding:.7em .5em;
+    font-size:clamp(12px,3.4vw,14px);
+    white-space:nowrap;
   }
 }
