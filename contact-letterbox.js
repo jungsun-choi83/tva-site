@@ -2,7 +2,7 @@
 
 // SEND opens the visitor's mail app as a draft to jadechoi@eternalbeamapp.com.
 
-import { applyI18n, getLang, t } from './i18n.js?v=eb-20261005t';
+import { applyI18n, getLang, t } from './i18n.js?v=eb-20261005ao';
 
 const CONTACT_IMAGE = 'assets/contact/goya-room.jpg?v=eb-20261005al';
 
