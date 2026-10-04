@@ -780,23 +780,27 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   height:100%;
   overflow:hidden;
 }
-.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(1) img{
-  object-fit:contain;
-  object-position:50% 58%;
-}
 .eb-melius-card img{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center 40%;
+  object-position:center 42%;
   transform-origin:50% 42%;
-  width:124%;
-  height:124%;
-  max-width:none;
-  margin:-12%;
   animation:none;
   will-change:transform;
 }
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(1) img{object-position:38% 58%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(2) img{object-position:72% 34%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(3) img{object-position:56% 48%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(4) img{object-position:50% 30%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(5) img{object-position:42% 30%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(6) img{object-position:58% 34%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(7) img{object-position:40% 56%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(8) img{object-position:30% 42%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(9) img{object-position:24% 42%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(10) img{object-position:18% 34%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(11) img{object-position:42% 40%}
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(12) img{object-position:62% 48%}
 @keyframes goya-drift{
   0%{transform:scale(1.14) translate3d(-2.2%,1.6%,0)}
   40%{transform:scale(1.24) translate3d(2.8%,-2.2%,0)}

@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261004y';
+const GOYA_V = 'eb-20261004z';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
@@ -15,18 +15,33 @@ const PET_PHOTOS = [
 ];
 
 const CARD_FRAMES = [
-  [0.88, 1.18],
-  [0.82, 1.18],
-  [1.5, 1.06],
-  [0.9, 1.32],
-  [1.18, 0.74],
-  [1.06, 1.4],
-  [0.72, 0.72],
-  [1.36, 0.9],
-  [1.56, 1.12],
-  [0.86, 1.22],
-  [1.12, 1.48],
-  [1.22, 0.82],
+  [0.9, 1.2],
+  [0.84, 1.12],
+  [1.02, 1.36],
+  [0.88, 1.173],
+  [0.96, 1.28],
+  [0.86, 1.147],
+  [0.94, 1.253],
+  [0.82, 1.093],
+  [1.0, 1.333],
+  [0.9, 1.2],
+  [0.98, 1.307],
+  [0.92, 1.227],
+];
+
+const FACE_FOCUS = [
+  '38% 58%',
+  '72% 34%',
+  '56% 48%',
+  '50% 30%',
+  '42% 30%',
+  '58% 34%',
+  '40% 56%',
+  '30% 42%',
+  '24% 42%',
+  '18% 34%',
+  '42% 40%',
+  '62% 48%',
 ];
 
 const DEVICE_FALLBACK = 'assets/hero/beam-device-melius-front-cut.png?v=eb-20260919a';
@@ -350,16 +365,15 @@ export function initHeroMelius(isReduced) {
       card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
       const img = card.querySelector('img');
       if (img) {
-        const wave = liveT * (0.18 + (index % 5) * 0.03) + index * 1.31;
-        const zoom = 1.2 + Math.sin(wave) * 0.08;
-        const panX = Math.sin(wave * 0.85) * 6.5;
-        const panY = Math.cos(wave * 0.72) * 5.5;
+        const focus = FACE_FOCUS[index % FACE_FOCUS.length];
+        img.style.objectFit = 'cover';
+        img.style.objectPosition = focus;
+        img.style.transformOrigin = focus;
+        const wave = liveT * (0.14 + (index % 5) * 0.02) + index * 1.31;
+        const zoom = 1.045 + Math.sin(wave) * 0.02;
+        const panX = Math.sin(wave * 0.8) * 1.4;
+        const panY = Math.cos(wave * 0.7) * 1.2;
         img.style.transform = `translate3d(${panX.toFixed(2)}%,${panY.toFixed(2)}%,0) scale(${zoom.toFixed(3)})`;
-        if (index === 0) {
-          img.style.objectFit = 'contain';
-          img.style.objectPosition = '50% 58%';
-          img.style.transform = `translate3d(${(panX * 0.35).toFixed(2)}%,${(panY * 0.35).toFixed(2)}%,0) scale(${(1.04 + Math.sin(wave) * 0.03).toFixed(3)})`;
-        }
       }
     });
 
