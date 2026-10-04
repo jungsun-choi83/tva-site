@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261004z';
+const GOYA_V = 'eb-20261005a';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
@@ -366,14 +366,17 @@ export function initHeroMelius(isReduced) {
       const img = card.querySelector('img');
       if (img) {
         const focus = FACE_FOCUS[index % FACE_FOCUS.length];
+        const parts = focus.split(' ');
+        const fx = parseFloat(parts[0]) || 50;
+        const fy = parseFloat(parts[1]) || 42;
+        const wave = liveT * 0.62 + index * 1.17;
+        const ox = Math.max(8, Math.min(92, fx + Math.sin(wave) * 5.5));
+        const oy = Math.max(12, Math.min(88, fy + Math.cos(wave * 0.84) * 4.5));
+        const zoom = 1.1 + Math.sin(wave * 0.72) * 0.07;
         img.style.objectFit = 'cover';
-        img.style.objectPosition = focus;
-        img.style.transformOrigin = focus;
-        const wave = liveT * (0.14 + (index % 5) * 0.02) + index * 1.31;
-        const zoom = 1.045 + Math.sin(wave) * 0.02;
-        const panX = Math.sin(wave * 0.8) * 1.4;
-        const panY = Math.cos(wave * 0.7) * 1.2;
-        img.style.transform = `translate3d(${panX.toFixed(2)}%,${panY.toFixed(2)}%,0) scale(${zoom.toFixed(3)})`;
+        img.style.objectPosition = `${ox.toFixed(1)}% ${oy.toFixed(1)}%`;
+        img.style.transformOrigin = `${fx}% ${fy}%`;
+        img.style.transform = `scale(${zoom.toFixed(3)})`;
       }
     });
 

@@ -783,11 +783,16 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 .eb-melius-card img{
   width:100%;
   height:100%;
+  max-width:none;
   object-fit:cover;
   object-position:center 42%;
   transform-origin:50% 42%;
-  animation:none;
-  will-change:transform;
+  animation:goya-live 8.5s ease-in-out infinite alternate !important;
+  will-change:transform,object-position;
+}
+@keyframes goya-live{
+  0%{transform:scale(1.08)}
+  100%{transform:scale(1.16)}
 }
 .eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(1) img{object-position:38% 58%}
 .eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(2) img{object-position:72% 34%}
@@ -969,6 +974,13 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   filter:none;
 }
 
+html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
+.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img{
+  animation:goya-live 8.5s ease-in-out infinite alternate !important;
+  animation-duration:8.5s !important;
+  animation-iteration-count:infinite !important;
+}
+
 @media(max-width:980px){
   .eb-melius-content{left:50%;top:0;width:100%;transform:none}
   .eb-melius-content .eb-melius-headline{top:27%;font-size:clamp(26px,4vw,40px)}
@@ -1004,5 +1016,9 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 }
 
 @media(prefers-reduced-motion:reduce){
-  .eb-melius-card img{animation:none}
+  .eb-melius-card img{
+    animation:goya-live 8.5s ease-in-out infinite alternate !important;
+    animation-duration:8.5s !important;
+    animation-iteration-count:infinite !important;
+  }
 }
