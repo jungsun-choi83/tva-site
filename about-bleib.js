@@ -1,4 +1,4 @@
-import { applyI18n } from './i18n.js?v=eb-20261004a';
+import { applyI18n } from './i18n.js?v=eb-20261004c';
 
 function initAboutBleib() {
   const about = document.querySelector('#about.about-bleib');
@@ -91,7 +91,21 @@ function initAboutBleib() {
       front.type = 'button';
       front.className = 'about-bleib-flip__face about-bleib-flip__face--front';
       front.setAttribute('aria-expanded', 'false');
-      front.innerHTML = `<span class="about-bleib-type__title">${title}</span>`;
+      function writeFront() {
+        const kicker = station.querySelector('.beam-gold__kicker')?.textContent?.trim()
+          || station.dataset.station
+          || 'Section';
+        const sub = station.querySelector('.service-en')?.textContent?.trim()
+          || station.querySelector('.station-copy--head h3')?.innerText.replace(/\s+/g, ' ').trim()
+          || '';
+        front.innerHTML = sub
+          ? `<span class="about-bleib-type__title">${kicker}</span><span class="about-bleib-type__sub">${sub}</span>`
+          : `<span class="about-bleib-type__title">${kicker}</span>`;
+        detailOverlay.setAttribute('data-front-title', kicker);
+      }
+
+      writeFront();
+      window.addEventListener('eb:lang', writeFront);
 
       const back = document.createElement('div');
       back.className = 'about-bleib-flip__face about-bleib-flip__face--back';
@@ -176,6 +190,7 @@ function initAboutBleib() {
   setupFlipCards();
   setupGoldPanels();
   applyI18n(about);
+  window.dispatchEvent(new CustomEvent('eb:lang'));
 
   function resetFlips() {
     activeDetail?.setOpen(false, false);

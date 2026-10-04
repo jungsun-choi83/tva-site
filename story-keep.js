@@ -1,4 +1,4 @@
-import { t } from './i18n.js?v=eb-20260920f';
+import { t } from './i18n.js?v=eb-20261004c';
 
 const ACTS = [
   { num: '01', en: 'SOULTRACE', verb: 'RECORD', title: 'sk.a1.title', lead: 'sk.a1.lead' },
@@ -312,8 +312,6 @@ function initRecordCta(section) {
   };
   btn.addEventListener('click', () => {
     nudge();
-    if (section.dataset.act !== '1') return;
-    section.dispatchEvent(new CustomEvent('sk:open-letter-reader'));
   });
 }
 

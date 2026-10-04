@@ -371,16 +371,14 @@ html[data-about-grid="open"]{
   55%{opacity:.4}
   70%{opacity:1}
 }
-.about-bleib-type__title{
+.about-bleib-type__sub{
   display:block;
-  font:700 clamp(2rem,5.8vw,4.75rem)/.92 var(--display);
-  letter-spacing:var(--section-title-tracking,-.045em);
+  margin-top:clamp(8px,1.2vh,12px);
+  max-width:22ch;
+  font:400 clamp(13px,1.15vw,18px)/1.35 var(--sans);
+  letter-spacing:-.02em;
+  color:#55565b;
   text-wrap:balance;
-  background:linear-gradient(90deg,#171923 0%,#171923 42%,#b8903c 78%,#e8d39a 100%);
-  -webkit-background-clip:text;
-  background-clip:text;
-  color:transparent;
-  transition:opacity .2s ease;
 }
 .about-bleib-flip__face--front:focus-visible .about-bleib-type__title{
   animation:about-bleib-title-blink 1.05s ease-in-out infinite;
@@ -608,7 +606,10 @@ html[data-about-grid="open"]{
   list-style:none;
 }
 .goya-moments__grid li{
+  position:relative;
   min-width:0;
+  overflow:hidden;
+  border-radius:2px;
 }
 .goya-moments__grid img{
   display:block;
@@ -616,22 +617,56 @@ html[data-about-grid="open"]{
   aspect-ratio:3/4;
   object-fit:cover;
   background:#1a1612;
-  border-radius:2px;
 }
-.goya-moments__grid span{
-  display:block;
-  margin-top:6px;
-  font:500 10px/1.35 var(--sans);
-  letter-spacing:.01em;
-  opacity:.78;
+.goya-moments__copy{
+  position:absolute;
+  left:0;right:0;bottom:0;
+  padding:clamp(28px,4vh,40px) 10px 10px;
+  background:linear-gradient(180deg,transparent 0%,rgba(20,16,10,.18) 28%,rgba(20,16,10,.72) 100%);
+  color:#f6f2e8;
 }
-.goya-moments figcaption{
-  margin:clamp(10px,1.6vh,14px) 0 0;
-  font:500 13px/1.45 var(--sans);
-  letter-spacing:-.01em;
+.goya-moments__year{
+  margin:0;
+  font:600 11px/1 var(--mono);
+  letter-spacing:.08em;
+}
+.goya-moments__title{
+  margin:6px 0 6px;
+  font:600 clamp(12px,1vw,15px)/1.25 var(--sans);
+  letter-spacing:-.02em;
+}
+.goya-moments__body{
+  margin:0;
+  font:12px/1.45 var(--sans);
+  opacity:.92;
+}
+.goya-moments__en{
+  margin:8px 0 0;
+  font:500 9px/1 var(--caps);
+  letter-spacing:.16em;
+  opacity:.72;
 }
 @media (max-width:780px){
   .goya-moments__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+.beam-gold__cta{
+  display:inline-flex;
+  align-items:center;
+  margin-top:12px;
+  color:inherit;
+  font:600 13px/1.3 var(--sans);
+  letter-spacing:-.01em;
+  text-decoration:underline;
+  text-underline-offset:3px;
+}
+.beam-gold__cta--dark{
+  color:#171923;
+}
+.records-soultrace{
+  position:relative;
+  z-index:2;
+  margin:16px 20px 28px;
+  text-align:center;
 }
 #about.about-bleib .station-exit .about-bleib-flip{
   min-height:clamp(200px,26vh,260px);
@@ -1122,14 +1157,37 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
 }
 #about.about-bleib .about-bleib-grid .about-bleib-type__title{
   display:block;
-  color:rgba(244,239,230,.9);
-  font:600 clamp(11px,.82vw,14px)/1.1 var(--sans);
-  letter-spacing:.14em;
+  overflow:hidden;
+  color:transparent;
+  font:0/0 var(--sans);
+  letter-spacing:0;
   text-transform:uppercase;
   -webkit-text-stroke:0;
   text-shadow:none;
   opacity:1;
+}
+#about.about-bleib .about-bleib-grid .about-bleib-type__title:after{
+  display:block;
+  color:rgba(244,239,230,.9);
+  font:600 clamp(11px,.82vw,14px)/1.1 var(--sans);
+  letter-spacing:.14em;
+  text-transform:uppercase;
   transition:color .22s ease;
+}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(1) .about-bleib-type__title:after{content:"OUR BEGINNING"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(2) .about-bleib-type__title:after{content:"LETTER"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(3) .about-bleib-type__title:after{content:"IDENTITY"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(4) .about-bleib-type__title:after{content:"DISPLAY"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(5) .about-bleib-type__title:after{content:"MOTION"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(6) .about-bleib-type__title:after{content:"ARCHIVE"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(7) .about-bleib-type__title:after{content:"PROCESS"}
+#about.about-bleib .about-bleib-grid .about-bleib-type__sub{
+  margin-top:6px;
+  max-width:28ch;
+  color:rgba(244,239,230,.58);
+  font:400 clamp(10px,.7vw,12px)/1.35 var(--sans);
+  letter-spacing:.02em;
+  text-transform:none;
 }
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:before{
   content:"→";
@@ -1141,6 +1199,7 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
   transform:translateY(-50%);
   transition:transform .22s ease,color .22s ease;
 }
+#about.about-bleib .about-bleib-grid .about-bleib-type__sub{display:none}
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:after{
   display:block;
   margin-top:7px;
@@ -1148,21 +1207,21 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
   font:400 clamp(9px,.68vw,11px)/1.25 var(--sans);
   letter-spacing:.01em;
 }
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(1) .about-bleib-flip__face--front:after{content:"Why we preserve"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(2) .about-bleib-flip__face--front:after{content:"Words that stay"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(3) .about-bleib-flip__face--front:after{content:"A more human way"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(4) .about-bleib-flip__face--front:after{content:"Presence in daily life"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(5) .about-bleib-flip__face--front:after{content:"Bringing memories to life"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(6) .about-bleib-flip__face--front:after{content:"A lasting collection"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(7) .about-bleib-flip__face--front:after{content:"From story to presence"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(1) .about-bleib-flip__face--front:after{content:"It began with Goya."}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(2) .about-bleib-flip__face--front:after{content:"Letters with SoulTrace"}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(3) .about-bleib-flip__face--front:after{content:"Their own features."}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(4) .about-bleib-flip__face--front:after{content:"A place for their moments."}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(5) .about-bleib-flip__face--front:after{content:"From photos to small movements."}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(6) .about-bleib-flip__face--front:after{content:"One pet's story, growing over time."}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(7) .about-bleib-flip__face--front:after{content:"How it connects."}
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover,
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible{
   color:#fff;
   outline:0;
   transform:translateX(3px);
 }
-#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover .about-bleib-type__title,
-#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible .about-bleib-type__title{
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover .about-bleib-type__title:after,
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible .about-bleib-type__title:after{
   color:#fff;
   animation:none;
 }

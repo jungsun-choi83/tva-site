@@ -60,6 +60,7 @@
   color:#f4f0e8;
   cursor:pointer;
   pointer-events:auto;
+  text-decoration:none;
 }
 .sk-record-cta__label{
   font:400 clamp(18px,2.2vw,22px)/1.2 var(--sans);
