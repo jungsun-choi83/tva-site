@@ -788,13 +788,14 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center 28%;
-  transform-origin:50% 38%;
-  animation:goya-drift 8s ease-in-out infinite alternate;
-  animation-delay:var(--goya-delay,0s);
-  transition:filter 320ms ease;
-  filter:saturate(.94) contrast(1);
-  will-change:transform,filter;
+  object-position:center 40%;
+  transform-origin:50% 42%;
+  width:124%;
+  height:124%;
+  max-width:none;
+  margin:-12%;
+  animation:none;
+  will-change:transform;
 }
 @keyframes goya-drift{
   0%{transform:scale(1.14) translate3d(-2.2%,1.6%,0)}
@@ -824,10 +825,6 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 }
 .eb-melius-home.is-cipher-intro .eb-melius-dots{
   z-index:3;
-}
-.eb-melius-home.is-cipher-done .eb-melius-dots{
-  opacity:0;
-  visibility:hidden;
 }
 .eb-melius-home.is-cipher-intro .eb-melius-content,
 .eb-melius-home.is-cipher-intro .eb-melius-hub{
@@ -965,8 +962,7 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 }
 
 .eb-melius-home.is-reduced .eb-melius-card img{
-  animation:none;
-  transform:none;
+  filter:none;
 }
 
 @media(max-width:980px){

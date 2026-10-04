@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261004w';
+const GOYA_V = 'eb-20261004x';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
@@ -100,39 +100,32 @@ function initDotGenerator(home) {
   function seed(w, h) {
     letterPts = sampleBeamLetters(w, h);
     dots.length = 0;
-    const count = Math.min(720, Math.max(letterPts.length, 280));
+    const count = Math.min(520, Math.max(letterPts.length, 320));
     for (let i = 0; i < count; i += 1) {
       const edge = Math.random();
       let sx;
       let sy;
-      if (edge < 0.42) {
+      if (edge < 0.5) {
         sx = Math.random() * w;
-        sy = Math.random() < 0.5 ? -48 : h + 48;
-      } else if (edge < 0.84) {
-        sx = Math.random() < 0.5 ? -48 : w + 48;
-        sy = Math.random() * h;
+        sy = Math.random() < 0.5 ? -20 : h + 20;
       } else {
-        sx = Math.random() * w;
+        sx = Math.random() < 0.5 ? -20 : w + 20;
         sy = Math.random() * h;
       }
-      const onGlyph = i < letterPts.length * 1.35;
       const glyph = letterPts[i % letterPts.length];
-      const fieldX = Math.random() * w;
-      const fieldY = Math.random() * h;
       dots.push({
         sx,
         sy,
         x: sx,
         y: sy,
-        lx: onGlyph ? glyph.x + (Math.random() - 0.5) * 1.8 : fieldX,
-        ly: onGlyph ? glyph.y + (Math.random() - 0.5) * 1.8 : fieldY,
-        fx: glyph.x + (Math.random() - 0.5) * w * 0.42,
-        fy: glyph.y + (Math.random() - 0.5) * h * 0.38,
-        slot: i % 12,
-        ox: (Math.random() - 0.5) * 0.95,
-        oy: (Math.random() - 0.5) * 0.95,
-        r: 0.45 + Math.random() * 0.55,
-        a: 0.45 + Math.random() * 0.35,
+        lx: glyph.x + (Math.random() - 0.5) * 1.4,
+        ly: glyph.y + (Math.random() - 0.5) * 1.4,
+        fx: Math.random() * w,
+        fy: Math.random() * h,
+        vx: (Math.random() - 0.5) * 0.35,
+        vy: (Math.random() - 0.5) * 0.28,
+        r: 0.7 + Math.random() * 0.7,
+        a: 0.5 + Math.random() * 0.4,
         delay: Math.random() * 0.18,
         tw: Math.random() * Math.PI * 2,
       });
@@ -159,33 +152,39 @@ function initDotGenerator(home) {
     const w = home.clientWidth || 1;
     const h = home.clientHeight || 1;
     const t = (now - bornAt) / 1000;
-    const gather = Math.min(1, Math.max(0, t / 0.85));
-    const hold = t >= 0.85 && t < 1.35;
-    const scatter = Math.min(1, Math.max(0, (t - 1.35) / 0.5));
-    const fade = Math.max(0, 1 - Math.max(0, t - 1.5) / 0.45);
+    const gather = Math.min(1, Math.max(0, t / 0.9));
+    const hold = t >= 0.9 && t < 1.4;
+    const toField = Math.min(1, Math.max(0, (t - 1.4) / 0.65));
+    const ambient = t >= 2.05;
     home.classList.toggle('is-cipher-intro', t < 1.55);
-    home.classList.toggle('is-cipher-done', t >= 1.55);
     ctx.clearRect(0, 0, w, h);
-    if (fade <= 0.01) return;
 
     for (const d of dots) {
       const local = Math.min(1, Math.max(0, (gather - d.delay) / 0.4));
       const ease = 1 - (1 - local) ** 3;
-      const outX = d.lx + (d.sx - d.lx) * 1.4;
-      const outY = d.ly + (d.sy - d.ly) * 1.4;
-      let tx = d.lx;
-      let ty = d.ly;
-      if (scatter > 0) {
-        tx = d.lx + (outX - d.lx) * scatter;
-        ty = d.ly + (outY - d.ly) * scatter;
+      if (ambient) {
+        d.x += d.vx;
+        d.y += d.vy;
+        if (d.x < -10) d.x = w + 10;
+        else if (d.x > w + 10) d.x = -10;
+        if (d.y < -10) d.y = h + 10;
+        else if (d.y > h + 10) d.y = -10;
+      } else {
+        let tx = d.lx;
+        let ty = d.ly;
+        if (toField > 0) {
+          tx = d.lx + (d.fx - d.lx) * toField;
+          ty = d.ly + (d.fy - d.ly) * toField;
+        }
+        const parked = hold || toField > 0;
+        d.x = d.sx + (tx - d.sx) * (parked ? 1 : ease);
+        d.y = d.sy + (ty - d.sy) * (parked ? 1 : ease);
       }
-      const parked = hold || scatter > 0;
-      d.x = d.sx + (tx - d.sx) * (parked ? 1 : ease);
-      d.y = d.sy + (ty - d.sy) * (parked ? 1 : ease);
-      const vis = Math.max(local, gather) * fade;
+      const vis = ambient
+        ? 0.32 + Math.sin(now * 0.0035 + d.tw) * 0.16
+        : Math.max(local, gather);
       if (vis <= 0.02) continue;
-      const pulse = 0.8 + Math.sin(now * 0.006 + d.tw) * 0.2;
-      ctx.fillStyle = `rgba(244,241,230,${(d.a * vis * pulse).toFixed(3)})`;
+      ctx.fillStyle = `rgba(238,234,222,${(d.a * vis).toFixed(3)})`;
       ctx.beginPath();
       ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
       ctx.fill();
@@ -313,11 +312,8 @@ export function initHeroMelius(isReduced) {
     const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
     const age = orbitBorn ? (performance.now() - orbitBorn) / 1000 : 0;
     let shown = Math.max(0, Math.min(1, (age - 1.25) / 0.35));
-    if (age > 2.1 || (!orbitBorn && hero.dataset.powerState === 'locked')) {
-      shown = 1;
-      home.classList.add('is-cipher-done');
-      home.classList.remove('is-cipher-intro');
-    }
+    if (age > 2.1 || (!orbitBorn && hero.dataset.powerState === 'locked')) shown = 1;
+    const liveT = performance.now() / 1000;
     let frontIndex = 0;
     let focusDepth = -2;
 
@@ -348,11 +344,17 @@ export function initHeroMelius(isReduced) {
       card.style.setProperty('--orbit-transform', transform);
       card.style.setProperty('--orbit-opacity', '1');
       card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
-      if (index === 0) {
-        const img = card.querySelector('img');
-        if (img) {
+      const img = card.querySelector('img');
+      if (img) {
+        const wave = liveT * (0.18 + (index % 5) * 0.03) + index * 1.31;
+        const zoom = 1.2 + Math.sin(wave) * 0.08;
+        const panX = Math.sin(wave * 0.85) * 6.5;
+        const panY = Math.cos(wave * 0.72) * 5.5;
+        img.style.transform = `translate3d(${panX.toFixed(2)}%,${panY.toFixed(2)}%,0) scale(${zoom.toFixed(3)})`;
+        if (index === 0) {
           img.style.objectFit = 'contain';
           img.style.objectPosition = '50% 58%';
+          img.style.transform = `translate3d(${(panX * 0.35).toFixed(2)}%,${(panY * 0.35).toFixed(2)}%,0) scale(${(1.04 + Math.sin(wave) * 0.03).toFixed(3)})`;
         }
       }
     });
@@ -495,8 +497,7 @@ export function initHeroMelius(isReduced) {
   }
 
   if (isReduced?.()) {
-    home.classList.add('is-reduced', 'is-cipher-done');
-    home.classList.remove('is-cipher-intro');
-    velocity = 0.12;
+    home.classList.add('is-reduced');
+    velocity = 0.18;
   }
 }
