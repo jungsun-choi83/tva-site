@@ -76,6 +76,7 @@ export function initHeroMelius(isReduced) {
   const hubImg = hero?.querySelector('.eb-melius-hub__device');
   if (!hero || !home || !stage || !rail) return;
 
+  home.classList.add('is-cipher-orbit');
   wrapMeliusGoldLines(home);
   window.addEventListener('eb:lang', () => wrapMeliusGoldLines(home));
 
@@ -116,8 +117,8 @@ export function initHeroMelius(isReduced) {
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
     const mobile = rect.width <= 720;
     const visibleCount = cards.length;
-    const radiusX = rect.width * (mobile ? 0.46 : 0.49);
-    const radiusY = rect.height * (mobile ? 0.44 : 0.47);
+    const radiusX = rect.width * (mobile ? 0.48 : 0.52);
+    const radiusY = rect.height * (mobile ? 0.46 : 0.50);
     const phase = (offset / loopWidth) * Math.PI * 2;
     const focusing = performance.now() < focusUntil;
     home.classList.toggle('is-orbit-focus', focusing);
