@@ -1,4 +1,4 @@
-import { t } from './i18n.js?v=eb-20261005n';
+import { t } from './i18n.js?v=eb-20261005o';
 
 const GOYA_V = 'eb-20261005e';
 const PET_PHOTOS = [
