@@ -45,11 +45,9 @@
   overflow:hidden;
 }
 
-/* Records visual polish: keep the existing chapter and iframe behavior intact. */
-#portfolio.portfolio-bleib,
-#portfolio.portfolio-bleib .eb-bleib-stage,
-#portfolio.portfolio-bleib .eb-bleib-panel,
-#portfolio-mount,
+/* Opened gallery stays cream; the RECORDS gate itself is black. */
+#portfolio.portfolio-bleib.is-bleib-open .eb-bleib-panel,
+#portfolio.portfolio-bleib.is-bleib-open #portfolio-mount,
 .portfolio-original-frame{
   background:#f6f0e5;
 }

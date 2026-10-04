@@ -423,3 +423,33 @@
     overflow:visible!important;
   }
 }
+
+#portfolio.portfolio-bleib:not(.is-bleib-open),
+#portfolio.portfolio-bleib:not(.is-bleib-open) .eb-bleib-stage,
+#portfolio.portfolio-bleib:not(.is-bleib-open) .eb-bleib-panel,
+#portfolio.portfolio-bleib:not(.is-bleib-open) .eb-bleib-shell{
+  background:#121214!important;
+}
+#portfolio.portfolio-bleib .eb-bleib-index{color:#e3ded3!important}
+#portfolio.portfolio-bleib .eb-bleib-board{
+  background:#e3ded3!important;
+  color:#171512!important;
+}
+
+#original.story-keep-bleib:not(.is-bleib-open),
+#original.story-keep-bleib:not(.is-bleib-open)[data-act="1"],
+#original.story-keep-bleib:not(.is-bleib-open)[data-act="2"],
+#original.story-keep-bleib:not(.is-bleib-open) .eb-bleib-stage,
+#original.story-keep-bleib:not(.is-bleib-open) .eb-bleib-shell{
+  background:#e4ddd0!important;
+  background-image:none!important;
+}
+#original.story-keep-bleib .eb-bleib-index{color:#171512!important}
+#original.story-keep-bleib .eb-bleib-board{
+  background:#171512!important;
+  color:#e3ded3!important;
+}
+#original.story-keep-bleib .eb-bleib-title{color:#e3ded3!important}
+#original.story-keep-bleib .eb-bleib-eyebrow,
+#original.story-keep-bleib .eb-bleib-hint{color:rgba(227,222,211,.68)!important}
+#original.story-keep-bleib .eb-bleib-bars i{background:#e3ded3!important}
