@@ -904,7 +904,7 @@ html[data-about-grid="open"]{
   position:absolute;
   z-index:0;
   inset:0;
-  background:url("assets/homepage/about/goya-room.jpg?v=eb-20261005s") 42% center/cover no-repeat;
+  background:url("assets/homepage/about/dog.png?v=eb-20261005x") 58% center/cover no-repeat;
   filter:saturate(.78) contrast(.96) brightness(.92);
 }
 #about.about-bleib .about-cinematic__dog{
@@ -913,7 +913,7 @@ html[data-about-grid="open"]{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:42% center;
+  object-position:58% center;
   filter:saturate(.83) contrast(1.02) brightness(.82);
   visibility:hidden;
 }
@@ -1280,7 +1280,7 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
     width:100%;
     height:720px;
   }
-  #about.about-bleib .about-cinematic__dog{object-position:62% center}
+  #about.about-bleib .about-cinematic__dog{object-position:58% center}
   #about.about-bleib .about-cinematic__copy{
     left:clamp(24px,7vw,64px);
     top:clamp(72px,10vh,104px);
@@ -1457,7 +1457,7 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
     width:100%;
     height:auto;
   }
-  #about.about-bleib.is-grid-open .about-cinematic__dog{object-position:62% center}
+  #about.about-bleib.is-grid-open .about-cinematic__dog{object-position:58% center}
   #about.about-bleib.is-grid-open .about-cinematic__copy{
     top:clamp(22px,4vh,36px);
     left:18px;
