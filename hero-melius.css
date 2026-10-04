@@ -1077,137 +1077,39 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
   }
 }
 
-/* Left Goya collage + large device + bottom copy */
-.eb-melius-home.is-goya-collage .eb-melius-dots,
-.eb-melius-home.is-goya-collage .eb-melius-hub__logo,
-.eb-melius-home.is-goya-collage .eb-melius-hub:before,
-.eb-melius-home.is-goya-collage .eb-melius-hub:after{
-  display:none !important;
-}
-.eb-melius-home.is-goya-collage .eb-melius-stage{
-  left:0;
-  right:0;
-  top:8%;
-  bottom:26%;
-}
-.eb-melius-home.is-goya-collage .eb-melius-track,
-.eb-melius-home.is-goya-collage .eb-melius-rail{
-  position:absolute;
-  inset:0 auto 0 0;
-  left:0;
-  top:0;
-  width:62%;
-  height:100%;
+/* YOUR PET sits under the glowing device; photos keep the circular orbit. */
+.eb-melius-home.is-cipher-orbit .eb-melius-hub:before,
+.eb-melius-home.is-cipher-orbit .eb-melius-hub:after,
+.eb-melius-home.is-cipher-orbit .eb-melius-hub__logo{
   display:block;
-  transform:none !important;
-  transform-style:flat;
-  gap:0;
 }
-.eb-melius-home.is-goya-collage .eb-melius-card{
-  position:absolute;
+.eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-headline{
+  top:calc(50% + clamp(58px,7.4vw,112px));
+  width:min(520px,78vw);
+  max-width:min(520px,78vw);
+  transform:translate(-50%,0);
+  text-align:center;
+  font-size:clamp(20px,2.2vw,34px);
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot{
   top:auto;
-  left:auto;
-  flex:none;
-  margin:0;
-  overflow:hidden;
-  border-radius:0;
-  box-shadow:0 18px 40px rgba(0,0,0,.42);
-  background:#111;
-}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(1){left:1%;top:4%;width:28%;height:34%;transform:rotate(-7deg);z-index:4}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(2){left:22%;top:0;width:24%;height:26%;transform:rotate(4deg);z-index:6}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(3){left:40%;top:6%;width:22%;height:30%;transform:rotate(-3deg);z-index:5}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(4){left:8%;top:28%;width:26%;height:36%;transform:rotate(5deg);z-index:7}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(5){left:30%;top:24%;width:18%;height:28%;transform:rotate(-8deg);z-index:3}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(6){left:44%;top:32%;width:20%;height:24%;transform:rotate(6deg);z-index:8}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(7){left:0;top:52%;width:22%;height:38%;transform:rotate(-4deg);z-index:6}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(8){left:18%;top:58%;width:28%;height:32%;transform:rotate(3deg);z-index:9}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(9){left:42%;top:54%;width:18%;height:26%;transform:rotate(-6deg);z-index:4}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(10){left:36%;top:70%;width:24%;height:28%;transform:rotate(2deg);z-index:7}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(11){left:6%;top:78%;width:20%;height:22%;transform:rotate(-5deg);z-index:5}
-.eb-melius-home.is-goya-collage .eb-melius-card:nth-child(12){left:48%;top:78%;width:16%;height:20%;transform:rotate(8deg);z-index:6}
-.eb-melius-home.is-goya-collage .eb-melius-hub{
-  left:auto;
-  right:4%;
-  top:46%;
-  width:clamp(240px,34vw,520px);
-  transform:translateY(-50%);
-  z-index:20;
-  filter:drop-shadow(0 28px 48px rgba(0,0,0,.45));
-  pointer-events:none;
-}
-.eb-melius-home.is-goya-collage .eb-melius-content{
-  z-index:80;
-  left:0;
-  top:auto;
-  bottom:0;
-  width:100%;
-  height:auto;
-  transform:none;
-  display:flex;
-  flex-direction:column;
-  justify-content:flex-end;
-  padding:0 5vw max(22px,env(safe-area-inset-bottom));
-  box-sizing:border-box;
-  pointer-events:none;
-}
-.eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-headline,
-.eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-foot{
-  position:relative;
-  left:auto;
-  top:auto;
-  bottom:auto;
-  width:min(920px,92vw);
-  max-width:min(920px,92vw);
-  margin:0;
-  transform:none;
-  text-align:left;
-}
-.eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-headline{
-  font-size:clamp(22px,3.4vw,42px);
-  margin:0 0 10px;
-  text-shadow:0 2px 18px rgba(0,0,0,.55);
-}
-.eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-foot{
-  pointer-events:auto;
-}
-.eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-foot__lead{
-  margin-inline:0;
-  max-width:54ch;
-  text-align:left;
-}
-.eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-foot__cta,
-.eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-foot__cta-row{
-  justify-content:flex-start;
-  align-items:flex-start;
-}
-.eb-melius-home.is-goya-collage.is-cipher-intro .eb-melius-content,
-.eb-melius-home.is-goya-collage.is-cipher-intro .eb-melius-hub{
-  opacity:1;
+  bottom:max(16px,env(safe-area-inset-bottom));
+  width:min(640px,86vw);
+  transform:translateX(-50%);
+  text-align:center;
 }
 
-@media(max-width:980px){
-  .eb-melius-home.is-goya-collage .eb-melius-stage{top:10%;bottom:30%}
-  .eb-melius-home.is-goya-collage .eb-melius-rail{width:58%}
-  .eb-melius-home.is-goya-collage .eb-melius-hub{width:clamp(180px,32vw,320px);right:3%}
-  .eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-headline{font-size:clamp(20px,4vw,32px)}
-}
 @media(max-width:760px){
-  .eb-melius-home.is-goya-collage .eb-melius-stage{top:8%;bottom:38%}
-  .eb-melius-home.is-goya-collage .eb-melius-rail{width:64%;height:100%}
-  .eb-melius-home.is-goya-collage .eb-melius-hub{
-    right:2%;
-    top:38%;
-    width:clamp(128px,34vw,210px);
+  .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-headline{
+    top:calc(50% + clamp(52px,16vw,84px));
+    width:min(92vw,360px);
+    max-width:min(92vw,360px);
+    font-size:clamp(18px,5.6vw,26px);
   }
-  .eb-melius-home.is-goya-collage .eb-melius-content{
-    padding:0 18px max(16px,env(safe-area-inset-bottom));
+  .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot,
+  .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot{
+    top:auto;
+    bottom:max(14px,env(safe-area-inset-bottom));
+    width:min(92vw,360px);
   }
-  .eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-headline,
-  .eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-foot{
-    width:100%;
-    max-width:100%;
-  }
-  .eb-melius-home.is-goya-collage .eb-melius-content .eb-melius-headline{font-size:clamp(18px,6vw,26px)}
-  .eb-melius-home.is-goya-collage .eb-melius-foot__lead{font-size:12px;word-break:keep-all}
 }
