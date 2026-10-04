@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261005d';
+const GOYA_V = 'eb-20261005e';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/live/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/live/goya-02.webp?v=${GOYA_V}`,
@@ -325,8 +325,8 @@ export function initHeroMelius(isReduced) {
     const cosT = Math.cos(tilt);
     const sinT = Math.sin(tilt);
     const phase = (offset / loopWidth) * Math.PI * 2;
-    home.classList.add('is-orbit-focus');
-    const focusing = true;
+    const focusing = hoverIndex >= 0 || pinnedIndex >= 0;
+    home.classList.toggle('is-orbit-focus', focusing);
     const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
     const age = orbitBorn ? (performance.now() - orbitBorn) / 1000 : 0;
     let shown = Math.max(0, Math.min(1, (age - 2.25) / 0.4));
@@ -369,16 +369,16 @@ export function initHeroMelius(isReduced) {
       }
     });
 
-    const focusIndex = hoverIndex >= 0 ? hoverIndex : pinnedIndex >= 0 ? pinnedIndex : frontIndex;
+    const focusIndex = hoverIndex >= 0 ? hoverIndex : pinnedIndex;
     cards.forEach((card, index) => {
-      const live = index === focusIndex;
-      card.classList.toggle('is-dim', !live);
+      const live = focusing && index === focusIndex;
+      card.classList.toggle('is-dim', focusing && !live);
       card.classList.toggle('is-live', live);
       const img = card.querySelector('img');
       if (!img) return;
-      img.style.filter = live
-        ? 'saturate(1.06) contrast(1.04)'
-        : 'grayscale(1) brightness(0.32) contrast(1.08)';
+      img.style.filter = focusing && !live
+        ? 'grayscale(1) brightness(0.32) contrast(1.08)'
+        : 'saturate(1.04) contrast(1.02)';
     });
   }
 

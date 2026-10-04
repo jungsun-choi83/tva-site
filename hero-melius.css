@@ -64,7 +64,7 @@ html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-ori
 
 .eb-melius-top{
   position:absolute;
-  z-index:20;
+  z-index:90;
   inset:clamp(14px,2.5vh,22px) clamp(16px,3vw,28px) auto;
   display:flex;
   align-items:center;
@@ -890,8 +890,23 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 .eb-melius-home.is-cipher-orbit .eb-melius-foot__lead{
   color:#b7b2a8;
 }
+.eb-melius-home.is-cipher-orbit .eb-melius-top{
+  z-index:90;
+  color:#eceae4;
+}
 .eb-melius-home.is-cipher-orbit .eb-melius-top__brand{
   color:#eceae4;
+}
+.eb-melius-home.is-cipher-orbit .lang-switch--melius{
+  color:#eceae4;
+}
+.eb-melius-home.is-cipher-orbit .lang-switch--melius button{
+  color:#eceae4;
+  opacity:.55;
+}
+.eb-melius-home.is-cipher-orbit .lang-switch--melius button[aria-pressed="true"]{
+  opacity:1;
+  color:#e4c37a;
 }
 .eb-melius-florals{
   transition:opacity 320ms ease,filter 320ms ease;
