@@ -390,8 +390,8 @@ export function initHeroMelius(isReduced) {
       const img = card.querySelector('img');
       if (!img) return;
       img.style.filter = focusing && !live
-        ? 'grayscale(1) brightness(0.32) contrast(1.08)'
-        : 'saturate(1.04) contrast(1.02)';
+        ? 'grayscale(1) brightness(0.58) contrast(1.08)'
+        : 'saturate(1.14) brightness(1.22) contrast(1.08)';
     });
   }
 
