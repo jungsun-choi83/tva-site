@@ -1,4 +1,4 @@
-import { t } from './i18n.js?v=eb-20261005t';
+import { t } from './i18n.js?v=eb-20261005y';
 
 const GOYA_V = 'eb-20261005e';
 const PET_PHOTOS = [
@@ -282,7 +282,7 @@ export function initHeroMelius(isReduced) {
     });
   }
 
-  home.classList.add('is-cipher-orbit', 'is-cipher-intro');
+  home.classList.add('is-cipher-orbit', 'is-goya-collage');
   const dots = initDotGenerator(home);
   wrapMeliusGoldLines(home);
   writeHeroExplain();
@@ -328,8 +328,32 @@ export function initHeroMelius(isReduced) {
   }
 
   function paintCards() {
-    const rect = stage.getBoundingClientRect();
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
+    if (home.classList.contains('is-goya-collage')) {
+      const focusing = hoverIndex >= 0 || pinnedIndex >= 0;
+      const focusIndex = hoverIndex >= 0 ? hoverIndex : pinnedIndex;
+      home.classList.toggle('is-orbit-focus', focusing);
+      cards.forEach((card, index) => {
+        card.style.display = '';
+        card.style.width = '';
+        card.style.height = '';
+        card.style.opacity = '1';
+        card.style.transform = '';
+        card.style.zIndex = '';
+        card.classList.toggle('is-dim', focusing && index !== focusIndex);
+        card.classList.toggle('is-live', focusing && index === focusIndex);
+        const img = card.querySelector('img');
+        if (!img) return;
+        img.style.objectFit = 'cover';
+        img.style.objectPosition = FACE_FOCUS[index % FACE_FOCUS.length];
+        img.style.transform = '';
+        img.style.filter = focusing && index !== focusIndex
+          ? 'grayscale(1) brightness(0.58) contrast(1.08)'
+          : 'saturate(1.14) brightness(1.22) contrast(1.08)';
+      });
+      return;
+    }
+    const rect = stage.getBoundingClientRect();
     const mobile = rect.width <= 720;
     const count = Math.max(1, cards.length);
     const radiusX = rect.width * (mobile ? 0.36 : 0.34);
@@ -413,6 +437,11 @@ export function initHeroMelius(isReduced) {
   }
 
   function start() {
+    if (home.classList.contains('is-goya-collage')) {
+      running = false;
+      paintCards();
+      return;
+    }
     if (running) return;
     running = true;
     last = 0;
