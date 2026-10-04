@@ -1077,39 +1077,43 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
   }
 }
 
-/* YOUR PET sits under the glowing device; photos keep the circular orbit. */
+/* YOUR PET is attached under the device so other headline offsets cannot move it. */
 .eb-melius-home.is-cipher-orbit .eb-melius-hub:before,
 .eb-melius-home.is-cipher-orbit .eb-melius-hub:after,
 .eb-melius-home.is-cipher-orbit .eb-melius-hub__logo{
   display:block;
 }
-.eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-headline{
-  top:calc(50% + clamp(58px,7.4vw,112px));
-  width:min(520px,78vw);
-  max-width:min(520px,78vw);
-  transform:translate(-50%,0);
-  text-align:center;
-  font-size:clamp(20px,2.2vw,34px);
+.eb-melius-home.is-cipher-orbit .eb-melius-hub{
+  overflow:visible;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-hub .eb-melius-headline{
+  position:absolute!important;
+  left:50%!important;
+  top:100%!important;
+  right:auto!important;
+  bottom:auto!important;
+  width:min(560px,78vw)!important;
+  max-width:min(560px,78vw)!important;
+  margin:10px 0 0!important;
+  padding:0!important;
+  transform:translateX(-50%)!important;
+  text-align:center!important;
+  font-size:clamp(20px,2.2vw,34px)!important;
+  z-index:80;
+  pointer-events:none;
 }
 .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot{
-  top:auto;
-  bottom:max(16px,env(safe-area-inset-bottom));
-  width:min(640px,86vw);
-  transform:translateX(-50%);
+  top:auto!important;
+  bottom:max(16px,env(safe-area-inset-bottom))!important;
+  width:min(640px,86vw)!important;
+  transform:translateX(-50%)!important;
   text-align:center;
 }
 
 @media(max-width:760px){
-  .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-headline{
-    top:calc(50% + clamp(52px,16vw,84px));
-    width:min(92vw,360px);
-    max-width:min(92vw,360px);
-    font-size:clamp(18px,5.6vw,26px);
-  }
-  .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot,
-  .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot{
-    top:auto;
-    bottom:max(14px,env(safe-area-inset-bottom));
-    width:min(92vw,360px);
+  .eb-melius-home.is-cipher-orbit .eb-melius-hub .eb-melius-headline{
+    width:min(92vw,360px)!important;
+    max-width:min(92vw,360px)!important;
+    font-size:clamp(18px,5.6vw,26px)!important;
   }
 }
