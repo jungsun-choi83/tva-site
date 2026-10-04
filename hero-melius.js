@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261004u';
+const GOYA_V = 'eb-20261004v';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
@@ -88,7 +88,7 @@ function initDotGenerator(home, getSlots) {
   function seed(w, h) {
     letterPts = sampleBeamLetters(w, h);
     dots.length = 0;
-    const count = Math.max(letterPts.length * 2, 2200);
+    const count = Math.max(letterPts.length, 1600);
     for (let i = 0; i < count; i += 1) {
       const edge = Math.random();
       let sx;
@@ -119,8 +119,8 @@ function initDotGenerator(home, getSlots) {
         slot: i % 12,
         ox: (Math.random() - 0.5) * 0.95,
         oy: (Math.random() - 0.5) * 0.95,
-        r: 1.8 + Math.random() * 3.4,
-        a: 0.82 + Math.random() * 0.18,
+        r: 0.55 + Math.random() * 0.85,
+        a: 0.55 + Math.random() * 0.35,
         delay: Math.random() * 0.28,
         tw: Math.random() * Math.PI * 2,
       });
@@ -136,7 +136,7 @@ function initDotGenerator(home, getSlots) {
 
   function progress(now) {
     if (!bornAt) return 0;
-    return Math.min(1, (now - bornAt) / 16000);
+    return Math.min(1, (now - bornAt) / 4200);
   }
 
   function draw(now) {
@@ -147,16 +147,14 @@ function initDotGenerator(home, getSlots) {
     const t = (now - bornAt) / 1000;
     const slots = getSlots();
     ctx.clearRect(0, 0, w, h);
-    ctx.globalCompositeOperation = 'lighter';
-    const gather = Math.min(1, Math.max(0, t / 2.4));
-    const hold = t >= 2.4 && t < 6.4;
-    const dissolve = Math.min(1, Math.max(0, (t - 6.4) / 1.6));
-    const linger = Math.min(1, Math.max(0, (t - 8) / 4.6));
-    const photoIn = Math.max(0, (t - 12.6) / 1.8);
-    home.classList.toggle('is-cipher-intro', photoIn < 0.45);
+    const gather = Math.min(1, Math.max(0, t / 1.05));
+    const hold = t >= 1.05 && t < 1.85;
+    const dissolve = Math.min(1, Math.max(0, (t - 1.85) / 0.7));
+    const photoIn = Math.max(0, (t - 2.05) / 0.55);
+    home.classList.toggle('is-cipher-intro', photoIn < 0.2);
 
     for (const d of dots) {
-      const local = Math.min(1, Math.max(0, (gather - d.delay) / 0.7));
+      const local = Math.min(1, Math.max(0, (gather - d.delay) / 0.45));
       const ease = 1 - (1 - local) ** 3;
       const slot = slots[d.slot] || { cx: w * 0.5, cy: h * 0.5, w: 90, h: 120 };
       const px = slot.cx + d.ox * slot.w;
@@ -164,32 +162,21 @@ function initDotGenerator(home, getSlots) {
       let tx = d.lx;
       let ty = d.ly;
       if (dissolve > 0) {
-        const field = Math.min(1, dissolve);
-        tx = d.lx + (d.fx - d.lx) * field;
-        ty = d.ly + (d.fy - d.ly) * field;
+        tx = d.lx + (px - d.lx) * dissolve;
+        ty = d.ly + (py - d.ly) * dissolve;
       }
-      if (photoIn > 0) {
-        tx += (px - tx) * Math.min(1, photoIn * 0.35);
-        ty += (py - ty) * Math.min(1, photoIn * 0.35);
-      }
-      const parked = hold || dissolve > 0 || linger > 0;
+      const parked = hold || dissolve > 0;
       d.x = d.sx + (tx - d.sx) * (parked ? 1 : ease);
       d.y = d.sy + (ty - d.sy) * (parked ? 1 : ease);
-      const vis = Math.max(local, gather, hold ? 1 : 0, dissolve, linger);
-      const fade = 0.72 + (1 - Math.min(1, photoIn)) * 0.28;
-      const pulse = 0.88 + Math.sin(now * 0.005 + d.tw) * 0.12;
+      const vis = Math.max(local, gather, hold ? 1 : 0, dissolve);
+      const fade = Math.max(0.22, 1 - photoIn * 0.7);
+      const pulse = 0.82 + Math.sin(now * 0.006 + d.tw) * 0.18;
       const alpha = Math.min(1, d.a * vis * fade * pulse);
-      const rad = d.r * (hold ? 1.15 : 1.28 - ease * 0.08);
-      ctx.fillStyle = `rgba(255,246,214,${(alpha * 0.22).toFixed(3)})`;
+      ctx.fillStyle = `rgba(244,241,230,${alpha.toFixed(3)})`;
       ctx.beginPath();
-      ctx.arc(d.x, d.y, rad * 2.4, 0, Math.PI * 2);
-      ctx.fill();
-      ctx.fillStyle = `rgba(255,252,244,${alpha.toFixed(3)})`;
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, rad, 0, Math.PI * 2);
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
       ctx.fill();
     }
-    ctx.globalCompositeOperation = 'source-over';
   }
 
   resize();
@@ -314,7 +301,7 @@ export function initHeroMelius(isReduced) {
     home.classList.toggle('is-orbit-focus', focusing);
     const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
     const assemble = dots.progress(performance.now());
-    const shown = Math.max(0, Math.min(1, (assemble - 0.78) / 0.16));
+    const shown = Math.max(0, Math.min(1, (assemble - 0.48) / 0.14));
     const homeR = home.getBoundingClientRect();
     const originX = rect.left - homeR.left + rect.width / 2;
     const originY = rect.top - homeR.top + rect.height / 2;
