@@ -95,7 +95,7 @@ const COPY = {
     'link.st.letter': 'SoulTrace에서 편지 만들기',
     's2.eye': '02. LETTER',
     's2.kicker': 'LETTER',
-    's2.h': '한 장의 사진에,<br>그 날의 이야기를<br>더합니다.',
+    's2.h': '한 장의 사진에,<br><span class="eb-keep">그 날의</span> 이야기를<br>더합니다.',
     's2.tag': 'Letters with SoulTrace',
     's2.scope': '기억이 편지가 되는 방식 · SoulTrace 진입',
     's2.kickerKo': '편지',

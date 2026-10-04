@@ -1709,3 +1709,17 @@ html[data-about-grid="open"]{
   }
   #about.about-bleib.is-grid-open .about-cinematic__brand{display:none}
 }
+
+#about.about-bleib .station-copy h3,
+#about.about-bleib .about-detail-overlay .station-copy--head h3{
+  text-wrap:wrap;
+  word-break:keep-all;
+  overflow-wrap:normal;
+}
+#about.about-bleib .station-copy h3 br{
+  display:block;
+  content:"";
+}
+#about.about-bleib .eb-keep{
+  white-space:nowrap;
+}
