@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261004j';
+const GOYA_V = 'eb-20261004s';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
@@ -31,13 +31,13 @@ const CARD_FRAMES = [
 
 const DEVICE_FALLBACK = 'assets/hero/beam-device-melius-front-cut.png?v=eb-20260919a';
 
-function initDotGenerator(home) {
+function initDotGenerator(home, getSlots) {
   const canvas = home.querySelector('.eb-melius-dots');
-  if (!canvas) return { draw() {}, resize() {} };
+  if (!canvas) return { draw() {}, resize() {}, reset() {}, progress: () => 1 };
   const ctx = canvas.getContext('2d', { alpha: true });
   const dots = [];
   let seeded = false;
-  const TILT = -22 * Math.PI / 180;
+  let bornAt = 0;
 
   function resize() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -53,58 +53,78 @@ function initDotGenerator(home) {
 
   function seed(w, h) {
     dots.length = 0;
-    const count = Math.round(Math.min(900, Math.max(420, (w * h) / 2200)));
-    const rx = w * 0.34;
-    const ry = h * 0.28;
-    const cx = w * 0.5;
-    const cy = h * 0.5;
-    const cosT = Math.cos(TILT);
-    const sinT = Math.sin(TILT);
+    const count = Math.round(Math.min(1600, Math.max(720, (w * h) / 1400)));
     for (let i = 0; i < count; i += 1) {
-      const t = (i / count) * Math.PI * 2 + Math.random() * 0.12;
-      const band = 0.92 + Math.random() * 0.16;
-      const lx = Math.cos(t) * rx * band + (Math.random() - 0.5) * 18;
-      const ly = Math.sin(t) * ry * band + (Math.random() - 0.5) * 14;
-      const tx = cx + lx * cosT - ly * sinT;
-      const ty = cy + lx * sinT + ly * cosT;
+      const edge = Math.random();
+      let sx;
+      let sy;
+      if (edge < 0.28) {
+        sx = Math.random() * w;
+        sy = Math.random() < 0.5 ? -20 : h + 20;
+      } else if (edge < 0.56) {
+        sx = Math.random() < 0.5 ? -20 : w + 20;
+        sy = Math.random() * h;
+      } else {
+        sx = Math.random() * w;
+        sy = Math.random() * h;
+      }
       dots.push({
-        x: cx,
-        y: cy,
-        tx,
-        ty,
-        r: 0.55 + Math.random() * 1.15,
-        a: 0.22 + Math.random() * 0.38,
-        delay: Math.random() * 0.35,
+        sx,
+        sy,
+        x: sx,
+        y: sy,
+        slot: i % 12,
+        ox: (Math.random() - 0.5) * 0.86,
+        oy: (Math.random() - 0.5) * 0.86,
+        r: 0.6 + Math.random() * 1.7,
+        a: 0.35 + Math.random() * 0.5,
+        delay: Math.random() * 0.28,
         tw: Math.random() * Math.PI * 2,
       });
     }
     seeded = true;
   }
 
-  let bornAt = 0;
+  function reset() {
+    bornAt = 0;
+    seeded = false;
+    resize();
+  }
+
+  function progress(now) {
+    if (!bornAt) return 0;
+    return Math.min(1, (now - bornAt) / 2100);
+  }
+
   function draw(now) {
     if (!seeded) resize();
     if (!bornAt) bornAt = now;
     const w = home.clientWidth || 1;
     const h = home.clientHeight || 1;
-    const grow = Math.min(1, (now - bornAt) / 1400);
+    const grow = progress(now);
+    const slots = getSlots();
+    const photoIn = Math.max(0, (grow - 0.58) / 0.42);
     ctx.clearRect(0, 0, w, h);
     for (const d of dots) {
-      const local = Math.max(0, Math.min(1, (grow - d.delay) / 0.55));
+      const local = Math.max(0, Math.min(1, (grow - d.delay) / 0.5));
       if (local <= 0) continue;
       const ease = 1 - (1 - local) ** 3;
-      d.x = d.tx * ease + (w * 0.5) * (1 - ease);
-      d.y = d.ty * ease + (h * 0.5) * (1 - ease);
-      const pulse = 0.75 + Math.sin(now * 0.0018 + d.tw) * 0.25;
-      ctx.fillStyle = `rgba(226,230,227,${(d.a * local * pulse).toFixed(3)})`;
+      const slot = slots[d.slot] || { cx: w * 0.5, cy: h * 0.5, w: 80, h: 110 };
+      const tx = slot.cx + d.ox * slot.w;
+      const ty = slot.cy + d.oy * slot.h;
+      d.x = d.sx + (tx - d.sx) * ease;
+      d.y = d.sy + (ty - d.sy) * ease;
+      const fade = 1 - photoIn * 0.92;
+      const pulse = 0.82 + Math.sin(now * 0.003 + d.tw) * 0.18;
+      ctx.fillStyle = `rgba(236,237,230,${(d.a * local * fade * pulse).toFixed(3)})`;
       ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.arc(d.x, d.y, d.r * (1.15 - ease * 0.25), 0, Math.PI * 2);
       ctx.fill();
     }
   }
 
   resize();
-  return { draw, resize };
+  return { draw, resize, reset, progress };
 }
 
 function wrapMeliusGoldLines(home) {
@@ -168,7 +188,8 @@ export function initHeroMelius(isReduced) {
   if (!hero || !home || !stage || !rail) return;
 
   home.classList.add('is-cipher-orbit');
-  const dots = initDotGenerator(home);
+  const photoSlots = [];
+  const dots = initDotGenerator(home, () => photoSlots);
   wrapMeliusGoldLines(home);
   window.addEventListener('eb:lang', () => wrapMeliusGoldLines(home));
 
@@ -223,7 +244,12 @@ export function initHeroMelius(isReduced) {
     const focusing = hoverIndex >= 0 || pinnedIndex >= 0 || performance.now() < focusUntil;
     home.classList.toggle('is-orbit-focus', focusing);
     const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
-    const shown = orbitBorn ? Math.min(1, (performance.now() - orbitBorn - 700) / 700) : 1;
+    const assemble = dots.progress(performance.now());
+    const shown = Math.max(0, Math.min(1, (assemble - 0.52) / 0.34));
+    const homeR = home.getBoundingClientRect();
+    const originX = rect.left - homeR.left + rect.width / 2;
+    const originY = rect.top - homeR.top + rect.height / 2;
+    photoSlots.length = 0;
     let frontIndex = 0;
     let focusDepth = -2;
 
@@ -248,8 +274,10 @@ export function initHeroMelius(isReduced) {
       const z = Math.round(12 + depth * 28 + (index % 3));
       const transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;
       card.style.zIndex = String(z);
-      card.style.opacity = String(Math.max(0, shown));
+      const stagger = Math.max(0, Math.min(1, (shown - index * 0.035) / 0.55));
+      card.style.opacity = String(stagger);
       card.style.transform = transform;
+      photoSlots[index] = { cx: originX + x, cy: originY + y, w: cw, h: ch };
       card.style.setProperty('--orbit-transform', transform);
       card.style.setProperty('--orbit-opacity', '1');
       card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
@@ -285,6 +313,7 @@ export function initHeroMelius(isReduced) {
     running = true;
     last = 0;
     orbitBorn = performance.now();
+    dots.reset();
     measureLoop();
     offset = loopWidth * 0.33;
     applyRailTransform();
