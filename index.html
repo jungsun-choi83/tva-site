@@ -55,7 +55,7 @@
 <link rel="stylesheet" href="signal-passage.css?v=eb-20260914g">
 <link rel="stylesheet" href="fall-welcome/actor.css?v=fall-welcome-production-r3.h492e636f" data-fall-actor-style>
 <link rel="stylesheet" href="portfolio.css?v=eb-20261005w">
-<link rel="stylesheet" href="story-keep.css?v=eb-20261005t">
+<link rel="stylesheet" href="story-keep.css?v=eb-20261005ai">
 <link rel="stylesheet" href="section-bleib.css?v=eb-20261005w">
 <link rel="stylesheet" href="contact-letterbox.css?v=eb-20261005s">
   <link rel="stylesheet" href="scroll-cue.css?v=eb-20260914g">
@@ -67,8 +67,8 @@
   <style>
     /* 작업대 그림 평균색 — 실측 rgb(195,182,173) (다 온 화면에서 잰 값) */
     .story-keep { background-color:#e4ddd0; }
-    .story-keep[data-act="1"],
-    .story-keep[data-act="2"] { background-color:#e4ddd0; }
+    .story-keep[data-act="1"] { background-color:#e4ddd0; }
+    .story-keep[data-act="2"] { background-color:#111113; }
   </style>
   <!-- 검색 결과 회사 정보 카드. 대표자·사업자등록번호·주소·연락처는 확정된 값이 오면 채운다 -->
   <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Eternal Beam","alternateName":"이터널빔","url":"https://eternalbeam.com/","logo":"https://eternalbeam.com/assets/favicon/favicon-192.png?v=eternal-beam-r29","image":"https://eternalbeam.com/assets/og/tva-og-1200x630.jpg","description":"Soul Trace와 연결되는 홀로그램 디스플레이어. 하드웨어 안에 콘텐츠 아카이브를 남깁니다.","address":{"@type":"PostalAddress","addressLocality":"Seoul","addressCountry":"KR"},"knowsAbout":["홀로그램 디스플레이","반려동물 메모리얼","Soul Trace","콘텐츠 아카이브","Identity Lock"]}</script>
@@ -435,9 +435,9 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
       <div class="story-keep__pin">
         <div class="story-keep__space" aria-hidden="true"><img src="assets/ending/living room p.png?v=eb-20260927" width="1672" height="941" alt="" decoding="async"></div>
         <header class="story-keep__head">
-          <p class="story-keep__kicker" data-i18n="sk.bleib.eyebrow">JOURNEY</p>
-          <h2 id="original-title">ONE STORY.<br>THREE WAYS TO KEEP IT.</h2>
-          <p class="story-keep__sub" data-i18n-html="sk.sub">One story, from a record to an object,<br>and then into daily life.</p>
+          <p class="story-keep__kicker">CH 03 / <span data-i18n="sk.bleib.eyebrow">JOURNEY</span></p>
+          <h2 id="original-title">ONE STORY.<br>THREE WAYS TO <span class="sk-title-gold">KEEP IT.</span></h2>
+          <p class="story-keep__sub" data-i18n-html="sk.sub">하나의 이야기가 기록에서 오브제로,<br>그리고 일상의 경험으로 이어집니다.</p>
           <a class="sk-record-cta" href="https://soultrace.pet/choose" target="_blank" rel="noopener noreferrer" data-sk-record-cta>
             <span class="sk-record-cta__label" data-i18n="link.st.letter">SoulTrace에서 편지 만들기</span>
             <span class="sk-record-cta__icon" aria-hidden="true">→</span>
@@ -450,27 +450,36 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
             </div>
           </div>
           <div class="sk-a2">
-            <div class="sk-memory-atmosphere" aria-hidden="true">
-              <figure class="sk-memory-bg sk-memory-bg--1"><img src="assets/journey/pets/p02.webp?v=eb-20260914v" width="480" height="639" alt="" loading="lazy" decoding="async"></figure>
-              <figure class="sk-memory-bg sk-memory-bg--2"><img src="assets/journey/pets/p05.webp?v=eb-20260914v" width="480" height="639" alt="" loading="lazy" decoding="async"></figure>
-              <figure class="sk-memory-bg sk-memory-bg--3"><img src="assets/journey/pets/p07.webp?v=eb-20260914v" width="480" height="639" alt="" loading="lazy" decoding="async"></figure>
-              <figure class="sk-memory-bg sk-memory-bg--4"><img src="assets/journey/pets/p09.webp?v=eb-20260914v" width="480" height="639" alt="" loading="lazy" decoding="async"></figure>
-              <figure class="sk-memory-bg sk-memory-bg--5"><img src="assets/journey/pets/p11.webp?v=eb-20260914v" width="480" height="639" alt="" loading="lazy" decoding="async"></figure>
-              <figure class="sk-memory-bg sk-memory-bg--6"><img src="assets/journey/pets/p13.webp?v=eb-20260914v" width="480" height="639" alt="" loading="lazy" decoding="async"></figure>
-              <figure class="sk-memory-bg sk-memory-bg--7"><img src="assets/journey/pets/p16.webp?v=eb-20260914v" width="480" height="639" alt="" loading="lazy" decoding="async"></figure>
-            </div>
-            <div class="sk-keep-decor" aria-hidden="true">
-              <i class="sk-gold-ribbon sk-gold-ribbon--one"></i>
-              <i class="sk-gold-ribbon sk-gold-ribbon--two"></i>
-              <i class="sk-keep-halo"></i>
-              <span class="sk-gold-particles"><i></i><i></i><i></i><i></i><i></i><i></i></span>
-            </div>
-            <div class="sk-album" aria-hidden="true"></div>
-            <div class="sk-card">
-              <i class="sk-card__beam" aria-hidden="true"></i>
-              <div class="sk-card__acrylic" aria-hidden="true"></div>
-              <i class="sk-card__foil" aria-hidden="true"></i>
-              <span class="sk-card__name">NFC CARD</span>
+            <div class="sk-keep-scene">
+              <p class="sk-keep-scene__kicker"><i></i><span data-i18n="sk.keep.moment">ONE MOMENT, KEPT.</span></p>
+              <div class="sk-keep-board">
+                <figure class="sk-keep-shot sk-keep-shot--left">
+                  <img src="assets/hero/goya-orbit/live/goya-02.webp?v=eb-20261005e" width="900" height="1200" alt="" decoding="async">
+                </figure>
+                <figure class="sk-keep-shot sk-keep-shot--main">
+                  <img src="assets/journey/keep/goya-sea.jpg?v=eb-20261005ai" width="232" height="318" alt="" decoding="async">
+                </figure>
+                <figure class="sk-keep-shot sk-keep-shot--right">
+                  <img src="assets/hero/goya-orbit/live/goya-05.webp?v=eb-20261005e" width="900" height="1200" alt="" decoding="async">
+                </figure>
+                <article class="sk-keep-print" aria-hidden="true">
+                  <div class="sk-keep-print__photo">
+                    <img src="assets/journey/keep/goya-sea.jpg?v=eb-20261005ai" width="232" height="318" alt="">
+                  </div>
+                  <footer class="sk-keep-print__meta">
+                    <div class="sk-keep-print__row">
+                      <span class="sk-keep-print__name">Goya</span>
+                      <span class="sk-keep-print__place" data-i18n="sk.keep.place">바닷가에서</span>
+                    </div>
+                    <div class="sk-keep-print__row sk-keep-print__row--foot">
+                      <span class="sk-keep-print__brand">ETERNAL BEAM</span>
+                      <span class="sk-keep-print__nfc" aria-hidden="true"></span>
+                    </div>
+                  </footer>
+                </article>
+              </div>
+              <p class="sk-keep-caption" data-sk-keep-caption>한 장의 사진에서 시작합니다.</p>
+              <p class="sk-keep-footnote" data-i18n="sk.keep.note">고야 원본 사진 · 카드 원형은 인터랙션 시안입니다</p>
             </div>
           </div>
           <div class="sk-a3">
@@ -538,7 +547,7 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
   <!-- 2026-09-12 감사 [119]: 장식용 그림(alt="")이 안 오면 흰 깨진-그림 상자 대신 자리를 비운다 -->
   <script>addEventListener('error',e=>{const t=e.target;if(t&&t.tagName==='IMG'&&t.getAttribute('alt')==='')t.style.visibility='hidden'},true);for(const i of document.querySelectorAll('img[alt=""]'))if(i.complete&&i.naturalWidth===0)i.style.visibility='hidden';</script>
   <button class="motion-toggle" type="button" aria-pressed="false">움직임 줄이기</button>
-<script src="app.js?v=eb-20261005ah" type="module"></script>
+<script src="app.js?v=eb-20261005ai" type="module"></script>
 <script type="module" src="scroll-cue.js?v=eb-20260927-merge-1"></script>
   <script type="module" src="section-bleib.js?v=eb-20260927-merge-1"></script>
   <script type="module" src="about-bleib.js?v=eb-20261005y"></script>

@@ -1,8 +1,8 @@
-import { t } from './i18n.js?v=eb-20261005t';
+import { t } from './i18n.js?v=eb-20261005ai';
 
 const ACTS = [
   { num: '01', en: 'SOULTRACE', verb: 'RECORD', title: 'sk.a1.title', lead: 'sk.a1.lead' },
-  { num: '02', en: 'NFC MEMORY CARD', verb: 'KEEP', title: 'sk.a2.title', lead: 'sk.a2.lead' },
+  { num: '02', en: 'KEEP', verb: 'KEEP', title: 'sk.a2.title', lead: 'sk.a2.lead' },
   { num: '03', en: 'ETERNAL BEAM', verb: 'EXPERIENCE', title: 'sk.a3.title', lead: 'sk.a3.lead' },
 ];
 
@@ -40,168 +40,60 @@ const MELIUS_ARC = [
   { kind: 'deco', image: 'gallery-original/assets/photos/optimized/letters/l8.png' },
 ];
 
-const PET_V = 'eb-20260914v';
-const PETS = [
-  ...Array.from({ length: 16 }, (_, i) => `assets/journey/pets/p${String(i + 1).padStart(2, '0')}.webp?v=${PET_V}`),
-];
-
 function motionOff() {
   return document.documentElement.classList.contains('reduced-motion')
     || matchMedia('(prefers-reduced-motion: reduce)').matches;
 }
 
-function initAlbum(section) {
-  const album = section.querySelector('.sk-album');
-  const card = section.querySelector('.sk-card');
-  if (!album) return;
-  album.replaceChildren();
+const KEEP_CAPTIONS = [
+  { at: 0, key: 'sk.keep.cap1' },
+  { at: 4000, key: 'sk.keep.cap2' },
+  { at: 7000, key: 'sk.keep.cap3' },
+  { at: 11000, key: 'sk.keep.cap4' },
+];
+const KEEP_LOOP = 15000;
 
-  const LANES = [
-    { role: 'storage', through: true, x: .5, w: .2 },
-    { role: 'incoming', through: false, x: .13, w: .15 },
-    { role: 'preserved', through: false, x: .87, w: .15 },
-  ];
-  const pool = PETS.slice();
-  for (let i = pool.length - 1; i > 0; i -= 1) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [pool[i], pool[j]] = [pool[j], pool[i]];
-  }
-  let cursor = 0;
-  const recent = [];
+function initKeepScene(section) {
+  const caption = section.querySelector('[data-sk-keep-caption]');
+  if (!caption) return;
+  let timer = 0;
+  let started = 0;
 
-  function nextSrc() {
-    let src;
-    let guard = 0;
-    do {
-      src = pool[cursor % pool.length];
-      cursor += 1;
-      guard += 1;
-    } while (recent.includes(src) && guard < pool.length);
-    recent.push(src);
-    if (recent.length > 12) recent.shift();
-    return src;
+  function writeCaption(now) {
+    const elapsed = ((now - started) % KEEP_LOOP + KEEP_LOOP) % KEEP_LOOP;
+    let key = KEEP_CAPTIONS[0].key;
+    KEEP_CAPTIONS.forEach((row) => {
+      if (elapsed >= row.at) key = row.key;
+    });
+    const next = t(key);
+    if (caption.textContent !== next) caption.textContent = next;
   }
 
-  const nodes = LANES.map((lane, index) => {
-    const fig = document.createElement('figure');
-    fig.className = `sk-float sk-float--${lane.role}`;
-    fig.dataset.lane = lane.role;
-    const img = document.createElement('img');
-    img.alt = '';
-    img.decoding = 'async';
-    const extraImages = [];
-    const caption = document.createElement('figcaption');
-    fig.append(...extraImages, img, caption);
-    album.append(fig);
-    return {
-      fig, img, extraImages, caption, lane, index,
-      cardFocus: 0, inCard: false, hasDwelled: false, dwellRemaining: 0,
-    };
-  });
-
-  function spawn(item, first) {
-    item.img.src = nextSrc();
-    item.caption.textContent = item.lane.role === 'preserved' ? 'KEPT CLOSE' : 'MEMORY';
-    item.through = item.lane.through;
-    item.x = item.lane.x;
-    item.w = item.lane.w;
-    item.speed = .00265;
-    item.rot = item.through ? 0 : (item.index === 1 ? -5 : 5);
-    item.phase = item.index * 1.7;
-    item.amp = item.through ? 0 : .006;
-    item.spin = 0;
-    item.cardFocus = 0;
-    item.inCard = false;
-    item.hasDwelled = false;
-    item.dwellRemaining = 0;
-    item.fig.classList.remove('is-in-card');
-    item.y = first ? .12 + item.index * .38 : 1.22;
-  }
-
-  nodes.forEach((node) => spawn(node, true));
-
-  let raf = 0;
-  let last = 0;
-
-  function paint(item, aw, ah, x, w) {
-    const focus = item.cardFocus || 0;
-    const rotation = item.rot * (1 - focus * .9);
-    const scale = 1 + focus * .06;
-    item.fig.style.width = `${w}px`;
-    item.fig.style.transform = `translate3d(${x * aw - w / 2}px, ${item.y * ah}px, 0) rotate(${rotation.toFixed(2)}deg) scale(${scale.toFixed(3)})`;
-  }
-
-  function frame(now) {
-    raf = requestAnimationFrame(frame);
-    const aw = album.clientWidth || 1;
-    const ah = album.clientHeight || 1;
-    if (motionOff()) {
-      const reducedCardWidth = card?.getBoundingClientRect().width || aw * .2;
-      nodes.forEach((item) => {
-        item.y = item.through ? .32 : item.index === 1 ? .18 : .55;
-        item.phase = 0;
-        item.amp = 0;
-        item.cardFocus = item.through ? 1 : 0;
-        item.fig.classList.toggle('is-in-card', item.through);
-        const w = item.through
-          ? Math.max(96, reducedCardWidth * .72)
-          : Math.max(112, Math.min(190, reducedCardWidth * .7));
-        const edgeInset = item.through ? 0 : (w * .68) / aw;
-        const x = item.through ? item.x : Math.max(edgeInset, Math.min(1 - edgeInset, item.x));
-        paint(item, aw, ah, x, w);
-      });
+  function tick(now) {
+    if (section.dataset.act !== '2' || !section.classList.contains('is-playing')) {
+      timer = 0;
       return;
     }
-    if (section.dataset.act !== '2') return;
-    const dt = Math.min(40, now - last || 16) / 16.67;
-    last = now;
-    const cr = card ? card.getBoundingClientRect() : null;
-    const ar = album.getBoundingClientRect();
-    const cardMid = cr ? (cr.left + cr.width / 2 - ar.left) / aw : .5;
-    const cardTop = cr ? (cr.top - ar.top) / ah : .28;
-    const cardBot = cr ? (cr.bottom - ar.top) / ah : .72;
-    const slotW = cr ? cr.width * .72 : aw * .2;
-
-    for (const item of nodes) {
-      let travelRate = 1;
-      if (item.through && item.inCard) travelRate = .48;
-      if (item.through && item.dwellRemaining > 0) {
-        item.dwellRemaining = Math.max(0, item.dwellRemaining - dt * 16.67);
-        travelRate = .06;
-      }
-      item.y -= item.speed * dt * travelRate;
-      item.phase += .008 * dt;
-      if (item.y < -.45) spawn(item, false);
-      let x = item.x + Math.sin(item.phase) * item.amp;
-      let w = item.through
-        ? (cr ? slotW : Math.max(96, Math.min(190, item.w * aw)))
-        : Math.max(112, Math.min(190, cr ? cr.width * .7 : item.w * aw));
-      if (!item.through) {
-        const edgeInset = (w * .68) / aw;
-        x = Math.max(edgeInset, Math.min(1 - edgeInset, x));
-      }
-      const photoHeight = (w * 4 / 3) / ah;
-      const isInCard = item.through
-        && item.y + photoHeight * .72 > cardTop
-        && item.y + photoHeight * .28 < cardBot;
-      const photoCenter = item.y + photoHeight * .5;
-      const cardCenter = (cardTop + cardBot) * .5;
-      if (isInCard && !item.hasDwelled && Math.abs(photoCenter - cardCenter) < photoHeight * .14) {
-        item.hasDwelled = true;
-        item.dwellRemaining = 440;
-      }
-      item.inCard = isInCard;
-      item.cardFocus += ((isInCard ? 1 : 0) - item.cardFocus) * .12;
-      item.fig.classList.toggle('is-in-card', isInCard);
-      if (isInCard) {
-        x += (cardMid - x) * .2;
-      }
-      paint(item, aw, ah, x, w);
-    }
+    writeCaption(now);
+    timer = requestAnimationFrame(tick);
   }
 
-  raf = requestAnimationFrame(frame);
-  addEventListener('eb:motion', () => { last = 0; });
+  function start() {
+    if (timer) cancelAnimationFrame(timer);
+    started = performance.now();
+    writeCaption(started);
+    if (motionOff()) {
+      caption.textContent = t('sk.keep.cap4');
+      return;
+    }
+    timer = requestAnimationFrame(tick);
+  }
+
+  section.addEventListener('eb:keep-play', start);
+  addEventListener('eb:lang', () => {
+    if (section.dataset.act === '2') writeCaption(performance.now());
+  });
+  addEventListener('eb:motion', start);
 }
 
 export function initStoryKeep() {
@@ -225,7 +117,25 @@ export function initStoryKeep() {
     if (en) en.textContent = row.en;
     if (verb) verb.textContent = row.verb;
     if (title) title.textContent = t(row.title);
-    if (lead) lead.textContent = t(row.lead);
+    if (lead) lead.innerHTML = t(row.lead);
+    const cta = section.querySelector('[data-sk-record-cta]');
+    const ctaLabel = section.querySelector('.sk-record-cta__label');
+    if (cta && ctaLabel) {
+      if (next === 2) {
+        cta.hidden = false;
+        cta.removeAttribute('target');
+        cta.href = '#portfolio';
+        ctaLabel.textContent = t('sk.keep.cta');
+      } else if (next === 1) {
+        cta.hidden = false;
+        cta.target = '_blank';
+        cta.rel = 'noopener noreferrer';
+        cta.href = 'https://soultrace.pet/choose';
+        ctaLabel.textContent = t('link.st.letter');
+      } else {
+        cta.hidden = true;
+      }
+    }
     steps.forEach((btn, i) => {
       if (i === next - 1) btn.setAttribute('aria-current', 'true');
       else btn.removeAttribute('aria-current');
@@ -244,6 +154,7 @@ export function initStoryKeep() {
     playToken += 1;
     section.dataset.play = String(playToken);
     section.classList.add('is-playing');
+    if (act === 2) section.dispatchEvent(new Event('eb:keep-play'));
   }
 
   steps.forEach((btn) => {
@@ -281,7 +192,7 @@ export function initStoryKeep() {
   }, { threshold: [0, 0.1, 0.25, 0.35] });
   watch.observe(section);
 
-  initAlbum(section);
+  initKeepScene(section);
   initMeliusArc(section);
   initLetterCollage(section);
   initRecordCta(section);
