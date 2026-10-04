@@ -1,8 +1,6 @@
 from pathlib import Path
 import math
-import numpy as np
 from PIL import Image
-import imageio.v2 as imageio
 
 ROOT = Path(__file__).resolve().parents[1]
 SRC = ROOT / "assets" / "hero" / "goya-orbit"
@@ -24,9 +22,8 @@ FACE = [
     (0.62, 0.48),
 ]
 
-W, H = 540, 720
-FPS = 10
-ONE_WAY = 32
+W, H = 480, 640
+ONE_WAY = 20
 
 
 def crop_frame(im, fx, fy, zoom):
@@ -51,7 +48,7 @@ def ease(t):
 
 for i, (fx, fy) in enumerate(FACE, start=1):
     still = SRC / f"goya-{i:02d}.webp"
-    dest = OUT / f"goya-{i:02d}.mp4"
+    dest = OUT / f"goya-{i:02d}.webp"
     im = Image.open(still)
     frames = []
     for n in range(ONE_WAY):
@@ -59,14 +56,16 @@ for i, (fx, fy) in enumerate(FACE, start=1):
         zoom = 1.04 + 0.14 * t
         ox = fx + 0.035 * math.sin(t * math.pi)
         oy = fy - 0.028 * t
-        frames.append(np.asarray(crop_frame(im, ox, oy, zoom)))
+        frames.append(crop_frame(im, ox, oy, zoom))
     loop = frames + frames[-2:0:-1]
-    imageio.mimsave(
+    loop[0].save(
         dest,
-        loop,
-        fps=FPS,
-        codec="libx264",
-        pixelformat="yuv420p",
-        output_params=["-movflags", "+faststart", "-crf", "28", "-preset", "fast"],
+        save_all=True,
+        append_images=loop[1:],
+        duration=100,
+        loop=0,
+        quality=70,
+        method=4,
+        lossless=False,
     )
     print(dest.name, dest.stat().st_size)

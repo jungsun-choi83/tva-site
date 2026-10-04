@@ -1,19 +1,18 @@
-const GOYA_V = 'eb-20261005b';
+const GOYA_V = 'eb-20261005c';
 const PET_PHOTOS = [
-  `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-03.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-04.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-05.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-06.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-07.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-08.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-09.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-10.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-11.webp?v=${GOYA_V}`,
-  `assets/hero/goya-orbit/goya-12.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-01.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-02.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-03.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-04.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-05.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-06.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-07.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-08.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-09.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-10.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-11.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/live/goya-12.webp?v=${GOYA_V}`,
 ];
-const PET_CLIPS = PET_PHOTOS.map((_, i) => `assets/hero/goya-orbit/live/goya-${String(i + 1).padStart(2, '0')}.mp4?v=${GOYA_V}`);
 
 const CARD_FRAMES = [
   [0.9, 1.2],
@@ -229,9 +228,10 @@ function wrapMeliusGoldLines(home) {
   });
 }
 
-function cardMarkup(clip, poster, eager) {
-  const load = eager ? 'auto' : 'metadata';
-  return `<article class="eb-melius-card"><span class="eb-melius-card__shot"><video src="${clip}" poster="${poster}" width="544" height="720" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture preload="${load}"></video></span></article>`;
+function cardMarkup(src, eager) {
+  const load = eager ? 'eager' : 'lazy';
+  const pri = eager ? ' fetchpriority="high"' : '';
+  return `<article class="eb-melius-card"><span class="eb-melius-card__shot"><img src="${src}" width="480" height="640" alt="" loading="${load}" decoding="async"${pri}></span></article>`;
 }
 
 /** Existing Melius depth character, adapted to an elliptical path. */
@@ -288,18 +288,7 @@ export function initHeroMelius(isReduced) {
     );
   }
 
-  rail.innerHTML = PET_CLIPS.map((clip, i) => cardMarkup(clip, PET_PHOTOS[i], i < 8)).join('');
-  const kickClips = () => {
-    rail.querySelectorAll('video').forEach((clip) => {
-      clip.muted = true;
-      clip.loop = true;
-      clip.playsInline = true;
-      const play = () => clip.play().catch(() => {});
-      if (clip.readyState >= 2) play();
-      else clip.addEventListener('canplay', play, { once: true });
-    });
-  };
-  kickClips();
+  rail.innerHTML = PET_PHOTOS.map((src, i) => cardMarkup(src, i < 10)).join('');
 
   let offset = 0;
   let velocity = 0.42;
@@ -336,8 +325,8 @@ export function initHeroMelius(isReduced) {
     const cosT = Math.cos(tilt);
     const sinT = Math.sin(tilt);
     const phase = (offset / loopWidth) * Math.PI * 2;
-    const focusing = hoverIndex >= 0 || pinnedIndex >= 0 || performance.now() < focusUntil;
-    home.classList.toggle('is-orbit-focus', focusing);
+    home.classList.add('is-orbit-focus');
+    const focusing = true;
     const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
     const age = orbitBorn ? (performance.now() - orbitBorn) / 1000 : 0;
     let shown = Math.max(0, Math.min(1, (age - 2.25) / 0.4));
@@ -372,11 +361,11 @@ export function initHeroMelius(isReduced) {
       card.style.setProperty('--orbit-transform', transform);
       card.style.setProperty('--orbit-opacity', '1');
       card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
-      const media = card.querySelector('video, img');
-      if (media) {
-        media.style.objectFit = 'cover';
-        media.style.objectPosition = FACE_FOCUS[index % FACE_FOCUS.length];
-        media.style.transform = 'none';
+      const img = card.querySelector('img');
+      if (img) {
+        img.style.objectFit = 'cover';
+        img.style.objectPosition = FACE_FOCUS[index % FACE_FOCUS.length];
+        img.style.transform = 'none';
       }
     });
 
@@ -414,7 +403,6 @@ export function initHeroMelius(isReduced) {
     measureLoop();
     offset = loopWidth * 0.33;
     applyRailTransform();
-    kickClips();
     raf = requestAnimationFrame(tick);
   }
 

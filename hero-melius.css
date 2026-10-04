@@ -917,13 +917,15 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 .eb-melius-home.is-orbit-focus .eb-melius-foot__lead{
   color:#b9b3a8;
 }
-.eb-melius-home.is-orbit-focus .eb-melius-card.is-dim img{
-  filter:grayscale(1) brightness(.18) contrast(1.12);
+.eb-melius-home.is-orbit-focus .eb-melius-card.is-dim img,
+.eb-melius-home.is-orbit-focus .eb-melius-card.is-dim video{
+  filter:grayscale(1) brightness(.22) contrast(1.1);
 }
 .eb-melius-home.is-orbit-focus .eb-melius-card.is-live{
   box-shadow:0 22px 46px rgba(40,28,12,.28),0 0 0 1px rgba(196,154,85,.28);
 }
-.eb-melius-home.is-orbit-focus .eb-melius-card.is-live img{
+.eb-melius-home.is-orbit-focus .eb-melius-card.is-live img,
+.eb-melius-home.is-orbit-focus .eb-melius-card.is-live video{
   filter:saturate(1.05) contrast(1.04);
 }
 
