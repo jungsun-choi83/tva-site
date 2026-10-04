@@ -15,25 +15,11 @@
 .site-nav nav a{display:flex;align-items:center;justify-content:center;min-height:44px;padding:var(--nav-link-pad) 6px;font:500 13px/1 var(--caps);letter-spacing:.14em;color:#6f7077;transition:color .3s}
 .site-nav nav a:after{display:none}
 .site-nav nav a:hover{color:var(--ink)}
-/* 지금 보고 있는 구역 — 글자를 살려 두고 밑줄로 표시한다.
-   예전에는 color:transparent 로 이름을 지우고 그 자리에 캐릭터를 세웠다. 그 바람에
-   지금 보고 있는 칸의 이름이 화면에서 사라져 메뉴가 세 개인 것처럼 보였다.
-   캐릭터는 nav-shelf.js 의 targetX() 가 이름 '옆' 빈칸으로 보낸다. */
+/* 지금 보고 있는 구역 — 글자를 살려 두고 밑줄로 표시한다. */
 .site-nav nav a.is-here{color:var(--ink);border-bottom:2px solid var(--cobalt);padding-bottom:calc(var(--nav-link-pad) - 2px)}
 /* 마지막 화면에서는 바를 접어 둔다 */
 .site-nav.is-away,.site-nav.is-visible.is-away{transform:translateY(-101%);visibility:hidden;pointer-events:none}
-/* 선반 위를 걷는 마스코트 */
-.nav-mascot{position:absolute;left:0;bottom:0;z-index:1;pointer-events:none;object-fit:contain;opacity:1;transform-origin:50% 90%;will-change:left,transform;filter:drop-shadow(0 1px 1px rgb(23 25 35/.55)) drop-shadow(0 3px 5px rgb(23 25 35/.28))}
-.nav-mascot.is-parked{animation:nav-mascot-swim 4.4s ease-in-out infinite}
-@keyframes nav-mascot-swim{
-  0%,100%{transform:translateY(-3px) rotate(-6deg)}
-  28%{transform:translate(2px,-6px) rotate(5deg)}
-  54%{transform:translate(-1px,-2px) rotate(8deg)}
-  78%{transform:translate(2px,-5px) rotate(-2deg)}
-}
-/* 선반에 설 빈칸이 없으면(휴대폰 세로) 아예 숨긴다 — 예전에는 선반 밖에 서서 보이지도 않는 채로 그려졌다 */
-.nav-mascot.is-noroom{display:none}
-.nav-puff{position:absolute;bottom:2px;z-index:1;width:5px;height:5px;border-radius:50%;background:rgb(23 25 35/.2);opacity:0;pointer-events:none}
+.nav-mascot,.nav-puff{display:none!important}
 
 @media(max-width:760px){
   :root{--nav-height:64px;--shelf-body:48px;--shelf-face:50px;--nav-link-pad:13px}
