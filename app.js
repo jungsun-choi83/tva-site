@@ -1,4 +1,4 @@
-import { initLang } from './i18n.js?v=eb-20261005g';
+import { initLang } from './i18n.js?v=eb-20261005h';
 import { initNavShelf } from './nav-shelf.js?v=eb-20261004f';
 import { initPortfolio } from './portfolio.js?v=eb-20260927-merge-1';
 import { initContact } from './contact-letterbox.js?v=eb-20260927-merge-1';

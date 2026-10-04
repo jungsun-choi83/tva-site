@@ -548,6 +548,36 @@ html[data-about-grid="open"]{
   font:500 clamp(15px,1.35vw,20px)/1.35 var(--sans);
   letter-spacing:-.02em;
 }
+#about.about-bleib .about-process{
+  display:grid;
+  gap:clamp(16px,2.2vh,24px);
+  margin:clamp(10px,1.4vh,16px) 0 0;
+  padding:0;
+  list-style:none;
+}
+#about.about-bleib .about-process li{
+  margin:0;
+  padding:0 0 16px;
+  border-bottom:1px solid rgba(13,13,15,.12);
+}
+#about.about-bleib .about-process li:last-child{
+  padding-bottom:0;
+  border-bottom:0;
+}
+#about.about-bleib .about-process__line{
+  margin:0;
+  color:#0d0d0f;
+  font:500 clamp(22px,2.2vw,34px)/1.18 var(--serif);
+  letter-spacing:-.03em;
+}
+#about.about-bleib .about-process__step{
+  display:block;
+  margin-top:8px;
+  color:rgba(13,13,15,.55);
+  font:600 11px/1.2 var(--sans);
+  letter-spacing:.16em;
+  text-transform:uppercase;
+}
 #about.about-bleib .beam-gold__body{
   display:grid;
   gap:10px;
@@ -1159,9 +1189,9 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
   display:block!important;
   overflow:visible!important;
   color:rgba(244,239,230,.92)!important;
-  font:500 clamp(13px,.95vw,17px)/1.35 var(--sans)!important;
-  letter-spacing:.01em!important;
-  text-transform:none!important;
+  font:600 clamp(12px,.9vw,16px)/1.15 var(--sans)!important;
+  letter-spacing:.14em!important;
+  text-transform:uppercase!important;
   -webkit-text-stroke:0;
   text-shadow:none;
   opacity:1!important;
@@ -1178,13 +1208,7 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
   content:none!important;
 }
 #about.about-bleib .about-bleib-grid .about-bleib-type__sub{
-  display:block!important;
-  margin:0 0 4px;
-  max-width:none;
-  color:rgba(196,154,85,.82);
-  font:600 clamp(9px,.65vw,11px)/1.2 var(--sans);
-  letter-spacing:.14em;
-  text-transform:uppercase;
+  display:none!important;
 }
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:before{
   content:"→";
