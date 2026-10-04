@@ -34,7 +34,7 @@ function wrapMeliusGoldLines(home) {
 function cardMarkup(src, eager) {
   const load = eager ? 'eager' : 'lazy';
   const pri = eager ? ' fetchpriority="high"' : '';
-  return `<article class="eb-melius-card"><img src="${src}" width="720" height="960" alt="" loading="${load}" decoding="async"${pri}></article>`;
+  return `<article class="eb-melius-card"><span class="eb-melius-card__shot"><img src="${src}" width="720" height="960" alt="" loading="${load}" decoding="async"${pri}></span></article>`;
 }
 
 /** Existing Melius depth character, adapted to an elliptical path. */
@@ -43,10 +43,10 @@ function coverFlow(norm, spreadMul = 1, depth = 0, mobile = false) {
   const t = Math.min(1, Math.abs(n));
   const sign = n < 0 ? -1 : 1;
   const front = (depth + 1) * 0.5;
-  const scale = (mobile ? 0.72 : 0.68) + front * (mobile ? 0.22 : 0.4) + t * 0.08;
-  const rotateY = -sign * (mobile ? 6 + t * 34 : 8 + t * 58);
-  const tz = (front - 0.5) * (mobile ? 90 : 220);
-  const opacity = 0.58 + front * 0.42;
+  const scale = (mobile ? 0.82 : 0.86) + front * (mobile ? 0.16 : 0.2);
+  const rotateY = -sign * (mobile ? 4 + t * 16 : 5 + t * 22);
+  const tz = (front - 0.5) * (mobile ? 48 : 90);
+  const opacity = 0.78 + front * 0.22;
   return { scale, rotateY, tz, z: Math.round(10 + front * 70), opacity };
 }
 
@@ -100,6 +100,7 @@ export function initHeroMelius(isReduced) {
   let raf = 0;
   let running = false;
   let last = 0;
+  let focusUntil = 0;
 
   function applyRailTransform() {
     rail.style.transform = 'none';
@@ -114,24 +115,28 @@ export function initHeroMelius(isReduced) {
     const rect = stage.getBoundingClientRect();
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
     const mobile = rect.width <= 720;
-    const visibleCount = mobile ? 8 : cards.length;
-    const radiusX = rect.width * (mobile ? 0.43 : 0.455);
-    const radiusY = rect.height * (mobile ? 0.42 : 0.44);
+    const visibleCount = cards.length;
+    const radiusX = rect.width * (mobile ? 0.46 : 0.49);
+    const radiusY = rect.height * (mobile ? 0.44 : 0.47);
     const phase = (offset / loopWidth) * Math.PI * 2;
+    const focusing = performance.now() < focusUntil;
+    home.classList.toggle('is-orbit-focus', focusing);
+    let focusIndex = 0;
+    let focusDepth = -2;
 
     cards.forEach((card, index) => {
-      if (index >= visibleCount) {
-        card.style.display = 'none';
-        return;
-      }
       card.style.display = '';
       const angle = (index / visibleCount) * Math.PI * 2 + phase - Math.PI / 2;
       const x = Math.cos(angle) * radiusX;
       const y = Math.sin(angle) * radiusY;
       const depth = Math.sin(angle);
       const norm = Math.cos(angle);
+      if (depth > focusDepth) {
+        focusDepth = depth;
+        focusIndex = index;
+      }
       const { scale, rotateY, tz, z, opacity } = coverFlow(norm, flowSpread, depth, mobile);
-      const rotateZ = norm * (mobile ? -3.5 : -6);
+      const rotateZ = norm * (mobile ? -2.2 : -3.5);
       const transform = [
         `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,${tz.toFixed(1)}px)`,
         `rotateY(${rotateY.toFixed(2)}deg)`,
@@ -143,6 +148,13 @@ export function initHeroMelius(isReduced) {
       card.style.transform = transform;
       card.style.setProperty('--orbit-transform', transform);
       card.style.setProperty('--orbit-opacity', String(opacity));
+      card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
+    });
+
+    cards.forEach((card, index) => {
+      const live = focusing && index === focusIndex;
+      card.classList.toggle('is-dim', focusing && !live);
+      card.classList.toggle('is-live', live);
     });
   }
 
@@ -182,6 +194,7 @@ export function initHeroMelius(isReduced) {
   function nudgeMotion(delta) {
     if (!delta) return;
     const push = Math.abs(delta);
+    focusUntil = performance.now() + 780;
     velocity = Math.max(0.65, Math.min(6.8, velocity + delta * 0.0062));
     flowSpread = Math.min(1.42, flowSpread + push * 0.0021);
     offset += delta * 0.32;

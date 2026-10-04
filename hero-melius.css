@@ -728,3 +728,152 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
     font-size:10px;
   }
 }
+
+/* Cipher-style centered ring: device + copy in the hole, larger orbit. */
+.eb-melius-stage{
+  left:1.5%;
+  right:1.5%;
+  top:3%;
+  bottom:3%;
+}
+.eb-melius-stage:before{
+  width:86%;
+  height:78%;
+  transform:translate(-50%,-50%) rotate(-4deg);
+}
+.eb-melius-stage:after{
+  width:96%;
+  height:88%;
+  opacity:.4;
+  transform:translate(-50%,-50%) rotate(3deg);
+}
+.eb-melius-hub{
+  top:50%;
+  z-index:22;
+  width:clamp(120px,12.5vw,210px);
+}
+.eb-melius-card{
+  top:50%;
+  width:clamp(92px,8.6vw,132px);
+  height:clamp(122px,11.5vw,176px);
+}
+.eb-melius-card__shot{
+  display:block;
+  width:100%;
+  height:100%;
+  overflow:hidden;
+}
+.eb-melius-card img{
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center 28%;
+  transform-origin:50% 38%;
+  animation:goya-drift 12s ease-in-out infinite;
+  animation-delay:var(--goya-delay,0s);
+  transition:filter 320ms ease;
+  filter:saturate(.94) contrast(1);
+  will-change:transform,filter;
+}
+.eb-melius-card:nth-child(3n) img{animation-duration:14.5s}
+.eb-melius-card:nth-child(3n+1) img{animation-duration:10.5s}
+.eb-melius-card:nth-child(3n+2) img{animation-duration:13s}
+.eb-melius-home.is-orbit-focus .eb-melius-card.is-dim img{
+  filter:grayscale(1) brightness(.2) contrast(1.08);
+}
+.eb-melius-home.is-orbit-focus .eb-melius-card.is-live{
+  box-shadow:0 22px 46px rgba(40,28,12,.28),0 0 0 1px rgba(196,154,85,.28);
+}
+.eb-melius-home.is-orbit-focus .eb-melius-card.is-live img{
+  filter:saturate(1.05) contrast(1.04);
+}
+
+@keyframes goya-drift{
+  0%,100%{transform:scale(1.12) translate3d(0,0,0)}
+  35%{transform:scale(1.2) translate3d(-2.6%,1.8%,0)}
+  68%{transform:scale(1.16) translate3d(2.4%,-1.5%,0)}
+}
+
+.eb-melius-content{
+  left:50%;
+  top:0;
+  width:100%;
+  max-width:none;
+  height:100%;
+  transform:none;
+  pointer-events:none;
+}
+.eb-melius-content .eb-melius-headline{
+  position:absolute;
+  left:50%;
+  top:29%;
+  width:min(540px,46vw);
+  max-width:min(540px,46vw);
+  transform:translate(-50%,-50%);
+  text-align:center;
+  font-size:clamp(30px,2.7vw,48px);
+  line-height:.94;
+}
+.eb-melius-content .eb-melius-headline__line{white-space:nowrap}
+.eb-melius-content .eb-melius-foot{
+  position:absolute;
+  left:50%;
+  top:61.5%;
+  width:min(420px,40vw);
+  margin:0;
+  transform:translateX(-50%);
+  text-align:center;
+}
+.eb-melius-content .eb-melius-foot__lead{
+  width:auto;
+  max-width:none;
+  margin-inline:auto;
+}
+.eb-melius-content .eb-melius-foot__cta,
+.eb-melius-content .eb-melius-foot__cta-row{
+  align-items:center;
+  justify-content:center;
+}
+
+.eb-melius-home.is-reduced .eb-melius-card img{
+  animation:none;
+  transform:none;
+}
+
+@media(max-width:980px){
+  .eb-melius-content{left:50%;top:0;width:100%;transform:none}
+  .eb-melius-content .eb-melius-headline{top:27%;font-size:clamp(26px,4vw,40px)}
+  .eb-melius-content .eb-melius-foot{top:62%;width:min(360px,52vw)}
+  .eb-melius-stage{left:2%;right:2%;top:4%;bottom:4%}
+  .eb-melius-hub{width:clamp(108px,16vw,168px)}
+}
+@media(max-width:760px){
+  .eb-melius-content{left:50%;top:0;width:100%;transform:none}
+  .eb-melius-content .eb-melius-headline{
+    top:24%;
+    width:min(88vw,420px);
+    max-width:min(88vw,420px);
+    text-align:center;
+  }
+  .eb-melius-content .eb-melius-foot{
+    top:66%;
+    width:min(88vw,400px);
+    margin:0;
+    text-align:center;
+  }
+  .eb-melius-content .eb-melius-foot__lead{margin-inline:auto}
+  .eb-melius-content .eb-melius-foot__cta{align-items:center}
+  .eb-melius-content .eb-melius-foot__cta-row{justify-content:center}
+  .eb-melius-stage{left:0;right:0;top:6%;bottom:6%}
+  .eb-melius-card{width:clamp(62px,16vw,88px);height:clamp(84px,21vw,118px)}
+}
+@media(max-width:520px){
+  .eb-melius-content{left:50%;top:0;width:100%}
+  .eb-melius-content .eb-melius-headline{top:22%;width:min(90vw,340px);max-width:min(90vw,340px);font-size:clamp(22px,6vw,28px)}
+  .eb-melius-content .eb-melius-foot{top:68%;width:min(90vw,340px)}
+  .eb-melius-card{width:56px;height:76px}
+}
+
+@media(prefers-reduced-motion:reduce){
+  .eb-melius-card img{animation:none}
+}
