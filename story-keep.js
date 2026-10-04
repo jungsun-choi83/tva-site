@@ -1,4 +1,4 @@
-import { t } from './i18n.js?v=eb-20261005q';
+import { t } from './i18n.js?v=eb-20261005t';
 
 const ACTS = [
   { num: '01', en: 'SOULTRACE', verb: 'RECORD', title: 'sk.a1.title', lead: 'sk.a1.lead' },
@@ -315,7 +315,7 @@ function initRecordCta(section) {
   });
 }
 
-function buildLetterCard(image) {
+function buildLetterCard(image, note) {
   const card = document.createElement('span');
   card.className = 'sk-letter-card sk-soul-letter-asset';
   const img = document.createElement('img');
@@ -323,6 +323,12 @@ function buildLetterCard(image) {
   img.alt = '';
   img.decoding = 'async';
   card.append(img);
+  if (note) {
+    const live = document.createElement('span');
+    live.className = 'sk-letter-live-note';
+    live.innerHTML = `<small>편지</small><p>${note}</p>`;
+    card.append(live);
+  }
   return card;
 }
 
@@ -368,7 +374,7 @@ function buildFlowTile(spec, index) {
     tile.dataset.id = `letter${spec.id}`;
     tile.setAttribute('aria-haspopup', 'dialog');
     tile.setAttribute('aria-label', `Letter ${spec.id}`);
-    tile.append(buildLetterCard(spec.image));
+    tile.append(buildLetterCard(spec.image, spec.id === '01' ? t('sk.letter01.note') : ''));
   } else {
     tile = document.createElement('div');
     tile.className = 'sk-melius-flow-card sk-tile sk-tile--deco';
@@ -543,7 +549,7 @@ function initLetterCollage(section) {
   let returnFocus = null;
   let lockedScrollY = null;
 
-  view.innerHTML = `<div class="sk-letter-reader__shade" aria-hidden="true"></div><div class="sk-letter-reader" role="dialog" aria-modal="true" aria-label="Soul Trace letter reader"><button type="button" class="sk-letter-reader__close" aria-label="Close letter reader">CLOSE <span aria-hidden="true">×</span></button><div class="sk-letter-reader__glow" aria-hidden="true"></div><img class="sk-letter-reader__image" alt="Soul Trace letter 1 of 8"><div class="sk-letter-reader__controls"><button type="button" class="sk-letter-reader__nav sk-letter-reader__nav--prev" aria-label="Previous letter"><span aria-hidden="true">←</span><small>Previous</small></button><span class="sk-letter-reader__counter" aria-live="polite">01 / 08</span><button type="button" class="sk-letter-reader__nav sk-letter-reader__nav--next" aria-label="Next letter"><span aria-hidden="true">→</span><small>Next</small></button></div></div>`;
+  view.innerHTML = `<div class="sk-letter-reader__shade" aria-hidden="true"></div><div class="sk-letter-reader" role="dialog" aria-modal="true" aria-label="Soul Trace letter reader"><button type="button" class="sk-letter-reader__close" aria-label="Close letter reader">CLOSE <span aria-hidden="true">×</span></button><div class="sk-letter-reader__glow" aria-hidden="true"></div><div class="sk-letter-reader__stage"><img class="sk-letter-reader__image" alt="Soul Trace letter 1 of 8"><aside class="sk-letter-reader__note" hidden><small>편지</small><p></p></aside></div><div class="sk-letter-reader__controls"><button type="button" class="sk-letter-reader__nav sk-letter-reader__nav--prev" aria-label="Previous letter"><span aria-hidden="true">←</span><small>Previous</small></button><span class="sk-letter-reader__counter" aria-live="polite">01 / 08</span><button type="button" class="sk-letter-reader__nav sk-letter-reader__nav--next" aria-label="Next letter"><span aria-hidden="true">→</span><small>Next</small></button></div></div>`;
   const reader = view.querySelector('.sk-letter-reader');
   const image = view.querySelector('.sk-letter-reader__image');
   const counter = view.querySelector('.sk-letter-reader__counter');
@@ -551,10 +557,16 @@ function initLetterCollage(section) {
   const previousButton = view.querySelector('.sk-letter-reader__nav--prev');
   const nextButton = view.querySelector('.sk-letter-reader__nav--next');
 
+  const readerNote = view.querySelector('.sk-letter-reader__note');
+  const readerNoteBody = view.querySelector('.sk-letter-reader__note p');
+
   const renderLetter = () => {
     image.src = letterAssets[activeLetterIndex];
     image.alt = `Soul Trace letter ${activeLetterIndex + 1} of ${letterAssets.length}`;
     counter.textContent = `${String(activeLetterIndex + 1).padStart(2, '0')} / ${String(letterAssets.length).padStart(2, '0')}`;
+    const showNote = activeLetterIndex === 0;
+    readerNote.hidden = !showNote;
+    if (showNote) readerNoteBody.textContent = t('sk.letter01.note');
   };
   const move = (direction) => {
     activeLetterIndex = (activeLetterIndex + direction + letterAssets.length) % letterAssets.length;
