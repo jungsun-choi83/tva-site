@@ -877,24 +877,39 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 }
 
 .eb-melius-home.is-cipher-orbit .eb-melius-content{
-  left:0;
-  top:0;
-  width:100%;
-  max-width:none;
-  height:100%;
-  transform:none;
-  pointer-events:none;
+  z-index:80;
 }
-.eb-melius-content .eb-melius-headline{
-  position:absolute;
-  left:50%;
-  top:29%;
-  width:min(540px,46vw);
-  max-width:min(540px,46vw);
-  transform:translate(-50%,-50%);
-  text-align:center;
-  font-size:clamp(30px,2.7vw,48px);
-  line-height:.94;
+.eb-melius-home.is-cipher-orbit .eb-melius-hub{
+  z-index:70;
+  width:clamp(88px,9vw,148px);
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-headline{
+  top:38%;
+  width:min(420px,38vw);
+  max-width:min(420px,38vw);
+  font-size:clamp(22px,2.1vw,36px);
+  color:#f4f0e6;
+  text-shadow:0 2px 18px rgba(0,0,0,.55);
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot{
+  top:58%;
+  width:min(320px,30vw);
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-headline__line .eb-melius-gold-char,
+.eb-melius-home.is-cipher-orbit .eb-melius-headline__line:nth-child(-n+2) .eb-melius-gold-char,
+.eb-melius-home.is-cipher-orbit .eb-melius-headline__line:nth-child(3) .eb-melius-gold-char{
+  color:#f4f0e6 !important;
+  -webkit-text-fill-color:#f4f0e6 !important;
+  -webkit-text-stroke:0 transparent !important;
+  text-shadow:0 2px 18px rgba(0,0,0,.55);
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-headline__line:nth-child(3) .eb-melius-gold-char{
+  color:#d4b27a !important;
+  -webkit-text-fill-color:#d4b27a !important;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-foot__sub,
+.eb-melius-home.is-cipher-orbit .eb-melius-foot__lead{
+  color:#d7d2c8 !important;
 }
 .eb-melius-content .eb-melius-headline__line{white-space:nowrap}
 .eb-melius-content .eb-melius-foot{

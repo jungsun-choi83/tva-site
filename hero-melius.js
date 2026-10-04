@@ -37,6 +37,7 @@ function initDotGenerator(home) {
   const ctx = canvas.getContext('2d', { alpha: true });
   const dots = [];
   let seeded = false;
+  const TILT = -22 * Math.PI / 180;
 
   function resize() {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
@@ -52,23 +53,29 @@ function initDotGenerator(home) {
 
   function seed(w, h) {
     dots.length = 0;
-    const count = Math.round(Math.min(1800, Math.max(700, (w * h) / 900)));
-    const rx = w * 0.31;
-    const ry = h * 0.33;
+    const count = Math.round(Math.min(900, Math.max(420, (w * h) / 2200)));
+    const rx = w * 0.34;
+    const ry = h * 0.28;
+    const cx = w * 0.5;
+    const cy = h * 0.5;
+    const cosT = Math.cos(TILT);
+    const sinT = Math.sin(TILT);
     for (let i = 0; i < count; i += 1) {
-      const onRing = Math.random() < 0.62;
-      const t = Math.random() * Math.PI * 2;
-      const spread = onRing ? 0.78 + Math.random() * 0.38 : Math.random() * 1.15;
-      const jx = (Math.random() - 0.5) * (onRing ? 54 : w * 0.92);
-      const jy = (Math.random() - 0.5) * (onRing ? 42 : h * 0.92);
+      const t = (i / count) * Math.PI * 2 + Math.random() * 0.12;
+      const band = 0.92 + Math.random() * 0.16;
+      const lx = Math.cos(t) * rx * band + (Math.random() - 0.5) * 18;
+      const ly = Math.sin(t) * ry * band + (Math.random() - 0.5) * 14;
+      const tx = cx + lx * cosT - ly * sinT;
+      const ty = cy + lx * sinT + ly * cosT;
       dots.push({
-        x: w * 0.5 + Math.cos(t) * rx * spread + jx,
-        y: h * 0.5 + Math.sin(t) * ry * spread + jy,
-        r: onRing ? 0.7 + Math.random() * 1.5 : 0.35 + Math.random() * 0.9,
-        a: onRing ? 0.18 + Math.random() * 0.42 : 0.05 + Math.random() * 0.16,
-        vx: (Math.random() - 0.5) * 0.09,
-        vy: (Math.random() - 0.5) * 0.09,
-        delay: Math.random() * 0.55,
+        x: cx,
+        y: cy,
+        tx,
+        ty,
+        r: 0.55 + Math.random() * 1.15,
+        a: 0.22 + Math.random() * 0.38,
+        delay: Math.random() * 0.35,
+        tw: Math.random() * Math.PI * 2,
       });
     }
     seeded = true;
@@ -80,14 +87,16 @@ function initDotGenerator(home) {
     if (!bornAt) bornAt = now;
     const w = home.clientWidth || 1;
     const h = home.clientHeight || 1;
-    const grow = Math.min(1, (now - bornAt) / 1600);
+    const grow = Math.min(1, (now - bornAt) / 1400);
     ctx.clearRect(0, 0, w, h);
     for (const d of dots) {
-      const appear = Math.max(0, Math.min(1, (grow - d.delay) / 0.45));
-      if (appear <= 0) continue;
-      d.x += d.vx;
-      d.y += d.vy;
-      ctx.fillStyle = `rgba(226,230,227,${(d.a * appear).toFixed(3)})`;
+      const local = Math.max(0, Math.min(1, (grow - d.delay) / 0.55));
+      if (local <= 0) continue;
+      const ease = 1 - (1 - local) ** 3;
+      d.x = d.tx * ease + (w * 0.5) * (1 - ease);
+      d.y = d.ty * ease + (h * 0.5) * (1 - ease);
+      const pulse = 0.75 + Math.sin(now * 0.0018 + d.tw) * 0.25;
+      ctx.fillStyle = `rgba(226,230,227,${(d.a * local * pulse).toFixed(3)})`;
       ctx.beginPath();
       ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
       ctx.fill();
@@ -177,8 +186,8 @@ export function initHeroMelius(isReduced) {
   rail.innerHTML = sequence.map((src, i) => cardMarkup(src, i < 10)).join('');
 
   let offset = 0;
-  let velocity = 1.62;
-  const baseVelocity = 1.62;
+  let velocity = 0.42;
+  const baseVelocity = 0.42;
   let flowSpread = 1;
   let loopWidth = 0;
   let raf = 0;
@@ -188,6 +197,8 @@ export function initHeroMelius(isReduced) {
   let pinnedIndex = -1;
 
   let hoverIndex = -1;
+
+  let orbitBorn = 0;
 
   function applyRailTransform() {
     rail.style.transform = 'none';
@@ -203,12 +214,16 @@ export function initHeroMelius(isReduced) {
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
     const mobile = rect.width <= 720;
     const count = Math.max(1, cards.length);
-    const radiusX = rect.width * (mobile ? 0.3 : 0.29);
-    const radiusY = rect.height * (mobile ? 0.32 : 0.31);
+    const radiusX = rect.width * (mobile ? 0.36 : 0.34);
+    const radiusY = rect.height * (mobile ? 0.3 : 0.27);
+    const tilt = -22 * Math.PI / 180;
+    const cosT = Math.cos(tilt);
+    const sinT = Math.sin(tilt);
     const phase = (offset / loopWidth) * Math.PI * 2;
     const focusing = hoverIndex >= 0 || pinnedIndex >= 0 || performance.now() < focusUntil;
     home.classList.toggle('is-orbit-focus', focusing);
-    const unit = Math.min(rect.width * (mobile ? 0.2 : 0.145), mobile ? 118 : 176);
+    const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
+    const shown = orbitBorn ? Math.min(1, (performance.now() - orbitBorn - 700) / 700) : 1;
     let frontIndex = 0;
     let focusDepth = -2;
 
@@ -220,18 +235,20 @@ export function initHeroMelius(isReduced) {
       card.style.width = `${cw.toFixed(1)}px`;
       card.style.height = `${ch.toFixed(1)}px`;
       const angle = (index / count) * Math.PI * 2 + phase - Math.PI / 2;
-      const radial = 0.78 + (index % 5) * 0.055;
-      const x = Math.cos(angle) * radiusX * radial;
-      const y = Math.sin(angle) * radiusY * radial;
-      const depth = Math.sin(angle);
+      const radial = 1.02 + (index % 4) * 0.03;
+      const lx = Math.cos(angle) * radiusX * radial;
+      const ly = Math.sin(angle) * radiusY * radial;
+      const x = lx * cosT - ly * sinT;
+      const y = lx * sinT + ly * cosT;
+      const depth = Math.sin(angle + tilt);
       if (depth > focusDepth) {
         focusDepth = depth;
         frontIndex = index;
       }
-      const z = Math.round(20 + depth * 40 + (index % 3));
+      const z = Math.round(12 + depth * 28 + (index % 3));
       const transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;
       card.style.zIndex = String(z);
-      card.style.opacity = '1';
+      card.style.opacity = String(Math.max(0, shown));
       card.style.transform = transform;
       card.style.setProperty('--orbit-transform', transform);
       card.style.setProperty('--orbit-opacity', '1');
@@ -267,6 +284,7 @@ export function initHeroMelius(isReduced) {
     if (running) return;
     running = true;
     last = 0;
+    orbitBorn = performance.now();
     measureLoop();
     offset = loopWidth * 0.33;
     applyRailTransform();
