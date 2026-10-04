@@ -161,7 +161,7 @@ const COPY = {
     'sk.bleib.title': 'JOURNEY',
     'sk.bleib.hint': '기록 · 보관 · 경험',
     'sk.bleib.back': '← JOURNEY',
-    'sk.chapter': 'CH 03 / JOURNEY',
+    'sk.chapter': 'Eternal Beam',
     'sk.sub': '하나의 이야기가 기록에서 오브제로,<br>그리고 일상의 경험으로 이어집니다.',
     'sk.note': '오늘 해가 길었어요.<br>같이 걷던 골목.',
     'sk.l1': '오늘 해가 길었어요.',
@@ -198,7 +198,7 @@ const COPY = {
     'original.view': '자세히 보기',
     'original.slide': '보기',
     'contact.label': '문의 CONTACT',
-    'contact.bleib.eyebrow': 'CH 04 / CONTACT',
+    'contact.bleib.eyebrow': 'Eternal Beam',
     'contact.bleib.title': 'CONTACT',
     'contact.bleib.hint': '문의 · 출시 소식',
     'contact.bleib.back': '← CONTACT',
@@ -413,7 +413,7 @@ const COPY = {
     'sk.bleib.title': 'JOURNEY',
     'sk.bleib.hint': 'Record · Keep · Experience',
     'sk.bleib.back': '← JOURNEY',
-    'sk.chapter': 'CH 03 / JOURNEY',
+    'sk.chapter': 'Eternal Beam',
     'sk.sub': 'One story, from a record to an object,<br>and then into daily life.',
     'sk.note': 'The sun stayed long today.<br>The alley we walked.',
     'sk.l1': 'The sun stayed long today.',
@@ -450,7 +450,7 @@ const COPY = {
     'original.view': 'View details',
     'original.slide': 'View',
     'contact.label': 'CONTACT',
-    'contact.bleib.eyebrow': 'CH 04 / CONTACT',
+    'contact.bleib.eyebrow': 'Eternal Beam',
     'contact.bleib.title': 'CONTACT',
     'contact.bleib.hint': 'Inquiry · Launch news',
     'contact.bleib.back': '← CONTACT',
@@ -529,6 +529,11 @@ export function applyI18n(root = document) {
   root.querySelectorAll('[data-i18n]').forEach((el) => {
     const value = t(el.dataset.i18n);
     if (value != null) el.textContent = value;
+  });
+  root.querySelectorAll(
+    '[data-i18n="about.bleib.eyebrow"], [data-i18n="portfolio.bleib.eyebrow"], [data-i18n="sk.bleib.eyebrow"], [data-i18n="contact.bleib.eyebrow"]'
+  ).forEach((el) => {
+    el.textContent = 'Eternal Beam';
   });
   root.querySelectorAll('[data-i18n-html]').forEach((el) => {
     const value = t(el.dataset.i18nHtml);
