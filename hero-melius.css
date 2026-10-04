@@ -551,7 +551,7 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   pointer-events:none;
 }
 .eb-melius-foot__sub{color:#75674f;letter-spacing:.12em}
-.eb-melius-foot__lead{max-width:330px;color:#5b554c;line-height:1.55}
+.eb-melius-foot__lead{max-width:420px;color:#5b554c;line-height:1.55}
 .eb-melius-foot__cta{align-items:flex-start;margin-top:clamp(14px,2vh,22px)}
 .eb-melius-foot__cta-row{justify-content:flex-start;gap:8px;margin-top:0}
 .eb-melius-btn{
