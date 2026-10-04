@@ -373,3 +373,53 @@
   }
   #contact.contact-bleib .eb-bleib-bars i{width:52px;height:4px}
 }
+
+@media(max-width:768px){
+  #portfolio.portfolio-bleib,
+  #portfolio.portfolio-bleib .eb-bleib-stage,
+  #portfolio.portfolio-bleib .eb-bleib-panel,
+  #contact.contact-bleib,
+  #contact.contact-bleib .eb-bleib-stage,
+  #contact.contact-bleib .eb-bleib-panel{
+    background:#121214!important;
+  }
+  #portfolio.portfolio-bleib .eb-bleib-index,
+  #contact.contact-bleib .eb-bleib-index{
+    color:#e3ded3!important;
+  }
+  #portfolio.portfolio-bleib .eb-bleib-board,
+  #contact.contact-bleib .eb-bleib-board{
+    background:#e3ded3!important;
+    color:#171512!important;
+    width:min(100%,420px);
+    min-height:min(52svh,430px);
+  }
+  #portfolio.portfolio-bleib .eb-bleib-stage::before,
+  #contact.contact-bleib .eb-bleib-stage::before{
+    color:rgba(227,222,211,.62);
+  }
+  #original.story-keep-bleib,
+  #original.story-keep-bleib .eb-bleib-stage{
+    background:#e3ded3!important;
+    background-image:none!important;
+  }
+  #original.story-keep-bleib .eb-bleib-index{color:#171512!important}
+  #original.story-keep-bleib .eb-bleib-board{
+    background:#171512!important;
+    color:#e3ded3!important;
+    width:min(100%,420px);
+    min-height:min(52svh,430px);
+  }
+  #original.story-keep-bleib .eb-bleib-stage::before{color:#55565b}
+  #contact.contact-bleib.is-bleib-open .ctl-card{
+    width:100%;
+    max-width:100%;
+    margin:0;
+  }
+  #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-panel,
+  #original.story-keep-bleib.is-bleib-open .eb-bleib-panel{
+    height:auto!important;
+    max-height:none!important;
+    overflow:visible!important;
+  }
+}

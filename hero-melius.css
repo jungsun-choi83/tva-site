@@ -1041,6 +1041,26 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
   .eb-melius-content .eb-melius-foot__cta-row{justify-content:center}
   .eb-melius-stage{left:0;right:0;top:6%;bottom:6%}
   .eb-melius-card{width:clamp(62px,16vw,88px);height:clamp(84px,21vw,118px)}
+  .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-headline{
+    top:16%;
+    width:min(92vw,340px);
+    max-width:min(92vw,340px);
+    font-size:clamp(20px,6.4vw,28px);
+  }
+  .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot,
+  .eb-melius-content .eb-melius-foot{
+    top:auto;
+    bottom:max(16px,env(safe-area-inset-bottom));
+    width:min(92vw,360px);
+  }
+  .eb-melius-foot__lead{
+    font-size:12px;
+    line-height:1.55;
+    word-break:keep-all;
+  }
+  .eb-melius-home.is-cipher-orbit .eb-melius-hub{
+    width:clamp(72px,22vw,110px);
+  }
 }
 @media(max-width:520px){
   .eb-melius-content{left:50%;top:0;width:100%}
