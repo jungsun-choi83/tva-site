@@ -272,7 +272,9 @@ export function initHeroMelius(isReduced) {
   const home = hero?.querySelector('.eb-melius-home');
   const stage = hero?.querySelector('.eb-melius-stage');
   const rail = hero?.querySelector('.eb-melius-rail');
-  const hubImg = hero?.querySelector('.eb-melius-hub__device');
+  const hub = home?.querySelector('.eb-melius-hub');
+  const foot = home?.querySelector('.eb-melius-foot');
+  const hubImg = home?.querySelector('.eb-melius-hub__device');
   if (!hero || !home || !stage || !rail) return;
 
   function writeHeroExplain() {
@@ -332,20 +334,33 @@ export function initHeroMelius(isReduced) {
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
     const mobile = rect.width <= 720;
     const count = Math.max(1, cards.length);
-    const radiusX = rect.width * (mobile ? 0.22 : 0.2);
-    const radiusY = rect.height * (mobile ? 0.26 : 0.24);
+    const orbitX = rect.width * (mobile ? 0.32 : 0.28);
+    const orbitY = rect.height * 0.48;
+    const radiusX = rect.width * (mobile ? 0.2 : 0.18);
+    const radiusY = rect.height * (mobile ? 0.24 : 0.22);
     const tilt = -22 * Math.PI / 180;
     const cosT = Math.cos(tilt);
     const sinT = Math.sin(tilt);
     const phase = (offset / loopWidth) * Math.PI * 2;
     const focusing = hoverIndex >= 0 || pinnedIndex >= 0;
     home.classList.toggle('is-orbit-focus', focusing);
-    const unit = Math.min(rect.width * (mobile ? 0.13 : 0.085), mobile ? 84 : 128);
+    const unit = Math.min(rect.width * (mobile ? 0.12 : 0.08), mobile ? 78 : 118);
     const age = orbitBorn ? (performance.now() - orbitBorn) / 1000 : 0;
     let shown = Math.max(0, Math.min(1, (age - 2.25) / 0.4));
     if (age > 2.8 || (!orbitBorn && hero.dataset.powerState === 'locked')) shown = 1;
     let frontIndex = 0;
     let focusDepth = -2;
+
+    if (hub) {
+      hub.style.setProperty('left', `${(rect.width * (mobile ? 0.78 : 0.74)).toFixed(1)}px`, 'important');
+      hub.style.setProperty('top', `${(rect.height * 0.46).toFixed(1)}px`, 'important');
+      hub.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+    }
+    if (foot) {
+      foot.style.setProperty('left', `${(rect.width * (mobile ? 0.78 : 0.74)).toFixed(1)}px`, 'important');
+      foot.style.setProperty('transform', 'translateX(-50%)', 'important');
+      foot.style.setProperty('width', mobile ? 'min(46vw,240px)' : 'min(380px,36vw)', 'important');
+    }
 
     cards.forEach((card, index) => {
       card.style.display = '';
@@ -358,19 +373,22 @@ export function initHeroMelius(isReduced) {
       const radial = 1.02 + (index % 4) * 0.03;
       const lx = Math.cos(angle) * radiusX * radial;
       const ly = Math.sin(angle) * radiusY * radial;
-      const x = lx * cosT - ly * sinT;
-      const y = lx * sinT + ly * cosT;
+      const x = orbitX + lx * cosT - ly * sinT;
+      const y = orbitY + lx * sinT + ly * cosT;
       const depth = Math.sin(angle + tilt);
       if (depth > focusDepth) {
         focusDepth = depth;
         frontIndex = index;
       }
       const z = Math.round(12 + depth * 28 + (index % 3));
-      const transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;
+      card.style.setProperty('left', `${x.toFixed(1)}px`, 'important');
+      card.style.setProperty('top', `${y.toFixed(1)}px`, 'important');
+      card.style.setProperty('translate', 'none', 'important');
+      const transform = 'translate(-50%,-50%)';
       card.style.zIndex = String(z);
       const stagger = Math.max(0, Math.min(1, (shown - index * 0.035) / 0.55));
       card.style.opacity = String(stagger);
-      card.style.transform = transform;
+      card.style.setProperty('transform', transform, 'important');
       card.style.setProperty('--orbit-transform', transform);
       card.style.setProperty('--orbit-opacity', '1');
       card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
