@@ -1,11 +1,11 @@
-const GOYA_V = 'eb-20261004a';
+const GOYA_V = 'eb-20261004h';
 const GOYA_PHOTOS = [
-  `assets/about/goya/g01-box.jpg?v=${GOYA_V}`,
-  `assets/about/goya/g02-held.jpg?v=${GOYA_V}`,
-  `assets/about/goya/g03-water.jpg?v=${GOYA_V}`,
-  `assets/about/goya/g04-look.jpg?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/goya-03.webp?v=${GOYA_V}`,
+  `assets/hero/goya-orbit/goya-04.webp?v=${GOYA_V}`,
 ];
-const PET_PHOTOS = Array.from({ length: 16 }, (_, i) => GOYA_PHOTOS[i % GOYA_PHOTOS.length]);
+const PET_PHOTOS = Array.from({ length: 12 }, (_, i) => GOYA_PHOTOS[i % GOYA_PHOTOS.length]);
 
 const DEVICE_FALLBACK = 'assets/hero/beam-device-melius-front-cut.png?v=eb-20260919a';
 
