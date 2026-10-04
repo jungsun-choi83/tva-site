@@ -165,14 +165,19 @@
   position:relative;
   min-height:calc(100svh - var(--nav-height,64px));
   padding:0;
-  background:#fff;
+  background:#121214;
   overflow:visible;
 }
 #portfolio.portfolio-bleib .eb-bleib-stage{
-  background:#fff;
+  background:#121214;
+}
+#portfolio.portfolio-bleib .eb-bleib-index{color:var(--bleib-beige,#e3ded3)}
+#portfolio.portfolio-bleib .eb-bleib-board{
+  background:var(--bleib-beige,#e3ded3);
+  color:#171923;
 }
 #portfolio.portfolio-bleib .eb-bleib-panel{
-  background:#fff;
+  background:#121214;
 }
 #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-panel{
   height:calc(100svh - var(--nav-height,64px));
@@ -200,18 +205,18 @@
   overflow:visible;
 }
 #original.story-keep-bleib .eb-bleib-stage{
-  background:#121214;
-  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15'%3E%3Crect x='6.5' y='6.5' width='2' height='2' rx='1' ry='1' fill='rgb(255%2C255%2C255)' fill-opacity='0.08'/%3E%3C/svg%3E");
-  background-size:15px 15px;
-}
-#original.story-keep-bleib .eb-bleib-index{color:var(--bleib-beige,#e3ded3)}
-#original.story-keep-bleib .eb-bleib-board{
   background:var(--bleib-beige,#e3ded3);
-  color:#171923;
+  background-image:none;
 }
-#original.story-keep-bleib .eb-bleib-title{color:#171923}
-#original.story-keep-bleib .eb-bleib-eyebrow{color:#55565b}
-#original.story-keep-bleib .eb-bleib-hint{color:#55565b}
+#original.story-keep-bleib .eb-bleib-index{color:#171923}
+#original.story-keep-bleib .eb-bleib-board{
+  background:#171512;
+  color:var(--bleib-beige,#e3ded3);
+}
+#original.story-keep-bleib .eb-bleib-title{color:var(--bleib-beige,#e3ded3)}
+#original.story-keep-bleib .eb-bleib-eyebrow{color:rgba(227,222,211,.7)}
+#original.story-keep-bleib .eb-bleib-hint{color:rgba(227,222,211,.62)}
+#original.story-keep-bleib .eb-bleib-bars i{background:var(--bleib-beige,#e3ded3)}
 #original.story-keep-bleib .eb-bleib-panel{
   background:#121214;
   background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='15' height='15'%3E%3Crect x='6.5' y='6.5' width='2' height='2' rx='1' ry='1' fill='rgb(255%2C255%2C255)' fill-opacity='0.08'/%3E%3C/svg%3E");
@@ -234,14 +239,19 @@
   position:relative;
   min-height:calc(100svh - var(--nav-height,64px));
   padding:0;
-  background:#fff;
+  background:#121214;
   overflow:visible;
 }
 #contact.contact-bleib .eb-bleib-stage{
-  background:#fff;
+  background:#121214;
+}
+#contact.contact-bleib .eb-bleib-index{color:var(--bleib-beige,#e3ded3)}
+#contact.contact-bleib .eb-bleib-board{
+  background:var(--bleib-beige,#e3ded3);
+  color:#171923;
 }
 #contact.contact-bleib .eb-bleib-panel{
-  background:#fff;
+  background:#121214;
 }
 #contact.contact-bleib.is-bleib-open .eb-bleib-panel{
   padding-top:clamp(48px,7vh,64px);

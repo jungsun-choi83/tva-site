@@ -2,11 +2,9 @@
 
 // SEND opens the visitor's mail app as a draft to jadechoi@eternalbeamapp.com.
 
-import { applyI18n, getLang, t } from './i18n.js?v=eb-20260919v';
+import { applyI18n, getLang, t } from './i18n.js?v=eb-20261005s';
 
-
-
-const CONTACT_IMAGE = 'gallery-original/assets/photos/optimized/dogc.png';
+const CONTACT_IMAGE = 'assets/contact/goya-room.jpg?v=eb-20261005s';
 
 const MAIL = 'jadechoi@eternalbeamapp.com';
 
@@ -40,7 +38,7 @@ function markup() {
 
           <h2 id="ctl-contact-title" class="ctl-title" data-i18n="contact.melius.h">Contact us</h2>
 
-          <p class="ctl-lead" data-i18n="contact.melius.lead">Questions about Eternal Beam, a partnership, or launch news? Send us a note and we will get back to you.</p>
+          <p class="ctl-lead" data-i18n-html="contact.melius.lead">Eternal Beam, 협업, 출시 소식에 대한 문의를 남겨 주세요.<br>편지를 받으면 팀에서 답변드립니다.</p>
 
         </header>
 

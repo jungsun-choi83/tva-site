@@ -904,7 +904,7 @@ html[data-about-grid="open"]{
   position:absolute;
   z-index:0;
   inset:0;
-  background:url("assets/homepage/about/dog.png") 58% center/cover no-repeat;
+  background:url("assets/homepage/about/goya-room.jpg?v=eb-20261005s") 42% center/cover no-repeat;
   filter:saturate(.78) contrast(.96) brightness(.92);
 }
 #about.about-bleib .about-cinematic__dog{
@@ -913,7 +913,7 @@ html[data-about-grid="open"]{
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:58% center;
+  object-position:42% center;
   filter:saturate(.83) contrast(1.02) brightness(.82);
   visibility:hidden;
 }
@@ -1531,4 +1531,66 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
     padding:8px 12px;
     font-size:9px;
   }
+}
+
+/* After the black hero: ABOUT is beige + black type. */
+#about.about-bleib{
+  --about-cinematic-black:#e4ddd0;
+  --about-cinematic-ivory:#171512;
+  --about-cinematic-copy:rgba(23,21,18,.68);
+  background:#e4ddd0;
+  color:#171512;
+}
+#about.about-bleib .about-camera{
+  background:#e4ddd0;
+}
+#about.about-bleib .about-camera:after{
+  background:linear-gradient(180deg,rgba(228,221,208,.35) 0%,transparent 70%);
+}
+#about.about-bleib .about-cinematic__story{
+  background:#cfc6b8;
+}
+#about.about-bleib .about-cinematic__story:after{
+  background:
+    linear-gradient(90deg,rgba(228,221,208,.42) 0%,rgba(228,221,208,.12) 48%,transparent 78%),
+    linear-gradient(180deg,rgba(23,21,18,.1),transparent 42%);
+}
+#about.about-bleib .about-cinematic__copy{
+  color:#171512;
+}
+#about.about-bleib .about-cinematic__chapter{
+  color:rgba(23,21,18,.62);
+}
+#about.about-bleib .about-cinematic__title{
+  color:#171512;
+}
+#about.about-bleib .about-cinematic__description{
+  color:rgba(23,21,18,.72);
+}
+#about.about-bleib .about-cinematic__right{
+  background:
+    radial-gradient(ellipse 80% 55% at 88% 78%,rgba(196,154,85,.14),transparent 68%),
+    #e4ddd0;
+}
+#about.about-bleib .about-cinematic__right:after{
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='18' height='18'%3E%3Ccircle cx='9' cy='9' r='.7' fill='%23171512' fill-opacity='.08'/%3E%3C/svg%3E");
+}
+#about.about-bleib .about-cinematic__brand strong{
+  color:rgba(23,21,18,.72);
+}
+#about.about-bleib .about-cinematic__brand span{
+  color:rgba(23,21,18,.4);
+}
+#about.about-bleib .about-cinematic__divider i{
+  background:#e4ddd0;
+}
+#about.about-bleib .about-bleib-grid .about-bleib-type__title{
+  color:#171512!important;
+}
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover .about-bleib-type__title,
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible .about-bleib-type__title{
+  color:#0d0d0f!important;
+}
+html[data-about-grid="open"]{
+  background:#e4ddd0;
 }
