@@ -182,7 +182,7 @@ html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-ori
   width:100%;
   height:100%;
   object-fit:cover;
-  object-position:center 20%;
+  object-position:center 42%;
   pointer-events:none;
   user-select:none;
 }
