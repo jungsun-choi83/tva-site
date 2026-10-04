@@ -14,7 +14,89 @@ const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-12.webp?v=${GOYA_V}`,
 ];
 
+const CARD_FRAMES = [
+  [1.34, 0.86],
+  [0.82, 1.18],
+  [1.5, 1.06],
+  [0.9, 1.32],
+  [1.18, 0.74],
+  [1.06, 1.4],
+  [0.72, 0.72],
+  [1.36, 0.9],
+  [1.56, 1.12],
+  [0.86, 1.22],
+  [1.12, 1.48],
+  [1.22, 0.82],
+];
+
 const DEVICE_FALLBACK = 'assets/hero/beam-device-melius-front-cut.png?v=eb-20260919a';
+
+function initDotGenerator(home) {
+  const canvas = home.querySelector('.eb-melius-dots');
+  if (!canvas) return { draw() {}, resize() {} };
+  const ctx = canvas.getContext('2d', { alpha: true });
+  const dots = [];
+  let seeded = false;
+
+  function resize() {
+    const dpr = Math.min(2, window.devicePixelRatio || 1);
+    const w = home.clientWidth || 1;
+    const h = home.clientHeight || 1;
+    canvas.width = Math.floor(w * dpr);
+    canvas.height = Math.floor(h * dpr);
+    canvas.style.width = `${w}px`;
+    canvas.style.height = `${h}px`;
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    seed(w, h);
+  }
+
+  function seed(w, h) {
+    dots.length = 0;
+    const count = Math.round(Math.min(1800, Math.max(700, (w * h) / 900)));
+    const rx = w * 0.31;
+    const ry = h * 0.33;
+    for (let i = 0; i < count; i += 1) {
+      const onRing = Math.random() < 0.62;
+      const t = Math.random() * Math.PI * 2;
+      const spread = onRing ? 0.78 + Math.random() * 0.38 : Math.random() * 1.15;
+      const jx = (Math.random() - 0.5) * (onRing ? 54 : w * 0.92);
+      const jy = (Math.random() - 0.5) * (onRing ? 42 : h * 0.92);
+      dots.push({
+        x: w * 0.5 + Math.cos(t) * rx * spread + jx,
+        y: h * 0.5 + Math.sin(t) * ry * spread + jy,
+        r: onRing ? 0.7 + Math.random() * 1.5 : 0.35 + Math.random() * 0.9,
+        a: onRing ? 0.18 + Math.random() * 0.42 : 0.05 + Math.random() * 0.16,
+        vx: (Math.random() - 0.5) * 0.09,
+        vy: (Math.random() - 0.5) * 0.09,
+        delay: Math.random() * 0.55,
+      });
+    }
+    seeded = true;
+  }
+
+  let bornAt = 0;
+  function draw(now) {
+    if (!seeded) resize();
+    if (!bornAt) bornAt = now;
+    const w = home.clientWidth || 1;
+    const h = home.clientHeight || 1;
+    const grow = Math.min(1, (now - bornAt) / 1600);
+    ctx.clearRect(0, 0, w, h);
+    for (const d of dots) {
+      const appear = Math.max(0, Math.min(1, (grow - d.delay) / 0.45));
+      if (appear <= 0) continue;
+      d.x += d.vx;
+      d.y += d.vy;
+      ctx.fillStyle = `rgba(226,230,227,${(d.a * appear).toFixed(3)})`;
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  resize();
+  return { draw, resize };
+}
 
 function wrapMeliusGoldLines(home) {
   home?.querySelectorAll('[data-melius-gold-line]').forEach((gold) => {
@@ -77,6 +159,7 @@ export function initHeroMelius(isReduced) {
   if (!hero || !home || !stage || !rail) return;
 
   home.classList.add('is-cipher-orbit');
+  const dots = initDotGenerator(home);
   wrapMeliusGoldLines(home);
   window.addEventListener('eb:lang', () => wrapMeliusGoldLines(home));
 
@@ -102,6 +185,9 @@ export function initHeroMelius(isReduced) {
   let running = false;
   let last = 0;
   let focusUntil = 0;
+  let pinnedIndex = -1;
+
+  let hoverIndex = -1;
 
   function applyRailTransform() {
     rail.style.transform = 'none';
@@ -116,42 +202,43 @@ export function initHeroMelius(isReduced) {
     const rect = stage.getBoundingClientRect();
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
     const mobile = rect.width <= 720;
-    const visibleCount = cards.length;
-    const radiusX = rect.width * (mobile ? 0.48 : 0.52);
-    const radiusY = rect.height * (mobile ? 0.46 : 0.50);
+    const count = Math.max(1, cards.length);
+    const radiusX = rect.width * (mobile ? 0.3 : 0.29);
+    const radiusY = rect.height * (mobile ? 0.32 : 0.31);
     const phase = (offset / loopWidth) * Math.PI * 2;
-    const focusing = performance.now() < focusUntil;
+    const focusing = hoverIndex >= 0 || pinnedIndex >= 0 || performance.now() < focusUntil;
     home.classList.toggle('is-orbit-focus', focusing);
-    let focusIndex = 0;
+    const unit = Math.min(rect.width * (mobile ? 0.2 : 0.145), mobile ? 118 : 176);
+    let frontIndex = 0;
     let focusDepth = -2;
 
     cards.forEach((card, index) => {
       card.style.display = '';
-      const angle = (index / visibleCount) * Math.PI * 2 + phase - Math.PI / 2;
-      const x = Math.cos(angle) * radiusX;
-      const y = Math.sin(angle) * radiusY;
+      const frame = CARD_FRAMES[index % CARD_FRAMES.length];
+      const cw = unit * frame[0];
+      const ch = unit * frame[1];
+      card.style.width = `${cw.toFixed(1)}px`;
+      card.style.height = `${ch.toFixed(1)}px`;
+      const angle = (index / count) * Math.PI * 2 + phase - Math.PI / 2;
+      const radial = 0.78 + (index % 5) * 0.055;
+      const x = Math.cos(angle) * radiusX * radial;
+      const y = Math.sin(angle) * radiusY * radial;
       const depth = Math.sin(angle);
-      const norm = Math.cos(angle);
       if (depth > focusDepth) {
         focusDepth = depth;
-        focusIndex = index;
+        frontIndex = index;
       }
-      const { scale, rotateY, tz, z, opacity } = coverFlow(norm, flowSpread, depth, mobile);
-      const rotateZ = norm * (mobile ? -2.2 : -3.5);
-      const transform = [
-        `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,${tz.toFixed(1)}px)`,
-        `rotateY(${rotateY.toFixed(2)}deg)`,
-        `rotateZ(${rotateZ.toFixed(2)}deg)`,
-        `scale(${scale.toFixed(3)})`,
-      ].join(' ');
+      const z = Math.round(20 + depth * 40 + (index % 3));
+      const transform = `translate3d(${x.toFixed(1)}px,${y.toFixed(1)}px,0)`;
       card.style.zIndex = String(z);
-      card.style.opacity = String(opacity);
+      card.style.opacity = '1';
       card.style.transform = transform;
       card.style.setProperty('--orbit-transform', transform);
-      card.style.setProperty('--orbit-opacity', String(opacity));
+      card.style.setProperty('--orbit-opacity', '1');
       card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
     });
 
+    const focusIndex = hoverIndex >= 0 ? hoverIndex : pinnedIndex >= 0 ? pinnedIndex : frontIndex;
     cards.forEach((card, index) => {
       const live = focusing && index === focusIndex;
       card.classList.toggle('is-dim', focusing && !live);
@@ -172,6 +259,7 @@ export function initHeroMelius(isReduced) {
     flowSpread += (1 - flowSpread) * 0.045;
     applyRailTransform();
     paintCards();
+    dots.draw(now);
     raf = requestAnimationFrame(tick);
   }
 
@@ -195,7 +283,8 @@ export function initHeroMelius(isReduced) {
   function nudgeMotion(delta) {
     if (!delta) return;
     const push = Math.abs(delta);
-    focusUntil = performance.now() + 780;
+    pinnedIndex = -1;
+    focusUntil = performance.now() + 900;
     velocity = Math.max(0.65, Math.min(6.8, velocity + delta * 0.0062));
     flowSpread = Math.min(1.42, flowSpread + push * 0.0021);
     offset += delta * 0.32;
@@ -229,8 +318,39 @@ export function initHeroMelius(isReduced) {
     measureLoop();
     applyRailTransform();
     paintCards();
+    dots.resize();
   });
   window.addEventListener('wheel', onWheel, { passive: true });
+
+  rail.addEventListener('pointerover', (event) => {
+    const card = event.target.closest('.eb-melius-card');
+    if (!card) return;
+    hoverIndex = [...rail.querySelectorAll('.eb-melius-card')].indexOf(card);
+    paintCards();
+  });
+  rail.addEventListener('pointerout', (event) => {
+    if (event.relatedTarget && rail.contains(event.relatedTarget)) return;
+    hoverIndex = -1;
+    paintCards();
+  });
+
+  stage.addEventListener('click', (event) => {
+    if (hero.dataset.powerState !== 'locked') return;
+    const card = event.target.closest('.eb-melius-card');
+    if (!card) {
+      pinnedIndex = -1;
+      focusUntil = 0;
+      home.classList.remove('is-orbit-focus');
+      paintCards();
+      return;
+    }
+    const cards = [...rail.querySelectorAll('.eb-melius-card')];
+    const index = cards.indexOf(card);
+    if (index < 0) return;
+    pinnedIndex = pinnedIndex === index ? -1 : index;
+    focusUntil = pinnedIndex >= 0 ? performance.now() + 120000 : 0;
+    paintCards();
+  });
 
   let lastScrollY = window.scrollY;
   window.addEventListener(

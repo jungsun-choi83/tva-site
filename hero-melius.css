@@ -792,8 +792,76 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 .eb-melius-card:nth-child(3n) img{animation-duration:14.5s}
 .eb-melius-card:nth-child(3n+1) img{animation-duration:10.5s}
 .eb-melius-card:nth-child(3n+2) img{animation-duration:13s}
+.eb-melius-dots{
+  position:absolute;
+  z-index:1;
+  inset:0;
+  width:100%;
+  height:100%;
+  pointer-events:none;
+}
+.eb-melius-home.is-cipher-orbit{
+  background:#050505 !important;
+}
+.eb-melius-home.is-cipher-orbit:before,
+.eb-melius-home.is-cipher-orbit:after{
+  opacity:0;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-florals{
+  display:none;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-stage:before,
+.eb-melius-home.is-cipher-orbit .eb-melius-stage:after{
+  display:none;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-stage,
+.eb-melius-home.is-cipher-orbit .eb-melius-track,
+.eb-melius-home.is-cipher-orbit .eb-melius-rail{
+  pointer-events:auto;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-card{
+  pointer-events:auto;
+  cursor:pointer;
+  border-radius:0;
+  box-shadow:none;
+  background:#111;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-headline__line:nth-child(-n+2) .eb-melius-gold-char{
+  color:#eceae4;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-foot__sub,
+.eb-melius-home.is-cipher-orbit .eb-melius-foot__lead{
+  color:#b7b2a8;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-top__brand{
+  color:#eceae4;
+}
+.eb-melius-florals{
+  transition:opacity 320ms ease,filter 320ms ease;
+}
+.eb-melius-home.is-orbit-focus{
+  background:#0b0b0b !important;
+}
+.eb-melius-home.is-orbit-focus:before,
+.eb-melius-home.is-orbit-focus:after{
+  opacity:0;
+}
+.eb-melius-home.is-orbit-focus .eb-melius-florals{
+  opacity:0;
+}
+.eb-melius-home.is-orbit-focus .eb-melius-stage:before,
+.eb-melius-home.is-orbit-focus .eb-melius-stage:after{
+  border-color:rgba(255,255,255,.08);
+}
+.eb-melius-home.is-orbit-focus .eb-melius-headline__line:nth-child(-n+2) .eb-melius-gold-char{
+  color:#f3efe6;
+}
+.eb-melius-home.is-orbit-focus .eb-melius-foot__sub,
+.eb-melius-home.is-orbit-focus .eb-melius-foot__lead{
+  color:#b9b3a8;
+}
 .eb-melius-home.is-orbit-focus .eb-melius-card.is-dim img{
-  filter:grayscale(1) brightness(.2) contrast(1.08);
+  filter:grayscale(1) brightness(.18) contrast(1.12);
 }
 .eb-melius-home.is-orbit-focus .eb-melius-card.is-live{
   box-shadow:0 22px 46px rgba(40,28,12,.28),0 0 0 1px rgba(196,154,85,.28);
