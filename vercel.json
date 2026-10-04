@@ -10,9 +10,18 @@
       "has": [{ "type": "host", "value": "www.eternalbeam.com" }],
       "destination": "https://eternalbeam.com/:path*",
       "permanent": true
+    },
+    {
+      "source": "/assets/og/tva-og-1200x630.jpg",
+      "destination": "/assets/og/eb-home-og-20261004.jpg",
+      "permanent": true
     }
   ],
   "headers": [
+    {
+      "source": "/assets/og/(.*)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=120, must-revalidate" }]
+    },
     {
       "source": "/assets/(.*)",
       "headers": [{ "key": "Cache-Control", "value": "public, max-age=31536000, immutable" }]

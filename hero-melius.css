@@ -1168,7 +1168,11 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
   border-color:rgba(236,234,228,.45);
 }
 
-@media(max-width:720px){
+.eb-melius-orbit-copy.is-mobile-dock .eb-melius-foot__lead{
+  display:none!important;
+}
+
+@media(max-width:820px){
   .eb-melius-home.is-cipher-orbit .eb-melius-hub{
     width:clamp(168px,42vw,230px)!important;
     z-index:24;
@@ -1182,7 +1186,8 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
     text-align:center!important;
     font-size:clamp(26px,7.4vw,36px)!important;
   }
-  .eb-melius-orbit-copy{
+  .eb-melius-orbit-copy,
+  .eb-melius-orbit-copy.is-mobile-dock{
     width:min(92vw,380px);
     text-align:center;
     z-index:95;

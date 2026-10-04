@@ -334,7 +334,7 @@ export function initHeroMelius(isReduced) {
   function paintCards() {
     const rect = stage.getBoundingClientRect();
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
-    const mobile = rect.width <= 720;
+    const mobile = Math.min(rect.width, window.innerWidth || rect.width) <= 820;
     const count = Math.max(1, cards.length);
     const orbitX = rect.width * (mobile ? 0.5 : 0.42);
     const orbitY = rect.height * (mobile ? 0.42 : 0.52);
@@ -360,6 +360,7 @@ export function initHeroMelius(isReduced) {
       hub.style.setProperty('z-index', mobile ? '24' : '70', 'important');
     }
     if (orbitCopy) {
+      orbitCopy.classList.toggle('is-mobile-dock', mobile);
       orbitCopy.style.setProperty('left', `${(mobile ? rect.width * 0.5 : orbitX).toFixed(1)}px`, 'important');
       if (mobile) {
         orbitCopy.style.setProperty('top', 'auto', 'important');
@@ -369,6 +370,7 @@ export function initHeroMelius(isReduced) {
         orbitCopy.style.setProperty('text-align', 'center', 'important');
         orbitCopy.style.setProperty('z-index', '95', 'important');
       } else {
+        orbitCopy.classList.remove('is-mobile-dock');
         orbitCopy.style.setProperty('top', `${orbitY.toFixed(1)}px`, 'important');
         orbitCopy.style.setProperty('bottom', 'auto', 'important');
         orbitCopy.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
