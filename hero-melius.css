@@ -919,14 +919,14 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 }
 .eb-melius-home.is-orbit-focus .eb-melius-card.is-dim img,
 .eb-melius-home.is-orbit-focus .eb-melius-card.is-dim video{
-  filter:grayscale(1) brightness(.22) contrast(1.1);
+  filter:grayscale(1) brightness(.32) contrast(1.08) !important;
 }
 .eb-melius-home.is-orbit-focus .eb-melius-card.is-live{
   box-shadow:0 22px 46px rgba(40,28,12,.28),0 0 0 1px rgba(196,154,85,.28);
 }
 .eb-melius-home.is-orbit-focus .eb-melius-card.is-live img,
 .eb-melius-home.is-orbit-focus .eb-melius-card.is-live video{
-  filter:saturate(1.05) contrast(1.04);
+  filter:saturate(1.06) contrast(1.04) !important;
 }
 
 .eb-melius-home.is-cipher-orbit .eb-melius-content{
@@ -986,7 +986,7 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 }
 
 .eb-melius-home.is-reduced .eb-melius-card img{
-  filter:none;
+  animation:none;
 }
 
 html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
