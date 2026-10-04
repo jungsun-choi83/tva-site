@@ -960,8 +960,8 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   text-shadow:0 2px 18px rgba(0,0,0,.55);
 }
 .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot{
-  top:58%;
-  width:min(320px,30vw);
+  top:57%;
+  width:min(640px,78vw);
 }
 .eb-melius-home.is-cipher-orbit .eb-melius-headline__line .eb-melius-gold-char,
 .eb-melius-home.is-cipher-orbit .eb-melius-headline__line:nth-child(-n+2) .eb-melius-gold-char,
@@ -984,7 +984,7 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   position:absolute;
   left:50%;
   top:61.5%;
-  width:min(420px,40vw);
+  width:min(640px,78vw);
   margin:0;
   transform:translateX(-50%);
   text-align:center;

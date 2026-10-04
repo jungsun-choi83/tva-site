@@ -1,3 +1,5 @@
+import { t } from './i18n.js?v=eb-20261005k';
+
 const GOYA_V = 'eb-20261005e';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/live/goya-01.webp?v=${GOYA_V}`,
@@ -273,10 +275,21 @@ export function initHeroMelius(isReduced) {
   const hubImg = hero?.querySelector('.eb-melius-hub__device');
   if (!hero || !home || !stage || !rail) return;
 
+  function writeHeroExplain() {
+    const copy = t('hero.explain');
+    document.querySelectorAll('.eb-melius-foot__lead, .hero-vintage__explain').forEach((el) => {
+      el.innerHTML = copy;
+    });
+  }
+
   home.classList.add('is-cipher-orbit', 'is-cipher-intro');
   const dots = initDotGenerator(home);
   wrapMeliusGoldLines(home);
-  window.addEventListener('eb:lang', () => wrapMeliusGoldLines(home));
+  writeHeroExplain();
+  window.addEventListener('eb:lang', () => {
+    wrapMeliusGoldLines(home);
+    writeHeroExplain();
+  });
 
   if (hubImg) {
     hubImg.addEventListener(
