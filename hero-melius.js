@@ -332,15 +332,15 @@ export function initHeroMelius(isReduced) {
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
     const mobile = rect.width <= 720;
     const count = Math.max(1, cards.length);
-    const radiusX = rect.width * (mobile ? 0.36 : 0.34);
-    const radiusY = rect.height * (mobile ? 0.3 : 0.27);
+    const radiusX = rect.width * (mobile ? 0.22 : 0.2);
+    const radiusY = rect.height * (mobile ? 0.26 : 0.24);
     const tilt = -22 * Math.PI / 180;
     const cosT = Math.cos(tilt);
     const sinT = Math.sin(tilt);
     const phase = (offset / loopWidth) * Math.PI * 2;
     const focusing = hoverIndex >= 0 || pinnedIndex >= 0;
     home.classList.toggle('is-orbit-focus', focusing);
-    const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
+    const unit = Math.min(rect.width * (mobile ? 0.13 : 0.085), mobile ? 84 : 128);
     const age = orbitBorn ? (performance.now() - orbitBorn) / 1000 : 0;
     let shown = Math.max(0, Math.min(1, (age - 2.25) / 0.4));
     if (age > 2.8 || (!orbitBorn && hero.dataset.powerState === 'locked')) shown = 1;
