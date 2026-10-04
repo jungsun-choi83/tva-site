@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261004x';
+const GOYA_V = 'eb-20261004y';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
@@ -36,30 +36,32 @@ function sampleBeamLetters(w, h) {
   off.width = Math.max(2, Math.floor(w));
   off.height = Math.max(2, Math.floor(h));
   const c = off.getContext('2d');
-  const size = Math.min(w * 0.145, h * 0.2, 164);
+  c.clearRect(0, 0, off.width, off.height);
+  const size = Math.min(w * 0.092, h * 0.135, 118);
   c.fillStyle = '#fff';
-  c.strokeStyle = '#fff';
-  c.lineWidth = Math.max(1.6, size * 0.045);
   c.textAlign = 'center';
   c.textBaseline = 'middle';
-  c.font = `800 ${size}px "Times New Roman", Georgia, serif`;
+  c.font = `500 ${size}px "Times New Roman", Georgia, serif`;
   const drawSpaced = (text, y, tracking) => {
     const start = w / 2 - ((text.length - 1) * tracking) / 2;
     for (let i = 0; i < text.length; i += 1) {
-      const x = start + i * tracking;
-      c.strokeText(text[i], x, y);
-      c.fillText(text[i], x, y);
+      c.fillText(text[i], start + i * tracking, y);
     }
   };
-  drawSpaced('ETERNAL', h / 2 - size * 0.78, size * 0.72);
-  drawSpaced('BEAM', h / 2 + size * 0.78, size * 0.78);
+  drawSpaced('ETERNAL', h / 2 - size * 0.82, size * 0.78);
+  drawSpaced('BEAM', h / 2 + size * 0.82, size * 0.86);
   const { data } = c.getImageData(0, 0, off.width, off.height);
   const pts = [];
-  const step = Math.max(2, Math.round(size / 46));
-  for (let y = 0; y < off.height; y += step) {
-    for (let x = 0; x < off.width; x += step) {
-      if (data[(y * off.width + x) * 4 + 3] > 40) pts.push({ x, y });
+  for (let y = 0; y < off.height; y += 2) {
+    for (let x = 0; x < off.width; x += 2) {
+      if (data[(y * off.width + x) * 4 + 3] > 160) pts.push({ x, y });
     }
+  }
+  if (pts.length > 1400) {
+    const keep = [];
+    const stride = pts.length / 1400;
+    for (let i = 0; i < 1400; i += 1) keep.push(pts[Math.floor(i * stride)]);
+    return keep;
   }
   return pts.length ? pts : [{ x: w / 2, y: h / 2 }];
 }
@@ -100,8 +102,11 @@ function initDotGenerator(home) {
   function seed(w, h) {
     letterPts = sampleBeamLetters(w, h);
     dots.length = 0;
-    const count = Math.min(520, Math.max(letterPts.length, 320));
-    for (let i = 0; i < count; i += 1) {
+    const fieldCount = 180;
+    const total = letterPts.length + fieldCount;
+    for (let i = 0; i < total; i += 1) {
+      const onGlyph = i < letterPts.length;
+      const glyph = letterPts[i % letterPts.length];
       const edge = Math.random();
       let sx;
       let sy;
@@ -112,21 +117,21 @@ function initDotGenerator(home) {
         sx = Math.random() < 0.5 ? -20 : w + 20;
         sy = Math.random() * h;
       }
-      const glyph = letterPts[i % letterPts.length];
       dots.push({
+        glyph: onGlyph,
         sx,
         sy,
         x: sx,
         y: sy,
-        lx: glyph.x + (Math.random() - 0.5) * 1.4,
-        ly: glyph.y + (Math.random() - 0.5) * 1.4,
+        lx: glyph.x,
+        ly: glyph.y,
         fx: Math.random() * w,
         fy: Math.random() * h,
-        vx: (Math.random() - 0.5) * 0.35,
-        vy: (Math.random() - 0.5) * 0.28,
-        r: 0.7 + Math.random() * 0.7,
-        a: 0.5 + Math.random() * 0.4,
-        delay: Math.random() * 0.18,
+        vx: (Math.random() - 0.5) * 0.32,
+        vy: (Math.random() - 0.5) * 0.26,
+        r: onGlyph ? 0.85 : 0.7,
+        a: onGlyph ? 0.96 : 0.42,
+        delay: onGlyph ? Math.random() * 0.05 : 0.12 + Math.random() * 0.2,
         tw: Math.random() * Math.PI * 2,
       });
     }
@@ -152,16 +157,17 @@ function initDotGenerator(home) {
     const w = home.clientWidth || 1;
     const h = home.clientHeight || 1;
     const t = (now - bornAt) / 1000;
-    const gather = Math.min(1, Math.max(0, t / 0.9));
-    const hold = t >= 0.9 && t < 1.4;
-    const toField = Math.min(1, Math.max(0, (t - 1.4) / 0.65));
-    const ambient = t >= 2.05;
-    home.classList.toggle('is-cipher-intro', t < 1.55);
+    const gather = Math.min(1, Math.max(0, t / 0.95));
+    const hold = t >= 0.95 && t < 2.15;
+    const toField = Math.min(1, Math.max(0, (t - 2.15) / 0.7));
+    const ambient = t >= 2.85;
+    home.classList.toggle('is-cipher-intro', t < 2.35);
     ctx.clearRect(0, 0, w, h);
 
     for (const d of dots) {
-      const local = Math.min(1, Math.max(0, (gather - d.delay) / 0.4));
+      const local = Math.min(1, Math.max(0, (gather - d.delay) / 0.28));
       const ease = 1 - (1 - local) ** 3;
+      if (!d.glyph && !ambient && toField < 0.4) continue;
       if (ambient) {
         d.x += d.vx;
         d.y += d.vy;
@@ -181,13 +187,11 @@ function initDotGenerator(home) {
         d.y = d.sy + (ty - d.sy) * (parked ? 1 : ease);
       }
       const vis = ambient
-        ? 0.32 + Math.sin(now * 0.0035 + d.tw) * 0.16
-        : Math.max(local, gather);
+        ? 0.28 + Math.sin(now * 0.0035 + d.tw) * 0.12
+        : d.glyph ? Math.max(local, gather) : toField;
       if (vis <= 0.02) continue;
-      ctx.fillStyle = `rgba(238,234,222,${(d.a * vis).toFixed(3)})`;
-      ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
-      ctx.fill();
+      ctx.fillStyle = `rgba(244,241,230,${(d.a * vis).toFixed(3)})`;
+      ctx.fillRect(d.x, d.y, d.glyph && !ambient ? 1.15 : 1.35, d.glyph && !ambient ? 1.15 : 1.35);
     }
   }
 
@@ -311,8 +315,8 @@ export function initHeroMelius(isReduced) {
     home.classList.toggle('is-orbit-focus', focusing);
     const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
     const age = orbitBorn ? (performance.now() - orbitBorn) / 1000 : 0;
-    let shown = Math.max(0, Math.min(1, (age - 1.25) / 0.35));
-    if (age > 2.1 || (!orbitBorn && hero.dataset.powerState === 'locked')) shown = 1;
+    let shown = Math.max(0, Math.min(1, (age - 2.25) / 0.4));
+    if (age > 2.8 || (!orbitBorn && hero.dataset.powerState === 'locked')) shown = 1;
     const liveT = performance.now() / 1000;
     let frontIndex = 0;
     let focusDepth = -2;
