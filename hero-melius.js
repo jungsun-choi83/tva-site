@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261005a';
+const GOYA_V = 'eb-20261005b';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
@@ -13,6 +13,7 @@ const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-11.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-12.webp?v=${GOYA_V}`,
 ];
+const PET_CLIPS = PET_PHOTOS.map((_, i) => `assets/hero/goya-orbit/live/goya-${String(i + 1).padStart(2, '0')}.mp4?v=${GOYA_V}`);
 
 const CARD_FRAMES = [
   [0.9, 1.2],
@@ -228,10 +229,9 @@ function wrapMeliusGoldLines(home) {
   });
 }
 
-function cardMarkup(src, eager) {
-  const load = eager ? 'eager' : 'lazy';
-  const pri = eager ? ' fetchpriority="high"' : '';
-  return `<article class="eb-melius-card"><span class="eb-melius-card__shot"><img src="${src}" width="720" height="960" alt="" loading="${load}" decoding="async"${pri}></span></article>`;
+function cardMarkup(clip, poster, eager) {
+  const load = eager ? 'auto' : 'metadata';
+  return `<article class="eb-melius-card"><span class="eb-melius-card__shot"><video src="${clip}" poster="${poster}" width="544" height="720" autoplay muted loop playsinline webkit-playsinline disablepictureinpicture preload="${load}"></video></span></article>`;
 }
 
 /** Existing Melius depth character, adapted to an elliptical path. */
@@ -288,8 +288,18 @@ export function initHeroMelius(isReduced) {
     );
   }
 
-  const sequence = PET_PHOTOS;
-  rail.innerHTML = sequence.map((src, i) => cardMarkup(src, i < 10)).join('');
+  rail.innerHTML = PET_CLIPS.map((clip, i) => cardMarkup(clip, PET_PHOTOS[i], i < 8)).join('');
+  const kickClips = () => {
+    rail.querySelectorAll('video').forEach((clip) => {
+      clip.muted = true;
+      clip.loop = true;
+      clip.playsInline = true;
+      const play = () => clip.play().catch(() => {});
+      if (clip.readyState >= 2) play();
+      else clip.addEventListener('canplay', play, { once: true });
+    });
+  };
+  kickClips();
 
   let offset = 0;
   let velocity = 0.42;
@@ -332,7 +342,6 @@ export function initHeroMelius(isReduced) {
     const age = orbitBorn ? (performance.now() - orbitBorn) / 1000 : 0;
     let shown = Math.max(0, Math.min(1, (age - 2.25) / 0.4));
     if (age > 2.8 || (!orbitBorn && hero.dataset.powerState === 'locked')) shown = 1;
-    const liveT = performance.now() / 1000;
     let frontIndex = 0;
     let focusDepth = -2;
 
@@ -363,20 +372,11 @@ export function initHeroMelius(isReduced) {
       card.style.setProperty('--orbit-transform', transform);
       card.style.setProperty('--orbit-opacity', '1');
       card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
-      const img = card.querySelector('img');
-      if (img) {
-        const focus = FACE_FOCUS[index % FACE_FOCUS.length];
-        const parts = focus.split(' ');
-        const fx = parseFloat(parts[0]) || 50;
-        const fy = parseFloat(parts[1]) || 42;
-        const wave = liveT * 0.62 + index * 1.17;
-        const ox = Math.max(8, Math.min(92, fx + Math.sin(wave) * 5.5));
-        const oy = Math.max(12, Math.min(88, fy + Math.cos(wave * 0.84) * 4.5));
-        const zoom = 1.1 + Math.sin(wave * 0.72) * 0.07;
-        img.style.objectFit = 'cover';
-        img.style.objectPosition = `${ox.toFixed(1)}% ${oy.toFixed(1)}%`;
-        img.style.transformOrigin = `${fx}% ${fy}%`;
-        img.style.transform = `scale(${zoom.toFixed(3)})`;
+      const media = card.querySelector('video, img');
+      if (media) {
+        media.style.objectFit = 'cover';
+        media.style.objectPosition = FACE_FOCUS[index % FACE_FOCUS.length];
+        media.style.transform = 'none';
       }
     });
 
@@ -414,6 +414,7 @@ export function initHeroMelius(isReduced) {
     measureLoop();
     offset = loopWidth * 0.33;
     applyRailTransform();
+    kickClips();
     raf = requestAnimationFrame(tick);
   }
 
