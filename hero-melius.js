@@ -1,15 +1,11 @@
-const PET_V = 'eb-20260914s';
-const PET_PHOTOS = [
-  ...Array.from({ length: 20 }, (_, i) => `assets/journey/pets/p${String(i + 1).padStart(2, '0')}.webp?v=${PET_V}`),
-  `assets/journey/pets/shiba.webp?v=${PET_V}`,
-  `assets/journey/pets/retriever.webp?v=${PET_V}`,
-  `assets/journey/pets/puppy.webp?v=${PET_V}`,
-  `assets/journey/pets/beagle.webp?v=${PET_V}`,
-  `assets/journey/pets/husky.webp?v=${PET_V}`,
-  `assets/journey/pets/tabby.webp?v=${PET_V}`,
-  `assets/journey/pets/black-cat.webp?v=${PET_V}`,
-  `assets/journey/pets/grey-cat.webp?v=${PET_V}`,
+const GOYA_V = 'eb-20261004a';
+const GOYA_PHOTOS = [
+  `assets/about/goya/g01-box.jpg?v=${GOYA_V}`,
+  `assets/about/goya/g02-held.jpg?v=${GOYA_V}`,
+  `assets/about/goya/g03-water.jpg?v=${GOYA_V}`,
+  `assets/about/goya/g04-look.jpg?v=${GOYA_V}`,
 ];
+const PET_PHOTOS = Array.from({ length: 16 }, (_, i) => GOYA_PHOTOS[i % GOYA_PHOTOS.length]);
 
 const DEVICE_FALLBACK = 'assets/hero/beam-device-melius-front-cut.png?v=eb-20260919a';
 
@@ -86,7 +82,7 @@ export function initHeroMelius(isReduced) {
     );
   }
 
-  const sequence = PET_PHOTOS.slice(0, 14);
+  const sequence = PET_PHOTOS;
   rail.innerHTML = sequence.map((src, i) => cardMarkup(src, i < 10)).join('');
 
   let offset = 0;
