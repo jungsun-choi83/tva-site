@@ -790,25 +790,44 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   object-fit:cover;
   object-position:center 28%;
   transform-origin:50% 38%;
-  animation:goya-drift 12s ease-in-out infinite;
+  animation:goya-drift 8s ease-in-out infinite alternate;
   animation-delay:var(--goya-delay,0s);
   transition:filter 320ms ease;
   filter:saturate(.94) contrast(1);
   will-change:transform,filter;
 }
-.eb-melius-card:nth-child(3n) img{animation-duration:14.5s}
-.eb-melius-card:nth-child(3n+1) img{animation-duration:10.5s}
-.eb-melius-card:nth-child(3n+2) img{animation-duration:13s}
+@keyframes goya-drift{
+  0%{transform:scale(1.14) translate3d(-2.2%,1.6%,0)}
+  40%{transform:scale(1.24) translate3d(2.8%,-2.2%,0)}
+  100%{transform:scale(1.14) translate3d(-1.6%,2.4%,0)}
+}
+.eb-melius-card:nth-child(3n) img{animation-name:goya-drift-b;animation-duration:9.5s}
+.eb-melius-card:nth-child(3n+1) img{animation-duration:8s}
+.eb-melius-card:nth-child(3n+2) img{animation-name:goya-drift-c;animation-duration:11s}
+@keyframes goya-drift-b{
+  0%{transform:scale(1.18) translate3d(2.4%,-1.8%,0)}
+  50%{transform:scale(1.28) translate3d(-3.2%,2.6%,0)}
+  100%{transform:scale(1.18) translate3d(2.4%,-1.8%,0)}
+}
+@keyframes goya-drift-c{
+  0%{transform:scale(1.12) translate3d(0,2.2%,0)}
+  55%{transform:scale(1.22) translate3d(-2.8%,-2.4%,0)}
+  100%{transform:scale(1.12) translate3d(1.8%,2.2%,0)}
+}
 .eb-melius-dots{
   position:absolute;
-  z-index:4;
+  z-index:1;
   inset:0;
   width:100%;
   height:100%;
   pointer-events:none;
 }
 .eb-melius-home.is-cipher-intro .eb-melius-dots{
-  z-index:8;
+  z-index:3;
+}
+.eb-melius-home.is-cipher-done .eb-melius-dots{
+  opacity:0;
+  visibility:hidden;
 }
 .eb-melius-home.is-cipher-intro .eb-melius-content,
 .eb-melius-home.is-cipher-intro .eb-melius-hub{
@@ -887,12 +906,6 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 }
 .eb-melius-home.is-orbit-focus .eb-melius-card.is-live img{
   filter:saturate(1.05) contrast(1.04);
-}
-
-@keyframes goya-drift{
-  0%,100%{transform:scale(1.12) translate3d(0,0,0)}
-  35%{transform:scale(1.2) translate3d(-2.6%,1.8%,0)}
-  68%{transform:scale(1.16) translate3d(2.4%,-1.5%,0)}
 }
 
 .eb-melius-home.is-cipher-orbit .eb-melius-content{

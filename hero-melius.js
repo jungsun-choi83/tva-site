@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261004v';
+const GOYA_V = 'eb-20261004w';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
@@ -64,7 +64,7 @@ function sampleBeamLetters(w, h) {
   return pts.length ? pts : [{ x: w / 2, y: h / 2 }];
 }
 
-function initDotGenerator(home, getSlots) {
+function initDotGenerator(home) {
   const canvas = home.querySelector('.eb-melius-dots');
   if (!canvas) return { draw() {}, resize() {}, reset() {}, progress: () => 1 };
   const ctx = canvas.getContext('2d', { alpha: true });
@@ -72,23 +72,35 @@ function initDotGenerator(home, getSlots) {
   let seeded = false;
   let bornAt = 0;
   let letterPts = [];
+  let lastW = 0;
+  let lastH = 0;
 
-  function resize() {
+  function resize(forceSeed = false) {
     const dpr = Math.min(2, window.devicePixelRatio || 1);
     const w = home.clientWidth || 1;
     const h = home.clientHeight || 1;
-    canvas.width = Math.floor(w * dpr);
-    canvas.height = Math.floor(h * dpr);
-    canvas.style.width = `${w}px`;
-    canvas.style.height = `${h}px`;
-    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    seed(w, h);
+    if (w < 80 || h < 80) return false;
+    const nextW = Math.floor(w * dpr);
+    const nextH = Math.floor(h * dpr);
+    if (canvas.width !== nextW || canvas.height !== nextH) {
+      canvas.width = nextW;
+      canvas.height = nextH;
+      canvas.style.width = `${w}px`;
+      canvas.style.height = `${h}px`;
+      ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+    }
+    if (forceSeed || !seeded || Math.abs(w - lastW) > 48 || Math.abs(h - lastH) > 48) {
+      lastW = w;
+      lastH = h;
+      seed(w, h);
+    }
+    return true;
   }
 
   function seed(w, h) {
     letterPts = sampleBeamLetters(w, h);
     dots.length = 0;
-    const count = Math.max(letterPts.length, 1600);
+    const count = Math.min(720, Math.max(letterPts.length, 280));
     for (let i = 0; i < count; i += 1) {
       const edge = Math.random();
       let sx;
@@ -119,9 +131,9 @@ function initDotGenerator(home, getSlots) {
         slot: i % 12,
         ox: (Math.random() - 0.5) * 0.95,
         oy: (Math.random() - 0.5) * 0.95,
-        r: 0.55 + Math.random() * 0.85,
-        a: 0.55 + Math.random() * 0.35,
-        delay: Math.random() * 0.28,
+        r: 0.45 + Math.random() * 0.55,
+        a: 0.45 + Math.random() * 0.35,
+        delay: Math.random() * 0.18,
         tw: Math.random() * Math.PI * 2,
       });
     }
@@ -131,55 +143,55 @@ function initDotGenerator(home, getSlots) {
   function reset() {
     bornAt = 0;
     seeded = false;
-    resize();
+    lastW = 0;
+    lastH = 0;
+    resize(true);
   }
 
   function progress(now) {
     if (!bornAt) return 0;
-    return Math.min(1, (now - bornAt) / 4200);
+    return Math.min(1, (now - bornAt) / 2400);
   }
 
   function draw(now) {
-    if (!seeded) resize();
+    if (!resize()) return;
     if (!bornAt) bornAt = now;
     const w = home.clientWidth || 1;
     const h = home.clientHeight || 1;
     const t = (now - bornAt) / 1000;
-    const slots = getSlots();
+    const gather = Math.min(1, Math.max(0, t / 0.85));
+    const hold = t >= 0.85 && t < 1.35;
+    const scatter = Math.min(1, Math.max(0, (t - 1.35) / 0.5));
+    const fade = Math.max(0, 1 - Math.max(0, t - 1.5) / 0.45);
+    home.classList.toggle('is-cipher-intro', t < 1.55);
+    home.classList.toggle('is-cipher-done', t >= 1.55);
     ctx.clearRect(0, 0, w, h);
-    const gather = Math.min(1, Math.max(0, t / 1.05));
-    const hold = t >= 1.05 && t < 1.85;
-    const dissolve = Math.min(1, Math.max(0, (t - 1.85) / 0.7));
-    const photoIn = Math.max(0, (t - 2.05) / 0.55);
-    home.classList.toggle('is-cipher-intro', photoIn < 0.2);
+    if (fade <= 0.01) return;
 
     for (const d of dots) {
-      const local = Math.min(1, Math.max(0, (gather - d.delay) / 0.45));
+      const local = Math.min(1, Math.max(0, (gather - d.delay) / 0.4));
       const ease = 1 - (1 - local) ** 3;
-      const slot = slots[d.slot] || { cx: w * 0.5, cy: h * 0.5, w: 90, h: 120 };
-      const px = slot.cx + d.ox * slot.w;
-      const py = slot.cy + d.oy * slot.h;
+      const outX = d.lx + (d.sx - d.lx) * 1.4;
+      const outY = d.ly + (d.sy - d.ly) * 1.4;
       let tx = d.lx;
       let ty = d.ly;
-      if (dissolve > 0) {
-        tx = d.lx + (px - d.lx) * dissolve;
-        ty = d.ly + (py - d.ly) * dissolve;
+      if (scatter > 0) {
+        tx = d.lx + (outX - d.lx) * scatter;
+        ty = d.ly + (outY - d.ly) * scatter;
       }
-      const parked = hold || dissolve > 0;
+      const parked = hold || scatter > 0;
       d.x = d.sx + (tx - d.sx) * (parked ? 1 : ease);
       d.y = d.sy + (ty - d.sy) * (parked ? 1 : ease);
-      const vis = Math.max(local, gather, hold ? 1 : 0, dissolve);
-      const fade = Math.max(0.22, 1 - photoIn * 0.7);
-      const pulse = 0.82 + Math.sin(now * 0.006 + d.tw) * 0.18;
-      const alpha = Math.min(1, d.a * vis * fade * pulse);
-      ctx.fillStyle = `rgba(244,241,230,${alpha.toFixed(3)})`;
+      const vis = Math.max(local, gather) * fade;
+      if (vis <= 0.02) continue;
+      const pulse = 0.8 + Math.sin(now * 0.006 + d.tw) * 0.2;
+      ctx.fillStyle = `rgba(244,241,230,${(d.a * vis * pulse).toFixed(3)})`;
       ctx.beginPath();
       ctx.arc(d.x, d.y, d.r, 0, Math.PI * 2);
       ctx.fill();
     }
   }
 
-  resize();
   return { draw, resize, reset, progress };
 }
 
@@ -244,8 +256,7 @@ export function initHeroMelius(isReduced) {
   if (!hero || !home || !stage || !rail) return;
 
   home.classList.add('is-cipher-orbit', 'is-cipher-intro');
-  const photoSlots = [];
-  const dots = initDotGenerator(home, () => photoSlots);
+  const dots = initDotGenerator(home);
   wrapMeliusGoldLines(home);
   window.addEventListener('eb:lang', () => wrapMeliusGoldLines(home));
 
@@ -300,12 +311,13 @@ export function initHeroMelius(isReduced) {
     const focusing = hoverIndex >= 0 || pinnedIndex >= 0 || performance.now() < focusUntil;
     home.classList.toggle('is-orbit-focus', focusing);
     const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
-    const assemble = dots.progress(performance.now());
-    const shown = Math.max(0, Math.min(1, (assemble - 0.48) / 0.14));
-    const homeR = home.getBoundingClientRect();
-    const originX = rect.left - homeR.left + rect.width / 2;
-    const originY = rect.top - homeR.top + rect.height / 2;
-    photoSlots.length = 0;
+    const age = orbitBorn ? (performance.now() - orbitBorn) / 1000 : 0;
+    let shown = Math.max(0, Math.min(1, (age - 1.25) / 0.35));
+    if (age > 2.1 || (!orbitBorn && hero.dataset.powerState === 'locked')) {
+      shown = 1;
+      home.classList.add('is-cipher-done');
+      home.classList.remove('is-cipher-intro');
+    }
     let frontIndex = 0;
     let focusDepth = -2;
 
@@ -333,7 +345,6 @@ export function initHeroMelius(isReduced) {
       const stagger = Math.max(0, Math.min(1, (shown - index * 0.035) / 0.55));
       card.style.opacity = String(stagger);
       card.style.transform = transform;
-      photoSlots[index] = { cx: originX + x, cy: originY + y, w: cw, h: ch };
       card.style.setProperty('--orbit-transform', transform);
       card.style.setProperty('--orbit-opacity', '1');
       card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
@@ -475,12 +486,17 @@ export function initHeroMelius(isReduced) {
     { passive: true },
   );
 
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(() => {
+      dots.resize();
+      measureLoop();
+      paintCards();
+    }).observe(home);
+  }
+
   if (isReduced?.()) {
-    home.classList.add('is-reduced');
-    velocity = 0;
-    stop();
-    measureLoop();
-    applyRailTransform();
-    paintCards();
+    home.classList.add('is-reduced', 'is-cipher-done');
+    home.classList.remove('is-cipher-intro');
+    velocity = 0.12;
   }
 }
