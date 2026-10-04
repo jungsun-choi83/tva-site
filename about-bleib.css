@@ -1156,19 +1156,17 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
   transition:transform .22s ease,color .22s ease;
 }
 #about.about-bleib .about-bleib-grid .about-bleib-type__title{
-  display:block;
-  overflow:visible;
-  color:rgba(244,239,230,.92);
-  font:500 clamp(13px,.95vw,17px)/1.35 var(--sans);
-  letter-spacing:.01em;
-  text-transform:none;
+  display:block!important;
+  overflow:visible!important;
+  color:rgba(244,239,230,.92)!important;
+  font:500 clamp(13px,.95vw,17px)/1.35 var(--sans)!important;
+  letter-spacing:.01em!important;
+  text-transform:none!important;
   -webkit-text-stroke:0;
   text-shadow:none;
-  opacity:1;
+  opacity:1!important;
 }
-#about.about-bleib .about-bleib-grid .about-bleib-type__title:after{
-  display:none;
-}
+#about.about-bleib .about-bleib-grid .about-bleib-type__title:after,
 #about.about-bleib .about-bleib-grid .studio-station:nth-child(1) .about-bleib-type__title:after,
 #about.about-bleib .about-bleib-grid .studio-station:nth-child(2) .about-bleib-type__title:after,
 #about.about-bleib .about-bleib-grid .studio-station:nth-child(3) .about-bleib-type__title:after,
@@ -1176,9 +1174,11 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
 #about.about-bleib .about-bleib-grid .studio-station:nth-child(5) .about-bleib-type__title:after,
 #about.about-bleib .about-bleib-grid .studio-station:nth-child(6) .about-bleib-type__title:after,
 #about.about-bleib .about-bleib-grid .studio-station:nth-child(7) .about-bleib-type__title:after{
-  content:none;
+  display:none!important;
+  content:none!important;
 }
 #about.about-bleib .about-bleib-grid .about-bleib-type__sub{
+  display:block!important;
   margin:0 0 4px;
   max-width:none;
   color:rgba(196,154,85,.82);
@@ -1186,7 +1186,6 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
   letter-spacing:.14em;
   text-transform:uppercase;
 }
-#about.about-bleib .about-bleib-grid .about-bleib-type__sub{display:block}
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:before{
   content:"→";
   position:absolute;
@@ -1197,21 +1196,17 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
   transform:translateY(-50%);
   transition:transform .22s ease,color .22s ease;
 }
-#about.about-bleib .about-bleib-grid .about-bleib-type__sub{display:block}
-#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:after{
-  display:block;
-  margin-top:7px;
-  color:rgba(244,239,230,.54);
-  font:400 clamp(9px,.68vw,11px)/1.25 var(--sans);
-  letter-spacing:.01em;
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(1) .about-bleib-flip__face--front:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(2) .about-bleib-flip__face--front:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(3) .about-bleib-flip__face--front:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(4) .about-bleib-flip__face--front:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(5) .about-bleib-flip__face--front:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(6) .about-bleib-flip__face--front:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(7) .about-bleib-flip__face--front:after{
+  display:none!important;
+  content:none!important;
 }
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(1) .about-bleib-flip__face--front:after{content:"It began with Goya."}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(2) .about-bleib-flip__face--front:after{content:"Letters with SoulTrace"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(3) .about-bleib-flip__face--front:after{content:"Their own features."}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(4) .about-bleib-flip__face--front:after{content:"A place for their moments."}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(5) .about-bleib-flip__face--front:after{content:"From photos to small movements."}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(6) .about-bleib-flip__face--front:after{content:"One pet's story, growing over time."}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(7) .about-bleib-flip__face--front:after{content:"How it connects."}
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover,
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible{
   color:#fff;
@@ -1220,7 +1215,7 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
 }
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover .about-bleib-type__title,
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible .about-bleib-type__title{
-  color:#fff;
+  color:#fff!important;
 }
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover:before,
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible:before{

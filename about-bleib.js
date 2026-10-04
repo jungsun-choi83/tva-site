@@ -1,4 +1,4 @@
-import { applyI18n } from './i18n.js?v=eb-20261005f';
+import { applyI18n } from './i18n.js?v=eb-20261005g';
 
 function initAboutBleib() {
   const about = document.querySelector('#about.about-bleib');
@@ -92,16 +92,16 @@ function initAboutBleib() {
       front.className = 'about-bleib-flip__face about-bleib-flip__face--front';
       front.setAttribute('aria-expanded', 'false');
       function writeFront() {
-        const kicker = station.querySelector('.beam-gold__kicker')?.textContent?.trim()
+        const kicker = station.querySelector('.station-copy--head .eyebrow')?.textContent?.trim()
+          || station.querySelector('.beam-gold__kicker')?.textContent?.trim()
           || station.dataset.station
           || 'Section';
         const headline = station.querySelector('.station-copy--head h3')?.innerText.replace(/\s+/g, ' ').trim()
-          || station.querySelector('.service-en')?.textContent?.trim()
           || '';
         front.innerHTML = headline
           ? `<span class="about-bleib-type__sub">${kicker}</span><span class="about-bleib-type__title">${headline}</span>`
           : `<span class="about-bleib-type__title">${kicker}</span>`;
-        detailOverlay.setAttribute('data-front-title', kicker);
+        detailOverlay.setAttribute('data-front-title', headline || kicker);
       }
 
       writeFront();
