@@ -48,11 +48,13 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"] .hero-origina
 }
 
 html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"],
-html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__stage{
-  height:auto;
-  min-height:0;
-  aspect-ratio:16/9;
-  background:#e8e6e1;
+html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__stage,
+html[data-power-state="locked"] .eb-melius-home{
+  height:100svh!important;
+  min-height:100svh!important;
+  max-height:100svh!important;
+  aspect-ratio:auto!important;
+  overflow:hidden;
 }
 html[data-power-state="locked"] .hero[data-hero-visual="keyvisual-v1"] .hero-original__stage{
   position:relative;
@@ -849,11 +851,13 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   z-index:3;
 }
 .eb-melius-home.is-cipher-intro .eb-melius-content,
+.eb-melius-home.is-cipher-intro .eb-melius-orbit-copy,
 .eb-melius-home.is-cipher-intro .eb-melius-hub{
   opacity:0;
   transition:opacity 700ms ease;
 }
 .eb-melius-home.is-cipher-orbit .eb-melius-content,
+.eb-melius-home.is-cipher-orbit .eb-melius-orbit-copy,
 .eb-melius-home.is-cipher-orbit .eb-melius-hub{
   transition:opacity 700ms ease;
 }
@@ -1077,7 +1081,10 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
   }
 }
 
-/* YOUR PET is attached under the device so other headline offsets cannot move it. */
+/* Bigger device on the right; copy and site links sit inside the photo ring. */
+.eb-melius-home.is-cipher-orbit .eb-melius-stage{
+  overflow:visible;
+}
 .eb-melius-home.is-cipher-orbit .eb-melius-hub:before,
 .eb-melius-home.is-cipher-orbit .eb-melius-hub:after,
 .eb-melius-home.is-cipher-orbit .eb-melius-hub__logo{
@@ -1085,66 +1092,91 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
 }
 .eb-melius-home.is-cipher-orbit .eb-melius-hub{
   overflow:visible;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  width:clamp(220px,24vw,360px)!important;
+  pointer-events:none;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-hub__shell{
+  position:relative;
+  width:100%;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-hub__device{
+  width:100%;
 }
 .eb-melius-home.is-cipher-orbit .eb-melius-hub .eb-melius-headline{
-  position:absolute!important;
-  left:50%!important;
-  top:100%!important;
+  position:relative!important;
+  left:auto!important;
+  top:auto!important;
   right:auto!important;
   bottom:auto!important;
-  width:min(560px,78vw)!important;
-  max-width:min(560px,78vw)!important;
-  margin:10px 0 0!important;
+  width:100%!important;
+  max-width:100%!important;
+  margin:12px 0 0!important;
   padding:0!important;
-  transform:translateX(-50%)!important;
+  transform:none!important;
   text-align:center!important;
-  font-size:clamp(20px,2.2vw,34px)!important;
+  font-size:clamp(18px,2vw,32px)!important;
   z-index:80;
   pointer-events:none;
 }
-.eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot{
-  top:auto!important;
-  bottom:max(16px,env(safe-area-inset-bottom))!important;
-  width:min(640px,86vw)!important;
-  transform:translateX(-50%)!important;
+.eb-melius-orbit-copy{
+  position:absolute;
+  z-index:55;
+  left:30%;
+  top:50%;
+  width:min(280px,28vw);
+  transform:translate(-50%,-50%);
   text-align:center;
+  pointer-events:auto;
 }
-
-.eb-melius-home.is-cipher-orbit .eb-melius-card{
-  left:30%!important;
-  top:46%!important;
+.eb-melius-orbit-copy .eb-melius-foot__sub,
+.eb-melius-orbit-copy .eb-melius-foot__lead{
+  color:#eceae4!important;
+  text-shadow:0 2px 16px rgba(0,0,0,.7);
 }
-.eb-melius-home.is-cipher-orbit .eb-melius-hub{
-  left:76%!important;
-  top:46%!important;
-  transform:translate(-50%,-50%)!important;
-  width:clamp(120px,13vw,210px);
+.eb-melius-orbit-copy .eb-melius-foot__lead{
+  font-size:clamp(12px,1.1vw,15px);
+  line-height:1.55;
+  word-break:keep-all;
 }
-.eb-melius-home.is-cipher-orbit .eb-melius-hub .eb-melius-headline{
-  width:min(380px,36vw)!important;
-  max-width:min(380px,36vw)!important;
+.eb-melius-orbit-copy .eb-melius-foot__cta{
+  margin-top:14px;
 }
-.eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot{
-  left:76%!important;
-  width:min(380px,38vw)!important;
-  text-align:center;
+.eb-melius-orbit-copy .eb-melius-foot__cta-row{
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:8px;
+}
+.eb-melius-orbit-copy .eb-melius-btn{
+  min-height:40px;
+  padding:.6em 1.1em;
+  font-size:12px;
+  pointer-events:auto;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-orbit-copy .eb-melius-btn--primary{
+  background:#c49a55;
+  color:#171512;
+  border-color:#c49a55;
+}
+.eb-melius-home.is-cipher-orbit .eb-melius-orbit-copy .eb-melius-btn--ghost{
+  background:rgba(5,5,5,.45);
+  color:#eceae4;
+  border-color:rgba(236,234,228,.45);
 }
 
 @media(max-width:760px){
-  .eb-melius-home.is-cipher-orbit .eb-melius-card{
-    left:32%!important;
-  }
   .eb-melius-home.is-cipher-orbit .eb-melius-hub{
-    left:78%!important;
-    width:clamp(96px,22vw,150px);
+    width:clamp(140px,28vw,210px)!important;
   }
   .eb-melius-home.is-cipher-orbit .eb-melius-hub .eb-melius-headline{
-    width:min(46vw,220px)!important;
-    max-width:min(46vw,220px)!important;
-    font-size:clamp(14px,3.8vw,20px)!important;
+    font-size:clamp(14px,3.6vw,20px)!important;
   }
-  .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-foot{
-    left:78%!important;
-    width:min(46vw,240px)!important;
+  .eb-melius-orbit-copy{
+    width:min(42vw,220px);
+  }
+  .eb-melius-orbit-copy .eb-melius-foot__cta-row{
+    flex-wrap:wrap;
   }
 }

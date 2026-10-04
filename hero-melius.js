@@ -273,7 +273,7 @@ export function initHeroMelius(isReduced) {
   const stage = hero?.querySelector('.eb-melius-stage');
   const rail = hero?.querySelector('.eb-melius-rail');
   const hub = home?.querySelector('.eb-melius-hub');
-  const foot = home?.querySelector('.eb-melius-foot');
+  const orbitCopy = home?.querySelector('.eb-melius-orbit-copy');
   const hubImg = home?.querySelector('.eb-melius-hub__device');
   if (!hero || !home || !stage || !rail) return;
 
@@ -334,10 +334,10 @@ export function initHeroMelius(isReduced) {
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
     const mobile = rect.width <= 720;
     const count = Math.max(1, cards.length);
-    const orbitX = rect.width * (mobile ? 0.32 : 0.28);
-    const orbitY = rect.height * 0.48;
-    const radiusX = rect.width * (mobile ? 0.2 : 0.18);
-    const radiusY = rect.height * (mobile ? 0.24 : 0.22);
+    const orbitX = rect.width * (mobile ? 0.32 : 0.3);
+    const orbitY = rect.height * 0.5;
+    const radiusX = rect.width * (mobile ? 0.22 : 0.21);
+    const radiusY = rect.height * (mobile ? 0.28 : 0.26);
     const tilt = -22 * Math.PI / 180;
     const cosT = Math.cos(tilt);
     const sinT = Math.sin(tilt);
@@ -352,14 +352,14 @@ export function initHeroMelius(isReduced) {
     let focusDepth = -2;
 
     if (hub) {
-      hub.style.setProperty('left', `${(rect.width * (mobile ? 0.78 : 0.74)).toFixed(1)}px`, 'important');
-      hub.style.setProperty('top', `${(rect.height * 0.46).toFixed(1)}px`, 'important');
+      hub.style.setProperty('left', `${(rect.width * (mobile ? 0.78 : 0.76)).toFixed(1)}px`, 'important');
+      hub.style.setProperty('top', `${(rect.height * 0.48).toFixed(1)}px`, 'important');
       hub.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
     }
-    if (foot) {
-      foot.style.setProperty('left', `${(rect.width * (mobile ? 0.78 : 0.74)).toFixed(1)}px`, 'important');
-      foot.style.setProperty('transform', 'translateX(-50%)', 'important');
-      foot.style.setProperty('width', mobile ? 'min(46vw,240px)' : 'min(380px,36vw)', 'important');
+    if (orbitCopy) {
+      orbitCopy.style.setProperty('left', `${orbitX.toFixed(1)}px`, 'important');
+      orbitCopy.style.setProperty('top', `${orbitY.toFixed(1)}px`, 'important');
+      orbitCopy.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
     }
 
     cards.forEach((card, index) => {
