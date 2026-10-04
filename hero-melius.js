@@ -336,17 +336,17 @@ export function initHeroMelius(isReduced) {
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
     const mobile = rect.width <= 720;
     const count = Math.max(1, cards.length);
-    const orbitX = rect.width * (mobile ? 0.38 : 0.42);
-    const orbitY = rect.height * 0.52;
-    const radiusX = rect.width * (mobile ? 0.2 : 0.175);
-    const radiusY = rect.height * (mobile ? 0.26 : 0.24);
-    const tilt = -22 * Math.PI / 180;
+    const orbitX = rect.width * (mobile ? 0.5 : 0.42);
+    const orbitY = rect.height * (mobile ? 0.46 : 0.52);
+    const radiusX = rect.width * (mobile ? 0.38 : 0.175);
+    const radiusY = rect.height * (mobile ? 0.24 : 0.24);
+    const tilt = (mobile ? -8 : -22) * Math.PI / 180;
     const cosT = Math.cos(tilt);
     const sinT = Math.sin(tilt);
     const phase = (offset / loopWidth) * Math.PI * 2;
     const focusing = hoverIndex >= 0 || pinnedIndex >= 0;
     home.classList.toggle('is-orbit-focus', focusing);
-    const unit = Math.min(rect.width * (mobile ? 0.12 : 0.08), mobile ? 78 : 118);
+    const unit = Math.min(rect.width * (mobile ? 0.105 : 0.08), mobile ? 58 : 118);
     const age = orbitBorn ? (performance.now() - orbitBorn) / 1000 : 0;
     let shown = Math.max(0, Math.min(1, (age - 2.25) / 0.4));
     if (age > 2.8 || (!orbitBorn && hero.dataset.powerState === 'locked')) shown = 1;
@@ -354,30 +354,44 @@ export function initHeroMelius(isReduced) {
     let focusDepth = -2;
 
     if (hub) {
-      hub.style.setProperty('left', `${(rect.width * (mobile ? 0.78 : 0.76)).toFixed(1)}px`, 'important');
-      hub.style.setProperty('top', `${(rect.height * 0.48).toFixed(1)}px`, 'important');
+      hub.style.setProperty('left', `${(rect.width * (mobile ? 0.5 : 0.76)).toFixed(1)}px`, 'important');
+      hub.style.setProperty('top', `${(rect.height * (mobile ? 0.46 : 0.48)).toFixed(1)}px`, 'important');
       hub.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+      hub.style.setProperty('z-index', mobile ? '24' : '70', 'important');
     }
     if (orbitCopy) {
-      orbitCopy.style.setProperty('left', `${orbitX.toFixed(1)}px`, 'important');
-      orbitCopy.style.setProperty('top', `${orbitY.toFixed(1)}px`, 'important');
+      orbitCopy.style.setProperty('left', `${(mobile ? rect.width * 0.5 : orbitX).toFixed(1)}px`, 'important');
+      orbitCopy.style.setProperty('top', `${(mobile ? rect.height * 0.74 : orbitY).toFixed(1)}px`, 'important');
       orbitCopy.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+      if (mobile) {
+        orbitCopy.style.setProperty('width', 'min(86vw, 320px)', 'important');
+        orbitCopy.style.setProperty('text-align', 'center', 'important');
+      }
     }
     if (headline) {
       const homeR = home.getBoundingClientRect();
       const brandR = brand?.getBoundingClientRect();
-      const left = brandR ? Math.max(16, brandR.left - homeR.left) : (mobile ? 18 : 40);
-      const top = brandR
-        ? Math.max(56, brandR.bottom - homeR.top + (mobile ? 14 : 22))
-        : (mobile ? 72 : 96);
-      headline.style.setProperty('left', `${left.toFixed(1)}px`, 'important');
-      headline.style.setProperty('top', `${top.toFixed(1)}px`, 'important');
-      headline.style.setProperty('right', 'auto', 'important');
-      headline.style.setProperty('bottom', 'auto', 'important');
-      headline.style.setProperty('transform', 'none', 'important');
-      headline.style.setProperty('text-align', 'left', 'important');
-      headline.style.setProperty('width', mobile ? 'min(72vw,280px)' : 'min(34vw,28rem)', 'important');
-      headline.style.setProperty('max-width', mobile ? 'min(72vw,280px)' : 'min(34vw,28rem)', 'important');
+      if (mobile) {
+        headline.style.setProperty('left', '50%', 'important');
+        headline.style.setProperty('top', `${(homeR.height * 0.28).toFixed(1)}px`, 'important');
+        headline.style.setProperty('right', 'auto', 'important');
+        headline.style.setProperty('bottom', 'auto', 'important');
+        headline.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+        headline.style.setProperty('text-align', 'center', 'important');
+        headline.style.setProperty('width', 'min(86vw, 320px)', 'important');
+        headline.style.setProperty('max-width', 'min(86vw, 320px)', 'important');
+      } else {
+        const left = brandR ? Math.max(16, brandR.left - homeR.left) : 40;
+        const top = brandR ? Math.max(56, brandR.bottom - homeR.top + 22) : 96;
+        headline.style.setProperty('left', `${left.toFixed(1)}px`, 'important');
+        headline.style.setProperty('top', `${top.toFixed(1)}px`, 'important');
+        headline.style.setProperty('right', 'auto', 'important');
+        headline.style.setProperty('bottom', 'auto', 'important');
+        headline.style.setProperty('transform', 'none', 'important');
+        headline.style.setProperty('text-align', 'left', 'important');
+        headline.style.setProperty('width', 'min(34vw,28rem)', 'important');
+        headline.style.setProperty('max-width', 'min(34vw,28rem)', 'important');
+      }
       headline.style.setProperty('margin', '0', 'important');
       headline.style.setProperty('z-index', '90', 'important');
     }
@@ -400,7 +414,7 @@ export function initHeroMelius(isReduced) {
         focusDepth = depth;
         frontIndex = index;
       }
-      const z = Math.round(12 + depth * 28 + (index % 3));
+      const z = Math.round((mobile ? 18 : 12) + depth * (mobile ? 36 : 28) + (index % 3));
       card.style.setProperty('left', `${x.toFixed(1)}px`, 'important');
       card.style.setProperty('top', `${y.toFixed(1)}px`, 'important');
       card.style.setProperty('translate', 'none', 'important');
