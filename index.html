@@ -12,15 +12,16 @@
   <!-- 링크 미리보기(OG·트위터) 카드와 대표 주소. 배포 도메인은 https://eternalbeam.com/
        크롤러와 메신저 미리보기는 자바스크립트를 실행하지 않으므로 절대 주소를 그대로 적는다. -->
   <link rel="canonical" href="https://eternalbeam.com/">
+  <link rel="image_src" href="https://eternalbeam.com/share-card.jpg">
   <meta property="og:type" content="website">
   <meta property="og:site_name" content="Eternal Beam">
   <meta property="og:title" content="Eternal Beam">
   <meta property="og:description" content="당신의 반려동물. 그 아이의 이야기. 곁에 남겨 둡니다.">
   <meta property="og:url" content="https://eternalbeam.com/">
   <meta property="og:locale" content="ko_KR">
-  <meta property="og:updated_time" content="2026-10-04T09:30:00Z">
-  <meta property="og:image" content="https://eternalbeam.com/assets/og/eb-home-og-20261004.jpg">
-  <meta property="og:image:secure_url" content="https://eternalbeam.com/assets/og/eb-home-og-20261004.jpg">
+  <meta property="og:updated_time" content="2026-10-04T09:40:00Z">
+  <meta property="og:image" content="https://eternalbeam.com/share-card.jpg">
+  <meta property="og:image:secure_url" content="https://eternalbeam.com/share-card.jpg">
   <meta property="og:image:type" content="image/jpeg">
   <meta property="og:image:width" content="1200">
   <meta property="og:image:height" content="630">
@@ -28,7 +29,7 @@
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="Eternal Beam">
   <meta name="twitter:description" content="당신의 반려동물. 그 아이의 이야기. 곁에 남겨 둡니다.">
-  <meta name="twitter:image" content="https://eternalbeam.com/assets/og/eb-home-og-20261004.jpg">
+  <meta name="twitter:image" content="https://eternalbeam.com/share-card.jpg">
   <!-- 1672x941 비정사각 로고 대신 정사각 파비콘 -->
   <link rel="icon" type="image/webp" sizes="32x32" href="assets/favicon/favicon-32.webp?v=eternal-beam-r29">
   <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon/favicon-192.png?v=eternal-beam-r29">
@@ -48,7 +49,7 @@
   <link rel="preload" as="image" href="assets/hero/beam-device-3q-shadow-glow-v1.png?v=eternal-beam-r33" fetchpriority="high">
   <link rel="stylesheet" href="styles.css?v=eb-20261005an">
 <link rel="stylesheet" href="hero.css?v=eb-20260927-merge-1">
-<link rel="stylesheet" href="hero-melius.css?v=eb-20261005ar">
+<link rel="stylesheet" href="hero-melius.css?v=eb-20261005as">
   <link rel="stylesheet" href="brand-mark.css?v=eternal-beam-r30">
   <link rel="stylesheet" href="hero-material.css?v=eternal-beam-r33">
   <link rel="stylesheet" href="about.css?v=eb-20260921a">
@@ -71,12 +72,14 @@
     .story-keep { background-color:#e4ddd0; }
     .story-keep[data-act="1"] { background-color:#e4ddd0; }
     .story-keep[data-act="2"] { background-color:#111113; }
+    .eb-share-card{position:absolute;left:-10000px;top:auto;width:1200px;height:630px}
   </style>
   <!-- 검색 결과 회사 정보 카드. 대표자·사업자등록번호·주소·연락처는 확정된 값이 오면 채운다 -->
-  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Eternal Beam","alternateName":"이터널빔","url":"https://eternalbeam.com/","logo":"https://eternalbeam.com/assets/favicon/favicon-192.png?v=eternal-beam-r29","image":"https://eternalbeam.com/assets/og/eb-home-og-20261004.jpg","description":"Soul Trace와 연결되는 홀로그램 디스플레이어. 하드웨어 안에 콘텐츠 아카이브를 남깁니다.","address":{"@type":"PostalAddress","addressLocality":"Seoul","addressCountry":"KR"},"knowsAbout":["홀로그램 디스플레이","반려동물 메모리얼","Soul Trace","콘텐츠 아카이브","Identity Lock"]}</script>
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"Organization","name":"Eternal Beam","alternateName":"이터널빔","url":"https://eternalbeam.com/","logo":"https://eternalbeam.com/assets/favicon/favicon-192.png?v=eternal-beam-r29","image":"https://eternalbeam.com/share-card.jpg","description":"Soul Trace와 연결되는 홀로그램 디스플레이어. 하드웨어 안에 콘텐츠 아카이브를 남깁니다.","address":{"@type":"PostalAddress","addressLocality":"Seoul","addressCountry":"KR"},"knowsAbout":["홀로그램 디스플레이","반려동물 메모리얼","Soul Trace","콘텐츠 아카이브","Identity Lock"]}</script>
   <script type="importmap">{"imports":{"three":"./vendor/three.module.js"}}</script>
 </head>
 <body>
+  <img class="eb-share-card" src="https://eternalbeam.com/share-card.jpg" width="1200" height="630" alt="Eternal Beam">
   <!-- 2026-09-12 #M04: 상단바는 첫 화면에서 inert 라 탭 순서에 없다. 키보드만 쓰는 사람이 문의까지
        가려면 낙하 통로와 ABOUT 일곱 칸을 전부 탭으로 지나야 했다. 건너뛰기 링크를 두 개 둔다.
        초점을 받을 때만 보이므로 일반 화면에는 변화가 없다. -->
@@ -549,7 +552,7 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
   <!-- 2026-09-12 감사 [119]: 장식용 그림(alt="")이 안 오면 흰 깨진-그림 상자 대신 자리를 비운다 -->
   <script>addEventListener('error',e=>{const t=e.target;if(t&&t.tagName==='IMG'&&t.getAttribute('alt')==='')t.style.visibility='hidden'},true);for(const i of document.querySelectorAll('img[alt=""]'))if(i.complete&&i.naturalWidth===0)i.style.visibility='hidden';</script>
   <button class="motion-toggle" type="button" aria-pressed="false">움직임 줄이기</button>
-<script src="app.js?v=eb-20261005ar" type="module"></script>
+<script src="app.js?v=eb-20261005as" type="module"></script>
 <script type="module" src="scroll-cue.js?v=eb-20260927-merge-1"></script>
   <script type="module" src="section-bleib.js?v=eb-20260927-merge-1"></script>
   <script type="module" src="about-bleib.js?v=eb-20261005ao"></script>

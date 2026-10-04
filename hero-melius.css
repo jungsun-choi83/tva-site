@@ -1179,12 +1179,12 @@ html.reduced-motion .eb-melius-home.is-cipher-orbit .eb-melius-card img,
   }
   .eb-melius-home.is-cipher-orbit .eb-melius-content .eb-melius-headline{
     left:50%!important;
-    top:24%!important;
-    width:min(86vw,320px)!important;
-    max-width:min(86vw,320px)!important;
-    transform:translate(-50%,-50%)!important;
+    top:calc(env(safe-area-inset-top,0px) + 52px)!important;
+    width:min(92vw,360px)!important;
+    max-width:min(92vw,360px)!important;
+    transform:translateX(-50%)!important;
     text-align:center!important;
-    font-size:clamp(26px,7.4vw,36px)!important;
+    font-size:clamp(24px,6.8vw,34px)!important;
   }
   .eb-melius-orbit-copy,
   .eb-melius-orbit-copy.is-mobile-dock{

@@ -337,7 +337,7 @@ export function initHeroMelius(isReduced) {
     const mobile = Math.min(rect.width, window.innerWidth || rect.width) <= 820;
     const count = Math.max(1, cards.length);
     const orbitX = rect.width * (mobile ? 0.5 : 0.42);
-    const orbitY = rect.height * (mobile ? 0.42 : 0.52);
+    const orbitY = rect.height * (mobile ? 0.46 : 0.52);
     const radiusX = rect.width * (mobile ? 0.38 : 0.175);
     const radiusY = rect.height * (mobile ? 0.2 : 0.24);
     const tilt = (mobile ? -8 : -22) * Math.PI / 180;
@@ -355,7 +355,7 @@ export function initHeroMelius(isReduced) {
 
     if (hub) {
       hub.style.setProperty('left', `${(rect.width * (mobile ? 0.5 : 0.76)).toFixed(1)}px`, 'important');
-      hub.style.setProperty('top', `${(rect.height * (mobile ? 0.42 : 0.48)).toFixed(1)}px`, 'important');
+      hub.style.setProperty('top', `${(rect.height * (mobile ? 0.46 : 0.48)).toFixed(1)}px`, 'important');
       hub.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
       hub.style.setProperty('z-index', mobile ? '24' : '70', 'important');
     }
@@ -380,14 +380,15 @@ export function initHeroMelius(isReduced) {
       const homeR = home.getBoundingClientRect();
       const brandR = brand?.getBoundingClientRect();
       if (mobile) {
+        const top = brandR ? Math.max(48, brandR.bottom - homeR.top + 8) : 52;
         headline.style.setProperty('left', '50%', 'important');
-        headline.style.setProperty('top', `${(homeR.height * 0.28).toFixed(1)}px`, 'important');
+        headline.style.setProperty('top', `${top.toFixed(1)}px`, 'important');
         headline.style.setProperty('right', 'auto', 'important');
         headline.style.setProperty('bottom', 'auto', 'important');
-        headline.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+        headline.style.setProperty('transform', 'translateX(-50%)', 'important');
         headline.style.setProperty('text-align', 'center', 'important');
-        headline.style.setProperty('width', 'min(86vw, 320px)', 'important');
-        headline.style.setProperty('max-width', 'min(86vw, 320px)', 'important');
+        headline.style.setProperty('width', 'min(92vw, 360px)', 'important');
+        headline.style.setProperty('max-width', 'min(92vw, 360px)', 'important');
       } else {
         const left = brandR ? Math.max(16, brandR.left - homeR.left) : 40;
         const top = brandR ? Math.max(56, brandR.bottom - homeR.top + 22) : 96;
