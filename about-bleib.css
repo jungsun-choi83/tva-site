@@ -589,6 +589,50 @@ html[data-about-grid="open"]{
 #about.about-bleib .beam-gold.is-nudged .beam-gold__bars i:last-child{
   transform:translateX(10px);
 }
+#about.about-bleib .station-intro.is-flipped .about-bleib-flip{
+  min-height:clamp(560px,78vh,820px);
+}
+#about.about-bleib .station-intro .beam-gold{
+  padding-bottom:clamp(20px,3vh,28px);
+}
+#about.about-bleib .station-intro .beam-gold__bars{display:none}
+.goya-moments{
+  margin:clamp(16px,2.2vh,22px) 0 0;
+}
+.goya-moments__grid{
+  display:grid;
+  grid-template-columns:repeat(4,minmax(0,1fr));
+  gap:clamp(8px,1.2vw,12px);
+  margin:0;
+  padding:0;
+  list-style:none;
+}
+.goya-moments__grid li{
+  min-width:0;
+}
+.goya-moments__grid img{
+  display:block;
+  width:100%;
+  aspect-ratio:3/4;
+  object-fit:cover;
+  background:#1a1612;
+  border-radius:2px;
+}
+.goya-moments__grid span{
+  display:block;
+  margin-top:6px;
+  font:500 10px/1.35 var(--sans);
+  letter-spacing:.01em;
+  opacity:.78;
+}
+.goya-moments figcaption{
+  margin:clamp(10px,1.6vh,14px) 0 0;
+  font:500 13px/1.45 var(--sans);
+  letter-spacing:-.01em;
+}
+@media (max-width:780px){
+  .goya-moments__grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
 #about.about-bleib .station-exit .about-bleib-flip{
   min-height:clamp(200px,26vh,260px);
 }

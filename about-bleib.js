@@ -1,4 +1,4 @@
-import { applyI18n } from './i18n.js?v=eb-20260920r';
+import { applyI18n } from './i18n.js?v=eb-20261004a';
 
 function initAboutBleib() {
   const about = document.querySelector('#about.about-bleib');
