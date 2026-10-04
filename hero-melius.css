@@ -25,6 +25,9 @@
   pointer-events:none;
   user-select:none;
 }
+html[data-power-state="mark-out"] .eb-melius-home,
+html[data-power-state="ignite"] .eb-melius-home,
+html[data-power-state="tune"] .eb-melius-home,
 html[data-power-state="locked"] .eb-melius-home{
   display:flex;
 }
@@ -777,6 +780,10 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
   height:100%;
   overflow:hidden;
 }
+.eb-melius-home.is-cipher-orbit .eb-melius-card:nth-child(1) img{
+  object-fit:contain;
+  object-position:50% 58%;
+}
 .eb-melius-card img{
   width:100%;
   height:100%;
@@ -794,11 +801,15 @@ html[data-hero-ui="melius"] .hero[data-hero-visual="keyvisual-v1"]{
 .eb-melius-card:nth-child(3n+2) img{animation-duration:13s}
 .eb-melius-dots{
   position:absolute;
-  z-index:28;
+  z-index:6;
   inset:0;
   width:100%;
   height:100%;
   pointer-events:none;
+  mix-blend-mode:plus-lighter;
+}
+.eb-melius-home.is-cipher-intro .eb-melius-dots{
+  z-index:42;
 }
 .eb-melius-home.is-cipher-intro .eb-melius-content,
 .eb-melius-home.is-cipher-intro .eb-melius-hub{

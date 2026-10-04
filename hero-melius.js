@@ -1,4 +1,4 @@
-const GOYA_V = 'eb-20261004t';
+const GOYA_V = 'eb-20261004u';
 const PET_PHOTOS = [
   `assets/hero/goya-orbit/goya-01.webp?v=${GOYA_V}`,
   `assets/hero/goya-orbit/goya-02.webp?v=${GOYA_V}`,
@@ -15,7 +15,7 @@ const PET_PHOTOS = [
 ];
 
 const CARD_FRAMES = [
-  [0.92, 1.28],
+  [0.88, 1.18],
   [0.82, 1.18],
   [1.5, 1.06],
   [0.9, 1.32],
@@ -36,20 +36,29 @@ function sampleBeamLetters(w, h) {
   off.width = Math.max(2, Math.floor(w));
   off.height = Math.max(2, Math.floor(h));
   const c = off.getContext('2d');
-  const size = Math.min(w * 0.108, h * 0.16, 108);
+  const size = Math.min(w * 0.145, h * 0.2, 164);
   c.fillStyle = '#fff';
+  c.strokeStyle = '#fff';
+  c.lineWidth = Math.max(1.6, size * 0.045);
   c.textAlign = 'center';
   c.textBaseline = 'middle';
-  c.font = `700 ${size}px "Times New Roman", "Iowan Old Style", serif`;
-  c.letterSpacing = `${Math.max(4, size * 0.08)}px`;
-  c.fillText('ETERNAL', w / 2, h / 2 - size * 0.72);
-  c.fillText('BEAM', w / 2, h / 2 + size * 0.72);
+  c.font = `800 ${size}px "Times New Roman", Georgia, serif`;
+  const drawSpaced = (text, y, tracking) => {
+    const start = w / 2 - ((text.length - 1) * tracking) / 2;
+    for (let i = 0; i < text.length; i += 1) {
+      const x = start + i * tracking;
+      c.strokeText(text[i], x, y);
+      c.fillText(text[i], x, y);
+    }
+  };
+  drawSpaced('ETERNAL', h / 2 - size * 0.78, size * 0.72);
+  drawSpaced('BEAM', h / 2 + size * 0.78, size * 0.78);
   const { data } = c.getImageData(0, 0, off.width, off.height);
   const pts = [];
-  const step = Math.max(2, Math.round(size / 28));
+  const step = Math.max(2, Math.round(size / 46));
   for (let y = 0; y < off.height; y += step) {
     for (let x = 0; x < off.width; x += step) {
-      if (data[(y * off.width + x) * 4 + 3] > 70) pts.push({ x, y });
+      if (data[(y * off.width + x) * 4 + 3] > 40) pts.push({ x, y });
     }
   }
   return pts.length ? pts : [{ x: w / 2, y: h / 2 }];
@@ -79,35 +88,40 @@ function initDotGenerator(home, getSlots) {
   function seed(w, h) {
     letterPts = sampleBeamLetters(w, h);
     dots.length = 0;
-    const count = Math.max(letterPts.length, 1400);
+    const count = Math.max(letterPts.length * 2, 2200);
     for (let i = 0; i < count; i += 1) {
       const edge = Math.random();
       let sx;
       let sy;
-      if (edge < 0.34) {
+      if (edge < 0.42) {
         sx = Math.random() * w;
-        sy = Math.random() < 0.5 ? -40 : h + 40;
-      } else if (edge < 0.68) {
-        sx = Math.random() < 0.5 ? -40 : w + 40;
+        sy = Math.random() < 0.5 ? -48 : h + 48;
+      } else if (edge < 0.84) {
+        sx = Math.random() < 0.5 ? -48 : w + 48;
         sy = Math.random() * h;
       } else {
         sx = Math.random() * w;
         sy = Math.random() * h;
       }
+      const onGlyph = i < letterPts.length * 1.35;
       const glyph = letterPts[i % letterPts.length];
+      const fieldX = Math.random() * w;
+      const fieldY = Math.random() * h;
       dots.push({
         sx,
         sy,
         x: sx,
         y: sy,
-        lx: glyph.x + (Math.random() - 0.5) * 1.4,
-        ly: glyph.y + (Math.random() - 0.5) * 1.4,
+        lx: onGlyph ? glyph.x + (Math.random() - 0.5) * 1.8 : fieldX,
+        ly: onGlyph ? glyph.y + (Math.random() - 0.5) * 1.8 : fieldY,
+        fx: glyph.x + (Math.random() - 0.5) * w * 0.42,
+        fy: glyph.y + (Math.random() - 0.5) * h * 0.38,
         slot: i % 12,
-        ox: (Math.random() - 0.5) * 0.9,
-        oy: (Math.random() - 0.5) * 0.9,
-        r: 1.6 + Math.random() * 2.4,
-        a: 0.72 + Math.random() * 0.28,
-        delay: Math.random() * 0.22,
+        ox: (Math.random() - 0.5) * 0.95,
+        oy: (Math.random() - 0.5) * 0.95,
+        r: 1.8 + Math.random() * 3.4,
+        a: 0.82 + Math.random() * 0.18,
+        delay: Math.random() * 0.28,
         tw: Math.random() * Math.PI * 2,
       });
     }
@@ -122,7 +136,7 @@ function initDotGenerator(home, getSlots) {
 
   function progress(now) {
     if (!bornAt) return 0;
-    return Math.min(1, (now - bornAt) / 7200);
+    return Math.min(1, (now - bornAt) / 16000);
   }
 
   function draw(now) {
@@ -133,35 +147,49 @@ function initDotGenerator(home, getSlots) {
     const t = (now - bornAt) / 1000;
     const slots = getSlots();
     ctx.clearRect(0, 0, w, h);
-    const gather = Math.min(1, Math.max(0, t / 1.55));
-    const hold = t >= 1.55 && t < 4.15;
-    const dissolve = Math.min(1, Math.max(0, (t - 4.15) / 0.9));
-    const linger = Math.min(1, Math.max(0, (t - 4.15) / 3.2));
-    const photoIn = Math.max(0, (t - 5.1) / 1.4);
-    home.classList.toggle('is-cipher-intro', photoIn < 0.55);
+    ctx.globalCompositeOperation = 'lighter';
+    const gather = Math.min(1, Math.max(0, t / 2.4));
+    const hold = t >= 2.4 && t < 6.4;
+    const dissolve = Math.min(1, Math.max(0, (t - 6.4) / 1.6));
+    const linger = Math.min(1, Math.max(0, (t - 8) / 4.6));
+    const photoIn = Math.max(0, (t - 12.6) / 1.8);
+    home.classList.toggle('is-cipher-intro', photoIn < 0.45);
 
     for (const d of dots) {
-      const local = Math.min(1, Math.max(0, (gather - d.delay) / 0.55));
-      if (local <= 0 && t < 1.55) continue;
+      const local = Math.min(1, Math.max(0, (gather - d.delay) / 0.7));
       const ease = 1 - (1 - local) ** 3;
       const slot = slots[d.slot] || { cx: w * 0.5, cy: h * 0.5, w: 90, h: 120 };
       const px = slot.cx + d.ox * slot.w;
       const py = slot.cy + d.oy * slot.h;
       let tx = d.lx;
       let ty = d.ly;
-      if (!hold && dissolve > 0) {
-        tx = d.lx + (px - d.lx) * dissolve;
-        ty = d.ly + (py - d.ly) * dissolve;
+      if (dissolve > 0) {
+        const field = Math.min(1, dissolve);
+        tx = d.lx + (d.fx - d.lx) * field;
+        ty = d.ly + (d.fy - d.ly) * field;
       }
-      d.x = d.sx + (tx - d.sx) * (hold || dissolve > 0 ? 1 : ease);
-      d.y = d.sy + (ty - d.sy) * (hold || dissolve > 0 ? 1 : ease);
-      const fade = 1 - photoIn * 0.55;
-      const pulse = 0.86 + Math.sin(now * 0.004 + d.tw) * 0.14;
-      ctx.fillStyle = `rgba(244,241,230,${(d.a * Math.max(local, gather) * fade * pulse).toFixed(3)})`;
+      if (photoIn > 0) {
+        tx += (px - tx) * Math.min(1, photoIn * 0.35);
+        ty += (py - ty) * Math.min(1, photoIn * 0.35);
+      }
+      const parked = hold || dissolve > 0 || linger > 0;
+      d.x = d.sx + (tx - d.sx) * (parked ? 1 : ease);
+      d.y = d.sy + (ty - d.sy) * (parked ? 1 : ease);
+      const vis = Math.max(local, gather, hold ? 1 : 0, dissolve, linger);
+      const fade = 0.72 + (1 - Math.min(1, photoIn)) * 0.28;
+      const pulse = 0.88 + Math.sin(now * 0.005 + d.tw) * 0.12;
+      const alpha = Math.min(1, d.a * vis * fade * pulse);
+      const rad = d.r * (hold ? 1.15 : 1.28 - ease * 0.08);
+      ctx.fillStyle = `rgba(255,246,214,${(alpha * 0.22).toFixed(3)})`;
       ctx.beginPath();
-      ctx.arc(d.x, d.y, d.r * (hold ? 1.08 : 1.2 - ease * 0.12), 0, Math.PI * 2);
+      ctx.arc(d.x, d.y, rad * 2.4, 0, Math.PI * 2);
+      ctx.fill();
+      ctx.fillStyle = `rgba(255,252,244,${alpha.toFixed(3)})`;
+      ctx.beginPath();
+      ctx.arc(d.x, d.y, rad, 0, Math.PI * 2);
       ctx.fill();
     }
+    ctx.globalCompositeOperation = 'source-over';
   }
 
   resize();
@@ -286,7 +314,7 @@ export function initHeroMelius(isReduced) {
     home.classList.toggle('is-orbit-focus', focusing);
     const unit = Math.min(rect.width * (mobile ? 0.16 : 0.11), mobile ? 96 : 148);
     const assemble = dots.progress(performance.now());
-    const shown = Math.max(0, Math.min(1, (assemble - 0.7) / 0.18));
+    const shown = Math.max(0, Math.min(1, (assemble - 0.78) / 0.16));
     const homeR = home.getBoundingClientRect();
     const originX = rect.left - homeR.left + rect.width / 2;
     const originY = rect.top - homeR.top + rect.height / 2;
@@ -322,7 +350,13 @@ export function initHeroMelius(isReduced) {
       card.style.setProperty('--orbit-transform', transform);
       card.style.setProperty('--orbit-opacity', '1');
       card.style.setProperty('--goya-delay', `${(index % 12) * -0.85}s`);
-      if (index === 0) card.querySelector('img')?.style.setProperty('object-position', '50% 62%');
+      if (index === 0) {
+        const img = card.querySelector('img');
+        if (img) {
+          img.style.objectFit = 'contain';
+          img.style.objectPosition = '50% 58%';
+        }
+      }
     });
 
     const focusIndex = hoverIndex >= 0 ? hoverIndex : pinnedIndex >= 0 ? pinnedIndex : frontIndex;
@@ -391,10 +425,11 @@ export function initHeroMelius(isReduced) {
   }
 
   const syncUi = () => {
-    const on = hero.dataset.powerState === 'locked';
-    root.dataset.heroUi = on ? 'melius' : '';
-    home.setAttribute('aria-hidden', on ? 'false' : 'true');
-    stage.setAttribute('aria-hidden', on ? 'false' : 'true');
+    const state = hero.dataset.powerState;
+    const on = state === 'locked' || state === 'mark-out' || state === 'ignite' || state === 'tune';
+    root.dataset.heroUi = state === 'locked' ? 'melius' : '';
+    home.setAttribute('aria-hidden', state === 'locked' ? 'false' : 'true');
+    stage.setAttribute('aria-hidden', state === 'locked' ? 'false' : 'true');
     if (on) {
       measureLoop();
       start();
