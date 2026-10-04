@@ -274,6 +274,8 @@ export function initHeroMelius(isReduced) {
   const rail = hero?.querySelector('.eb-melius-rail');
   const hub = home?.querySelector('.eb-melius-hub');
   const orbitCopy = home?.querySelector('.eb-melius-orbit-copy');
+  const headline = home?.querySelector('.eb-melius-headline');
+  const brand = home?.querySelector('.eb-melius-top__brand');
   const hubImg = home?.querySelector('.eb-melius-hub__device');
   if (!hero || !home || !stage || !rail) return;
 
@@ -334,10 +336,10 @@ export function initHeroMelius(isReduced) {
     const cards = [...rail.querySelectorAll('.eb-melius-card')];
     const mobile = rect.width <= 720;
     const count = Math.max(1, cards.length);
-    const orbitX = rect.width * (mobile ? 0.32 : 0.3);
-    const orbitY = rect.height * 0.5;
-    const radiusX = rect.width * (mobile ? 0.22 : 0.21);
-    const radiusY = rect.height * (mobile ? 0.28 : 0.26);
+    const orbitX = rect.width * (mobile ? 0.38 : 0.42);
+    const orbitY = rect.height * 0.52;
+    const radiusX = rect.width * (mobile ? 0.2 : 0.175);
+    const radiusY = rect.height * (mobile ? 0.26 : 0.24);
     const tilt = -22 * Math.PI / 180;
     const cosT = Math.cos(tilt);
     const sinT = Math.sin(tilt);
@@ -360,6 +362,24 @@ export function initHeroMelius(isReduced) {
       orbitCopy.style.setProperty('left', `${orbitX.toFixed(1)}px`, 'important');
       orbitCopy.style.setProperty('top', `${orbitY.toFixed(1)}px`, 'important');
       orbitCopy.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+    }
+    if (headline) {
+      const homeR = home.getBoundingClientRect();
+      const brandR = brand?.getBoundingClientRect();
+      const left = brandR ? Math.max(16, brandR.left - homeR.left) : (mobile ? 18 : 40);
+      const top = brandR
+        ? Math.max(56, brandR.bottom - homeR.top + (mobile ? 14 : 22))
+        : (mobile ? 72 : 96);
+      headline.style.setProperty('left', `${left.toFixed(1)}px`, 'important');
+      headline.style.setProperty('top', `${top.toFixed(1)}px`, 'important');
+      headline.style.setProperty('right', 'auto', 'important');
+      headline.style.setProperty('bottom', 'auto', 'important');
+      headline.style.setProperty('transform', 'none', 'important');
+      headline.style.setProperty('text-align', 'left', 'important');
+      headline.style.setProperty('width', mobile ? 'min(72vw,280px)' : 'min(34vw,28rem)', 'important');
+      headline.style.setProperty('max-width', mobile ? 'min(72vw,280px)' : 'min(34vw,28rem)', 'important');
+      headline.style.setProperty('margin', '0', 'important');
+      headline.style.setProperty('z-index', '90', 'important');
     }
 
     cards.forEach((card, index) => {
