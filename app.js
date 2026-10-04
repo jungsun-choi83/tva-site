@@ -1,7 +1,7 @@
 import { initLang } from './i18n.js?v=eb-20261005ak';
 import { initNavShelf } from './nav-shelf.js?v=eb-20261004f';
 import { initPortfolio } from './portfolio.js?v=eb-20260927-merge-1';
-import { initContact } from './contact-letterbox.js?v=eb-20261005s';
+import { initContact } from './contact-letterbox.js?v=eb-20261005al';
 import { initJourney } from './journey.js?v=eb-20260927-merge-1';
 import { initStoryKeep } from './story-keep.js?v=eb-20261005ai';
 import { initHeroOriginal } from './hero-original.js?v=eb-20260927-merge-1';

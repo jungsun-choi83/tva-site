@@ -4,7 +4,7 @@
 
 import { applyI18n, getLang, t } from './i18n.js?v=eb-20261005t';
 
-const CONTACT_IMAGE = 'assets/contact/goya-room.jpg?v=eb-20261005s';
+const CONTACT_IMAGE = 'assets/contact/goya-room.jpg?v=eb-20261005al';
 
 const MAIL = 'jadechoi@eternalbeamapp.com';
 
@@ -27,7 +27,7 @@ function markup() {
     <article class="ctl-card" aria-labelledby="ctl-contact-title">
 
       <div class="ctl-card__viz" aria-hidden="true">
-        <img class="ctl-viz-image" src="${CONTACT_IMAGE}" width="1122" height="1402" alt="" decoding="async">
+        <img class="ctl-viz-image" src="${CONTACT_IMAGE}" width="1024" height="768" alt="" decoding="async">
       </div>
 
       <div class="ctl-card__body">
