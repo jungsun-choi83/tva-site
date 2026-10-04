@@ -1,4 +1,4 @@
-import { applyI18n } from './i18n.js?v=eb-20261004e';
+import { applyI18n } from './i18n.js?v=eb-20261005f';
 
 function initAboutBleib() {
   const about = document.querySelector('#about.about-bleib');
@@ -95,11 +95,11 @@ function initAboutBleib() {
         const kicker = station.querySelector('.beam-gold__kicker')?.textContent?.trim()
           || station.dataset.station
           || 'Section';
-        const sub = station.querySelector('.service-en')?.textContent?.trim()
-          || station.querySelector('.station-copy--head h3')?.innerText.replace(/\s+/g, ' ').trim()
+        const headline = station.querySelector('.station-copy--head h3')?.innerText.replace(/\s+/g, ' ').trim()
+          || station.querySelector('.service-en')?.textContent?.trim()
           || '';
-        front.innerHTML = sub
-          ? `<span class="about-bleib-type__title">${kicker}</span><span class="about-bleib-type__sub">${sub}</span>`
+        front.innerHTML = headline
+          ? `<span class="about-bleib-type__sub">${kicker}</span><span class="about-bleib-type__title">${headline}</span>`
           : `<span class="about-bleib-type__title">${kicker}</span>`;
         detailOverlay.setAttribute('data-front-title', kicker);
       }

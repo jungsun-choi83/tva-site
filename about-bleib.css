@@ -1157,38 +1157,36 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
 }
 #about.about-bleib .about-bleib-grid .about-bleib-type__title{
   display:block;
-  overflow:hidden;
-  color:transparent;
-  font:0/0 var(--sans);
-  letter-spacing:0;
-  text-transform:uppercase;
+  overflow:visible;
+  color:rgba(244,239,230,.92);
+  font:500 clamp(13px,.95vw,17px)/1.35 var(--sans);
+  letter-spacing:.01em;
+  text-transform:none;
   -webkit-text-stroke:0;
   text-shadow:none;
   opacity:1;
 }
 #about.about-bleib .about-bleib-grid .about-bleib-type__title:after{
-  display:block;
-  color:rgba(244,239,230,.9);
-  font:600 clamp(11px,.82vw,14px)/1.1 var(--sans);
+  display:none;
+}
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(1) .about-bleib-type__title:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(2) .about-bleib-type__title:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(3) .about-bleib-type__title:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(4) .about-bleib-type__title:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(5) .about-bleib-type__title:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(6) .about-bleib-type__title:after,
+#about.about-bleib .about-bleib-grid .studio-station:nth-child(7) .about-bleib-type__title:after{
+  content:none;
+}
+#about.about-bleib .about-bleib-grid .about-bleib-type__sub{
+  margin:0 0 4px;
+  max-width:none;
+  color:rgba(196,154,85,.82);
+  font:600 clamp(9px,.65vw,11px)/1.2 var(--sans);
   letter-spacing:.14em;
   text-transform:uppercase;
-  transition:color .22s ease;
 }
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(1) .about-bleib-type__title:after{content:"OUR BEGINNING"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(2) .about-bleib-type__title:after{content:"LETTER"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(3) .about-bleib-type__title:after{content:"IDENTITY"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(4) .about-bleib-type__title:after{content:"DISPLAY"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(5) .about-bleib-type__title:after{content:"MOTION"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(6) .about-bleib-type__title:after{content:"ARCHIVE"}
-#about.about-bleib .about-bleib-grid .studio-station:nth-child(7) .about-bleib-type__title:after{content:"PROCESS"}
-#about.about-bleib .about-bleib-grid .about-bleib-type__sub{
-  margin-top:6px;
-  max-width:28ch;
-  color:rgba(244,239,230,.58);
-  font:400 clamp(10px,.7vw,12px)/1.35 var(--sans);
-  letter-spacing:.02em;
-  text-transform:none;
-}
+#about.about-bleib .about-bleib-grid .about-bleib-type__sub{display:block}
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:before{
   content:"→";
   position:absolute;
@@ -1199,7 +1197,7 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
   transform:translateY(-50%);
   transition:transform .22s ease,color .22s ease;
 }
-#about.about-bleib .about-bleib-grid .about-bleib-type__sub{display:none}
+#about.about-bleib .about-bleib-grid .about-bleib-type__sub{display:block}
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:after{
   display:block;
   margin-top:7px;
@@ -1220,10 +1218,9 @@ html[lang="ko"] #about.about-bleib .about-cinematic__title{
   outline:0;
   transform:translateX(3px);
 }
-#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover .about-bleib-type__title:after,
-#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible .about-bleib-type__title:after{
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover .about-bleib-type__title,
+#about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible .about-bleib-type__title{
   color:#fff;
-  animation:none;
 }
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:hover:before,
 #about.about-bleib .about-bleib-grid .about-bleib-flip__face--front:focus-visible:before{
