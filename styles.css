@@ -48,7 +48,7 @@ html #contact .contact-site-footer a:hover{color:#171923}
 
 /* Shared mobile guardrails: preserve compositions without horizontal escape. */
 @media(max-width:760px){
-  html,body{width:100%;max-width:100%;overflow-x:clip}
+  html,body{width:100%;max-width:100%;overflow-x:clip;overscroll-behavior-y:none}
   .site-nav{padding-inline:12px;gap:10px}
   .site-nav nav{gap:clamp(7px,2.2vw,12px)}
   .site-nav nav a{font-size:9px;letter-spacing:-.01em}

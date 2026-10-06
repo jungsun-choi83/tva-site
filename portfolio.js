@@ -1,4 +1,4 @@
-const originalGalleryPath = '/gallery-original/galleries/02-concave-wheel.html?v=records-final';
+const originalGalleryPath = '/gallery-original/galleries/02-concave-wheel.html?v=eb-20261005-mobile-fit';
 const focusableSelector = 'a[href],button:not([disabled]),input:not([disabled]),select:not([disabled]),textarea:not([disabled]),iframe,[tabindex]:not([tabindex="-1"])';
 
 export function initPortfolio(root, { onStoryWheel } = {}) {
@@ -113,7 +113,7 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
     if (!galleryDocument.querySelector('[data-records-ui-fix]')) {
       const recordsStyle = galleryDocument.createElement('link');
       recordsStyle.rel = 'stylesheet';
-      recordsStyle.href = '../shared/galleries.css?v=eb-20260927-records-layout-3';
+      recordsStyle.href = '../shared/galleries.css?v=eb-20261005-mobile-fit';
       recordsStyle.dataset.recordsUiFix = '1';
       galleryDocument.head.append(recordsStyle);
     }
@@ -191,19 +191,21 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
 
     galleryDocument.addEventListener('pointerdown', (event) => {
       const stage = stageFor(event);
-      if (!stage || isModalInput(event) || event.target.closest?.('.g02-category,.g02-puller,.g02-nav')) return;
+      if (!stage || isModalInput(event) || event.target.closest?.('.g02-puller,.g02-nav')) return;
       const galleryInput = Boolean(galleryInputFor(event));
+      const category = event.target.closest?.('.g02-category') || null;
       gestures.set(event.pointerId, {
         stage,
         galleryInput,
+        category,
         pointerType: event.pointerType,
         startX: event.clientX,
         startY: event.clientY,
         lastY: event.clientY,
-        mode: galleryInput ? null : 'story',
+        mode: galleryInput || category ? null : 'story',
         cancelledOriginal: false,
       });
-      if (!galleryInput) {
+      if (!galleryInput && !category) {
         event.preventDefault();
         event.stopImmediatePropagation();
       }
@@ -216,6 +218,7 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
       const deltaY = event.clientY - gesture.startY;
       if (!gesture.mode && Math.hypot(deltaX, deltaY) >= 8) {
         if (gesture.pointerType === 'touch' && Math.abs(deltaY) > Math.abs(deltaX)) gesture.mode = 'story';
+        else if (gesture.category) gesture.mode = 'category';
         else gesture.mode = 'gallery';
       }
       if (gesture.mode === 'story') {
@@ -225,30 +228,9 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
         }
         event.preventDefault();
         event.stopImmediatePropagation();
-        window.scrollBy({ top: gesture.lastY - event.clientY, behavior: 'auto' });
         gesture.lastY = event.clientY;
       }
     }, { capture: true, passive: false });
-
-    // 손을 뗐을 때 옆 구역으로 붙여 준다. 다른 구역은 app.js 가 해 주지만, 갤러리는 iframe 안에서
-    // 직접 굴리기 때문에 그 길을 타지 않아 구역 중간에 멈춰 버렸다(실측: 첫 쓸기 190px 뒤로는 안 움직임).
-    const sectionTop = (section) => {
-      const nav = ['home', 'drop', 'about', 'contact'].includes(section.id)
-        ? 0 : (Number.parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--nav-height')) || 0);
-      return Math.max(0, Math.min(document.documentElement.scrollHeight - innerHeight, section.offsetTop - nav));
-    };
-    const settleAfterSwipe = (direction) => {
-      const here = document.getElementById('portfolio');
-      const next = document.getElementById(direction > 0 ? 'original' : 'about');
-      if (!here) return;
-      const hereTop = sectionTop(here);
-      const moved = scrollY - hereTop;
-      // 화면 높이의 12% 넘게 밀었으면 넘어가고, 아니면 제자리로 되돌린다
-      const enough = Math.abs(moved) > innerHeight * .12 && Math.sign(moved) === direction;
-      const target = enough && next ? sectionTop(next) : hereTop;
-      if (Math.abs(target - scrollY) < 2) return;
-      window.scrollTo({ top: target, behavior: reduced ? 'instant' : 'smooth' });
-    };
 
     const finishGesture = (event) => {
       const gesture = gestures.get(event.pointerId);
@@ -258,8 +240,24 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
       event.stopImmediatePropagation();
       if (!gesture.cancelledOriginal) cancelOriginalDrag(gesture.stage, event);
       if (gesture.pointerType === 'touch') {
-        const direction = Math.sign(gesture.startY - gesture.lastY) || 1;
-        settleAfterSwipe(direction);
+        const direction = Math.sign(gesture.startY - gesture.lastY);
+        if (gesture.category) {
+          gesture.category.dispatchEvent(new galleryWindow.PointerEvent('pointercancel', {
+            bubbles: true,
+            pointerId: event.pointerId,
+            pointerType: event.pointerType,
+            clientX: event.clientX,
+            clientY: event.clientY,
+          }));
+          gesture.stage.addEventListener('click', (clickEvent) => {
+            if (!clickEvent.target.closest?.('.g02-category')) return;
+            clickEvent.preventDefault();
+            clickEvent.stopPropagation();
+          }, { capture: true, once: true });
+        }
+        window.dispatchEvent(new CustomEvent('tva:chapter-swipe', {
+          detail: { direction, distance: Math.abs(gesture.startY - gesture.lastY) },
+        }));
       }
     };
     galleryDocument.addEventListener('pointerup', finishGesture, { capture: true, passive: false });
@@ -380,6 +378,45 @@ export function initPortfolio(root, { onStoryWheel } = {}) {
     syncProjectRoute();
     hidePlaceholderSummary();
   };
+
+  let chromeGesture = null;
+  portfolioSection.addEventListener('pointerdown', (event) => {
+    if (event.pointerType !== 'touch' || !portfolioSection.classList.contains('is-bleib-open')) return;
+    if (event.target.closest('iframe')) return;
+    chromeGesture = {
+      id: event.pointerId,
+      y: event.clientY,
+      lastY: event.clientY,
+      moved: false,
+    };
+  });
+  portfolioSection.addEventListener('pointermove', (event) => {
+    if (!chromeGesture || event.pointerId !== chromeGesture.id) return;
+    const deltaY = event.clientY - chromeGesture.y;
+    if (!chromeGesture.moved && Math.abs(deltaY) < 8) return;
+    chromeGesture.moved = true;
+    event.preventDefault();
+    chromeGesture.lastY = event.clientY;
+  }, { passive: false });
+  const finishChromeGesture = (event) => {
+    if (!chromeGesture || event.pointerId !== chromeGesture.id) return;
+    const gesture = chromeGesture;
+    chromeGesture = null;
+    if (!gesture.moved) return;
+    event.preventDefault();
+    portfolioSection.addEventListener('click', (clickEvent) => {
+      clickEvent.preventDefault();
+      clickEvent.stopPropagation();
+    }, { capture: true, once: true });
+    window.dispatchEvent(new CustomEvent('tva:chapter-swipe', {
+      detail: {
+        direction: Math.sign(gesture.y - gesture.lastY),
+        distance: Math.abs(gesture.y - gesture.lastY),
+      },
+    }));
+  };
+  portfolioSection.addEventListener('pointerup', finishChromeGesture);
+  portfolioSection.addEventListener('pointercancel', () => { chromeGesture = null; });
 
   frame.addEventListener('load', installBridge);
 

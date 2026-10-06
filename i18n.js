@@ -27,7 +27,14 @@ const COPY = {
     'hero.melius.node.beam': '빔 안의 얼굴',
     'hero.explain': '반려동물의 사진과 이야기를 편지와 움직이는 장면으로.<br>Eternal Beam은 그 기록을 일상 속 디스플레이로 이어갑니다.',
     'hero.soultrace': 'SoulTrace 알아보기',
+    'hero.kickstarter': '킥스타터로 이동',
     'hero.launch': '출시 소식 받기',
+    'hero.subscribe.label': '이메일',
+    'hero.subscribe.placeholder': '이메일',
+    'hero.subscribe.bad': '이메일 주소를 확인해 주세요.',
+    'hero.subscribe.subject': 'Eternal Beam 출시 소식 구독',
+    'hero.subscribe.body': '출시 소식을 이 주소로 받아 주세요.',
+    'hero.subscribe.sent': '메일 앱에 구독 요청을 담았습니다. 보내기를 누르면 등록됩니다.',
     'hero.scroll': 'NEXT →',
     'hero.news.title': '주요 아카이브',
     'hero.news.about.label': '콘텐츠 아카이브',
@@ -279,7 +286,14 @@ const COPY = {
     'hero.melius.node.beam': 'In the beam',
     'hero.explain': 'A pet’s photos and stories, into a letter and a moving scene.<br>Eternal Beam carries that record into a display in daily life.',
     'hero.soultrace': 'Learn about SoulTrace',
+    'hero.kickstarter': 'Go to Kickstarter',
     'hero.launch': 'Get launch news',
+    'hero.subscribe.label': 'Email',
+    'hero.subscribe.placeholder': 'Email',
+    'hero.subscribe.bad': 'Check the email address.',
+    'hero.subscribe.subject': 'Eternal Beam launch news',
+    'hero.subscribe.body': 'Please send launch news to this address.',
+    'hero.subscribe.sent': 'The signup is in your mail app. Send it to finish.',
     'hero.scroll': 'NEXT →',
     'hero.news.title': 'Featured work',
     'hero.news.about.label': 'Contents Archive',
@@ -546,6 +560,10 @@ export function applyI18n(root = document) {
   root.querySelectorAll('[data-i18n-alt]').forEach((el) => {
     const value = t(el.dataset.i18nAlt);
     if (value != null) el.setAttribute('alt', value);
+  });
+  root.querySelectorAll('[data-i18n-placeholder]').forEach((el) => {
+    const value = t(el.dataset.i18nPlaceholder);
+    if (value != null) el.setAttribute('placeholder', value);
   });
   const title = t('meta.title');
   if (root === document || root === document.documentElement) document.title = title;

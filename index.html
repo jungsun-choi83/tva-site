@@ -47,9 +47,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css" media="print" onload="this.media='all'">
   <noscript><link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable-dynamic-subset.css"></noscript>
   <link rel="preload" as="image" href="assets/hero/beam-device-3q-shadow-glow-v1.png?v=eternal-beam-r33" fetchpriority="high">
-  <link rel="stylesheet" href="styles.css?v=eb-20261005an">
-<link rel="stylesheet" href="hero.css?v=eb-20260927-merge-1">
-<link rel="stylesheet" href="hero-melius.css?v=eb-20261005as">
+  <link rel="stylesheet" href="styles.css?v=eb-20261005-stay">
+<link rel="stylesheet" href="hero.css?v=eb-20261005-ks">
+<link rel="stylesheet" href="hero-melius.css?v=eb-20261005-ks3">
   <link rel="stylesheet" href="brand-mark.css?v=eternal-beam-r30">
   <link rel="stylesheet" href="hero-material.css?v=eternal-beam-r33">
   <link rel="stylesheet" href="about.css?v=eb-20260921a">
@@ -57,9 +57,9 @@
 <link rel="stylesheet" href="about-bleib.css?v=eb-20261005y">
 <link rel="stylesheet" href="signal-passage.css?v=eb-20260914g">
 <link rel="stylesheet" href="fall-welcome/actor.css?v=fall-welcome-production-r3.h492e636f" data-fall-actor-style>
-<link rel="stylesheet" href="portfolio.css?v=eb-20261005w">
+<link rel="stylesheet" href="portfolio.css?v=eb-20261005-mobile-fit">
 <link rel="stylesheet" href="story-keep.css?v=eb-20261005ai">
-<link rel="stylesheet" href="section-bleib.css?v=eb-20261005an">
+<link rel="stylesheet" href="section-bleib.css?v=eb-20261005-index">
 <link rel="stylesheet" href="contact-letterbox.css?v=eb-20261005al">
   <link rel="stylesheet" href="scroll-cue.css?v=eb-20260914g">
   <link rel="stylesheet" href="nav-shelf.css?v=eb-20261004f">
@@ -144,9 +144,16 @@
             <p class="eb-melius-foot__lead" data-i18n-html="hero.explain">반려동물의 사진과 이야기를 편지와 움직이는 장면으로.<br>Eternal Beam은 그 기록을 일상 속 디스플레이로 이어갑니다.</p>
             <div class="eb-melius-foot__cta">
               <div class="eb-melius-foot__cta-row">
-                <a class="eb-melius-btn eb-melius-btn--primary" href="https://soultrace.pet" target="_blank" rel="noopener noreferrer" data-i18n="hero.soultrace">SoulTrace 알아보기</a>
-                <a class="eb-melius-btn eb-melius-btn--ghost" href="#contact" data-i18n="hero.launch">출시 소식 받기</a>
+                <a class="eb-melius-btn eb-melius-btn--primary" href="#" data-kickstarter data-i18n="hero.kickstarter">킥스타터로 이동</a>
               </div>
+              <form class="eb-melius-news" data-newsletter novalidate>
+                <label class="eb-melius-news__field">
+                  <span class="visually-hidden" data-i18n="hero.subscribe.label">이메일</span>
+                  <input type="email" name="email" required autocomplete="email" inputmode="email" maxlength="120" placeholder="이메일" data-i18n-placeholder="hero.subscribe.placeholder">
+                </label>
+                <button class="eb-melius-btn eb-melius-btn--ghost" type="submit" data-i18n="hero.launch">출시 소식 받기</button>
+                <p class="eb-melius-news__status" data-newsletter-status role="status" hidden></p>
+              </form>
             </div>
           </div>
         </div>
@@ -192,8 +199,15 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
           </ul>
         </div>
         <div class="hero-cta">
-          <a class="hero-soultrace" href="https://soultrace.pet" target="_blank" rel="noopener noreferrer" data-i18n="hero.soultrace">SoulTrace 알아보기</a>
-          <a class="hero-soultrace" href="#contact" data-i18n="hero.launch">출시 소식 받기</a>
+          <a class="hero-soultrace" href="#" data-kickstarter data-i18n="hero.kickstarter">킥스타터로 이동</a>
+          <form class="hero-news" data-newsletter novalidate>
+            <label class="hero-news__field">
+              <span class="visually-hidden" data-i18n="hero.subscribe.label">이메일</span>
+              <input type="email" name="email" required autocomplete="email" inputmode="email" maxlength="120" placeholder="이메일" data-i18n-placeholder="hero.subscribe.placeholder">
+            </label>
+            <button class="hero-soultrace" type="submit" data-i18n="hero.launch">출시 소식 받기</button>
+            <p class="hero-news__status" data-newsletter-status role="status" hidden></p>
+          </form>
         </div>
       </div>
       <button class="mascot hero-original__mascot" type="button" hidden aria-hidden="true" tabindex="-1"></button>
@@ -552,9 +566,9 @@ KEPT CLOSE.</span><span class="hero-vintage__stmt-sub" data-i18n="hero.sub">영�
   <!-- 2026-09-12 감사 [119]: 장식용 그림(alt="")이 안 오면 흰 깨진-그림 상자 대신 자리를 비운다 -->
   <script>addEventListener('error',e=>{const t=e.target;if(t&&t.tagName==='IMG'&&t.getAttribute('alt')==='')t.style.visibility='hidden'},true);for(const i of document.querySelectorAll('img[alt=""]'))if(i.complete&&i.naturalWidth===0)i.style.visibility='hidden';</script>
   <button class="motion-toggle" type="button" aria-pressed="false">움직임 줄이기</button>
-<script src="app.js?v=eb-20261005as" type="module"></script>
+<script src="app.js?v=eb-20261005-ks2" type="module"></script>
 <script type="module" src="scroll-cue.js?v=eb-20260927-merge-1"></script>
   <script type="module" src="section-bleib.js?v=eb-20260927-merge-1"></script>
-  <script type="module" src="about-bleib.js?v=eb-20261005ao"></script>
+  <script type="module" src="about-bleib.js?v=eb-20261005-ks"></script>
 </body>
 </html>

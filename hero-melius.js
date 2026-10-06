@@ -1,4 +1,8 @@
-import { t } from './i18n.js?v=eb-20261005ao';
+import { t } from './i18n.js?v=eb-20261005-ks';
+
+/** 캠페인 주소가 정해지면 이 값만 바꾸면 됩니다. */
+const KICKSTARTER_URL = '';
+const NEWS_MAIL = 'jadechoi@eternalbeamapp.com';
 
 const GOYA_V = 'eb-20261005e';
 const PET_PHOTOS = [
@@ -266,7 +270,44 @@ function hubRailAlignY(heroEl, stageEl) {
   return targetY - railAnchorY;
 }
 
+function initHeroActions() {
+  document.querySelectorAll('[data-kickstarter]').forEach((link) => {
+    if (!KICKSTARTER_URL) {
+      link.addEventListener('click', (event) => event.preventDefault());
+      return;
+    }
+    link.href = KICKSTARTER_URL;
+    link.target = '_blank';
+    link.rel = 'noopener noreferrer';
+  });
+
+  document.querySelectorAll('[data-newsletter]').forEach((form) => {
+    const status = form.querySelector('[data-newsletter-status]');
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const email = String(new FormData(form).get('email') || '').trim();
+      const field = form.querySelector('input[name="email"]');
+      if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+        if (status) {
+          status.hidden = false;
+          status.textContent = t('hero.subscribe.bad');
+        }
+        field?.focus();
+        return;
+      }
+      const subject = t('hero.subscribe.subject');
+      const body = `${t('hero.subscribe.body')}\n${email}`;
+      if (status) {
+        status.hidden = false;
+        status.textContent = t('hero.subscribe.sent');
+      }
+      window.location.href = `mailto:${NEWS_MAIL}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    });
+  });
+}
+
 export function initHeroMelius(isReduced) {
+  initHeroActions();
   const hero = document.querySelector('#home');
   const root = document.documentElement;
   const home = hero?.querySelector('.eb-melius-home');
@@ -374,6 +415,8 @@ export function initHeroMelius(isReduced) {
         orbitCopy.style.setProperty('top', `${orbitY.toFixed(1)}px`, 'important');
         orbitCopy.style.setProperty('bottom', 'auto', 'important');
         orbitCopy.style.setProperty('transform', 'translate(-50%, -50%)', 'important');
+        orbitCopy.style.setProperty('width', 'min(280px, 28vw)', 'important');
+        orbitCopy.style.setProperty('z-index', '55', 'important');
       }
     }
     if (headline) {

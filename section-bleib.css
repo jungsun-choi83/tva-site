@@ -325,7 +325,11 @@
 /* Contact intro: restore the two chapter numbers as card-corner markers on
    phones; the shared mobile card remains wide and centered. */
 @media(max-width:768px){
+  #portfolio.portfolio-bleib .eb-bleib-stage::before,
+  #original.story-keep-bleib .eb-bleib-stage::before,
   #contact.contact-bleib .eb-bleib-stage::before{content:none}
+  #portfolio.portfolio-bleib .eb-bleib-index,
+  #original.story-keep-bleib .eb-bleib-index,
   #contact.contact-bleib .eb-bleib-index{
     display:block;
     position:absolute;
@@ -335,7 +339,11 @@
     font:400 clamp(26px,8vw,32px)/1 var(--display);
     letter-spacing:-.04em;
   }
+  #portfolio.portfolio-bleib .eb-bleib-index--prev,
+  #original.story-keep-bleib .eb-bleib-index--prev,
   #contact.contact-bleib .eb-bleib-index--prev{left:20px}
+  #portfolio.portfolio-bleib .eb-bleib-index--next,
+  #original.story-keep-bleib .eb-bleib-index--next,
   #contact.contact-bleib .eb-bleib-index--next{right:20px}
   #contact.contact-bleib .eb-bleib-board{
     min-height:430px;
@@ -416,11 +424,35 @@
     max-width:100%;
     margin:0;
   }
-  #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-panel,
   #original.story-keep-bleib.is-bleib-open .eb-bleib-panel{
     height:auto!important;
     max-height:none!important;
     overflow:visible!important;
+  }
+  /* Opened records stays one phone screen. A taller panel let the page
+     drift and clipped the gallery inside a short frame. */
+  #portfolio.portfolio-bleib.is-bleib-open,
+  #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-shell,
+  #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-panel{
+    height:calc(100svh - var(--nav-height,64px))!important;
+    min-height:0!important;
+    max-height:calc(100svh - var(--nav-height,64px))!important;
+    overflow:hidden!important;
+    touch-action:none;
+  }
+  #portfolio.portfolio-bleib.is-bleib-open #portfolio-mount{
+    flex:1 1 auto!important;
+    height:auto!important;
+    min-height:0!important;
+    overflow:hidden!important;
+  }
+  #portfolio.portfolio-bleib.is-bleib-open .records-soultrace{
+    flex:none;
+    margin:8px 16px 0;
+  }
+  #portfolio.portfolio-bleib.is-bleib-open .portfolio-scroll-indicator{
+    flex:none;
+    margin:8px 16px 10px;
   }
 }
 

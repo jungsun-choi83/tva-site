@@ -1307,15 +1307,119 @@ body:has([data-gallery="02"]),
   }
 }
 @media (max-width:520px) {
-  /* The free-positioned folder rail has a minimum desktop footprint; scale
-     only that decorative row so all four existing controls remain reachable. */
   [data-gallery="02"] .g02-category-list {
-    width:133.333%!important;
-    zoom:.75;
-    transform:scale(.75)!important;
-    transform-origin:top left;
+    width:100%!important;
+    max-width:100%!important;
+    zoom:1;
+    transform:none!important;
+    overflow:visible;
   }
   [data-gallery="02"] .g02-category__icon,
-  [data-gallery="02"] .g02-category__icon svg { width:58px; height:58px; }
-  [data-gallery="02"] .g02-category__label { font-size:11px; }
+  [data-gallery="02"] .g02-category__icon svg { width:40px; height:40px; }
+  [data-gallery="02"] .g02-category__label { font-size:10px; letter-spacing:0; }
+}
+
+/* Phone: one records screen. Folders stay whole, and the active card fits the wheel. */
+@media (max-width:760px) {
+  html:has([data-gallery="02"]),
+  body:has([data-gallery="02"]),
+  [data-gallery="02"].gallery-main {
+    height:100svh;
+    min-height:0;
+    max-height:100svh;
+    overflow:hidden;
+  }
+  [data-gallery="02"] .g02-stage {
+    display:flex;
+    flex-direction:column;
+    height:100svh;
+    min-height:0;
+    max-height:100svh;
+    padding:8px 12px 4px;
+    overflow:hidden;
+    touch-action:none;
+    box-sizing:border-box;
+  }
+  [data-gallery="02"] .g02-categories {
+    position:relative!important;
+    inset:auto!important;
+    flex:0 0 auto;
+    width:100%!important;
+    height:auto!important;
+    padding:0!important;
+    overflow:visible;
+    background:transparent;
+  }
+  [data-gallery="02"] .g02-categories__title {
+    position:relative!important;
+    top:auto!important;
+    left:auto!important;
+    width:100%!important;
+    max-width:none!important;
+    font-size:clamp(24px,7.4vw,32px)!important;
+    line-height:.94!important;
+  }
+  [data-gallery="02"] .g02-categories__title small {
+    display:block;
+    width:100%;
+    margin-top:4px;
+    overflow:visible;
+    font-size:12px;
+    line-height:1.35;
+    white-space:normal;
+  }
+  [data-gallery="02"] .g02-category-list {
+    position:relative!important;
+    inset:auto!important;
+    display:grid!important;
+    grid-template-columns:repeat(4,minmax(0,1fr))!important;
+    grid-auto-flow:row!important;
+    width:100%!important;
+    max-width:100%!important;
+    height:auto!important;
+    margin:10px 0 0!important;
+    zoom:1;
+    transform:none!important;
+    overflow:visible!important;
+  }
+  [data-gallery="02"] .g02-category,
+  [data-gallery="02"] .g02-category:nth-child(1),
+  [data-gallery="02"] .g02-category:nth-child(2),
+  [data-gallery="02"] .g02-category:nth-child(3),
+  [data-gallery="02"] .g02-category:nth-child(4) {
+    position:relative!important;
+    top:auto!important;
+    left:auto!important;
+    width:100%!important;
+    min-width:0!important;
+    height:auto!important;
+    min-height:0!important;
+    touch-action:none;
+  }
+  [data-gallery="02"] .g02-category__label {
+    max-width:100%;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    font-size:10px;
+    letter-spacing:0;
+  }
+  [data-gallery="02"] .g02-wheel {
+    position:relative!important;
+    inset:auto!important;
+    flex:1 1 auto;
+    width:auto!important;
+    min-height:0;
+    margin:8px 0 46px;
+    overflow:hidden;
+    container-type:size;
+    container-name:records-wheel;
+  }
+  [data-gallery="02"] .g02-card {
+    --g02-card-width:min(78cqw,calc(70cqh * 5 / 6));
+    top:50%!important;
+    width:var(--g02-card-width)!important;
+  }
+  [data-gallery="02"] .g02-nav { bottom:4px; }
+  [data-gallery="02"] .g02-progress { bottom:10px; }
 }

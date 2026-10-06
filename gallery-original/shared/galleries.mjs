@@ -819,8 +819,8 @@ function init02() {
     // let CSS grid own their compact four-column layout on mobile.
     if (mobile) {
       categoryList.style.display = 'grid';
-      categoryList.style.gridTemplateColumns = 'repeat(4, 80px)';
-      categoryList.style.justifyContent = 'space-between';
+      categoryList.style.gridTemplateColumns = 'repeat(4, minmax(0, 1fr))';
+      categoryList.style.justifyContent = 'stretch';
       categoryList.style.width = '100%';
       categoryList.style.left = '0';
       categoryList.style.right = 'auto';
@@ -828,7 +828,7 @@ function init02() {
         button.style.position = 'relative';
         button.style.top = 'auto';
         button.style.left = 'auto';
-        button.style.width = '80px';
+        button.style.width = '100%';
         button.style.minWidth = '0';
         button.style.transform = 'none';
       });

@@ -1,13 +1,13 @@
-import { initLang } from './i18n.js?v=eb-20261005ao';
+import { initLang } from './i18n.js?v=eb-20261005-ks';
 import { initNavShelf } from './nav-shelf.js?v=eb-20261004f';
-import { initPortfolio } from './portfolio.js?v=eb-20260927-merge-1';
-import { initContact } from './contact-letterbox.js?v=eb-20261005ao';
+import { initPortfolio } from './portfolio.js?v=eb-20261005-stay';
+import { initContact } from './contact-letterbox.js?v=eb-20261005-ks';
 import { initJourney } from './journey.js?v=eb-20260927-merge-1';
-import { initStoryKeep } from './story-keep.js?v=eb-20261005ao';
+import { initStoryKeep } from './story-keep.js?v=eb-20261005-ks';
 import { initHeroOriginal } from './hero-original.js?v=eb-20260927-merge-1';
 import { initCharacterDirection } from './character-direction.js?v=eb-20260913';
 import { initBeamRail } from './beam-rail.js?v=eb-20260918p';
-import { initHeroMelius } from './hero-melius.js?v=eb-20261005as';
+import { initHeroMelius } from './hero-melius.js?v=eb-20261005-ks2';
 
 initLang();
 
@@ -761,6 +761,7 @@ function rememberLandingIntent(event) {
 }
 
 function settleSection() {
+  if (performance.now() < chapterSettledUntil) return;
   clearTimeout(landingTimer);
   if (atPageBottom()) {
     landingTarget = null;
@@ -823,19 +824,131 @@ window.addEventListener('wheel', event => {
   }
   if (atPageBottom()) scheduleWheelReplayArm(true);
 }, { passive: false });
+const chapterIds = ['home', 'about', 'portfolio', 'original', 'contact'];
+let chapterHold = null;
+let chapterSettledUntil = 0;
+const phoneLayout = () => matchMedia('(max-width: 760px)').matches;
+const leaveDistance = () => innerHeight * 0.4;
+
+function chapterTop(id) {
+  const section = document.getElementById(id);
+  if (!section) return 0;
+  const max = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+  return Math.max(0, Math.min(max, section.offsetTop - sectionOffset(id)));
+}
+
+function chapterSpan(id) {
+  const section = document.getElementById(id);
+  const top = chapterTop(id);
+  if (!section) return { top, bottom: top };
+  const max = Math.max(0, document.documentElement.scrollHeight - innerHeight);
+  const bottom = Math.max(top, Math.min(max, section.offsetTop + section.offsetHeight - innerHeight));
+  return { top, bottom };
+}
+
+function chapterIndex(pos = scrollY) {
+  let index = 0;
+  chapterIds.forEach((id, i) => { if (pos >= chapterTop(id) - 20) index = i; });
+  return index;
+}
+
+function nestedScroller(target, fingerDelta) {
+  for (let el = target; el instanceof Element && el !== document.body; el = el.parentElement) {
+    if (el.matches('input, textarea, select, [contenteditable="true"]')) return true;
+    const style = getComputedStyle(el);
+    if (!/(auto|scroll)/.test(style.overflowY) || el.scrollHeight <= el.clientHeight + 2) continue;
+    if (fingerDelta > 0 && el.scrollTop > 0) return true;
+    if (fingerDelta < 0 && el.scrollTop + el.clientHeight < el.scrollHeight - 2) return true;
+  }
+  return false;
+}
+
+function holdChapter(index) {
+  const next = Math.max(0, Math.min(chapterIds.length - 1, index));
+  chapterSettledUntil = performance.now() + 800;
+  window.scrollTo({ top: chapterTop(chapterIds[next]), behavior: reduced ? 'instant' : 'smooth' });
+}
+
+window.addEventListener('tva:chapter-swipe', event => {
+  if (!phoneLayout()) return;
+  const distance = Number(event.detail?.distance) || 0;
+  const direction = Math.sign(Number(event.detail?.direction) || 0);
+  const index = chapterIndex();
+  holdChapter(distance > leaveDistance() && direction ? index + direction : index);
+});
+
 window.addEventListener('touchstart', event => {
   if (event.isTrusted) cancelViewRestore();
   touchActive = true;
-  rememberLandingIntent(event);
+  chapterHold = null;
+  if (phoneLayout() && event.touches.length === 1 && !document.querySelector('dialog[open]') && !nav.classList.contains('is-mobile-menu-open')) {
+    const touch = event.touches[0];
+    chapterHold = { x: touch.clientX, y: touch.clientY, lastY: touch.clientY, index: chapterIndex(), mode: null, over: 0, outward: 0 };
+  }
+  if (!chapterHold) rememberLandingIntent(event);
   touchStart = bottomReady() ? event.touches[0].clientY : null;
 }, { passive: true });
-window.addEventListener('touchcancel', () => { touchActive = false; }, { passive: true });
+window.addEventListener('touchcancel', () => {
+  touchActive = false;
+  if (chapterHold?.mode === 'chapter') holdChapter(chapterHold.index);
+  chapterHold = null;
+}, { passive: true });
 window.addEventListener('touchmove', event => {
+  if (chapterHold && event.touches.length === 1) {
+    const touch = event.touches[0];
+    const dx = touch.clientX - chapterHold.x;
+    const dy = touch.clientY - chapterHold.y;
+    if (!chapterHold.mode) {
+      if (Math.hypot(dx, dy) < 12) return;
+      if (Math.abs(dx) > Math.abs(dy) || nestedScroller(event.target, dy)) chapterHold.mode = 'free';
+      else chapterHold.mode = 'chapter';
+    }
+    if (chapterHold.mode === 'chapter') {
+      event.preventDefault();
+      const span = chapterSpan(chapterIds[chapterHold.index]);
+      const tall = span.bottom > span.top + 24;
+      const step = chapterHold.lastY - touch.clientY;
+      chapterHold.lastY = touch.clientY;
+      if (tall) {
+        const next = scrollY + step;
+        if (next < span.top || next > span.bottom) chapterHold.outward += step;
+        else chapterHold.outward = 0;
+        chapterHold.over = next < span.top ? next - span.top : next > span.bottom ? next - span.bottom : 0;
+        const pull = Math.max(-28, Math.min(28, chapterHold.over * 0.2));
+        window.scrollTo({ top: Math.max(span.top, Math.min(span.bottom, next)) + pull, behavior: 'instant' });
+      } else {
+        chapterHold.over = chapterHold.y - touch.clientY;
+        const pull = Math.max(-28, Math.min(28, chapterHold.over * 0.12));
+        window.scrollTo({ top: span.top + pull, behavior: 'instant' });
+      }
+      return;
+    }
+  }
   rememberLandingIntent(event);
   if (touchStart !== null) event.preventDefault();
 }, { passive: false });
 window.addEventListener('touchend', event => {
   touchActive = false;
+  if (chapterHold?.mode === 'chapter') {
+    const hold = chapterHold;
+    chapterHold = null;
+    const endY = event.changedTouches[0]?.clientY ?? hold.lastY;
+    const travel = hold.y - endY;
+    const span = chapterSpan(chapterIds[hold.index]);
+    const tall = span.bottom > span.top + 24;
+    let direction = 0;
+    if (tall) {
+      if (hold.outward > leaveDistance()) direction = 1;
+      else if (hold.outward < -leaveDistance()) direction = -1;
+    } else if (Math.abs(travel) > leaveDistance()) direction = Math.sign(travel);
+    if (!direction && tall) {
+      chapterSettledUntil = performance.now() + 800;
+      window.scrollTo({
+        top: Math.max(span.top, Math.min(span.bottom, scrollY)),
+        behavior: reduced ? 'instant' : 'smooth',
+      });
+    } else holdChapter(hold.index + direction);
+  } else chapterHold = null;
   if (touchStart !== null && touchStart - event.changedTouches[0].clientY > 64) {
     event.preventDefault();
     replay();

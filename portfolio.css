@@ -115,19 +115,17 @@
   background:rgb(255 255 255 / .96);
 }
 @media(max-width:760px){
-  #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-shell{
-    height:auto;
-    min-height:calc(100svh - var(--nav-height,64px));
-    overflow:visible;
-  }
+  #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-shell,
   #portfolio.portfolio-bleib.is-bleib-open .eb-bleib-panel{
-    height:auto;
-    max-height:none;
-    overflow:visible;
+    height:calc(100svh - var(--nav-height,64px));
+    min-height:0;
+    max-height:calc(100svh - var(--nav-height,64px));
+    overflow:hidden;
   }
   #portfolio.portfolio-bleib.is-bleib-open #portfolio-mount{
-    height:clamp(620px,calc(100svh - 120px),760px);
-    min-height:620px;
+    flex:1 1 auto;
+    height:auto;
+    min-height:0;
     overflow:hidden;
   }
   .portfolio-scroll-indicator{margin:16px 16px 8px;padding-top:12px}

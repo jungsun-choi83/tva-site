@@ -1,4 +1,4 @@
-import { t } from './i18n.js?v=eb-20261005ao';
+import { t } from './i18n.js?v=eb-20261005-ks';
 
 const ACTS = [
   { num: '01', en: 'SOULTRACE', verb: 'RECORD', title: 'sk.a1.title', lead: 'sk.a1.lead' },
